@@ -1,3 +1,8 @@
 .header-container {
     display: flex;
 }
+
+#logo {
+    max-height: 10%;
+    max-width: 10%;
+}

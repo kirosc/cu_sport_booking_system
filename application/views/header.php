@@ -19,7 +19,7 @@
 <body>
 <header>
     <div class="header-container">
-        <img src="../../images/logo.png" alt="logo">
+        <img src="images/logo_128px.png" alt="logo" id="logo">
         <div class="navbar">
             <ul>
                 <li class="<?php if ($title == 'Home') echo 'active'; ?>">
