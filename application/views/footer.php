@@ -1,4 +1,4 @@
-<footer class="container-fluid">
+<footer class="footer footer-container">
     <div class="link-container">
         <div class="about">
             <a href="#">About</a>

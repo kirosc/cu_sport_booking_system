@@ -58,3 +58,4 @@ $route['facility'] = 'facility/facility_main';
 $route['session_share'] = 'session_share/session_share_main';
 
 $route['login'] = 'login/login_main';
+$route['register'] = 'login/register_main';
