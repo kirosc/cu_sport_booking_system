@@ -17,7 +17,10 @@
 <body>
 <header>
     <div class="header-container">
-        <div class="logo"><img src="<?php echo $image_url; ?>logo_128px.png" alt="logo"></div>
+        <div class="logo-container">
+            <div><img src="<?php echo $image_url; ?>logo_128px.png" alt="logo"></div>
+            <div class="logo-text">CU Sport<br>Booking System</div>
+        </div>
         <div class="navbar">
             <nav>
                 <ul>

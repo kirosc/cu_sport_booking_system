@@ -8,6 +8,7 @@
 .header-container > div {
     align-self: flex-end;
     font-size: 20px;
+    color: #fff;
 }
 
 .navbar {
@@ -51,9 +52,20 @@ a:hover {
     text-decoration: none;
 }
 
-.logo, .login-container {
+.logo-container, .login-container {
     flex: 1;
     padding-left: 10%;
+}
+
+.logo-container {
+    display: flex;
+}
+
+.logo-text {
+    color: #eb5d1a;
+    font-size: 28px;
+    padding-left: 8px;
+    align-self: flex-end;
 }
 
 .login-container {
@@ -108,5 +120,5 @@ a:hover {
 }
 
 .button a:hover {
-    color: #fff!important;
+    color: #fff !important;
 }
