@@ -1,4 +1,4 @@
-<footer class="footer footer-container">
+<footer>
     <div class="link-container">
         <div class="about">
             <a href="#">About</a>

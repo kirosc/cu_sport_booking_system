@@ -59,13 +59,13 @@ a:hover {
 
 .logo-container {
     display: flex;
+    align-items: flex-end;
 }
 
 .logo-text {
     color: #eb5d1a;
     font-size: 28px;
     padding-left: 8px;
-    align-self: flex-end;
 }
 
 .login-container {
