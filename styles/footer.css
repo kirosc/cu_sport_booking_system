@@ -1,6 +1,8 @@
-footer {
-     padding: 8px 16px;
+.footer-container {
+     position: absolute;
+     bottom: 0;
      width: 100%;
+     padding: 8px 16px;
      background: #333!important;
      color: #fff;
      display: flex;
