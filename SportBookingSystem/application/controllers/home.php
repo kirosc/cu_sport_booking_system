@@ -2,13 +2,17 @@
 /**
  *
  */
-class Home extends CI_Controller
+class Home extends SBooking_Controller
 {
 
   public function index()
   {
     // code...
-    $this->load->view('header');
+    $this->setTitle('Home');
+
+    $data = $this->getHeaderData();
+
+    $this->load->view('header', $data);
     $this->load->view('index');
     $this->load->view('footer');
   }

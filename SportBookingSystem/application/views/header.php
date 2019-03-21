@@ -7,9 +7,19 @@
 <body>
 <header>
   <div class="navbar">
-    <a href="">Home</a>
-    <a href="">Course</a>
-    <a href="">Facility</a>
-    <a href="">Session Share</a>
+    <ul>
+      <li class="<?php if ($title == 'Home') echo 'active'; ?>">
+        <a href="<?php echo base_url(); ?>">Home</a>
+      </li>
+      <li class="<?php if ($title == 'Course') echo 'active'; ?>">
+        <a href="<?php echo $page_url; ?>course">Course</a>
+      </li>
+      <li class="<?php if ($title == 'Facility') echo 'active'; ?>">
+        <a href="<?php echo $page_url; ?>facility">Facility</a>
+      </li>
+      <li class="<?php if ($title == 'Session Share') echo 'active'; ?>">
+        <a href="<?php echo $page_url; ?>session-share">Session Share</a>
+      </li>
+    </ul>
   </div>
 </header>
