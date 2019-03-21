@@ -9,7 +9,7 @@
   <div class="navbar">
     <ul>
       <li class="<?php if ($title == 'Home') echo 'active'; ?>">
-        <a href="<?php echo base_url(); ?>">Home</a>
+        <a href="<?php echo $page_url; ?>">Home</a>
       </li>
       <li class="<?php if ($title == 'Course') echo 'active'; ?>">
         <a href="<?php echo $page_url; ?>course">Course</a>
