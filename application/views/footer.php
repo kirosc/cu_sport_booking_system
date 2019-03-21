@@ -1,4 +1,4 @@
-<footer class="container-fluid">
+<footer class="footer footer-container">
   <div>
     <p>&copy; 2019 CU Sport Booking System. All Rights Reserved.</p>
   </div>

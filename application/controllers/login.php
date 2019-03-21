@@ -12,6 +12,18 @@ class Login extends SBooking_Controller{
     $this->load->view('footer');
   }
 
+  public function register_main()
+  {
+    // code...
+    $this->setTitle('Register');
+
+    $data = $this->getHeaderData();
+
+    $this->load->view('header', $data);
+    $this->load->view('register');
+    $this->load->view('footer');
+  }
+
   public function login_check()
   {
     $user_name = $_POST["user_name"];
