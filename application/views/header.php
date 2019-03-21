@@ -17,7 +17,7 @@
 <body>
 <header>
     <div class="header-container">
-        <img src="<?php echo $image_url; ?>logo_128px.png" alt="logo">
+        <div class="logo"><img src="<?php echo $image_url; ?>logo_128px.png" alt="logo"></div>
         <div class="navbar">
             <nav>
                 <ul>
@@ -31,10 +31,12 @@
                         <a href="<?php echo $page_url; ?>facility">Facility</a>
                     </li>
                     <li class="<?php if ($title == 'Session-Share') echo 'active'; ?>">
-                        <a href="<?php echo $page_url; ?>session_share">Session Share</a>
+                        <a href="<?php echo $page_url; ?>session_share">Session Share<wbr></a>
                     </li>
                 </ul>
             </nav>
         </div>
+        <div class="right"></div>
     </div>
 </header>
+

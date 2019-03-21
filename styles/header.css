@@ -10,6 +10,11 @@
     align-self: flex-end;
 }
 
+nav {
+    width:100%;
+    text-overflow: unset;
+}
+
 .navbar a {
     color: #fff;
     text-decoration: none;
@@ -19,10 +24,12 @@
     display:flex;
     list-style-type: none;
     white-space: nowrap;
+    padding: 0;
+    text-overflow: unset;
 }
 
 .navbar ul > li {
-    margin-right: 10%;
+    padding-right: 64px;
     display: inline-block;
     zoom:1;
     *display:inline;
@@ -34,6 +41,7 @@
     color: #e53935;
 }
 
-#logo {
-
+.logo, .right {
+    flex: 1;
+    padding-left: 10%;
 }
