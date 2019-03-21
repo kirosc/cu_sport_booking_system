@@ -40,7 +40,7 @@
             </nav>
         </div>
         <div class="login-container">
-            <span class="button"><a href="#">Login</a></span>
+            <span class="button"><a href="<?php echo $page_url; ?>login/login_main">Login</a></span>
         </div>
     </div>
 </header>
