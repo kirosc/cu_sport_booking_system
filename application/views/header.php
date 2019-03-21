@@ -11,6 +11,10 @@
         <link rel="stylesheet" href="<?php echo $file; ?>">
     <?php endforeach; ?>
 
+    <?php foreach ($js_file as $file): ?>
+        <script type="text/javascript" src="<?php echo $file; ?>"></script>
+    <?php endforeach; ?>
+
     <meta name="theme-color" content="#fafafa">
 </head>
 
