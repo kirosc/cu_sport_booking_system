@@ -8,3 +8,17 @@
      display: flex;
      align-items: center;
  }
+
+ .link-container {
+     display: flex;
+     margin-bottom: 8px;
+ }
+
+ .link-container > div {
+     margin-right: 16px;
+ }
+
+ a:hover {
+     color: #e53935;
+     text-decoration: none;
+ }
