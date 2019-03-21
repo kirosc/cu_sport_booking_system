@@ -7,7 +7,7 @@
 
 .header-container > div {
     align-self: flex-end;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .navbar {
@@ -76,7 +76,6 @@ a:hover {
     border-radius: 4px;
     cursor: pointer;
     white-space: pre-wrap;
-    text-decoration: none;
 }
 
 /* ::before, which will become the hover effect */
@@ -105,4 +104,5 @@ a:hover {
 
 .button a {
     color: #fff;
+    text-decoration: none;
 }

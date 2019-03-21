@@ -1,8 +1,24 @@
 footer {
-     padding: 8px 16px;
-     width: 100%;
-     background: #333!important;
-     color: #fff;
-     display: flex;
-     align-items: center;
- }
+    padding: 8px 16px;
+    width: 100%;
+    background: #333 !important;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+}
+
+.link-container {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.link-container > div {
+    margin-right: 16px;
+}
+
+a:hover {
+    color: #e53935;
+    text-decoration: none;
+}
