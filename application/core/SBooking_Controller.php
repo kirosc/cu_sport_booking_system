@@ -57,6 +57,19 @@ class SBooking_Controller extends CI_Controller
     );
   }
 
+  protected function test()
+  {
+    $query =
+      "SELECT
+          session_id,
+          name,
+          datetime,
+          location
+        FROM
+          session";
+
+    return $this->db->query($query)->result();
+  }
 }
 
 ?>
