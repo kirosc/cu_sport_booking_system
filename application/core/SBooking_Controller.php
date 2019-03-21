@@ -13,7 +13,7 @@ class SBooking_Controller extends CI_Controller
     $this->page_url = base_url().'index.php/';
     $this->image_url = base_url().'images/';
     $this->css_url = base_url().'styles/';
-    $this->js_url = base_url().'js/';
+    $this->js_url = base_url().'scripts/';
 
     $this->header_data = array(
       'title' => '',
