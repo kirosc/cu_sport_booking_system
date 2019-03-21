@@ -5,6 +5,8 @@ class Login extends SBooking_Controller{
     // code...
     $this->setTitle('Login');
 
+    $this->loadCSS('login.css');
+
     $data = $this->getHeaderData();
 
     $this->load->view('header', $data);
