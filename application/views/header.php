@@ -36,7 +36,9 @@
                 </ul>
             </nav>
         </div>
-        <div class="right"></div>
+        <div class="login-container">
+            <span class="button"><a href="#">Login</a></span>
+        </div>
     </div>
 </header>
 

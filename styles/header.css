@@ -5,43 +5,104 @@
     background: #333;
 }
 
-.navbar {
-    display: flex;
+.header-container > div {
     align-self: flex-end;
+    font-size: 18px;
 }
 
-nav {
-    width:100%;
-    text-overflow: unset;
-}
-
-.navbar a {
-    color: #fff;
-    text-decoration: none;
+.navbar {
+    all: unset;
 }
 
 .navbar ul {
-    display:flex;
+    display: flex;
     list-style-type: none;
     white-space: nowrap;
     padding: 0;
+    margin: 0;
     text-overflow: unset;
 }
 
 .navbar ul > li {
-    padding-right: 64px;
+    padding: 4px 16px;
+    margin-right: 64px;
     display: inline-block;
-    zoom:1;
-    *display:inline;
+    zoom: 1;
+    *display: inline;
     /* this fix is needed for IE7- */
 }
 
-.navbar ul > li > a:hover{
-    text-decoration: underline;
+.navbar ul > li > a:hover {
     color: #e53935;
+    text-decoration: none;
 }
 
-.logo, .right {
+nav {
+    width: 100%;
+    text-overflow: unset;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.logo, .login-container {
     flex: 1;
     padding-left: 10%;
+}
+
+.login-container {
+    height: 33px;
+    display: flex;
+}
+
+/* The core button */
+.button {
+    align-items: center;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    outline: none;
+    position: relative;
+    padding: 4px 16px;
+    z-index: 0;
+    -webkit-font-smoothing: antialiased;
+    background: none;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: pre-wrap;
+    text-decoration: none;
+}
+
+/* ::before, which will become the hover effect */
+.button::before {
+    content: '';
+    display: block;
+    opacity: 0;
+    position: absolute;
+    transition-duration: .15s;
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #ff3b37;
+    border-radius: 4px;
+    transform: scale(0);
+    transition-property: transform, opacity;
+}
+
+.button:hover::before {
+    opacity: .5;
+    transform: scale(1);
+}
+
+.button a {
+    color: #fff;
 }
