@@ -1,12 +1,8 @@
-.footer-container {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: #333;
-    color: #fff;
-}
-
 footer {
-    padding: 0 16px;
-}
-
+     padding: 8px 16px;
+     width: 100%;
+     background: #333!important;
+     color: #fff;
+     display: flex;
+     align-items: center;
+ }
