@@ -17,22 +17,24 @@
 <body>
 <header>
     <div class="header-container">
-        <img src="<?php echo $image_url; ?>logo.png" alt="logo">
+        <img src="<?php echo $image_url; ?>logo_128px.png" alt="logo">
         <div class="navbar">
-            <ul>
-                <li class="<?php if ($title == 'Home') echo 'active'; ?>">
-                    <a href="<?php echo base_url(); ?>">Home</a>
-                </li>
-                <li class="<?php if ($title == 'Course') echo 'active'; ?>">
-                    <a href="<?php echo $page_url; ?>course">Course</a>
-                </li>
-                <li class="<?php if ($title == 'Facility') echo 'active'; ?>">
-                    <a href="<?php echo $page_url; ?>facility">Facility</a>
-                </li>
-                <li class="<?php if ($title == 'Session-Share') echo 'active'; ?>">
-                    <a href="<?php echo $page_url; ?>session_share">Session Share</a>
-                </li>
-            </ul>
+            <nav>
+                <ul>
+                    <li class="<?php if ($title == 'Home') echo 'active'; ?>">
+                        <a href="<?php echo base_url(); ?>">Home</a>
+                    </li>
+                    <li class="<?php if ($title == 'Course') echo 'active'; ?>">
+                        <a href="<?php echo $page_url; ?>course">Course</a>
+                    </li>
+                    <li class="<?php if ($title == 'Facility') echo 'active'; ?>">
+                        <a href="<?php echo $page_url; ?>facility">Facility</a>
+                    </li>
+                    <li class="<?php if ($title == 'Session-Share') echo 'active'; ?>">
+                        <a href="<?php echo $page_url; ?>session_share">Session Share</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </header>

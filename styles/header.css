@@ -1,8 +1,39 @@
 .header-container {
     display: flex;
+    justify-content: center;
+    padding: 8px 0 8px 0;
+    background: #333;
+}
+
+.navbar {
+    display: flex;
+    align-self: flex-end;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar ul {
+    display:flex;
+    list-style-type: none;
+    white-space: nowrap;
+}
+
+.navbar ul > li {
+    margin-right: 10%;
+    display: inline-block;
+    zoom:1;
+    *display:inline;
+    /* this fix is needed for IE7- */
+}
+
+.navbar ul > li > a:hover{
+    text-decoration: underline;
+    color: #e53935;
 }
 
 #logo {
-    max-height: 10%;
-    max-width: 10%;
+
 }
