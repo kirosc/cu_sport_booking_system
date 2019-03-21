@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>CU Sport Booking System</title>
+    <meta charset="utf-8">
+    <title>CU Sport Booking System</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
