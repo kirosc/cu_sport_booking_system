@@ -17,7 +17,7 @@
       <li class="<?php if ($title == 'Facility') echo 'active'; ?>">
         <a href="<?php echo $page_url; ?>facility">Facility</a>
       </li>
-      <li class="<?php if ($title == 'Session Share') echo 'active'; ?>">
+      <li class="<?php if ($title == 'Session-Share') echo 'active'; ?>">
         <a href="<?php echo $page_url; ?>session_share">Session Share</a>
       </li>
     </ul>

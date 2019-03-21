@@ -8,7 +8,7 @@ class Session_share extends SBooking_Controller
   public function session_share_main()
   {
     // code...
-    $this->setTitle('Home');
+    $this->setTitle('Session-Share');
 
     $data = $this->getHeaderData();
 
