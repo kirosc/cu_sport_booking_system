@@ -7,11 +7,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--    Below two css are for all page-->
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <!--    Header css-->
-    <link rel="stylesheet" href="styles/header.css">
+    <?php foreach ($css_file as $file): ?>
+        <link rel="stylesheet" href="<?php echo $file; ?>">
+    <?php endforeach; ?>
 
     <meta name="theme-color" content="#fafafa">
 </head>
@@ -19,7 +17,7 @@
 <body>
 <header>
     <div class="header-container">
-        <img src="images/logo_128px.png" alt="logo" id="logo">
+        <img src="<?php echo $image_url; ?>logo.png" alt="logo">
         <div class="navbar">
             <ul>
                 <li class="<?php if ($title == 'Home') echo 'active'; ?>">

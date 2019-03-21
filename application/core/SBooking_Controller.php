@@ -11,8 +11,8 @@ class SBooking_Controller extends CI_Controller
   {
     parent::__construct();
     $this->page_url = base_url().'index.php/';
-    $this->image_url = base_url().'image/';
-    $this->css_url = base_url().'css/';
+    $this->image_url = base_url().'images/';
+    $this->css_url = base_url().'styles/';
     $this->js_url = base_url().'js/';
 
     $this->header_data = array(
@@ -22,6 +22,11 @@ class SBooking_Controller extends CI_Controller
       'css_file' => array(),
       'js_file' => array()
     );
+
+    $this->loadCSS('header.css');
+    $this->loadCSS('normalize.css');
+    $this->loadCSS('style.css');
+
   }
 
   protected function setTitle($title)
@@ -32,6 +37,22 @@ class SBooking_Controller extends CI_Controller
   protected function getHeaderData()
   {
     return $this->header_data;
+  }
+
+  protected function loadCSS($path)
+  {
+    array_push(
+      $this->header_data['css_file'],
+      $this->css_url.$path
+    );
+  }
+
+  protected function loadJS($path)
+  {
+    array_push(
+      $this->header_data['js_file'],
+      $this->js_url.$path
+    );
   }
 
 }
