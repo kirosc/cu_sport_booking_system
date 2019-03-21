@@ -56,3 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['course'] = 'course/course_main';
 $route['facility'] = 'facility/facility_main';
 $route['session_share'] = 'session_share/session_share_main';
+
+$route['login'] = 'login/login_main';
