@@ -23,9 +23,10 @@ class SBooking_Controller extends CI_Controller
       'js_file' => array()
     );
 
-    $this->loadCSS('header.css');
     $this->loadCSS('normalize.css');
     $this->loadCSS('style.css');
+    $this->loadCSS('header.css');
+    $this->loadCSS('footer.css');
 
   }
 
