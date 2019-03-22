@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  */
 class Course_model extends CI_Model
 {
@@ -17,4 +17,11 @@ class Course_model extends CI_Model
     public $email;
 
     //Function
+    public function courseSearch()
+    {
+      $this->db->select('name, datetime, location, price, available_seats, description');
+      $query = $this->db->get('course');
+
+      return $query->result();
+    }
 }

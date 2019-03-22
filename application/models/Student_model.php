@@ -23,7 +23,7 @@ class Student_model extends User_model
         $this->$birthday = $birthday;
         $this->$phone_no = $phone_no;
         $this->$self_introduction = $self_introduction;
-        
+
         $this->db->insert('user', $User_model);
         $this->db->insert('student', $this);
     }
@@ -65,7 +65,7 @@ class Student_model extends User_model
         $this->db->where('user_id', $user_id);
         $query = $this->db->get('student');
 
-        return $this->db->query($query)->result();
+        return $query->result();
     }
 
     //Get Birthday
@@ -75,7 +75,7 @@ class Student_model extends User_model
         $this->db->where('user_id', $user_id);
         $query = $this->db->get('student');
 
-        return $this->db->query($query)->result();
+        return $query->result();
     }
 
     //Get Phone Number
@@ -85,7 +85,7 @@ class Student_model extends User_model
         $this->db->where('user_id', $user_id);
         $query = $this->db->get('student');
 
-        return $this->db->query($query)->result();
+        return $query->result();
     }
 
     //Get Self Intro
@@ -95,7 +95,7 @@ class Student_model extends User_model
         $this->db->where('user_id', $user_id);
         $query = $this->db->get('student');
 
-        return $this->db->query($query)->result();
+        return $query->result();
     }
 }
 

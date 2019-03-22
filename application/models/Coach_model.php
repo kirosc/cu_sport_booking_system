@@ -59,7 +59,7 @@ class Coach_model extends User_model
         $this->db->where('user_id', $user_id);
         $query = $this->db->get('coach');
 
-        return $this->db->query($query)->result();
+        return $query->result();
     }
 
     //Get Experience
@@ -69,7 +69,7 @@ class Coach_model extends User_model
         $this->db->where('user_id', $user_id);
         $query = $this->db->get('coach');
 
-        return $this->db->query($query)->result();
+        return $query->result();
     }
 }
 
