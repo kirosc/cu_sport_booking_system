@@ -44,7 +44,7 @@ class User_model extends CI_Model
     public function delete_user($email)
     {
         $this->db->where('email', $email);
-        $this->db->delete('user')
+        $this->db->delete('user');
     }
 
     /*  This part no longer valid, saved for possible future use

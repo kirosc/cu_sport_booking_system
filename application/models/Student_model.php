@@ -56,10 +56,10 @@ class Student_model extends User_model
     public function delete_student($email)
     {
         $this->db->where('email', $email);
-        $this->db->delete('user')
+        $this->db->delete('user');
 
         $this->db->where('email', $email);
-        $this->db->delete('student')
+        $this->db->delete('student');
     }
 
     //Get Interest

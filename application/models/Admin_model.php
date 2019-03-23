@@ -45,10 +45,10 @@ class Admin_model extends User_model
     public function delete_admin($email)
     {
         $this->db->where('email', $email);
-        $this->db->delete('user')
+        $this->db->delete('user');
 
         $this->db->where('email', $email);
-        $this->db->delete('admin')
+        $this->db->delete('admin');
     }
 }
 

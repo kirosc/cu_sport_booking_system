@@ -51,10 +51,10 @@ class Coach_model extends User_model
     public function delete_coach($email)
     {
         $this->db->where('email', $email);
-        $this->db->delete('user')
+        $this->db->delete('user');
 
         $this->db->where('email', $email);
-        $this->db->delete('coach')
+        $this->db->delete('coach');
     }
 
     //Get Self Intro
