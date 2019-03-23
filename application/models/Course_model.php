@@ -5,7 +5,7 @@
 class Course_model extends CI_Model
 {
     //Attribute
-    public $course_id;
+    public $course_id;      //Primary Key
     public $name;
     public $start_time;
     public $end_time;
