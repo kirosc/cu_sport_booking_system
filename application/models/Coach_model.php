@@ -6,16 +6,19 @@ require_once(APPPATH . "/models/User_model.php");
 class Coach_model extends User_model
 {
     //Attribute
+    public $email;                  //Primary Key
     public $self_introduction;
     public $experience;
 
     //Function
     //New User & Coach (New Entry)
-    public function new_coach($email, $name, $icon, $self_introduction, $experience)
+    public function new_coach($email, $password, $username, $first_name, $last_name, $icon, $self_introduction, $experience)
     {
-        //user_id will be auto generated?
         $this->$email = $email;
-        $this->$name = $name;
+        $this->$password = $password;
+        $this->$username = $username;
+        $this->$first_name = $first_name;
+        $this->$last_name = $last_name;
         $this->$icon = $icon;
         $this->$self_introduction = $self_introduction;
         $this->$experience = $experience;
@@ -24,49 +27,51 @@ class Coach_model extends User_model
         $this->db->insert('coach', $this);
     }
 
-    //Problem -- Email address can be updated by user
+    //Warning - User can't change their email
     //Update User & Coach (Update Entry)
-    public function update_coach($user_id, $email, $name, $icon, $self_introduction, $experience)
+    public function update_coach($email, $password, $username, $first_name, $last_name, $icon, $self_introduction, $experience)
     {
-        $this->$email = $email;
-        $this->$name = $name;
+        $this->$password = $password;
+        $this->$username = $username;
+        $this->$first_name = $first_name;
+        $this->$last_name = $last_name;
         $this->$icon = $icon;
         $this->$self_introduction = $self_introduction;
         $this->$experience = $experience;
 
-        $this->db->where('user_id', $user_id);
+        $this->db->where('email', $email);
         $this->db->update('user', $User_model);
 
-        $this->db->where('user_id', $user_id);
+        $this->db->where('email', $email);
         $this->db->update('coach', $this);
 
     }
 
     //Delete Coach (Delete Entry)
-    public function delete_coach($user_id)
+    public function delete_coach($email)
     {
-        $this->db->where('user_id', $user_id);
-        $this->db->delete('user')
+        $this->db->where('email', $email);
+        $this->db->delete('user');
 
-        $this->db->where('user_id', $user_id);
-        $this->db->delete('coach')
+        $this->db->where('email', $email);
+        $this->db->delete('coach');
     }
 
     //Get Self Intro
-    public function get_self_introduction($user_id)
+    public function get_self_introduction($email)
     {
         $this->db->select('self_introduction');
-        $this->db->where('user_id', $user_id);
+        $this->db->where('email', $email);
         $query = $this->db->get('coach');
 
         return $query->result();
     }
 
     //Get Experience
-    public function get_experience($user_id)
+    public function get_experience($email)
     {
         $this->db->select('experience');
-        $this->db->where('user_id', $user_id);
+        $this->db->where('email', $email);
         $query = $this->db->get('coach');
 
         return $query->result();
