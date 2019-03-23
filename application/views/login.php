@@ -1,20 +1,42 @@
-<table border=2>
-  <tr height = 50px valign = center>
-    <td width = 250px >Login</td>
-  </tr>
-  <tr height= 200px>
-    <td>
-      <form action='<?php echo $page_url; ?>login/login_check' method='post' onsubmit='return login()'>
-        User Name: <br>
-        <input type='text' name='user_name'><br><br>
-        Password: <br>
-        <input type='text' name='password'><br><br>
-        <div name='alert'><br></div>
-        <input type='submit' value='Submit'>
-      </form>
-      <form action='<?php echo $page_url; ?>login/register_main' method='get'>
-        <button type="submit">Register</button>
-      </form>
-    </td>
-  </tr>
-</table>
+<div class="container-login100">
+    <div class="wrap-login100">
+        <form class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+						Welcome
+					</span>
+            <div class="wrap-input100 validate-input" data-validate = "Enter username">
+                <input class="input100" type="text" name="username">
+                <span class="focus-input100" data-placeholder="Username"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+                <input class="input100" type="password" name="pass">
+                <span class="focus-input100" data-placeholder="Password"></span>
+            </div>
+
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <form action='<?php //echo $page_url; ?>login/login_check' method='post' onsubmit='return login()'>
+                    <button class="login100-form-btn">
+                        Login
+                    </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center p-t-115">
+						<span class="txt1">
+							Don’t have an account?
+						</span>
+                <a class="txt2" href="#">
+                    Sign Up
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
