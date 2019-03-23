@@ -12,10 +12,8 @@ class Home extends SBooking_Controller
 
     $data = $this->getHeaderData();
 
-    $data['db'] = $this->test();
-
     $this->load->view('header', $data);
-    $this->load->view('index', $data);
+    $this->load->view('index');
     $this->load->view('footer');
   }
 }

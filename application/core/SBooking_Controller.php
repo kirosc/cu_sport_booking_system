@@ -26,8 +26,12 @@ class SBooking_Controller extends CI_Controller
     $this->loadCSS('normalize.css');
     $this->loadCSS('style.css');
     $this->loadCSS('libraries/bootstrap.min.css');
+    $this->loadCSS('libraries/font-awesome.min.css');
     $this->loadCSS('header.css');
     $this->loadCSS('footer.css');
+
+    $this->loadJS('libraries/jquery-3.2.1.min.js');
+    $this->loadJS('libraries/bootstrap.min.js');
 
   }
 
@@ -57,19 +61,6 @@ class SBooking_Controller extends CI_Controller
     );
   }
 
-  protected function test()
-  {
-    $query =
-      "SELECT
-          session_id,
-          name,
-          datetime,
-          location
-        FROM
-          session";
-
-    return $this->db->query($query)->result();
-  }
 }
 
 ?>

@@ -7,9 +7,10 @@ class Course_model extends CI_Model
     //Attribute
     public $course_id;
     public $name;
-    public $datetime;
+    public $start_time;
+    public $end_time;
     public $category_id;
-    public $location;
+    public $location_id;
     public $price;
     public $available_seats;
     public $description;
@@ -19,8 +20,10 @@ class Course_model extends CI_Model
     //Function
     public function courseSearch()
     {
-      $this->db->select('name, datetime, location, price, available_seats, description');
-      $query = $this->db->get('course');
+      $this->db->select('course.name AS course_name, course.start_time, course.end_time, location.name AS location_name, course.price, course.available_seats, course.description');
+      $this->db->from('course');
+      $this->db->join('location', 'location.location_id = course.location_id');
+      $query = $this->db->get();
 
       return $query->result();
     }
