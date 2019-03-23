@@ -1,0 +1,27 @@
+.facility-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.facility {
+    margin-bottom: 2rem;
+}
+
+.facility-wrapper {
+    height: 100%;
+    padding: 2rem;
+    background-color: #e9e9e9;
+}
+
+.facility-photo img {
+    width: 100%;
+}
+
+.facility-info {
+    margin-top: 2rem;
+}
+
+.facility-info .fa {
+    color: #e53935;
+    margin-right: 5px;
+}

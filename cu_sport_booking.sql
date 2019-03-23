@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2019-03-21 16:57:12
+-- 產生時間： 2019-03-23 10:39:34
 -- 伺服器版本: 10.1.21-MariaDB
 -- PHP 版本： 5.6.30
 
@@ -86,9 +86,10 @@ INSERT INTO `coach` (`email`, `self_introduction`, `experience`) VALUES
 CREATE TABLE `course` (
   `course_id` int(10) NOT NULL,
   `name` varchar(256) NOT NULL,
-  `datetime` datetime NOT NULL,
+  `start_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
   `category_id` int(1) NOT NULL,
-  `location` varchar(256) NOT NULL,
+  `location_id` int(2) NOT NULL,
   `price` int(3) NOT NULL,
   `available_seats` int(3) NOT NULL,
   `description` text NOT NULL,
@@ -100,9 +101,9 @@ CREATE TABLE `course` (
 -- 資料表的匯出資料 `course`
 --
 
-INSERT INTO `course` (`course_id`, `name`, `datetime`, `category_id`, `location`, `price`, `available_seats`, `description`, `level_id`, `email`) VALUES
-(1, 'Testing course 1', '2019-04-01 12:00:00', 1, 'University Sports Centre', 50, 15, 'Testing course 1', 1, 'coach001@gmail.com'),
-(2, 'Testing course 2', '2019-04-02 12:00:00', 1, 'University Sports Centre', 20, 20, 'Testing course 2', 1, 'coach002@gmail.com');
+INSERT INTO `course` (`course_id`, `name`, `start_time`, `end_time`, `category_id`, `location_id`, `price`, `available_seats`, `description`, `level_id`, `email`) VALUES
+(1, 'Testing course 1', '2019-04-01 12:00:00', '2019-04-01 14:00:00', 1, 1, 50, 15, 'Testing course 1', 1, 'coach001@gmail.com'),
+(2, 'Testing course 2', '2019-04-02 12:00:00', '2019-04-02 15:00:00', 1, 1, 20, 20, 'Testing course 2', 1, 'coach002@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -122,6 +123,27 @@ CREATE TABLE `level` (
 INSERT INTO `level` (`level_id`, `description`) VALUES
 (1, 'Beginner'),
 (2, 'Intermediate');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `location`
+--
+
+CREATE TABLE `location` (
+  `location_id` int(2) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `photo` varchar(256) DEFAULT 'default.jpg'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 資料表的匯出資料 `location`
+--
+
+INSERT INTO `location` (`location_id`, `name`, `photo`) VALUES
+(1, 'University Gym', 'F01.jpg'),
+(2, 'New Asia Gym', 'F02.jpg'),
+(3, 'United College', 'F03.jpg');
 
 -- --------------------------------------------------------
 
@@ -191,19 +213,20 @@ INSERT INTO `reserve` (`email`, `session_id`, `payment_method`) VALUES
 CREATE TABLE `session` (
   `session_id` int(10) NOT NULL,
   `name` varchar(256) NOT NULL,
-  `datetime` datetime NOT NULL,
-  `location` varchar(256) NOT NULL
+  `start_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
+  `location_id` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- 資料表的匯出資料 `session`
 --
 
-INSERT INTO `session` (`session_id`, `name`, `datetime`, `location`) VALUES
-(1, 'Basketball', '2019-04-03 12:00:00', 'New Asia College'),
-(2, 'Tennis', '2019-04-04 12:00:00', 'United College'),
-(3, 'Badminton', '2019-04-05 12:00:00', 'University Sports Centre'),
-(4, 'Table Tennis', '2019-04-06 12:00:00', 'University Sports Centre');
+INSERT INTO `session` (`session_id`, `name`, `start_time`, `end_time`, `location_id`) VALUES
+(1, 'Basketball', '2019-04-03 12:00:00', '2019-04-03 14:00:00', 3),
+(2, 'Tennis', '2019-04-04 12:00:00', '2019-04-04 15:00:00', 2),
+(3, 'Badminton', '2019-04-05 10:00:00', '2019-04-05 11:00:00', 1),
+(4, 'Table Tennis', '2019-04-06 16:00:00', '2019-04-06 18:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -275,7 +298,10 @@ INSERT INTO `student` (`email`, `interest`, `birthday`, `phone_no`, `self_introd
 
 CREATE TABLE `user` (
   `email` varchar(256) NOT NULL,
-  `name` varchar(256) NOT NULL,
+  `password` varchar(16) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `first_name` varchar(256) NOT NULL,
+  `last_name` varchar(256) NOT NULL,
   `icon` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -283,13 +309,13 @@ CREATE TABLE `user` (
 -- 資料表的匯出資料 `user`
 --
 
-INSERT INTO `user` (`email`, `name`, `icon`) VALUES
-('admin001@gmail.com', 'Admin 001', 'NA'),
-('admin002@gmail.com', 'Admin 002', 'NA'),
-('coach001@gmail.com', 'Coach 001', 'NA'),
-('coach002@gmail.com', 'Coach 002', 'NA'),
-('student001@gmail.com', 'Student 001', 'NA'),
-('student002@gmail.com', 'Student 002', 'NA');
+INSERT INTO `user` (`email`, `password`, `username`, `first_name`, `last_name`, `icon`) VALUES
+('admin001@gmail.com', '000000', 'Admin 001', 'Andy', 'Chan', 'NA'),
+('admin002@gmail.com', '000000', 'Admin 002', 'Bobby', 'Lee', 'NA'),
+('coach001@gmail.com', '000000', 'Coach 001', 'Chris', 'Cheung', 'NA'),
+('coach002@gmail.com', '000000', 'Coach 002', 'David', 'Wong', 'NA'),
+('student001@gmail.com', '000000', 'Student 001', 'Eric', 'Ho', 'NA'),
+('student002@gmail.com', '000000', 'Student 002', 'Felix', 'Lau', 'NA');
 
 --
 -- 已匯出資料表的索引
@@ -320,13 +346,20 @@ ALTER TABLE `course`
   ADD PRIMARY KEY (`course_id`),
   ADD KEY `course_coach` (`email`),
   ADD KEY `course_level` (`level_id`),
-  ADD KEY `course_category` (`category_id`);
+  ADD KEY `course_category` (`category_id`),
+  ADD KEY `course_location` (`location_id`);
 
 --
 -- 資料表索引 `level`
 --
 ALTER TABLE `level`
   ADD PRIMARY KEY (`level_id`);
+
+--
+-- 資料表索引 `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`location_id`);
 
 --
 -- 資料表索引 `participate`
@@ -352,7 +385,8 @@ ALTER TABLE `reserve`
 -- 資料表索引 `session`
 --
 ALTER TABLE `session`
-  ADD PRIMARY KEY (`session_id`);
+  ADD PRIMARY KEY (`session_id`),
+  ADD KEY `session_location` (`location_id`);
 
 --
 -- 資料表索引 `share`
@@ -389,6 +423,11 @@ ALTER TABLE `user`
 ALTER TABLE `course`
   MODIFY `course_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- 使用資料表 AUTO_INCREMENT `location`
+--
+ALTER TABLE `location`
+  MODIFY `location_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- 使用資料表 AUTO_INCREMENT `session`
 --
 ALTER TABLE `session`
@@ -415,7 +454,8 @@ ALTER TABLE `coach`
 ALTER TABLE `course`
   ADD CONSTRAINT `course_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
   ADD CONSTRAINT `course_coach` FOREIGN KEY (`email`) REFERENCES `coach` (`email`),
-  ADD CONSTRAINT `course_level` FOREIGN KEY (`level_id`) REFERENCES `level` (`level_id`);
+  ADD CONSTRAINT `course_level` FOREIGN KEY (`level_id`) REFERENCES `level` (`level_id`),
+  ADD CONSTRAINT `course_location` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`);
 
 --
 -- 資料表的 Constraints `participate`
@@ -436,6 +476,12 @@ ALTER TABLE `private_session`
 ALTER TABLE `reserve`
   ADD CONSTRAINT `reserve_private_session` FOREIGN KEY (`session_id`) REFERENCES `private_session` (`session_id`),
   ADD CONSTRAINT `reserve_student` FOREIGN KEY (`email`) REFERENCES `student` (`email`);
+
+--
+-- 資料表的 Constraints `session`
+--
+ALTER TABLE `session`
+  ADD CONSTRAINT `session_location` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`);
 
 --
 -- 資料表的 Constraints `share`

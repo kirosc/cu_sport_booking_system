@@ -1,7 +1,5 @@
 <p>This is the Home page</p>
-<?php foreach ($db as $data):?>
-  <p><?php echo $data->session_id." ". $data->name." ". $data->datetime." ". $data->location; ?></p>
-<?php endforeach; ?>
+
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet tristique ipsum, quis placerat velit. Sed eu ante mi. Integer justo turpis, cursus sit amet dolor ac, condimentum maximus sapien. Nam lectus sem, auctor vehicula ipsum vel, mollis viverra velit. Nulla nec nulla gravida, suscipit justo sed, imperdiet urna. Vivamus sit amet fermentum arcu. Aliquam non ex imperdiet, blandit enim vitae, aliquet turpis. Pellentesque interdum sodales est, nec tempor neque sagittis at.
 
     Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam dapibus, sem ut iaculis convallis, est ipsum porttitor tellus, et pellentesque dolor mauris ac dui. Nunc molestie ullamcorper nulla quis elementum. Quisque a nisi posuere, eleifend felis quis, varius ex. Nunc non leo eu tellus sagittis pellentesque sed et est. In rutrum sem ut odio facilisis, nec consectetur felis venenatis. Aenean non urna ligula. Etiam felis nulla, dictum id eros quis, mollis posuere massa. Proin nibh risus, aliquam eu pretium sed, sagittis sit amet elit.

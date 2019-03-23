@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['course'] = 'course/course_main';
+$route['course/id/:num'] = 'course/detail';
 $route['facility'] = 'facility/facility_main';
 $route['session_share'] = 'session_share/session_share_main';
 
