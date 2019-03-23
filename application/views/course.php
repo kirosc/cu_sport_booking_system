@@ -10,10 +10,12 @@
           <tr>
               <th scope="row">
                   <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                  <span>Session Title</span>
+                  <span>Course Title</span>
               </th>
               <td>
+                <a href="<?php echo $detail_url . $course->course_id; ?>">
                   <?php echo $course->course_name; ?>
+                </a>
               </td>
           </tr>
           <tr>
