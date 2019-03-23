@@ -32,7 +32,7 @@
 						<span class="txt1">
 							Don’t have an account?
 						</span>
-                <a class="txt2" href="#">
+                <a class="txt2" href="<?php echo $page_url; ?>login/register_main">
                     Sign Up
                 </a>
             </div>
