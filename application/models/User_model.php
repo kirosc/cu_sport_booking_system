@@ -14,7 +14,7 @@ class User_model extends CI_Model
 
     //Function
     //New User (New Entry)
-    public function new_user($email, $password, $username, $first_name, $last_name, $icon)
+    public function new_user($email, $password, $username, $first_name, $last_name, $icon = 'NA')
     {
         $this->$email = $email;
         $this->$password = $password;
@@ -23,7 +23,16 @@ class User_model extends CI_Model
         $this->$last_name = $last_name;
         $this->$icon = $icon;
 
-        $this->db->insert('user', $this);
+        $data = array(
+          'email' => $this->$email,
+          'password' => $this->$password,
+          'username' => $this->$username,
+          'first_name' => $this->$first_name,
+          'last_name' => $this->$last_name,
+          'icon' => $this->$icon
+        );
+
+        $this->db->insert('user', $data);
     }
 
     //Warning - User can't change their email

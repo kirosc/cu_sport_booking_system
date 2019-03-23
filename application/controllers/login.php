@@ -31,6 +31,7 @@ class Login extends SBooking_Controller{
     $username = $_POST["user_name"];
     $password = $_POST["password"];
 
+    $data = $this->getHeaderData();
     $data["user_name"] = $username;
     $data["password"] = $password;
 
@@ -39,9 +40,10 @@ class Login extends SBooking_Controller{
         WHERE username='{$username}' AND password='{$password}'";
     $sql_query = $this->db->query($sql_string)->result();
 
-    $this->setPageTitle("Login Checking");
-    $this->load->view('header');
-    if ($sql_query->num_rows() == 0) {
+    $this->setTitle("Login Checking");
+    $this->load->view('header', $data);
+
+    if ($sql_query[0]->count == 0) {
       $this->load->view('login_failure');
     }else {
       $sql_string = "SELECT * FROM user where username='{$username}'";
@@ -62,29 +64,24 @@ class Login extends SBooking_Controller{
   {
     $username = $_POST["user_name"];
     $password = $_POST["password"];
+    $email = $_POST["email"];
+    $first_name = $_POST["first_name"];
+    $last_name = $_POST["last_name"];
+    $data = $this->getHeaderData();
 
-    $this->setPageTitle("Register Checking");
-    $this->load->view('header');
+    $this->setTitle("Register Checking");
+    $this->load->view('header', $data);
+
     $sql_string =
       "SELECT count(*) as count FROM user
       WHERE username='{$username}'";
     $sql_query = $this->db->query($sql_string)->result();
-    if ($sql_query->num_rows() != 0) {
+    if ($sql_query[0]->count != 0) {
       $this->load->view('register_failure');
     }else {
       $this->load->model('User_model');
-      $this->User_model->new_user($email, $password, $username, $first_name, $last_name, $icon);
+      $this->User_model->new_user($email, $password, $username, $first_name, $last_name);
 
-      // $data["user_name"] = $user_name;
-      // $data["password"] = $password;
-      // $data["first_name"] = $_POST["first_name"];
-      // $data["last_name"] = $_POST["last_name"];
-      // $data["phone"] = $_POST["phone"];
-      //
-      // $sql_string =
-      //   "INSERT INTO user (username, password, email, first_name, last_name, phone)
-      //   values ('{$user_name}', '{'$password'}', '{$email}', '{$first_name}', '{$last_name}', '{$phone}')";
-      // $sql_query = $this->db->query($sql_string);
       $this->load->view('register_success');
     }
     $this->load->view('footer');
