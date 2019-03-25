@@ -29,22 +29,24 @@
             <nav>
                 <ul>
                     <li class="<?php if ($title == 'Home') echo 'active'; ?>">
-                        <a href="<?php echo base_url(); ?>">Home</a>
+                        <a href="<?php echo base_url(); ?>" class="nav-button">Home</a>
                     </li>
                     <li class="<?php if ($title == 'Course') echo 'active'; ?>">
-                        <a href="<?php echo $page_url; ?>course">Course</a>
+                        <a href="<?php echo $page_url; ?>course" class="nav-button">Course</a>
                     </li>
                     <li class="<?php if ($title == 'Facility') echo 'active'; ?>">
-                        <a href="<?php echo $page_url; ?>facility">Facility</a>
+                        <a href="<?php echo $page_url; ?>facility" class="nav-button">Facility</a>
                     </li>
                     <li class="<?php if ($title == 'Session-Share') echo 'active'; ?>">
-                        <a href="<?php echo $page_url; ?>session_share">Session Share<wbr></a>
+                        <a href="<?php echo $page_url; ?>session_share" class="nav-button">Session Share
+                            <wbr>
+                        </a>
                     </li>
                 </ul>
             </nav>
         </div>
         <div class="login-container">
-            <span class="button"><a href="<?php echo $page_url; ?>login/login_main">Login</a></span>
+            <span class="nav-button login"><a href="<?php echo $page_url; ?>login/login_main">Login</a></span>
         </div>
     </div>
 </header>
