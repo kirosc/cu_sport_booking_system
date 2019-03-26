@@ -13,7 +13,7 @@ class Login extends SBooking_Controller{
     $this->loadCSS('../vendor/select2/select2.min.css');
     $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
     $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
-    $this->loadJS('../vendor/jquery/jquery-3.2.1.min.js');
+    $this->loadJS('../vendor/jquery/jquery-3.3.1.min.js');
     $this->loadJS('../vendor/animsition/js/animsition.min.js');
     $this->loadJS('../vendor/select2/select2.min.js');
     $this->loadJS('../vendor/daterangepicker/moment.min.js');
@@ -32,6 +32,22 @@ class Login extends SBooking_Controller{
   {
     // code...
     $this->setTitle('Register');
+
+    $this->loadCSS('register.css');
+    $this->loadCSS('util.css');
+    $this->loadCSS('../vendor/animate/animate.css');
+    $this->loadCSS('../vendor/css-hamburgers/hamburgers.min.css');
+    $this->loadCSS('../vendor/animsition/css/animsition.min.css');
+    $this->loadCSS('../vendor/select2/select2.min.css');
+    $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
+    $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
+    $this->loadJS('../vendor/jquery/jquery-3.3.1.min.js');
+    $this->loadJS('../vendor/animsition/js/animsition.min.js');
+    $this->loadJS('../vendor/select2/select2.min.js');
+    $this->loadJS('../vendor/daterangepicker/moment.min.js');
+    $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
+    $this->loadJS('../vendor/countdowntime/countdowntime.js');
+    $this->loadJS('register.js');
 
     $data = $this->getHeaderData();
 

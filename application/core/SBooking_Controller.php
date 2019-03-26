@@ -30,7 +30,7 @@ class SBooking_Controller extends CI_Controller
     $this->loadCSS('header.css');
     $this->loadCSS('footer.css');
 
-    $this->loadJS('libraries/jquery-3.2.1.min.js');
+    $this->loadJS('libraries/jquery-3.3.1.min.js');
     $this->loadJS('libraries/bootstrap.min.js');
 
   }
