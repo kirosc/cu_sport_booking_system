@@ -13,7 +13,6 @@ class Login extends SBooking_Controller{
     $this->loadCSS('../vendor/select2/select2.min.css');
     $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
     $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
-    $this->loadJS('../vendor/jquery/jquery-3.3.1.min.js');
     $this->loadJS('../vendor/animsition/js/animsition.min.js');
     $this->loadJS('../vendor/select2/select2.min.js');
     $this->loadJS('../vendor/daterangepicker/moment.min.js');
@@ -41,7 +40,6 @@ class Login extends SBooking_Controller{
     $this->loadCSS('../vendor/select2/select2.min.css');
     $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
     $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
-    $this->loadJS('../vendor/jquery/jquery-3.3.1.min.js');
     $this->loadJS('../vendor/animsition/js/animsition.min.js');
     $this->loadJS('../vendor/select2/select2.min.js');
     $this->loadJS('../vendor/daterangepicker/moment.min.js');

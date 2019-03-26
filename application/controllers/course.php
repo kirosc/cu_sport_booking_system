@@ -15,6 +15,7 @@ class Course extends SBooking_Controller
     $this->loadCSS('libraries/material-textbox.css');
     $this->loadCSS('libraries/material-form.css');
     $this->loadCSS('course_listing.css');
+
     $data = $this->getHeaderData();
 
     $data['courses'] = $this->Course_model->courseSearch();

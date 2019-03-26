@@ -22,7 +22,9 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
+    height: 100%;
+    min-height: 100vh;
 }
 
 * {

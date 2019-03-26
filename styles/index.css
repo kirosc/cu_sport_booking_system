@@ -1,0 +1,20 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    padding: 50px;
+    flex-direction: row;
+}
+
+.slide-show-container {
+    height: 90vh;
+    width: 50vw;
+}
+
+.slide-show {
+
+}
+
+.slide-show img {
+    width: 50vw;
+    height: 60vh;
+}

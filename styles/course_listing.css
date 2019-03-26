@@ -58,3 +58,7 @@
 .course .course-info tr:nth-child(even) {
     background-color: #f6f6f6;
 }
+
+a{
+    color: #ff3b37;
+}
