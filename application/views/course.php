@@ -1,4 +1,5 @@
 <p>This is the Course page</p>
+<p>hello</P>
 <section class="container-fluid">
 <?php foreach($courses as $course) : ?>
 <div class="course row">
