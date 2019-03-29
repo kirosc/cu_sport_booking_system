@@ -10,9 +10,8 @@
 
 .course {
     position: relative;
-    margin-bottom: 5rem !important;
+    margin: 5rem 0;
 }
-
 
 .course .course-info {
     height: 100%;
@@ -59,6 +58,21 @@
     background-color: #f6f6f6;
 }
 
-a{
-    color: #ff3b37;
+.course-info {
+}
+
+.course-info a {
+    color: #0000b5;
+    font-weight: bold;
+}
+
+.course-info a:hover {
+    text-decoration: underline;
+}
+
+.col-md-8 {
+    width: auto;
+    margin: 0 auto;
+    float: unset;
+    max-width: 900px;
 }

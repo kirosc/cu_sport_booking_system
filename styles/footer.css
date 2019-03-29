@@ -1,10 +1,22 @@
+/*footer {*/
+/*position: absolute;*/
+/*bottom: 0;*/
+/*width: 100%;*/
+/*padding: 8px 16px;*/
+/*background: #333 !important;*/
+/*color: #a9a9a9;*/
+/*display: flex;*/
+/*align-items: flex-start;*/
+/*flex-direction: column;*/
+/*}*/
+
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    position: relative;
+    clear: both;
+    width: auto;
     padding: 8px 16px;
     background: #333 !important;
-    color: #fff;
+    color: #a9a9a9;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -19,7 +31,11 @@ footer {
     margin-right: 16px;
 }
 
+a {
+    color: #fff;
+}
+
 a:hover {
-    color: #e53935;
-    text-decoration: none;
+    color: #f64747;
+    text-decoration: underline;
 }
