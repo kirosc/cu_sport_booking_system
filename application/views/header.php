@@ -45,8 +45,18 @@
                 </ul>
             </nav>
         </div>
-        <div class="login-container">
-            <span class="nav-button login"><a href="<?php echo $page_url; ?>login/login_main">Login</a></span>
-        </div>
+        <?php
+          if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+            echo "
+              <div class='login-container'>
+                <span class='nav-button login'><a href='".$page_url."login/logout'>{$_SESSION['user_name']}</a></span>
+              </div>";
+          }else {
+            echo "
+            <div class='login-container'>
+                <span class='nav-button login'><a href='".$page_url."login/login_main'>Login</a></span>
+            </div>";
+          }
+        ?>
     </div>
 </header>
