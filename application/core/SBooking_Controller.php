@@ -27,6 +27,7 @@ class SBooking_Controller extends CI_Controller
     $this->loadCSS('style.css');
     $this->loadCSS('libraries/bootstrap.min.css');
     $this->loadCSS('libraries/font-awesome.min.css');
+      $this->loadCSS('custom.css');
     $this->loadCSS('header.css');
     $this->loadCSS('footer.css');
 
