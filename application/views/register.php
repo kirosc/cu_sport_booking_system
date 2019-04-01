@@ -40,7 +40,7 @@
             <label class="control control-checkbox">
                 <span class="checkbox-container">
                     I am a coach
-                    <input type="checkbox" class="iscoach-checkbox"/>
+                    <input type="checkbox" class="iscoach-checkbox" name='is_coach' value="Yes"/>
                     <div class="control_indicator"></div>
                 </span>
             </label>

@@ -155,11 +155,6 @@ class Login extends SBooking_Controller{
     //   $this->register_main();
     // }
 
-    $username = $_POST["user_name"];
-    $password = $_POST["password"];
-    $email = $_POST["email"];
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
     $data = $this->getHeaderData();
 
     $this->setTitle("Register Checking");
@@ -167,14 +162,20 @@ class Login extends SBooking_Controller{
 
     $sql_string =
       "SELECT count(*) as count FROM user
-      WHERE username='{$username}'";
+      WHERE username='{$_POST['user_name']}'";
     $sql_query = $this->db->query($sql_string)->result();
     if ($sql_query[0]->count != 0) {
       $this->load->view('register_failure');
     }else {
       $this->load->model('User_model');
-      $this->User_model->new_user($email, $password, $username, $first_name, $last_name);
-
+      $this->User_model->new_user($_POST['email'], $_POST['password'], $_POST['user_name'], $_POST['first_name'], $_POST['last_name']);
+      if (isset($_POST["is_coach"]) && $_POST["is_coach"] == 'Yes') {
+        $this->load->model('Coach_model');
+        $this->Coach_model->new_coach($_POST['email']);
+      }else{
+        $this->load->model('Student_model');
+        $this->Student_model->new_student($_POST['email']);
+      }
       $this->load->view('register_success');
     }
     $this->load->view('footer');

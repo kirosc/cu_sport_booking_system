@@ -3,7 +3,7 @@
  *
  */
 require_once(APPPATH . "/models/User_model.php");
-class Coach_model extends User_model
+class Coach_model extends CI_Model
 {
     //Attribute
     public $email;                  //Primary Key
@@ -12,18 +12,12 @@ class Coach_model extends User_model
 
     //Function
     //New User & Coach (New Entry)
-    public function new_coach($email, $password, $username, $first_name, $last_name, $icon, $self_introduction, $experience)
+    public function new_coach($email, $self_introduction="NA", $experience="NA")
     {
-        $this->$email = $email;
-        $this->$password = $password;
-        $this->$username = $username;
-        $this->$first_name = $first_name;
-        $this->$last_name = $last_name;
-        $this->$icon = $icon;
-        $this->$self_introduction = $self_introduction;
-        $this->$experience = $experience;
+        $this->email = $email;
+        $this->self_introduction = $self_introduction;
+        $this->experience = $experience;
 
-        $this->db->insert('user', $User_model);
         $this->db->insert('coach', $this);
     }
 
@@ -31,13 +25,13 @@ class Coach_model extends User_model
     //Update User & Coach (Update Entry)
     public function update_coach($email, $password, $username, $first_name, $last_name, $icon, $self_introduction, $experience)
     {
-        $this->$password = $password;
-        $this->$username = $username;
-        $this->$first_name = $first_name;
-        $this->$last_name = $last_name;
-        $this->$icon = $icon;
-        $this->$self_introduction = $self_introduction;
-        $this->$experience = $experience;
+        $this->password = $password;
+        $this->username = $username;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->icon = $icon;
+        $this->self_introduction = $self_introduction;
+        $this->experience = $experience;
 
         $this->db->where('email', $email);
         $this->db->update('user', $User_model);
