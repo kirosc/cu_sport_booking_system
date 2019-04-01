@@ -81,9 +81,10 @@ class Login extends SBooking_Controller{
     $sql_query = $this->db->query($sql_string)->result();
 
     $this->setTitle("Login Checking");
-    $this->load->view('header', $data);
+
 
     if ($sql_query[0]->count == 0) {
+      $this->load->view('header', $data);
       $this->load->view('login_failure');
     }else {
       $sql_string = "SELECT * FROM user where username='{$username}'";
@@ -94,6 +95,7 @@ class Login extends SBooking_Controller{
         'logged_in' => TRUE
       );
       $this->session->set_userdata($user_data);
+      $this->load->view('header', $data);
       $this->load->view('login_success');
     }
     $this->load->view('footer');

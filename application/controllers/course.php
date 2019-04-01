@@ -41,6 +41,25 @@ class Course extends SBooking_Controller
     $this->load->view('course_detail', $data);
     $this->load->view('footer');
   }
+
+  public function add_course_page()
+  {
+    $this->load->model('Facility_model');
+    $data = $this->getHeaderData();
+
+    $data['facilities'] = $this->Facility_model->facilitySearch();
+
+    $this->load->view('header', $data);
+    $this->load->view('course_add', $data);
+    $this->load->view('footer');
+  }
+
+  public function check_add_course()
+  {
+    foreach ($_POST as $key => $value) {
+      echo '<p>'.$key.': '.$value.'</p>';
+    }
+  }
 }
 
 ?>
