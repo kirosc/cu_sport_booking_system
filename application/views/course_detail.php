@@ -48,7 +48,8 @@
                     </h4>
                     <div class="coach row m-0">
                         <div class="coach-container float-left mr-3">
-                            <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg" class="rounded" alt="profile pic">
+                            <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
+                                 class="rounded" alt="profile pic">
                             <a href="javascript:void(0)" class="text-center mt-2">One Punch Man</a>
                         </div>
                     </div>
@@ -56,8 +57,8 @@
             </div>
             <div class="col-md-4">
                 <div class="card info-block mb-3" id="venue-preview">
-                    <!--       TODO: Load Venue image dynamically          -->
-                    <img src="<?php echo base_url(); ?>images/facility/F01.jpg" class="card-img-top" alt="Venue image">
+                    <img src="<?php echo base_url() . 'images/facility/' . $facility->photo; ?>" class="card-img-top"
+                         alt="Venue image">
                     <div class="card-body">
                         <h4 class="title">
                             <i class="fa fa-building-o align-center" aria-hidden="true"></i>

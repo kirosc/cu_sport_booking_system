@@ -1,6 +1,9 @@
 <div class="wrapper">
     <section class="container-fluid">
-        <a href="<?php echo $page_url?>course/add_course" class="btn cu-btn">Add Course</a>
+      <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student') { ?>
+          <a href="<?php echo $page_url?>course/add_course" class="btn cu-btn">Add Course</a>
+        <?php } ?>
+
         <?php foreach ($courses as $course) : ?>
             <div class="course row">
                 <div class="course-info col-md-9">
