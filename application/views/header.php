@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="../../styles/header.css"/>
     <meta charset="utf-8">
     <title>CU Sport Booking System</title>
     <meta name="description" content="">
@@ -21,7 +22,12 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="<?php echo base_url(); ?>">CU Sport Booking System</a>
+        <a href="<?php echo base_url(); ?>" class="d-none d-400-block">
+            <img src="<?php echo base_url(); ?>images/logo_64px.png" class="d-inline-block align-top" alt="">
+        </a>
+        <a class="navbar-brand" href="<?php echo base_url(); ?>">
+            <span id="title">CU Sport Booking System</span>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -126,3 +126,9 @@ nav {
         color: #fff !important;
     }
 }
+
+@media (min-width: 400px) {
+    .d-400-block {
+        display: block !important;
+    }
+}
