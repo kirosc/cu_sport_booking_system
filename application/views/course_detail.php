@@ -1,8 +1,8 @@
 <div class="wrapper">
     <section class="container-fluid">
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-md-8">
-                <div class="course-title info-block">
+                <div class="course-title info-block mb-3">
                     <h4><?php echo $course->name; ?></h4>
                     <p>
                         Feature Tags:
@@ -11,14 +11,14 @@
                         </i>
                     </p>
                 </div>
-                <div class="info-block">
+                <div class="info-block mb-3">
                     <h4 class="title">
                         <i class="fa fa-pencil-square-o align-middle" aria-hidden="true"></i>
                         <span>Description</span>
                     </h4>
                     <p><?php echo $course->description; ?></p>
                 </div>
-                <div class="info-block">
+                <div class="info-block mb-3">
                     <h4 class="title">
                         <i class="fa fa-clock-o align-middle" aria-hidden="true"></i>
                         <span>Does the time fit you?</span>
@@ -39,12 +39,24 @@
                         <i style="margin-right: 5px;" class="fa fa-users" aria-hidden="true"></i>
                         <span>Available Seats: <?php echo $course->available_seats; ?></span>
                     </p>
-                    <a href="" class="btn cu-btn btn-outline-secondary">Book Now</a>
+                    <a href="" class="btn cu-btn btn-danger">Book Now</a>
+                </div>
+                <div class="info-block mb-3">
+                    <h4 class="title">
+                        <i class="fa fa-user align-middle" aria-hidden="true"></i>
+                        <span>Coach</span>
+                    </h4>
+                    <div class="coach row m-0">
+                        <div class="coach-container float-left mr-3">
+                            <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg" class="rounded" alt="profile pic">
+                            <a href="javascript:void(0)" class="text-center mt-2">One Punch Man</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card info-block" id="venue-preview">
-                    <!--       TODO: Loade Venue image dynamically          -->
+                <div class="card info-block mb-3" id="venue-preview">
+                    <!--       TODO: Load Venue image dynamically          -->
                     <img src="<?php echo base_url(); ?>images/facility/F01.jpg" class="card-img-top" alt="Venue image">
                     <div class="card-body">
                         <h4 class="title">
