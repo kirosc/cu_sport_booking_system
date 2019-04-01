@@ -132,3 +132,7 @@ nav {
         display: block !important;
     }
 }
+
+.navbar {
+    z-index: 1;
+}
