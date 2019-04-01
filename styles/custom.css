@@ -11,13 +11,23 @@ html {
 
 @media (min-width: 576px) {
     html {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
     }
 }
 
 @media (min-width: 768px) {
     html {
         font-size: 1.4rem;
+    }
+
+    .row {
+        margin: 0 5%;
+    }
+}
+
+@media (min-width: 992px) {
+    html {
+        font-size: 1.2rem;
     }
 }
 
