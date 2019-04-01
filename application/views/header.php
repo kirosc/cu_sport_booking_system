@@ -33,20 +33,51 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url(); ?>" id="current">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $page_url; ?>course">Course</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $page_url; ?>facility">Facility</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo $page_url; ?>session_share">Session Share</a>
-                </li>
+              <?php
+              if ($nav == 'home') {
+                echo "<li class='nav-item active'>
+                    <a class='nav-link' href='<?php echo base_url(); ?>' id='current'>Home <span class='sr-only'>(current)</span></a>
+                    </li>";
+              }else{
+                echo "<li class='nav-item'>
+                    <a class='nav-link' href='".base_url()."'>Home</a>
+                    </li>";
+              }
+
+              if ($nav == 'course') {
+                echo "<li class='nav-item active'>
+                    <a class='nav-link' href='".$page_url."course' id='current'>Course <span class='sr-only'>(current)</span></a>
+                    </li>";
+              }else{
+                echo "<li class='nav-item'>
+                    <a class='nav-link' href='".$page_url."course'>Course</a>
+                    </li>";
+              }
+
+              if ($nav == 'facility') {
+                echo "<li class='nav-item active'>
+                    <a class='nav-link' href='".$page_url."facility' id='current'>Facility <span class='sr-only'>(current)</span></a>
+                    </li>";
+              }else{
+                echo "<li class='nav-item'>
+                    <a class='nav-link' href='".$page_url."facility'>Facility</a>
+                    </li>";
+              }
+
+              if ($nav == 'session_share') {
+                echo "<li class='nav-item active'>
+                    <a class='nav-link' href='".$page_url."session_share' id='current'>Session Share <span class='sr-only'>(current)</span></a>
+                    </li>";
+              }else{
+                echo "<li class='nav-item'>
+                    <a class='nav-link' href='".$page_url."session_share'>Session Share</a>
+                    </li>";
+              }
+              ?>
             </ul>
             <ul class="navbar-nav mr-2">
                 <?php

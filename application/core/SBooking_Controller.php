@@ -17,6 +17,7 @@ class SBooking_Controller extends CI_Controller
 
     $this->header_data = array(
       'title' => '',
+      'nav' => '',
       'page_url' => $this->page_url,
       'image_url' => $this->image_url,
       'css_file' => array(),
@@ -39,6 +40,11 @@ class SBooking_Controller extends CI_Controller
   protected function setTitle($title)
   {
     $this->header_data['title'] = $title;
+  }
+
+  protected function setNav($nav)
+  {
+    $this->header_data['nav'] = $nav;
   }
 
   protected function getHeaderData()

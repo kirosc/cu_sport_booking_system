@@ -9,6 +9,7 @@ class Session_share extends SBooking_Controller
   {
     // code...
     $this->setTitle('Session-Share');
+    $this->setNav('session_share');
 
     $data = $this->getHeaderData();
 

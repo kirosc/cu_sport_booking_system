@@ -43,6 +43,19 @@
                 </div>
             </div>
             <div class="col-md-4">
+                <div class="card info-block">
+                    <div class="card-body">
+                        <h4 class="title">
+                            <i class="fa fa-building-o align-center" aria-hidden="true"></i>
+                            <span>Coach</span>
+                        </h4>
+                        <p>
+                            <a href="">
+                                <?php echo $course->last_name." ".$course->first_name; ?>
+                            </a>
+                        </p>
+                    </div>
+                </div>
                 <div class="card info-block" id="venue-preview">
                     <img src="<?php echo base_url().'images/facility/'.$facility->photo;?>" class="card-img-top" alt="Venue image">
                     <div class="card-body">

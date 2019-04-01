@@ -9,7 +9,9 @@ class Facility extends SBooking_Controller
   {
     // code...
     $this->load->model('Facility_model');
+
     $this->setTitle('Facility');
+    $this->setNav('facility');
 
     $this->loadCSS('facility_listing.css');
 

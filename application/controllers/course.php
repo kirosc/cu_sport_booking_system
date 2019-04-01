@@ -8,7 +8,9 @@ class Course extends SBooking_Controller
   public function course_main()
   {
     $this->load->model('Course_model');
+
     $this->setTitle('Course');
+    $this->setNav('course');
 
     $this->loadCSS('libraries/material-clear.css');
     $this->loadCSS('libraries/material-combobox.css');
@@ -31,6 +33,9 @@ class Course extends SBooking_Controller
   {
     $this->load->model('Course_model');
     $this->load->model('Facility_model');
+
+    $this->setNav('course');
+
     $this->loadCSS('course_detail.css');
     $data = $this->getHeaderData();
     $course_id = $this->uri->segment(3);
@@ -46,9 +51,16 @@ class Course extends SBooking_Controller
   public function add_course_page()
   {
     $this->load->model('Facility_model');
+    $this->load->model('Category_model');
+    $this->load->model('Level_model');
+
+    $this->setNav('course');
     $data = $this->getHeaderData();
 
+
     $data['facilities'] = $this->Facility_model->facilitySearch();
+    $data['categories'] = $this->Category_model->getCategory();
+    $data['levels'] = $this->Level_model->getLevel();
 
     $this->load->view('header', $data);
     $this->load->view('course_add', $data);
@@ -57,10 +69,12 @@ class Course extends SBooking_Controller
 
   public function check_add_course()
   {
+    $this->load->model('Course_model');
+
+    $this->setNav('course');
     $data = $this->getHeaderData();
-    foreach ($_POST as $key => $value) {
-      echo '<p>'.$key.': '.$value.'</p>';
-    }
+    
+    $this->Course_model->new_course($_POST["course_title"], $_POST["start_time"], $_POST["end_time"], $_POST["category"], $_POST["facility"], $_POST["price"], $_POST["seat"], $_POST["description"], $_POST["level"], $_SESSION["email"]);
     $this->load->view('header', $data);
     $this->load->view('course_add_success', $data);
     $this->load->view('footer');
