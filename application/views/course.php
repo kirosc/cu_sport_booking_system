@@ -2,9 +2,8 @@
     <section class="container-fluid">
         <?php foreach ($courses as $course) : ?>
             <div class="course row">
-
-                <div class="course-info">
-                    <div class="course-info col-md-8">
+                <div class="course-info col-md-8">
+                    <div class="course-info">
                         <table>
                             <tbody>
                             <tr>

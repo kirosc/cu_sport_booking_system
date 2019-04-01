@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>CU Sport Booking System</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <?php foreach ($css_file as $file): ?>
         <link rel="stylesheet" href="<?php echo $file; ?>">
@@ -20,43 +20,52 @@
 
 <body>
 <header>
-    <div class="header-container">
-        <div class="logo-container">
-            <div><img src="<?php echo $image_url; ?>logo_128px.png" alt="logo"></div>
-            <div class="logo-text">CU Sport<br>Booking System</div>
-        </div>
-        <div class="navbar">
-            <nav>
-                <ul>
-                    <li class="<?php if ($title == 'Home') echo 'active'; ?>">
-                        <a href="<?php echo base_url(); ?>" class="nav-button">Home</a>
-                    </li>
-                    <li class="<?php if ($title == 'Course') echo 'active'; ?>">
-                        <a href="<?php echo $page_url; ?>course" class="nav-button">Course</a>
-                    </li>
-                    <li class="<?php if ($title == 'Facility') echo 'active'; ?>">
-                        <a href="<?php echo $page_url; ?>facility" class="nav-button">Facility</a>
-                    </li>
-                    <li class="<?php if ($title == 'Session-Share') echo 'active'; ?>">
-                        <a href="<?php echo $page_url; ?>session_share" class="nav-button">Session Share
-                            <wbr>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <?php
-          if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-            echo "
-              <div class='login-container'>
-                <span class='nav-button login'><a href='".$page_url."login/logout'>{$_SESSION['user_name']}</a></span>
-              </div>";
-          }else {
-            echo "
-            <div class='login-container'>
-                <span class='nav-button login'><a href='".$page_url."login/login_main'>Login</a></span>
-            </div>";
-          }
-        ?>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="<?php echo base_url(); ?>">CU Sport Booking System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url(); ?>" id="current">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo $page_url; ?>course">Course</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo $page_url; ?>facility">Facility</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo $page_url; ?>session_share">Session Share</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-2">
+                <?php
+                if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+                    echo "
+                            <li class=\"nav-item dropdown\">
+                                <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\"
+                                data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                {$_SESSION['user_name']}
+                                </a>
+                                <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">
+                                <a class=\"dropdown-item\" href=\"#\">Profile</a>
+                                <div class=\"dropdown-divider\"></div>
+                                <a class=\"dropdown-item\" href='" . $page_url . "login/logout'>Logout</a>
+                    </div>
+                </li>
+                        ";
+                } else {
+                    echo "
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\"  href='" . $page_url . "login/login_main'>Login</a>
+                        </li>
+                        ";
+                }
+                ?>
+            </ul>
+    </nav>
 </header>
