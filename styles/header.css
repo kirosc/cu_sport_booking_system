@@ -74,6 +74,10 @@ nav {
 }
 
 @media (min-width: 992px) {
+    .navbar {
+        padding: .5rem;
+    }
+
     /* The core button */
     .nav-item {
         align-items: center;
@@ -81,7 +85,7 @@ nav {
         display: inline-flex;
         outline: none;
         position: relative;
-        padding: 2px 8px;
+        padding: 0 4px;
         z-index: 0;
         -webkit-font-smoothing: antialiased;
         background: none;
