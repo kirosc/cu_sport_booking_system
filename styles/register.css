@@ -443,7 +443,7 @@ iframe {
 }
 .control:hover input:not([disabled]):checked ~ .control_indicator,
 .control input:checked:focus ~ .control_indicator {
-    background: #0e6647d;
+    background: #e6647d;
 }
 .control input:disabled ~ .control_indicator {
     background: #e6e6e6;

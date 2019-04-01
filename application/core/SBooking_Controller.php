@@ -27,12 +27,13 @@ class SBooking_Controller extends CI_Controller
     $this->loadCSS('style.css');
     $this->loadCSS('libraries/bootstrap.min.css');
     $this->loadCSS('libraries/font-awesome.min.css');
+    $this->loadCSS('custom.css');
     $this->loadCSS('header.css');
     $this->loadCSS('footer.css');
 
     $this->loadJS('libraries/jquery-3.3.1.min.js');
+    $this->loadJS('libraries/popper.min.js');
     $this->loadJS('libraries/bootstrap.min.js');
-
   }
 
   protected function setTitle($title)

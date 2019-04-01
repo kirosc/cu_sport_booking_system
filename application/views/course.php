@@ -3,9 +3,8 @@
         <a href="<?php echo $page_url?>course/add_course" class="btn cu-btn">Add Course</a>
         <?php foreach ($courses as $course) : ?>
             <div class="course row">
-
-                <div class="course-info">
-                    <div class="course-info col-md-8">
+                <div class="course-info col-md-9">
+                    <div class="course-info">
                         <table>
                             <tbody>
                             <tr>
