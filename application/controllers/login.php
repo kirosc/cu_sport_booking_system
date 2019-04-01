@@ -87,13 +87,25 @@ class Login extends SBooking_Controller{
       $this->load->view('header', $data);
       $this->load->view('login_failure');
     }else {
-      $sql_string = "SELECT * FROM user where username='{$username}'";
+      $sql_string = "
+        SELECT user.email, user.username, coach.email AS couch, student.email AS student
+        FROM coach
+        RIGHT JOIN user ON user.email = coach.email
+        LEFT JOIN student ON user.email = student.email
+        WHERE username='{$username}'";
       $sql_query = $this->db->query($sql_string)->result();
       $user_data = array(
-        'user_name' => $username,
+        'username' => $username,
         'email' => $sql_query[0]->email,
         'logged_in' => TRUE
       );
+      if ($sql_query[0]->couch != NULL) {
+        $user_data['usertype'] = 'couch';
+      }elseif ($sql_query[0]->student != NULL) {
+        $user_data['usertype'] = 'student';
+      }else {
+        $user_data['usertype'] = 'admin';
+      }
       $this->session->set_userdata($user_data);
       $this->load->view('header', $data);
       $this->load->view('login_success');

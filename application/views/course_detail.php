@@ -45,6 +45,7 @@
             <i class="fa fa-building-o" aria-hidden="true"></i>
             <span>Venue</span>
         </h4>
+        <img src="<?php echo base_url().'images/facility/'.$facility->photo;?>">
         <p>
         <a href="">
             <?php echo $course->location; ?>
