@@ -129,6 +129,10 @@ nav {
     .nav-link {
         padding: .2rem 2rem;
     }
+
+    .nav-link:hover {
+        color: #fff;
+    }
 }
 
 @media (min-width: 400px) {
