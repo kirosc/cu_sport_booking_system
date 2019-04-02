@@ -1,14 +1,20 @@
 <div class="wrapper">
-    <section class="container-fluid">
-      <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student') { ?>
-          <a href="<?php echo $page_url?>course/add_course" class="btn cu-btn">Add Course</a>
-        <?php } ?>
+    <section class="container-fluid" id="course-tool">
+        <div class="tool row">
+            <div class="tool-container col col-md-12">
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student') { ?>
+                <a href="<?php echo $page_url ?>course/add_course" class="btn btn-info btn-md-block">Add Course</a>
+            <?php } ?>
+            </div>
+        </div>
+    </section>
 
+    <section class="container-fluid" id="course-container">
         <?php
         $count = 0;
         foreach ($courses as $course) : ?>
             <div class="course row">
-                <div class="course-info col-md-9">
+                <div class="course-info col">
                     <div class="course-info">
                         <table>
                             <tbody>
@@ -62,13 +68,13 @@
                                 </th>
                                 <td>
                                     <?php
-                                      if ($seat_remain[$count] == 0) {
+                                    if ($seat_remain[$count] == 0) {
                                         echo 'FULL /';
-                                      }else {
-                                        echo $seat_remain[$count]." remaining /";
-                                      }
+                                    } else {
+                                        echo $seat_remain[$count] . " remaining /";
+                                    }
                                     ?>
-                                    <?php echo $course->available_seats." total"; ?>
+                                    <?php echo $course->available_seats . " total"; ?>
                                 </td>
                             </tr>
                             </tbody>
@@ -77,8 +83,8 @@
                 </div>
             </div>
 
-        <?php
-          $count = $count + 1;
-          endforeach; ?>
+            <?php
+            $count = $count + 1;
+        endforeach; ?>
     </section>
 </div>
