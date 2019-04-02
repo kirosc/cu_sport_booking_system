@@ -42,6 +42,14 @@ class Session_model extends CI_Model
         $this->db->delete('session');
     }
 
+    public function get_session()
+    {
+      $this->db->select('*');
+      $query = $this->db->get('session');
+
+      return $query->result();
+    }
+
     //Get Name
     public function get_name($session_id)
     {

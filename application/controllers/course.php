@@ -66,12 +66,13 @@ class Course extends SBooking_Controller
     $this->load->model('Facility_model');
     $this->load->model('Category_model');
     $this->load->model('Level_model');
+    $this->load->model('Session_model');
 
     $this->setNav('course');
     $data = $this->getHeaderData();
 
-
     $data['facilities'] = $this->Facility_model->facilitySearch();
+    $data['sessions'] = $this->Session_model->get_session();
     $data['categories'] = $this->Category_model->getCategory();
     $data['levels'] = $this->Level_model->getLevel();
 

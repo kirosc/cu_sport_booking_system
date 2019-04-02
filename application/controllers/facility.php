@@ -42,11 +42,10 @@ class Facility extends SBooking_Controller
     $this->load->model('Session_model');
     $this->setNav('course');
     $data = $this->getHeaderData();
-    //type, facility, start_time, end_time
     $this->Session_model->new_session($_POST['type'], $_POST['start_time'], $_POST['end_time'], $_POST['facility']);
 
     $this->load->view('header', $data);
-
+    
     $this->load->view('footer');
   }
 }

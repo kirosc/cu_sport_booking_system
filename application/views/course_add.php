@@ -2,18 +2,20 @@
     Course Title:<br>
     <input type="text" name="course_title"><br>
 
-    Location:<br>
+    Select Facility:<br>
     <select name="facility">
       <?php foreach ($facilities as $facility) : ?>
         <option value="<?php echo $facility->location_id; ?>"><?php echo $facility->name; ?></option>
       <?php endforeach; ?>
+    </select><br><br>
+
+    //here is base on the chosen facility shown related session<br>
+    Select Session:<br>
+    <select name="session">
+      <?php foreach ($sessions as $session) : ?>
+        <option value="<?php echo $session->session_id; ?>"><?php echo $session->name." Court   ".$session->start_time." - ".$session->end_time."   ".$session->location_id." //this is location_id"; ?></option>
+      <?php endforeach; ?>
     </select><br>
-
-    Start Time:<br>
-    <input type="datetime-local" name="start_time"><br>
-
-    End Time:<br>
-    <input type="datetime-local" name="end_time"><br>
 
     Category:<br>
     <select name="category">
