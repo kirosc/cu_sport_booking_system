@@ -10,7 +10,53 @@
 
 #banner {
     position: relative;
-    margin: 0 -15px;
+    margin: 0;
+    color: #fff;
+    background: url(../images/slide-1.jpg) no-repeat bottom center;
+    background-size: cover;
+    -moz-background-size: cover;
+    padding: 6rem 0 14rem;
+}
+
+@media (min-width: 767px) {
+    #banner {
+        padding: 2rem 0 12rem;
+    }
+}
+
+@media (min-width: 991px) {
+    #banner {
+        background-position-y: -80px;
+        padding: 4rem 0 18rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    #banner {
+        background-position-y: -100px;
+        padding: 4rem 0 18rem;
+    }
+}
+
+@media (min-width: 1250px) {
+    #banner {
+        background-position-y: -250px;
+        padding: 4rem 0 18rem;
+    }
+}
+
+@media (min-width: 1500px) {
+    #banner {
+        background-position-y: -400px;
+        padding: 5rem 0 18rem;
+    }
+}
+
+@media (min-width: 1820px) {
+    #banner {
+        background-position-y: -450px;
+        padding: 7rem 0 24rem;
+    }
 }
 
 #banner-overlay {
@@ -20,18 +66,13 @@
     z-index: 99;
 }
 
-.carousel-inner {
-    height: 80vh;
-}
-
 .carousel-caption {
     bottom: 50%;
     color: #fff;
 }
 
 #intro > .container-fluid {
-    /*padding: 6em 0 4em;*/
-    padding: 4rem 0 2rem;
+    padding: 6rem 0 4rem;
     background: #3E5151;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #DECBA4, #3E5151);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
