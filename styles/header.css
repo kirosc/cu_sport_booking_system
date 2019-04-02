@@ -125,6 +125,10 @@ nav {
     #current:hover {
         color: #fff !important;
     }
+
+    .nav-link {
+        padding: .2rem 2rem;
+    }
 }
 
 @media (min-width: 400px) {
@@ -137,9 +141,7 @@ nav {
     z-index: 1;
 }
 
-.nav-link {
-    padding: .2rem 2rem;
-}
+
 
 .inline-icons {
     font-size: inherit;

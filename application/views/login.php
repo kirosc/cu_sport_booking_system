@@ -1,6 +1,6 @@
 <div class="container-login100">
     <div class="wrap-login100">
-        <form class="login100-form validate-form" action='<?php echo $page_url; ?>login/login_check' method='post'>
+        <form class="login100-form validate-form" id="login-form" action='<?php echo $page_url; ?>login/login_check' method='post'>
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>
@@ -20,12 +20,9 @@
             <div class="container-login100-form-btn">
                 <div class="wrap-login100-form-btn">
                     <div class="login100-form-bgbtn"></div>
-                    <button class="login100-form-btn">
+                    <button class="login100-form-btn" form="login-form">
                         Login
                     </button>
-                    <div class="login100-form-bgbtn">
-                        <input type="submit" value="">
-                    </div>
                 </div>
             </div>
 
