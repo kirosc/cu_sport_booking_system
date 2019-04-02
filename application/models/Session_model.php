@@ -1,23 +1,25 @@
 <?php
-/** 
- * 
+/**
+ *
  */
 class Session_model extends CI_Model
 {
     //Attribute
     public $session_id;     //Primary Key
     public $name;
-    public $datetime;
-    public $location;
+    public $start_time;
+    public $end_time;
+    public $location_id;
 
     //Function
     //New Session (New Entry)
-    public function new_session($name, $datetime, $location)
+    public function new_session($name, $start_time, $end_time, $location_id)
     {
         //session_id will be generated automatically
-        $this->$name = $name;
-        $this->$datetime = $datetime;
-        $this->$location = $location;
+        $this->name = $name;
+        $this->start_time = $start_time;
+        $this->end_time = $end_time;
+        $this->location_id = $location_id;
 
         $this->db->insert('session', $this);
     }
