@@ -72,7 +72,7 @@ class Course extends SBooking_Controller
     $data = $this->getHeaderData();
 
     $data['facilities'] = $this->Facility_model->facilitySearch();
-    $data['sessions'] = $this->Session_model->get_session();
+    $data['sessions'] = $this->Session_model->get_available_session();
     $data['categories'] = $this->Category_model->getCategory();
     $data['levels'] = $this->Level_model->getLevel();
 
@@ -84,11 +84,17 @@ class Course extends SBooking_Controller
   public function check_add_course()
   {
     $this->load->model('Course_model');
+    $this->load->model('Session_model');
+    $this->load->model('Reserve_model');
 
     $this->setNav('course');
     $data = $this->getHeaderData();
 
-    $this->Course_model->new_course($_POST["course_title"], $_POST["start_time"], $_POST["end_time"], $_POST["category"], $_POST["facility"], $_POST["price"], $_POST["seat"], $_POST["description"], $_POST["level"], $_SESSION["email"]);
+    $this->Reserve_model->new_reserve($_SESSION['email'], $_POST['session']);
+    $start = $this->Session_model->get_start_time($_POST['session']);
+    $end = $this->Session_model->get_end_time($_POST['session']);
+    $this->Course_model->new_course($_POST["course_title"], $start, $end, $_POST["category"], $_POST["facility"], $_POST["price"], $_POST["seat"], $_POST["description"], $_POST["level"], $_SESSION["email"]);
+
     $this->load->view('header', $data);
     $this->load->view('course_add_success', $data);
     $this->load->view('footer');
