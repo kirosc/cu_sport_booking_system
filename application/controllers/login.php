@@ -82,8 +82,10 @@ class Login extends SBooking_Controller{
 
     $this->setTitle("Login Checking");
 
-
+    $this->loadCSS('login_result.css');
+    $data = $this->getHeaderData();
     if ($sql_query[0]->count == 0) {
+
       $this->load->view('header', $data);
       $this->load->view('login_failure');
     }else {
@@ -107,13 +109,10 @@ class Login extends SBooking_Controller{
         $user_data['usertype'] = 'admin';
       }
       $this->session->set_userdata($user_data);
-
-      $this->loadCSS('login_success.css');
-      $data = $this->getHeaderData();
-
       $this->load->view('header', $data);
       $this->load->view('login_success');
     }
+
     $this->load->view('footer');
   }
 
