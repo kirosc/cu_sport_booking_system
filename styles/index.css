@@ -1,20 +1,26 @@
 .wrapper {
     height: 100vh;
     display: flex;
-    padding: 50px;
     flex-direction: row;
 }
 
-.slide-show-container {
-    height: 90vh;
-    width: 50vw;
+#banner {
+    position: relative;
+    margin: 0 -15px;
 }
 
-.slide-show {
-
+#banner-overlay {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    z-index: 99;
 }
 
-.slide-show img {
-    width: 50vw;
-    height: 60vh;
+.carousel-inner {
+    height: 80vh;
+}
+
+.carousel-caption {
+    bottom: 50%;
+    color: #fff;
 }
