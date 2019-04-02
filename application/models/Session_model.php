@@ -42,12 +42,22 @@ class Session_model extends CI_Model
         $this->db->delete('session');
     }
 
-    public function get_session()
+    public function get_available_session()
     {
       $this->db->select('*');
-      $query = $this->db->get('session');
+      $this->db->from('session');
+      $this->db->join('reserve', 'session.session_id = reserve.session_id', 'left');
+      $query = $this->db->get();
 
-      return $query->result();
+      $allsession = $query->result();
+      $available = array();
+
+      foreach ($allsession as $session) {
+        if ($session->email == NULL) {
+          array_push($available, $session);
+        }
+      }
+      return $available;
     }
 
     //Get Name
