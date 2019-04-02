@@ -58,6 +58,7 @@ $route['course/id/:num'] = 'course/detail';
 $route['course/add_course'] = 'course/add_course_page';
 $route['course/id/:num/apply'] = 'course/apply_check';
 $route['facility'] = 'facility/facility_main';
+$route['facility/book_facility'] = 'facility/book_facility';
 $route['session_share'] = 'session_share/session_share_main';
 
 $route['login'] = 'login/login_main';
