@@ -34,50 +34,49 @@
         </button>
 
 
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <?php
-              if ($nav == 'home') {
-                echo "<li class='nav-item active'>
+                <?php
+                if ($nav == 'home') {
+                    echo "<li class='nav-item active'>
                     <a class='nav-link' href='<?php echo base_url(); ?>' id='current'>Home <span class='sr-only'>(current)</span></a>
                     </li>";
-              }else{
-                echo "<li class='nav-item'>
-                    <a class='nav-link' href='".base_url()."'>Home</a>
+                } else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='" . base_url() . "'>Home</a>
                     </li>";
-              }
+                }
 
-              if ($nav == 'course') {
-                echo "<li class='nav-item active'>
-                    <a class='nav-link' href='".$page_url."course' id='current'>Course <span class='sr-only'>(current)</span></a>
+                if ($nav == 'course') {
+                    echo "<li class='nav-item active'>
+                    <a class='nav-link' href='" . $page_url . "course' id='current'>Course <span class='sr-only'>(current)</span></a>
                     </li>";
-              }else{
-                echo "<li class='nav-item'>
-                    <a class='nav-link' href='".$page_url."course'>Course</a>
+                } else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='" . $page_url . "course'>Course</a>
                     </li>";
-              }
+                }
 
-              if ($nav == 'facility') {
-                echo "<li class='nav-item active'>
-                    <a class='nav-link' href='".$page_url."facility' id='current'>Facility <span class='sr-only'>(current)</span></a>
+                if ($nav == 'facility') {
+                    echo "<li class='nav-item active'>
+                    <a class='nav-link' href='" . $page_url . "facility' id='current'>Facility <span class='sr-only'>(current)</span></a>
                     </li>";
-              }else{
-                echo "<li class='nav-item'>
-                    <a class='nav-link' href='".$page_url."facility'>Facility</a>
+                } else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='" . $page_url . "facility'>Facility</a>
                     </li>";
-              }
+                }
 
-              if ($nav == 'session_share') {
-                echo "<li class='nav-item active'>
-                    <a class='nav-link' href='".$page_url."session_share' id='current'>Session Share <span class='sr-only'>(current)</span></a>
+                if ($nav == 'session_share') {
+                    echo "<li class='nav-item active'>
+                    <a class='nav-link' href='" . $page_url . "session_share' id='current'>Session Share <span class='sr-only'>(current)</span></a>
                     </li>";
-              }else{
-                echo "<li class='nav-item'>
-                    <a class='nav-link' href='".$page_url."session_share'>Session Share</a>
+                } else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='" . $page_url . "session_share'>Session Share</a>
                     </li>";
-              }
-              ?>
+                }
+                ?>
             </ul>
             <ul class="navbar-nav mr-2">
                 <?php
@@ -91,14 +90,21 @@
                                 <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">
                                 <a class=\"dropdown-item\" href=\"#\">Profile</a>
                                 <div class=\"dropdown-divider\"></div>
-                                <a class=\"dropdown-item\" href='" . $page_url . "login/logout'>Logout</a>
+                                <a class=\"dropdown-item align-text-bottom\" href='" . $page_url . "login/logout'>
+                                    Logout
+                                    <span class='span-icon'><i class=\"material-icons inline-icons\">exit_to_app</i></span>
+                                </a>
+
                     </div>
                 </li>
                         ";
                 } else {
                     echo "
                         <li class=\"nav-item\">
-                            <a class=\"nav-link\"  href='" . $page_url . "login/login_main'>Login</a>
+                            <a class=\"nav-link\"  href='" . $page_url . "login/login_main'>
+                                Login
+                                <span class='span-icon'><i class=\"material-icons inline-icons\">exit_to_app</i></span>
+                            </a>
                         </li>
                         ";
                 }

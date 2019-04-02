@@ -136,3 +136,15 @@ nav {
 .navbar {
     z-index: 1;
 }
+
+.nav-link {
+    padding: .2rem 2rem;
+}
+
+.inline-icons {
+    font-size: inherit;
+}
+
+.span-icon {
+    vertical-align: middle;
+}
