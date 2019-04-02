@@ -59,11 +59,11 @@
 
                 if ($nav == 'facility') {
                     echo "<li class='nav-item active'>
-                    <a class='nav-link' href='" . $page_url . "facility' id='current'>Facility <span class='sr-only'>(current)</span></a>
+                    <a class='nav-link' href='" . $page_url . "facility' id='current'>Book Court <span class='sr-only'>(current)</span></a>
                     </li>";
                 } else {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='" . $page_url . "facility'>Facility</a>
+                    <a class='nav-link' href='" . $page_url . "facility'>Book Court</a>
                     </li>";
                 }
 

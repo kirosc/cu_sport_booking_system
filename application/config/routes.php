@@ -60,6 +60,7 @@ $route['course/id/:num/apply'] = 'course/apply_check';
 $route['facility'] = 'facility/facility_main';
 $route['facility/book_facility'] = 'facility/book_facility';
 $route['session_share'] = 'session_share/session_share_main';
+$route['session_share/id/:num'] = 'session_share/detail';
 
 $route['login'] = 'login/login_main';
 $route['register'] = 'login/register_main';

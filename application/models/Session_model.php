@@ -71,13 +71,22 @@ class Session_model extends CI_Model
     }
 
     //Get DateTime
-    public function get_datetime($session_id)
+    public function get_start_time($session_id)
     {
-        $this->db->select('datetime');
+        $this->db->select('start_time');
         $this->db->where('session_id', $session_id);
         $query = $this->db->get('session');
 
-        return $query->result();
+        return $query->result()[0];
+    }
+
+    public function get_end_time($session_id)
+    {
+        $this->db->select('end_time');
+        $this->db->where('session_id', $session_id);
+        $query = $this->db->get('session');
+
+        return $query->result()[0];
     }
 
     //Get Location

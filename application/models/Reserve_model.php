@@ -10,7 +10,7 @@ class Reserve_model extends CI_Model
     public $payment_method;
 
 
-    public function newReserve($email, $session_id, $payment_method='Credit Card')
+    public function new_reserve($email, $session_id, $payment_method='Credit Card')
     {
         $this->email = $email;
         $this->session_id = $session_id;
