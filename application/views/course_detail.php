@@ -37,9 +37,20 @@
                     </p>
                     <p>
                         <i style="margin-right: 5px;" class="fa fa-users" aria-hidden="true"></i>
-                        <span>Available Seats: <?php echo $course->available_seats; ?></span>
+                        <span>Available Seats: <?php echo $seat_remain." / ".$course->available_seats; ?></span>
                     </p>
-                    <a href="" class="btn cu-btn btn-danger">Book Now</a>
+                    <?php
+                      if ($seat_remain == 0){
+                        echo '<p>FULL</p>';
+                      }else {
+                        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == TRUE) {
+                          echo "<a href='".$page_url."course/id/".$course->course_id."/apply' class='btn cu-btn btn-danger'>Book Now</a>";
+                        }else{
+                          echo "<a href='".$page_url."login/login_main' class='btn cu-btn btn-danger'>Login to Book</a>";
+                        }
+
+                      }
+                    ?>
                 </div>
                 <div class="info-block mb-3">
                     <h4 class="title">

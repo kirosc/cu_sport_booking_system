@@ -39,7 +39,7 @@
                 <?php
                 if ($nav == 'home') {
                     echo "<li class='nav-item active'>
-                    <a class='nav-link' href='<?php echo base_url(); ?>' id='current'>Home <span class='sr-only'>(current)</span></a>
+                    <a class='nav-link' href='".base_url()."' id='current'>Home <span class='sr-only'>(current)</span></a>
                     </li>";
                 } else {
                     echo "<li class='nav-item'>

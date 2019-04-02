@@ -4,7 +4,9 @@
           <a href="<?php echo $page_url?>course/add_course" class="btn cu-btn">Add Course</a>
         <?php } ?>
 
-        <?php foreach ($courses as $course) : ?>
+        <?php
+        $count = 0;
+        foreach ($courses as $course) : ?>
             <div class="course row">
                 <div class="course-info col-md-9">
                     <div class="course-info">
@@ -59,7 +61,14 @@
                                     <span>Available Seats</span>
                                 </th>
                                 <td>
-                                    <?php echo $course->available_seats; ?>
+                                    <?php
+                                      if ($seat_remain[$count] == 0) {
+                                        echo 'FULL /';
+                                      }else {
+                                        echo $seat_remain[$count]." remaining /";
+                                      }
+                                    ?>
+                                    <?php echo $course->available_seats." total"; ?>
                                 </td>
                             </tr>
                             </tbody>
@@ -68,6 +77,8 @@
                 </div>
             </div>
 
-        <?php endforeach; ?>
+        <?php
+          $count = $count + 1;
+          endforeach; ?>
     </section>
 </div>

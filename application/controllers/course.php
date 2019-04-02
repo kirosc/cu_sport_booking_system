@@ -8,6 +8,7 @@ class Course extends SBooking_Controller
   public function course_main()
   {
     $this->load->model('Course_model');
+    $this->load->model('Participate_model');
 
     $this->setTitle('Course');
     $this->setNav('course');
@@ -21,6 +22,15 @@ class Course extends SBooking_Controller
     $data = $this->getHeaderData();
 
     $data['courses'] = $this->Course_model->courseSearch();
+    $data['seat_remain'] = array();
+    foreach ($data['courses'] as $course) {
+      $seat_remain = $course->available_seats - $this->Participate_model->countParticipateByCourseID($course->course_id);
+      array_push(
+        $data['seat_remain'],
+        $seat_remain
+      );
+    }
+
     $data['detail_url'] = $data['page_url'] . 'course/id/';
 
     $this->load->view('header', $data);
@@ -33,6 +43,7 @@ class Course extends SBooking_Controller
   {
     $this->load->model('Course_model');
     $this->load->model('Facility_model');
+    $this->load->model('Participate_model');
 
     $this->setNav('course');
 
@@ -42,6 +53,8 @@ class Course extends SBooking_Controller
 
     $data['course'] = $this->Course_model->getCourseById($course_id);
     $data['facility'] = $this->Facility_model->facilitySearchById($course_id);
+    $data['seat_remain'] = $data['course']->available_seats - $this->Participate_model->countParticipateByCourseID($data['course']->course_id);
+
     $this->setTitle('Course');
     $this->load->view('header', $data);
     $this->load->view('course_detail', $data);
@@ -73,10 +86,24 @@ class Course extends SBooking_Controller
 
     $this->setNav('course');
     $data = $this->getHeaderData();
-    
+
     $this->Course_model->new_course($_POST["course_title"], $_POST["start_time"], $_POST["end_time"], $_POST["category"], $_POST["facility"], $_POST["price"], $_POST["seat"], $_POST["description"], $_POST["level"], $_SESSION["email"]);
     $this->load->view('header', $data);
     $this->load->view('course_add_success', $data);
+    $this->load->view('footer');
+  }
+
+  public function apply_check()
+  {
+    $this->load->model('Participate_model');
+
+    $this->setNav('course');
+    $data = $this->getHeaderData();
+
+    $course_id = $this->uri->segment(3);
+    $this->Participate_model->newParticipate($_SESSION['email'], $course_id);
+    $this->load->view('header', $data);
+
     $this->load->view('footer');
   }
 }
