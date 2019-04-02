@@ -1,7 +1,11 @@
 .wrapper {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
+}
+
+.container-fluid {
+    padding: 0;
 }
 
 #banner {
@@ -23,4 +27,12 @@
 .carousel-caption {
     bottom: 50%;
     color: #fff;
+}
+
+#intro > .container-fluid {
+    /*padding: 6em 0 4em;*/
+    padding: 4rem 0 2rem;
+    background: #3E5151;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #DECBA4, #3E5151);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
