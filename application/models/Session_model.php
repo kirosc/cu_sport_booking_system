@@ -6,30 +6,29 @@ class Session_model extends CI_Model
 {
     //Attribute
     public $session_id;     //Primary Key
-    public $name;
     public $start_time;
     public $end_time;
-    public $location_id;
+    public $venue_id;
 
     //Function
     //New Session (New Entry)
-    public function new_session($name, $start_time, $end_time, $location_id)
+    public function new_session($name, $start_time, $end_time, $venue_id)
     {
         //session_id will be generated automatically
         $this->name = $name;
         $this->start_time = $start_time;
         $this->end_time = $end_time;
-        $this->location_id = $location_id;
+        $this->venue_id = $venue_id;
 
         $this->db->insert('session', $this);
     }
 
     //Update Session (Update Entry)
-    public function update_session($session_id, $name, $datetime, $location)
+    public function update_session($session_id, $name, $datetime, $venue_id)
     {
-        $this->$name = $name;
-        $this->$datetime = $datetime;
-        $this->$location = $location;
+        $this->name = $name;
+        $this->datetime = $datetime;
+        $this->venue_id = $venue_id;
 
         $this->db->where('session_id', $session_id);
         $this->db->update('session', $this);

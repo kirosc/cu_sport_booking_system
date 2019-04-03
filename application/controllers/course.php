@@ -24,7 +24,7 @@ class Course extends SBooking_Controller
     $data['courses'] = $this->Course_model->courseSearch();
     $data['seat_remain'] = array();
     foreach ($data['courses'] as $course) {
-      $seat_remain = $course->available_seats - $this->Participate_model->countParticipateByCourseID($course->course_id);
+      $seat_remain = $course->seats - $this->Participate_model->countParticipateByCourseID($course->course_id);
       array_push(
         $data['seat_remain'],
         $seat_remain
@@ -42,7 +42,6 @@ class Course extends SBooking_Controller
   public function detail()
   {
     $this->load->model('Course_model');
-    $this->load->model('Facility_model');
     $this->load->model('Participate_model');
 
     $this->setNav('course');
@@ -51,9 +50,8 @@ class Course extends SBooking_Controller
     $data = $this->getHeaderData();
     $course_id = $this->uri->segment(3);
 
-    $data['course'] = $this->Course_model->getCourseById($course_id);
-    $data['facility'] = $this->Facility_model->facilitySearchById($course_id);
-    $data['seat_remain'] = $data['course']->available_seats - $this->Participate_model->countParticipateByCourseID($data['course']->course_id);
+    $data['course'] = $this->Course_model->get_course_detail_by_courseid($course_id);
+    $data['seat_remain'] = $data['course']->seats - $this->Participate_model->countParticipateByCourseID($course_id);
 
     $this->setTitle('Course');
     $this->load->view('header', $data);
@@ -63,17 +61,19 @@ class Course extends SBooking_Controller
 
   public function add_course_page()
   {
-    $this->load->model('Facility_model');
-    $this->load->model('Category_model');
+    $this->load->model('College_model');
+    $this->load->model('Sports_model');
+    $this->load->model('Venue_model');
     $this->load->model('Level_model');
     $this->load->model('Session_model');
 
     $this->setNav('course');
     $data = $this->getHeaderData();
 
-    $data['facilities'] = $this->Facility_model->facilitySearch();
+    $data['colleges'] = $this->College_model->college_search();
+    $data['sports'] = $this->Sports_model->get_sports();
+    $data['venues'] = $this->Venue_model->venue_search();
     $data['sessions'] = $this->Session_model->get_available_session();
-    $data['categories'] = $this->Category_model->getCategory();
     $data['levels'] = $this->Level_model->getLevel();
 
     $this->load->view('header', $data);

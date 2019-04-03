@@ -3,11 +3,11 @@
         <div class="row mt-3">
             <div class="col-md-8">
                 <div class="course-title info-block mb-3">
-                    <h4><?php echo $course->name; ?></h4>
+                    <h4><?php echo $course->course_name; ?></h4>
                     <p>
-                        Feature Tags:
+                        Level:
                         <i>
-                            <?php echo $course->category . ', ' . $course->level; ?>
+                            <?php echo $course->level; ?>
                         </i>
                     </p>
                 </div>
@@ -37,7 +37,7 @@
                     </p>
                     <p>
                         <i style="margin-right: 5px;" class="fa fa-users" aria-hidden="true"></i>
-                        <span>Available Seats: <?php echo $seat_remain." / ".$course->available_seats; ?></span>
+                        <span>Available Seats: <?php echo $seat_remain." / ".$course->seats; ?></span>
                     </p>
                     <?php
                       if ($seat_remain == 0){
@@ -61,7 +61,7 @@
                         <div class="coach-container float-left mr-3">
                             <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
                                  class="rounded" alt="profile pic">
-                            <a href="javascript:void(0)" class="text-center mt-2"><?php echo $course->last_name." ".$course->first_name; ?></a>
+                            <a href="javascript:void(0)" class="text-center mt-2"><?php echo $course->coach; ?></a>
                         </div>
                     </div>
                 </div>
@@ -75,14 +75,14 @@
                         </h4>
                         <p>
                             <a href="">
-                                <?php echo $course->last_name." ".$course->first_name; ?>
+                                <?php echo $course->coach; ?>
                             </a>
                         </p>
                     </div>
                 </div>
 
                 <div class="card info-block mb-3" id="venue-preview">
-                    <img src="<?php echo base_url() . 'images/facility/' . $facility->photo; ?>" class="card-img-top"
+                    <img src="<?php echo base_url() . 'images/facility/' . $course->college_image; ?>" class="card-img-top"
                          alt="Venue image">
                     <div class="card-body">
                         <h4 class="title">
@@ -91,7 +91,7 @@
                         </h4>
                         <p>
                             <a href="">
-                                <?php echo $course->location; ?>
+                                <?php echo $course->college." - ".$course->venue; ?>
                             </a>
                         </p>
                     </div>

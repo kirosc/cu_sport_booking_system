@@ -2,25 +2,34 @@
     Course Title:<br>
     <input type="text" name="course_title"><br>
 
-    Select Facility:<br>
-    <select name="facility">
-      <?php foreach ($facilities as $facility) : ?>
-        <option value="<?php echo $facility->location_id; ?>"><?php echo $facility->name; ?></option>
-      <?php endforeach; ?>
-    </select><br><br>
-
-    //here is base on the chosen facility shown related session<br>
-    Select Session:<br>
-    <select name="session">
-      <?php foreach ($sessions as $session) : ?>
-        <option value="<?php echo $session->session_id; ?>"><?php echo $session->name." Court   ".$session->start_time." - ".$session->end_time."   ".$session->location_id." //this is location_id"; ?></option>
+    Select College:<br>
+    <select name="college">
+      <?php foreach ($colleges as $college) : ?>
+        <option value="<?php echo $college->college_id; ?>"><?php echo $college->name; ?></option>
       <?php endforeach; ?>
     </select><br>
 
-    Category:<br>
-    <select name="category">
-      <?php foreach ($categories as $category) : ?>
-        <option value="<?php echo $category->category_id; ?>"><?php echo $category->description; ?></option>
+    Select Sport:<br>
+    <select name="sport">
+      <?php foreach ($sports as $sport) : ?>
+        <option value="<?php echo $sport->sports_id; ?>"><?php echo $sport->name; ?></option>
+      <?php endforeach; ?>
+    </select><br>
+
+
+    <br>//here is base on the chosen college and sport shown related venue<br>
+    Select Venue:<br>
+    <select name="venue">
+      <?php foreach ($venues as $venue) : ?>
+        <option value="<?php echo $venue->venue_id; ?>"><?php echo $venue->venue; ?></option>
+      <?php endforeach; ?>
+    </select><br>
+
+    <br>//here is base on the chosen venue shown related session<br>
+    Select Session:<br>
+    <select name="session">
+      <?php foreach ($sessions as $session) : ?>
+        <option value="<?php echo $session->session_id; ?>"><?php echo $session->start_time." - ".$session->end_time; ?></option>
       <?php endforeach; ?>
     </select><br>
 

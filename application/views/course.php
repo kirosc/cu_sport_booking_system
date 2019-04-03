@@ -35,7 +35,7 @@
                                     <span>Location</span>
                                 </th>
                                 <td>
-                                    <?php echo $course->location_name; ?></td>
+                                    <?php echo $course->college." - ".$course->venue; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -74,7 +74,7 @@
                                         echo $seat_remain[$count] . " remaining /";
                                     }
                                     ?>
-                                    <?php echo $course->available_seats . " total"; ?>
+                                    <?php echo $course->seats . " total"; ?>
                                 </td>
                             </tr>
                             </tbody>
