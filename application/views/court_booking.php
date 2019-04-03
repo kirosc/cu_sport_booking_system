@@ -1,4 +1,4 @@
-<form action='<?php echo $page_url; ?>facility/check_booking' method='post'>
+<form action='<?php echo $page_url; ?>court_booking/check_booking' method='post'>
 
     Select College:<br>
     <select name="college">
@@ -44,3 +44,5 @@
 
     <input type="submit">
 </form>
+
+<a href="<?php echo $page_url; ?>court_booking/test">test</a>

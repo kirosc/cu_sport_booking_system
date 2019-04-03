@@ -18,6 +18,7 @@ class Court_booking extends SBooking_Controller
     $data['sports'] = $this->Sports_model->get_sports();
     $data['venues'] = $this->Venue_model->venue_search();
     $data['sessions'] = $this->Session_model->get_available_session();
+    $data['json'] = json_encode($this->json_formatter($data['sessions']));
 
     $this->load->view('header', $data);
     $this->load->view('court_booking', $data);
@@ -47,6 +48,36 @@ class Court_booking extends SBooking_Controller
     $this->load->view('header', $data);
 
     $this->load->view('footer');
+  }
+
+  public function json_formatter($sessions)
+  {
+    $array = array();
+    $venue_id = array();
+    $data = array();
+    foreach ($sessions as $session) {
+      $data['venue_id'] = $session->venue_id;
+      $data['date'] = substr($session->start_time, 0, 10);
+      $data['availableTimeSlot'] = array();
+      $availableTimeSlot = (int)substr($session->start_time, 11, 2) - 8;
+
+      if (in_array($data['venue_id'], $venue_id)) {
+        for ($i=0; $i < count($array); $i++) {
+          if ($array[$i]['venue_id'] == $data['venue_id'] && $array[$i]['date'] == $data['date']) {
+            array_push($array[$i]['availableTimeSlot'], $availableTimeSlot);
+          }
+        }
+      }else{
+        array_push($data['availableTimeSlot'], $availableTimeSlot);
+        array_push($venue_id, $data['venue_id']);
+        array_push($array, $data);
+
+      }
+      unset($data['availableTimeSlot']);
+    }
+
+
+    return $array;
   }
 }
 
