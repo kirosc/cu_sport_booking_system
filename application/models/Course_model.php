@@ -69,6 +69,7 @@ class Course_model extends CI_Model
         course.name AS course_name,
         course.start_time AS start_time,
         course.end_time AS end_time,
+        college.name AS college,
         venue.name AS venue,
         course.price AS price,
         course.available_seats AS seats,
@@ -76,6 +77,7 @@ class Course_model extends CI_Model
         course.image AS course_image');
       $this->db->from('course');
       $this->db->join('venue', 'venue.venue_id = course.venue_id');
+      $this->db->join('college', 'college.college_id = venue.college_id');
       $query = $this->db->get();
 
       return $query->result();
