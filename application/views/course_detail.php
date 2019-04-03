@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="card info-block mb-3" id="venue-preview">
-                    <img src="<?php echo base_url() . 'images/facility/' . $course->college_image; ?>" class="card-img-top"
+                    <img src="<?php echo base_url() . 'images/college/' . $course->college_image; ?>" class="card-img-top"
                          alt="Venue image">
                     <div class="card-body">
                         <h4 class="title">

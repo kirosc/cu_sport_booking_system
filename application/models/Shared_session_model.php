@@ -6,40 +6,34 @@ class Shared_session_model extends CI_Model
 {
     //Attribute
     public $session_id;      //Primary Key
-    public $description;
     public $available_seats;
+    public $description;
 
-
-    public function new_shared_session($session_id, $description, $available_seats)
+    public function new_shared_session($session_id, $available_seats, $description)
     {
       $this->session_id = $session_id;
-      $this->description = $description;
       $this->available_seats = $available_seats;
+      $this->description = $description;
 
       $this->db->insert('shared_session', $this);
     }
 
     public function get_shared_session()
     {
-//       SELECT * FROM `shared_session`
-// JOIN session ON session.session_id = shared_session.session_id
-// JOIN location ON location.location_id = session.location_id
-// JOIN reserve ON shared_session.session_id = reserve.session_id
-// JOIN user ON reserve.email = user.email
-// JOIN student ON student.email = user.email
 
       $this->db->select(
         'shared_session.description AS description,
          shared_session.available_seats AS seats,
-         session.name AS court,
          session.start_time AS start_time,
          session.end_time AS end_time,
-         location.name AS facility,
+         college.name AS college,
+         venue.name AS venue,
          CONCAT(user.first_name,  " ", user.last_name) AS fullname
         ');
       $this->db->from('shared_session');
       $this->db->join('session', 'session.session_id = shared_session.session_id');
-      $this->db->join('location', 'location.location_id = session.location_id');
+      $this->db->join('venue', 'venue.venue_id = session.venue_id');
+      $this->db->join('college', 'college.college_id = venue.college_id');
       $this->db->join('reserve', 'shared_session.session_id = reserve.session_id');
       $this->db->join('user', 'reserve.email = user.email');
       $query = $this->db->get();

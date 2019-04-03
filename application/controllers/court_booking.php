@@ -2,40 +2,25 @@
 /**
  *
  */
-class Facility extends SBooking_Controller
+class Court_booking extends SBooking_Controller
 {
 
-  public function facility_main()
+  public function book_court()
   {
-    // code...
-    $this->load->model('Facility_model');
-
-    $this->setTitle('Facility');
-    $this->setNav('facility');
-
-    $this->loadCSS('facility_listing.css');
-
-    $data = $this->getHeaderData();
-
-    $data['facilities'] = $this->Facility_model->facilitySearch();
-
-    $this->load->view('header', $data);
-    $this->load->view('facility', $data);
-    $this->load->view('footer');
-  }
-
-  public function book_facility()
-  {
-    $this->load->model('Facility_model');
+    $this->load->model('College_model');
+    $this->load->model('Sports_model');
+    $this->load->model('Venue_model');
     $this->load->model('Session_model');
 
     $data = $this->getHeaderData();
 
-    $data['facilities'] = $this->Facility_model->facilitySearch();
+    $data['colleges'] = $this->College_model->college_search();
+    $data['sports'] = $this->Sports_model->get_sports();
+    $data['venues'] = $this->Venue_model->venue_search();
     $data['sessions'] = $this->Session_model->get_available_session();
 
     $this->load->view('header', $data);
-    $this->load->view('facility_booking', $data);
+    $this->load->view('court_booking', $data);
     $this->load->view('footer');
   }
 

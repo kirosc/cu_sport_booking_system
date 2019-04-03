@@ -196,8 +196,9 @@ CREATE TABLE `reserve` (
 --
 
 INSERT INTO `reserve` (`email`, `session_id`, `payment_method`) VALUES
-('mok@testing.com', 1, 'Cash'),
-('mok@testing.com', 2, 'Cash');
+('mok@testing.com', 8, 'Cash'),
+('mok@testing.com', 9, 'Cash'),
+('mok@testing.com', 10, 'Cash');
 
 -- --------------------------------------------------------
 
@@ -258,17 +259,18 @@ INSERT INTO `share` (`email`, `session_id`, `payment_method`) VALUES
 
 CREATE TABLE `shared_session` (
   `session_id` int(10) NOT NULL,
-  `available_seats` int(3) NOT NULL
+  `available_seats` int(3) NOT NULL,
+  `description` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- 資料表的匯出資料 `shared_session`
 --
 
-INSERT INTO `shared_session` (`session_id`, `available_seats`) VALUES
-(8, 2),
-(9, 2),
-(10, 2);
+INSERT INTO `shared_session` (`session_id`, `available_seats`, `description`) VALUES
+(8, 10, "some desciption"),
+(9, 10, "some desciption"),
+(10, 10, "some desciption");
 
 -- --------------------------------------------------------
 
