@@ -12,26 +12,23 @@
         <section id="intro">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col text-center">
-                        <h2>Consectetur adipisicing elit</h2>
-                        <p>Lorem ipsum dolor sit amet adipisicing elit. Delectus consequatur sed tempus.</p>
+                    <div class="col text-center" id="intro-title">
+                        <h2>What You Can Do</h2>
                     </div>
                 </div>
-                <div class="row 200%">
-                    <section class="4u 12u$(small)">
-                        <i class="icon big rounded fa-clock-o"></i>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quam consectetur quibusdam
-                            magni minus aut modi aliquid.</p>
+                <div class="row">
+                    <section class="col-md-4">
+                        <div class="text-center"><i class="material-icons">supervisor_account</i></div>
+                        <p class="text-center">Sign up for any awesome courses host by Physical Education Unit staff</p>
                     </section>
-                    <section class="4u 12u$(small)">
-                        <i class="icon big rounded fa-comments"></i>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ullam consequatur
-                            repellat debitis maxime molestiae.</p>
+                    <section class="col-md-4">
+                        <div class="text-center"><i class="material-icons">today</i></div>
+                        <p class="text-center">Book any available sport facility. Secure your reservation by paying up
+                            front </p>
                     </section>
-                    <section class="4u$ 12u$(small)">
-                        <i class="icon big rounded fa-user"></i>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eaque eveniet, nesciunt
-                            molestias. Ipsam, voluptate vero.</p>
+                    <section class="col-md-4">
+                        <div class="text-center"><i class="material-icons">share</i></div>
+                        <p class="text-center">Share your booking session with your fellow schoolmates/staff</p>
                     </section>
                 </div>
         </section>
