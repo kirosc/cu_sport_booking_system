@@ -82,17 +82,17 @@
                 <?php
                 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
                     echo "
-                            <li class=\"nav-item dropdown\">
-                                <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\"
-                                data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            <li class='nav-item dropdown'>
+                                <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
+                                data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                 {$_SESSION['username']}
                                 </a>
-                                <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">
-                                <a class=\"dropdown-item\" href=\"#\">Profile</a>
-                                <div class=\"dropdown-divider\"></div>
-                                <a class=\"dropdown-item align-text-bottom\" href='" . $page_url . "login/logout'>
+                                <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
+                                <a class='dropdown-item' href='" . $page_url . "profile/" . $_SESSION['username'] . "'>Profile</a>
+                                <div class='dropdown-divider'></div>
+                                <a class='dropdown-item align-text-bottom' href='" . $page_url . "login/logout'>
                                     Logout
-                                    <span class='span-icon'><i class=\"material-icons inline-icons\">exit_to_app</i></span>
+                                    <span class='span-icon'><i class='material-icons inline-icons'>exit_to_app</i></span>
                                 </a>
 
                     </div>
@@ -100,10 +100,10 @@
                         ";
                 } else {
                     echo "
-                        <li class=\"nav-item\">
-                            <a class=\"nav-link\"  href='" . $page_url . "login/login_main'>
+                        <li class='nav-item'>
+                            <a class='nav-link'  href='" . $page_url . "login/login_main'>
                                 Login
-                                <span class='span-icon'><i class=\"material-icons inline-icons\">exit_to_app</i></span>
+                                <span class='span-icon'><i class='material-icons inline-icons'>exit_to_app</i></span>
                             </a>
                         </li>
                         ";
