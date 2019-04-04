@@ -8,8 +8,9 @@ class Venue_model extends CI_Model
     //Attribute
     public $venue_id;
     public $name;
-    public $college_id;
+    public $price;
     public $sports_id;
+    public $college_id;
 
     //Function
     public function venue_search()
