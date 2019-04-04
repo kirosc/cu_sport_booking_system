@@ -1,6 +1,6 @@
 <?php
 /**
- *
+ *test
  */
 class Home extends SBooking_Controller
 {
