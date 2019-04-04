@@ -27,7 +27,7 @@
     Select Session:<br>
     <select name="session">
       <?php foreach ($sessions as $session) : ?>
-        <option value="<?php echo $session->session_id; ?>"><?php echo $session->start_time." - ".$session->end_time; ?></option>
+        <option value="<?php echo $session->session_id; ?>"><?php echo $session->start_time; ?></option>
       <?php endforeach; ?>
     </select><br>
 

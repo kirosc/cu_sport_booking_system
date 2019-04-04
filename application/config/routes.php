@@ -63,3 +63,5 @@ $route['session_share/id/:num'] = 'session_share/detail';
 
 $route['login'] = 'login/login_main';
 $route['register'] = 'login/register_main';
+
+$route['profile/:any'] = 'profile/profile_main';

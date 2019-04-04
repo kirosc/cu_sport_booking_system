@@ -15,7 +15,7 @@
                                 </th>
                                 <td>
                                     <a href="<?php echo $detail_url . $session->session_id; ?>">
-                                        <?php echo $session->facility." - ".$session->court; ?>
+                                        <?php echo $session->college." - ".$session->venue; ?>
                                     </a>
                                 </td>
                             </tr>
@@ -24,7 +24,7 @@
                                     <i class="fa fa-indent" aria-hidden="true"></i>
                                     <span>Host</span>
                                 </th>
-                                <td><?php echo $session->fullname; ?></td>
+                                <td><?php echo $session->user_fullname; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -32,7 +32,14 @@
                                     <span>Session Time</span>
                                 </th>
                                 <td>
-                                    <?php echo $session->start_time . " - " . $session->end_time; ?></td>
+                                    <?php echo $session->start_time ; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="fa fa-indent" aria-hidden="true"></i>
+                                    <span>Sport</span>
+                                </th>
+                                <td><?php echo $session->sport; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -54,7 +61,7 @@
                                         echo $seat_remain[$count] . " remaining /";
                                     }
                                     ?>
-                                    <?php echo $session->available_seats . " total"; ?>
+                                    <?php echo $session->seats . " total"; ?>
                                 </td>
                             </tr>
                             </tbody>
