@@ -150,6 +150,20 @@ nav {
         margin: 0 auto;
     }
 }
+/* Grouping and hiding navbar when using device like iPad Pro or smaller */
+@media (max-width: 1200px) {
+    .collapse:not(.show) {
+        display: none!important;
+    }
+
+    .navbar-expand-lg .navbar-toggler {
+        display: unset;
+    }
+
+    .navbar-expand-lg {
+         justify-content: space-between!important;
+    }
+}
 
 @media (min-width: 400px) {
     .d-400-block {
