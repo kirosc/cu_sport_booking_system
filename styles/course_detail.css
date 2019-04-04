@@ -33,3 +33,18 @@ p {
 #venue-preview {
     padding: 0;
 }
+
+/* Center the modal on mobile */
+@media (max-width: 768px) {
+    #modalMapDialog {
+        display: flex;
+        align-items: center;
+        min-height: calc(100% - 1rem);
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    #modalMapDialog {
+        min-height: calc(100% - 3.5rem);
+    }
+}
