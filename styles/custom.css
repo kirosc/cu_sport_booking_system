@@ -57,7 +57,7 @@ html {
 
 @media (min-width: 768px) {
     html {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .row {
@@ -67,7 +67,7 @@ html {
 
 @media (min-width: 992px) {
     html {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
 }
 
