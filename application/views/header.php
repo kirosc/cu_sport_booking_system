@@ -23,7 +23,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a href="<?php echo base_url(); ?>" class="d-none d-400-block">
-            <img src="<?php echo base_url(); ?>images/logo_64px.png" class="d-inline-block align-top" alt="">
+            <img src="<?php echo base_url(); ?>images/logo_64px.png" class="d-inline-block align-top" alt="" id="nav-icon">
         </a>
         <a class="navbar-brand" href="<?php echo base_url(); ?>">
             <span id="title">CU Sport Booking System</span>
