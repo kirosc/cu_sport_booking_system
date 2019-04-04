@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2019-04-04 10:39:48
+-- 產生時間： 2019-04-04 10:51:42
 -- 伺服器版本: 10.1.21-MariaDB
 -- PHP 版本： 5.6.30
 
@@ -253,29 +253,30 @@ INSERT INTO `shared_session` (`session_id`, `available_seats`, `description`) VA
 
 CREATE TABLE `sports` (
   `sports_id` int(2) NOT NULL,
-  `name` varchar(256) NOT NULL
+  `name` varchar(256) NOT NULL,
+  `share` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- 資料表的匯出資料 `sports`
 --
 
-INSERT INTO `sports` (`sports_id`, `name`) VALUES
-(1, 'Basketball'),
-(2, 'Tennis'),
-(3, 'Table Tennis'),
-(4, 'Badminton'),
-(5, 'Volleyball'),
-(6, 'Track and Field'),
-(7, 'Handball'),
-(8, 'Football'),
-(9, 'Swimming'),
-(10, 'Gymnastics'),
-(11, 'Softball'),
-(12, 'Squash'),
-(13, 'Archery'),
-(14, 'Yoga'),
-(15, 'Tai Chi');
+INSERT INTO `sports` (`sports_id`, `name`, `share`) VALUES
+(1, 'Basketball', 1),
+(2, 'Tennis', 1),
+(3, 'Table Tennis', 1),
+(4, 'Badminton', 1),
+(5, 'Volleyball', 1),
+(6, 'Track and Field', 0),
+(7, 'Handball', 1),
+(8, 'Football', 1),
+(9, 'Swimming', 0),
+(10, 'Gymnastics', 0),
+(11, 'Softball', 1),
+(12, 'Squash', 1),
+(13, 'Archery', 0),
+(14, 'Yoga', 0),
+(15, 'Tai Chi', 0);
 
 -- --------------------------------------------------------
 
