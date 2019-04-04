@@ -138,7 +138,7 @@
     border: unset;
 }
 
-.introduction > * .nav-link, .nav-link:focus {
+.introduction > * .nav-link .nav-link:focus {
     font-size: 1.2rem;
     border: none;
     border-bottom: 4px solid transparent !important;
