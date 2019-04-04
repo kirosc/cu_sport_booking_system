@@ -3,7 +3,7 @@
         <div class="row mt-3">
             <div class="col-md-8">
                 <div class="session-title info-block mb-3">
-                    <h4><?php echo $session->fullname.'s shared session'.; ?></h4>
+                    <h4><?php echo $session->user_fullname.'s shared session'; ?></h4>
                     <p>
                         Sport Type:
                         <i>
@@ -28,10 +28,6 @@
                         <span>Starting Time: <?php echo $session->start_time; ?></span>
                     </p>
                     <p>
-                        <i style="margin-right: 5px;" class="fa fa-calendar" aria-hidden="true"></i>
-                        <span>Ending Time: <?php echo $session->end_time; ?></span>
-                    </p>
-                    <p>
                         <i style="margin-right: 5px;" class="fa fa-users" aria-hidden="true"></i>
                         <span>Available Seats: <?php echo $seat_remain." / ".$session->seats; ?></span>
                     </p>
@@ -48,37 +44,26 @@
                       }
                     ?>
                 </div>
-                <div class="info-block mb-3">
-                    <h4 class="title">
-                        <i class="fa fa-user align-middle" aria-hidden="true"></i>
-                        <span>Host</span>
-                    </h4>
-                    <div class="coach row m-0">
-                        <div class="coach-container float-left mr-3">
-                            <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
-                                 class="rounded" alt="profile pic">
-                            <a href="javascript:void(0)" class="text-center mt-2"><?php echo $session->fullname; ?></a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col-md-4">
                 <div class="card info-block">
                     <div class="card-body">
-                        <h4 class="title">
-                            <i class="fa fa-building-o align-center" aria-hidden="true"></i>
-                            <span>Host</span>
-                        </h4>
-                        <p>
-                            <a href="">
-                                <?php echo $session->fullname; ?>
-                            </a>
-                        </p>
+                      <h4 class="title">
+                          <i class="fa fa-user align-middle" aria-hidden="true"></i>
+                          <span>Host</span>
+                      </h4>
+                      <div class="coach row m-0">
+                          <div class="coach-container float-left mr-3">
+                              <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
+                                   class="rounded" alt="profile pic">
+                              <a href="javascript:void(0)" class="text-center mt-2"><?php echo $session->user_fullname; ?></a>
+                          </div>
+                      </div>
                     </div>
                 </div>
 
                 <div class="card info-block mb-3" id="venue-preview">
-                    <img src="<?php echo base_url() . 'images/facility/' . $session->facility_photo; ?>" class="card-img-top"
+                    <img src="<?php echo base_url() . 'images/college/' . $session->college_image; ?>" class="card-img-top"
                          alt="Venue image">
                     <div class="card-body">
                         <h4 class="title">
@@ -87,7 +72,7 @@
                         </h4>
                         <p>
                             <a href="">
-                                <?php echo $session->facility." - ".$session->court; ?>
+                                <?php echo $session->college." - ".$session->venue; ?>
                             </a>
                         </p>
                     </div>
