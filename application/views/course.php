@@ -1,71 +1,90 @@
-<p>This is the Course page</p>
-<section class="container-fluid">
-<?php foreach($courses as $course) : ?>
-<div class="course row">
+<div class="wrapper">
+    <section class="container-fluid" id="course-tool">
+        <div class="tool row">
+            <div class="tool-container col col-md-12">
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student') { ?>
+                <a href="<?php echo $page_url ?>course/add_course" class="btn btn-info btn-md-block">Add Course</a>
+            <?php } ?>
+            </div>
+        </div>
+    </section>
 
-  <div class="course-info">
-    <div class="course-info col-md-8">
-      <table>
-        <tbody>
-          <tr>
-              <th scope="row">
-                  <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                  <span>Course Title</span>
-              </th>
-              <td>
-                <a href="<?php echo $detail_url . $course->course_id; ?>">
-                  <?php echo $course->course_name; ?>
-                </a>
-              </td>
-          </tr>
-          <tr>
-              <th scope="row">
-                  <i class="fa fa-building-o" aria-hidden="true"></i>
-                  <span>Location</span>
-              </th>
-              <td>
-                  <?php echo $course->location_name; ?></td>
-          </tr>
-          <tr>
-              <th scope="row">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <span>Course Period</span>
-              </th>
-              <td>
-                  <?php echo $course->start_time." - ".$course->end_time; ?></td>
-          </tr>
-          <tr>
-              <th scope="row">
-                  <i class="fa fa-indent" aria-hidden="true"></i>
-                  <span>Description</span>
-              </th>
-              <td><?php echo $course->description; ?></td>
-          </tr>
-          <tr>
-              <th scope="row">
-                  <i class="fa fa-ticket" aria-hidden="true"></i>
-                  <span>Tickets</span>
-              </th>
-              <td>
-                <?php echo "$".$course->price; ?>
-              </td>
-          </tr>
-          <tr>
-              <th scope="row">
-                  <i class="fa fa-users" aria-hidden="true"></i>
-                  <span>Availablie Seats</span>
-              </th>
-              <td>
-                <?php echo $course->available_seats; ?>
-              </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+    <section class="container-fluid" id="course-container">
+        <?php
+        $count = 0;
+        foreach ($courses as $course) : ?>
+            <div class="course row">
+                <div class="course-info col">
+                    <div class="course-info">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                                    <span>Course Title</span>
+                                </th>
+                                <td>
+                                    <a href="<?php echo $detail_url . $course->course_id; ?>">
+                                        <?php echo $course->course_name; ?>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                                    <span>Location</span>
+                                </th>
+                                <td>
+                                    <?php echo $course->college." - ".$course->venue; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    <span>Course Period</span>
+                                </th>
+                                <td>
+                                    <?php echo $course->start_time . " - " . $course->end_time; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="fa fa-indent" aria-hidden="true"></i>
+                                    <span>Description</span>
+                                </th>
+                                <td><?php echo $course->description; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="fa fa-ticket" aria-hidden="true"></i>
+                                    <span>Tickets</span>
+                                </th>
+                                <td>
+                                    <?php echo "$" . $course->price; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                    <span>Available Seats</span>
+                                </th>
+                                <td>
+                                    <?php
+                                    if ($seat_remain[$count] == 0) {
+                                        echo 'FULL /';
+                                    } else {
+                                        echo $seat_remain[$count] . " remaining /";
+                                    }
+                                    ?>
+                                    <?php echo $course->seats . " total"; ?>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <?php
+            $count = $count + 1;
+        endforeach; ?>
+    </section>
 </div>
-<br><br><br>
-
-
-<?php endforeach; ?>
-</section>
