@@ -14,36 +14,35 @@ class User_model extends CI_Model
 
     //Function
     //New User (New Entry)
-    public function new_user($email, $password, $username, $first_name, $last_name, $icon = 'NA')
+    public function new_user($email, $password, $username, $first_name, $last_name, $icon = "NA")
     {
-        $this->$email = $email;
-        $this->$password = $password;
-        $this->$username = $username;
-        $this->$first_name = $first_name;
-        $this->$last_name = $last_name;
-        $this->$icon = $icon;
+        $this->email = $email;
+        $this->password = $password;
+        $this->username = $username;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->icon = $icon;
+        // $data = array(
+        //   'email' => $this->$email,
+        //   'password' => $this->$password,
+        //   'username' => $this->$username,
+        //   'first_name' => $this->$first_name,
+        //   'last_name' => $this->$last_name,
+        //   'icon' => $this->$icon
+        // );
 
-        $data = array(
-          'email' => $this->$email,
-          'password' => $this->$password,
-          'username' => $this->$username,
-          'first_name' => $this->$first_name,
-          'last_name' => $this->$last_name,
-          'icon' => $this->$icon
-        );
-
-        $this->db->insert('user', $data);
+        $this->db->insert('user', $this);
     }
 
     //Warning - User can't change their email
     //Update User (Update Entry)
     public function update_user($email, $password, $username, $first_name, $last_name, $icon)
     {
-        $this->$password = $password;
-        $this->$username = $username;
-        $this->$first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->$icon = $icon;
+        $this->password = $password;
+        $this->username = $username;
+        $this->first_name = $first_name;
+        $this->ast_name = $last_name;
+        $this->icon = $icon;
 
         $this->db->where('email', $email);
         $this->db->update('user', $this);
