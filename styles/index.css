@@ -15,47 +15,48 @@
     background: url(../images/slide-1.jpg) no-repeat bottom center;
     background-size: cover;
     -moz-background-size: cover;
-    padding: 6rem 0 14rem;
+    padding: 4rem 0 24rem;
 }
 
 @media (min-width: 767px) {
     #banner {
-        padding: 2rem 0 12rem;
+        padding: 4rem 0 22rem;
     }
 }
 
 @media (min-width: 991px) {
     #banner {
-        background-position-y: -80px;
-        padding: 4rem 0 18rem;
+        background-position-y: 0px;
+        padding: 3.5rem 0 17rem;
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1055px) {
     #banner {
-        background-position-y: -100px;
-        padding: 4rem 0 18rem;
+        background-position-y: 0px;
+        padding: 2.5rem 0 17rem;
     }
 }
 
-@media (min-width: 1250px) {
+
+@media (min-width: 1280px) {
     #banner {
-        background-position-y: -250px;
-        padding: 4rem 0 18rem;
+        background-position-y: -140px;
+        padding: 2.5rem 0 17rem;
     }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1530px) {
     #banner {
-        background-position-y: -400px;
-        padding: 5rem 0 18rem;
+        background-position-y: -290px;
+        padding: 3.5rem 0 17rem;
     }
 }
 
 @media (min-width: 1820px) {
     #banner {
         background-position-y: -450px;
-        padding: 7rem 0 24rem;
+        padding: 5rem 0 16.5rem;
     }
 }
 
