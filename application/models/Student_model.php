@@ -3,7 +3,7 @@
  *
  */
 require_once(APPPATH . "/models/User_model.php");
-class Student_model extends CI_Model
+class Student_model extends User_model
 {
     //Attribute
     public $email;                  //Primary Key
@@ -14,14 +14,20 @@ class Student_model extends CI_Model
 
     //Function
     //New User & Student (New Entry)
-    public function new_student($email, $interest='NA', $birthday='NA', $phone_no='NA', $self_introduction='NA')
+    public function new_student($email, $password, $username, $first_name, $last_name, $icon, $interest, $birthday, $phone_no, $self_introduction)
     {
-        $this->email = $email;
-        $this->interest = $interest;
-        $this->birthday = $birthday;
-        $this->phone_no = $phone_no;
-        $this->self_introduction = $self_introduction;
+        $this->$email = $email;
+        $this->$password = $password;
+        $this->$username = $username;
+        $this->$first_name = $first_name;
+        $this->$last_name = $last_name;
+        $this->$icon = $icon;
+        $this->$interest = $interest;
+        $this->$birthday = $birthday;
+        $this->$phone_no = $phone_no;
+        $this->$self_introduction = $self_introduction;
 
+        $this->db->insert('user', $User_model);
         $this->db->insert('student', $this);
     }
 
@@ -29,15 +35,15 @@ class Student_model extends CI_Model
     //Update User & Student (Update Entry)
     public function update_admin($email, $password, $username, $first_name, $last_name, $icon, $interest, $birthday, $phone_no, $self_introduction)
     {
-        $this->password = $password;
-        $this->username = $username;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->icon = $icon;
-        $this->interest = $interest;
-        $this->birthday = $birthday;
-        $this->phone_no = $phone_no;
-        $this->self_introduction = $self_introduction;
+        $this->$password = $password;
+        $this->$username = $username;
+        $this->$first_name = $first_name;
+        $this->$last_name = $last_name;
+        $this->$icon = $icon;
+        $this->$interest = $interest;
+        $this->$birthday = $birthday;
+        $this->$phone_no = $phone_no;
+        $this->$self_introduction = $self_introduction;
 
         $this->db->where('email', $email);
         $this->db->update('user', $User_model);

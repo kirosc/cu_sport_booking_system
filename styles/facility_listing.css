@@ -1,15 +1,15 @@
-.row > .facility {
-    padding-right: 1rem;
-    padding-left: 1rem;
+.facility-row {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .facility {
-    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .facility-wrapper {
     height: 100%;
-    padding: 1rem;
+    padding: 2rem;
     background-color: #e9e9e9;
 }
 

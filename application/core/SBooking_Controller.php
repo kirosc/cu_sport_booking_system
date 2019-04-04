@@ -17,7 +17,6 @@ class SBooking_Controller extends CI_Controller
 
     $this->header_data = array(
       'title' => '',
-      'nav' => '',
       'page_url' => $this->page_url,
       'image_url' => $this->image_url,
       'css_file' => array(),
@@ -28,23 +27,17 @@ class SBooking_Controller extends CI_Controller
     $this->loadCSS('style.css');
     $this->loadCSS('libraries/bootstrap.min.css');
     $this->loadCSS('libraries/font-awesome.min.css');
-    $this->loadCSS('custom.css');
     $this->loadCSS('header.css');
     $this->loadCSS('footer.css');
 
-    $this->loadJS('libraries/jquery-3.3.1.min.js');
-    $this->loadJS('libraries/popper.min.js');
+    $this->loadJS('libraries/jquery-3.2.1.min.js');
     $this->loadJS('libraries/bootstrap.min.js');
+
   }
 
   protected function setTitle($title)
   {
     $this->header_data['title'] = $title;
-  }
-
-  protected function setNav($nav)
-  {
-    $this->header_data['nav'] = $nav;
   }
 
   protected function getHeaderData()

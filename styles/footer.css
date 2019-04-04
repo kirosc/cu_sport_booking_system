@@ -1,22 +1,10 @@
-/*footer {*/
-/*position: absolute;*/
-/*bottom: 0;*/
-/*width: 100%;*/
-/*padding: 8px 16px;*/
-/*background: #333 !important;*/
-/*color: #a9a9a9;*/
-/*display: flex;*/
-/*align-items: flex-start;*/
-/*flex-direction: column;*/
-/*}*/
-
 footer {
-    position: relative;
-    clear: both;
-    width: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 8px 16px;
     background: #333 !important;
-    color: #a9a9a9;
+    color: #fff;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -31,11 +19,7 @@ footer {
     margin-right: 16px;
 }
 
-footer a {
-    color: #fff;
-}
-
 a:hover {
-    color: #f64747;
-    text-decoration: underline;
+    color: #e53935;
+    text-decoration: none;
 }

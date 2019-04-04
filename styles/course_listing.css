@@ -8,25 +8,11 @@
     min-width: 16rem;
 }
 
-.toolset {
-}
-
-.tool {
-    position: relative;
-    margin: 0 auto;
-}
-
-.tool {
-    margin: 1rem 5%;
-}
-
 .course {
-    margin: 5rem 5%;
+    position: relative;
+    margin-bottom: 5rem !important;
 }
 
-.course:nth-child(1) {
-    margin: 0 5%;
-}
 
 .course .course-info {
     height: 100%;
@@ -37,6 +23,7 @@
     width: 100%;
     border: none;
     border-radius: 5px;
+    font-size: 1.5rem;
 }
 
 .course .course-info tr > * {
@@ -70,18 +57,4 @@
 
 .course .course-info tr:nth-child(even) {
     background-color: #f6f6f6;
-}
-
-.course-info {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.course-info a {
-    color: #0000b5;
-    font-weight: bold;
-}
-
-.course-info a:hover {
-    text-decoration: underline;
 }
