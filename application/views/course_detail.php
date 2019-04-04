@@ -3,12 +3,14 @@
         <div class="row mt-3">
             <div class="col-md-8">
                 <div class="course-title info-block mb-3">
-                    <h4><?php echo $course->course_name; ?></h4>
+                    <h4 class="title">
+                        <span id="course-name"><?php echo $course->course_name; ?></span>
+                    </h4>
                     <p>
                         Level:
-                        <i>
+                        <span>
                             <?php echo $course->level; ?>
-                        </i>
+                        </span>
                     </p>
                 </div>
                 <div class="info-block mb-3">
@@ -52,6 +54,8 @@
                       }
                     ?>
                 </div>
+            </div>
+            <div class="col-md-4">
                 <div class="info-block mb-3">
                     <h4 class="title">
                         <i class="fa fa-user align-middle" aria-hidden="true"></i>
@@ -60,24 +64,9 @@
                     <div class="coach row m-0">
                         <div class="coach-container float-left mr-3">
                             <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
-                                 class="rounded" alt="profile pic">
+                                 class="img-thumbnail" alt="profile pic">
                             <a href="javascript:void(0)" class="text-center mt-2"><?php echo $course->coach; ?></a>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card info-block">
-                    <div class="card-body">
-                        <h4 class="title">
-                            <i class="fa fa-building-o align-center" aria-hidden="true"></i>
-                            <span>Coach</span>
-                        </h4>
-                        <p>
-                            <a href="">
-                                <?php echo $course->coach; ?>
-                            </a>
-                        </p>
                     </div>
                 </div>
 

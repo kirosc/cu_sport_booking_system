@@ -33,6 +33,12 @@
     overflow-x: auto;
 }
 
+.course .course-info img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .course .course-info table {
     width: 100%;
     border: none;
