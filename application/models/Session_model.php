@@ -7,17 +7,15 @@ class Session_model extends CI_Model
     //Attribute
     public $session_id;     //Primary Key
     public $start_time;
-    public $end_time;
     public $venue_id;
 
     //Function
     //New Session (New Entry)
-    public function new_session($name, $start_time, $end_time, $venue_id)
+    public function new_session($name, $start_time, $venue_id)
     {
         //session_id will be generated automatically
         $this->name = $name;
         $this->start_time = $start_time;
-        $this->end_time = $end_time;
         $this->venue_id = $venue_id;
 
         $this->db->insert('session', $this);
@@ -73,15 +71,6 @@ class Session_model extends CI_Model
     public function get_start_time($session_id)
     {
         $this->db->select('start_time');
-        $this->db->where('session_id', $session_id);
-        $query = $this->db->get('session');
-
-        return $query->result()[0];
-    }
-
-    public function get_end_time($session_id)
-    {
-        $this->db->select('end_time');
         $this->db->where('session_id', $session_id);
         $query = $this->db->get('session');
 
