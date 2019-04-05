@@ -27,20 +27,13 @@ class Student_model extends CI_Model
 
     //Warning - User can't change their email
     //Update User & Student (Update Entry)
-    public function update_admin($email, $password, $username, $first_name, $last_name, $icon, $interest, $birthday, $phone_no, $self_introduction)
+    public function update_student($email, $interest, $birthday, $phone_no, $self_introduction)
     {
-        $this->password = $password;
-        $this->username = $username;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->icon = $icon;
+        $this->email = $email;
         $this->interest = $interest;
         $this->birthday = $birthday;
         $this->phone_no = $phone_no;
         $this->self_introduction = $self_introduction;
-
-        $this->db->where('email', $email);
-        $this->db->update('user', $User_model);
 
         $this->db->where('email', $email);
         $this->db->update('student', $this);

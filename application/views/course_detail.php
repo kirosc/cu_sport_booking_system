@@ -63,9 +63,11 @@
                     </h4>
                     <div class="coach row m-0">
                         <div class="coach-container float-left mr-3">
+                          <a href="<?php echo $page_url."profile/".$course->coach_username;?>" class="text-center mt-2">
                             <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
                                  class="img-thumbnail" alt="profile pic">
-                            <a href="javascript:void(0)" class="text-center mt-2"><?php echo $course->coach; ?></a>
+                            <?php echo $course->coach; ?>
+                          </a>
                         </div>
                     </div>
                 </div>
@@ -80,9 +82,7 @@
                             <span>Venue</span>
                         </h4>
                         <p>
-                            <a href="">
-                                <?php echo $course->college . " - " . $course->venue; ?>
-                            </a>
+                            <?php echo $course->college . " - " . $course->venue; ?>
                         </p>
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalMap">Open
                             Map

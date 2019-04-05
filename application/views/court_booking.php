@@ -44,5 +44,3 @@
 
     <input type="submit">
 </form>
-
-<a href="<?php echo $page_url; ?>court_booking/test">test</a>

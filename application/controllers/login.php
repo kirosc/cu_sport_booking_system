@@ -203,12 +203,9 @@ class Login extends SBooking_Controller{
     unset($_SESSION['user_name'], $_SESSION['email']);
     $data = array('logged_in' => FALSE);
     $this->session->set_userdata($data);
-
-    $data = $this->getHeaderData();
-    $this->setTitle("Logout");
-    $this->load->view('header', $data);
-    $this->load->view('logout');
-    $this->load->view('footer');
+    
+    echo '<script>alert("You Have Successfully Logout!");</script>';
+    redirect('home', 'refresh');
   }
 
   // function verify_email(){

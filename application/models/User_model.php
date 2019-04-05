@@ -13,6 +13,54 @@ class User_model extends CI_Model
     public $icon;
 
     //Function
+    public function get_user_detail($username)
+    {
+      $this->db->select('user.email AS u, coach.email AS c, student.email AS s');
+      $this->db->from('coach');
+      $this->db->join('user', 'user.email = coach.email', 'right');
+      $this->db->join('student', 'user.email = student.email', 'left');
+      $this->db->where('user.username', $username);
+      $query = $this->db->get();
+      $result = $query->result()[0];
+
+      if ($result->s != NULL) {
+        $data['usertype'] = 'student';
+        $this->db->select(
+          "user.username AS username,
+          user.password AS password,
+          user.first_name AS first_name,
+          user.last_name AS last_name,
+          user.icon AS icon,
+          student.interest AS interest,
+          student.birthday AS birthday,
+          student.phone_no AS phone,
+          student.self_introduction AS intro
+          ");
+        $this->db->from('user');
+        $this->db->join('student', 'user.email = student.email');
+        $this->db->where('user.username', $username);
+      }elseif ($result->c != NULL) {
+        $data['usertype'] = 'coach';
+        $this->db->select(
+          "user.username AS username,
+          user.password AS password,
+          CONCAT(user.first_name, ' ', user.last_name) AS user_fullname,
+          user.icon AS icon,
+          coach.self_introduction AS intro,
+          coach.experience AS experience
+          ");
+        $this->db->from('user');
+        $this->db->join('coach', 'user.email = coach.email');
+        $this->db->where('user.username', $username);
+      }
+
+      $fetch = $this->db->get();
+      $data['db'] = $fetch->result()[0];
+      return $data;
+
+    }
+
+
     //New User (New Entry)
     public function new_user($email, $password, $username, $first_name, $last_name, $icon = "NA")
     {
@@ -22,26 +70,18 @@ class User_model extends CI_Model
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->icon = $icon;
-        // $data = array(
-        //   'email' => $this->$email,
-        //   'password' => $this->$password,
-        //   'username' => $this->$username,
-        //   'first_name' => $this->$first_name,
-        //   'last_name' => $this->$last_name,
-        //   'icon' => $this->$icon
-        // );
 
         $this->db->insert('user', $this);
     }
 
-    //Warning - User can't change their email
     //Update User (Update Entry)
     public function update_user($email, $password, $username, $first_name, $last_name, $icon)
     {
+        $this->email = $email;
         $this->password = $password;
         $this->username = $username;
         $this->first_name = $first_name;
-        $this->ast_name = $last_name;
+        $this->last_name = $last_name;
         $this->icon = $icon;
 
         $this->db->where('email', $email);

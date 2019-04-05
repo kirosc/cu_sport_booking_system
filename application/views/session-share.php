@@ -24,7 +24,11 @@
                                     <i class="fa fa-indent" aria-hidden="true"></i>
                                     <span>Host</span>
                                 </th>
-                                <td><?php echo $session->user_fullname; ?></td>
+                                <td>
+                                  <a href="<?php echo $page_url."profile/".$session->host;?>">
+                                    <?php echo $session->user_fullname; ?>
+                                  </a>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
