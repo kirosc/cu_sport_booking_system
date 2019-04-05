@@ -98,3 +98,10 @@ body {
         margin-top: 0.5rem;
     }
 }
+
+/* Make tabel cell fit content */
+.table td.fit,
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
