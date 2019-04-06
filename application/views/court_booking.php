@@ -50,37 +50,49 @@
     <p>
         <?php echo $json; ?>
     </p>
-
+    <form>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="zxc">
+                    <label class="custom-control-label" for="zxc"></label>
+                </div>
+    </form>
     <!--     Bootstrap 4 table below     -->
 
     <div class="m-md-4 m-2">
         <div class="table-responsive-md">
-            <table data-toggle="table" id="table">
-                <thead>
-                <tr>
-                    <th data-col="time"></th>
-                    <th class="text-center" data-col="mon"> (Mon)</th>
-                    <th class="text-center" data-col="tue"> (Tue)</th>
-                    <th class="text-center" data-col="wed"> (Wed)</th>
-                    <th class="text-center" data-col="thu"> (Thu)</th>
-                    <th class="text-center" data-col="fri"> (Fri)</th>
-                    <th class="text-center" data-col="sat"> (Sat)</th>
-                    <th class="text-center" data-col="sun"> (Sun)</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!--                <tr id="tr-id-0" class="tr-class-0" data-row-index="0">-->
-                <!--                    <td class="time-range"></td>-->
-                <!--                    <td class="session bg-danger">Booked</td>-->
-                <!--                    <td class="session">Booked</td>-->
-                <!--                    <td class="session">Booked</td>-->
-                <!--                    <td class="session">Booked</td>-->
-                <!--                    <td class="session">Booked</td>-->
-                <!--                    <td class="session">Booked</td>-->
-                <!--                    <td class="session">Booked</td>-->
-                <!--                </tr>-->
-                </tbody>
-            </table>
+            <form>
+                <table data-toggle="table" id="table">
+                    <thead>
+                    <tr>
+                        <th data-col="time"></th>
+                        <th class="text-center" data-col="mon"> (Mon)</th>
+                        <th class="text-center" data-col="tue"> (Tue)</th>
+                        <th class="text-center" data-col="wed"> (Wed)</th>
+                        <th class="text-center" data-col="thu"> (Thu)</th>
+                        <th class="text-center" data-col="fri"> (Fri)</th>
+                        <th class="text-center" data-col="sat"> (Sat)</th>
+                        <th class="text-center" data-col="sun"> (Sun)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+<!--                    <tr id="tr-id-0" class="tr-class-0" data-row-index="0">-->
+<!--                        <td class="time-range"></td>-->
+<!--                        <td class="session bg-danger">Booked</td>-->
+<!--                        <td class="session">-->
+<!--                            <div class="custom-control custom-checkbox text-center">-->
+<!--                                <input type="checkbox" class="custom-control-input text-center" id="test">-->
+<!--                                <label class="custom-control-label" for="test"></label>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                        <td class="session">Booked</td>-->
+<!--                        <td class="session">Booked</td>-->
+<!--                        <td class="session">Booked</td>-->
+<!--                        <td class="session">Booked</td>-->
+<!--                        <td class="session">Booked</td>-->
+<!--                    </tr>-->
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>
     <script>
