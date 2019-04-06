@@ -1,8 +1,7 @@
 const MON = 0, TUE = 1, WED = 2, THU = 3, FRI = 4, SAT = 5, SUN = 6;
 let startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
-moment(startDay).isoWeekday(1);
 let endDay = moment().set({hour: 23, minute: 59, second: 59, millisecond: 9});
-if (startDay.day() !== SUN - 1) {
+if (startDay.isoWeekday() !== SUN - 1) {
     endDay = moment(endDay).day(SUN + 1);
 }
 console.log(startDay.format("YYYY-MM-DD, h:mm:ss a'"));
@@ -49,14 +48,14 @@ function initializeRow(table) {
 
         lastRow.append('<td class="time-range fit" data-slot-' + i + '>' + timeRange + '</td>');
         for (let j = MON; j <= SUN; j++) {
-            lastRow.append('<td class="session text-center " id="slot-' + j + '-' + i + '">' + '</td>');
+            lastRow.append('<td class="session text-center" id="slot-' + j + '-' + i + '">' + '</td>');
         }
     }
 }
 
 function initializeSession(table) {
     let date = moment();
-    let day = date.day();
+    let day = date.isoWeekday();
     let hours = date.hours();
     console.log(hours);
     let currentSession;
@@ -80,38 +79,47 @@ function initializeSession(table) {
 }
 
 // Get the free time slot from rawJson based on given date and venueID
-function getAvailableTimeSlot(json, date, venueID) {
+function getSessions(json, date, venueID) {
     return json.filter(item => {
-        return item['venue_id'] == venueID && item['date'] == date.format("YYYY-MM-DD");
+        return item['venue_id'] == venueID && item['date'] == date;
     });
 }
 
 // Load all available session to the table
 // SHOULD pass only one date only to the function
-function loadAvailableSession(table, json) {
+function loadDaySession(table, json) {
     if (json.length !== 1) {
         return;
     }
     let loadingDate = moment(json[0]['date']);
-    console.log('day' + loadingDate.day());
-    console.log(loadingDate.format("YYYY-MM-DD, h:mm:ss a'"));
-
-    console.log(json[0]['availableTimeSlot']);
     json[0]['availableTimeSlot'].forEach(function (value) {
-        let session = $('#slot-' + (loadingDate.day() - 1) + '-' + value + ':not(.bg-danger)');
+        let day = loadingDate.isoWeekday() - 1;
+        let session = $('#slot-' + (day) + '-' + value + ':not(.bg-danger)');
+        console.log('#slot-' + (day) + '-' + value + ':not(.bg-danger)');
         if (session.length === 0) {
             return;
         }
-        let checkboxID = 'cb-' + (loadingDate.day() - 1) + '-' + value;
+        let checkboxID = 'cb-' + (day) + '-' + value;
         session.append(
             $('<div class=\"custom-control custom-checkbox text-center\">')
                 .append('<input type="checkbox" class="custom-control-input text-center" id="' + checkboxID + '">' +
                     '<label class="custom-control-label" for="' + checkboxID + '">'
                 )
         );
-        console.log(checkboxID);
-        // session.append();
     });
+}
+
+function loadWeekSession(table, json, venueID) {
+    let loadingDay = startDay.clone();
+    while (true) {
+        console.log('loading: ' + loadingDay.format('YYYY-MM-DD'));
+        let daySessions = getSessions(json, loadingDay.format('YYYY-MM-DD'), venueID);
+        loadDaySession(table, daySessions);
+        if (moment(loadingDay).isSame(endDay, 'date')) {
+            break;
+        }
+        loadingDay.add(1, 'day');
+    }
 }
 
 $(function () {
@@ -124,6 +132,7 @@ $(function () {
     console.log(rawJson);
     let availableDate = moment('2019-04-06', 'YYYY-MM-DD')
     let venueID = 16; // TODO: Get from dropdown menu
-    console.log(getAvailableTimeSlot(rawJson, availableDate, venueID))
-    loadAvailableSession(table, getAvailableTimeSlot(rawJson, availableDate, venueID))
+    // console.log(getSessions(rawJson, availableDate, venueID))
+    // loadDaySession(table, getSessions(rawJson, availableDate, venueID))
+    loadWeekSession(table, rawJson, venueID);
 });
