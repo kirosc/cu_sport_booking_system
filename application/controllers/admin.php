@@ -103,6 +103,7 @@ class Admin extends SBooking_Controller
 
   public function session_handler()
   {
+    echo $currentpage;
     $date = array();
     $time = array();
     for ($i=0; $i < 15; $i++) {

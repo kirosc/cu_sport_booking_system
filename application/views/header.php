@@ -35,7 +35,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <?php if ($_SESSION['usertype'] == 'admin') {
+                <?php
+                if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin') {
                   if ($nav == 'admin_session') {
                     echo "<li class='nav-item active'>
                     <a class='nav-link' href='" . $page_url . "admin/session' id='current'>Session Control <span class='sr-only'>(current)</span></a>
