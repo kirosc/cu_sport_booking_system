@@ -47,7 +47,7 @@
 
 <!--     Bootstrap 4 table below     -->
 
-<div class="m-md-4 m-2">
+<div class="m-md-4 m-2 table-container">
     <div class="table-responsive-md">
         <form>
             <table data-toggle="table" id="table">

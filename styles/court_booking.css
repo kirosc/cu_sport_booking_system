@@ -2,3 +2,11 @@
     /* Checkbox color */
     /*border: #000 solid 1px!important;*/
 }
+
+
+
+@media (min-width: 992px) {
+    .table-container {
+        margin: 1rem 5rem!important;
+    }
+}
