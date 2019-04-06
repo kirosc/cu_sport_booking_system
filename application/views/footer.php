@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="copy-right">
-        &copy; 2019 CU Sport Booking System. All Rights Reserved.
+        &copy; <?php echo date("Y");?> CU Sport Booking System. All Rights Reserved.
     </div>
 </footer>
 

@@ -35,46 +35,78 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <?php
-                if ($nav == 'home') {
+                <?php if ($_SESSION['usertype'] == 'admin') {
+                  if ($nav == 'admin_session') {
                     echo "<li class='nav-item active'>
-                    <a class='nav-link' href='".base_url()."' id='current'>Home <span class='sr-only'>(current)</span></a>
+                    <a class='nav-link' href='" . $page_url . "admin/session' id='current'>Session Control <span class='sr-only'>(current)</span></a>
                     </li>";
-                } else {
+                  }else {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='" . base_url() . "'>Home</a>
+                    <a class='nav-link' href='" . $page_url . "admin/session'>Session Control</a>
                     </li>";
+                  }
+
+                  if ($nav == 'admin_course') {
+                    echo "<li class='nav-item active'>
+                    <a class='nav-link' href='" . $page_url . "admin/course' id='current'>Course Control <span class='sr-only'>(current)</span></a>
+                    </li>";
+                  }else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='" . $page_url . "admin/course'>Course Control</a>
+                    </li>";
+                  }
+
+                  if ($nav == 'admin_user') {
+                    echo "<li class='nav-item active'>
+                    <a class='nav-link' href='" . $page_url . "admin/user' id='current'>User Control <span class='sr-only'>(current)</span></a>
+                    </li>";
+                  }else {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='" . $page_url . "admin/user'>User Control</a>
+                    </li>";
+                  }
+                }else {
+                  if ($nav == 'home') {
+                      echo "<li class='nav-item active'>
+                      <a class='nav-link' href='".base_url()."' id='current'>Home <span class='sr-only'>(current)</span></a>
+                      </li>";
+                  } else {
+                      echo "<li class='nav-item'>
+                      <a class='nav-link' href='" . base_url() . "'>Home</a>
+                      </li>";
+                  }
+
+                  if ($nav == 'course') {
+                      echo "<li class='nav-item active'>
+                      <a class='nav-link' href='" . $page_url . "course' id='current'>Course <span class='sr-only'>(current)</span></a>
+                      </li>";
+                  } else {
+                      echo "<li class='nav-item'>
+                      <a class='nav-link' href='" . $page_url . "course'>Course</a>
+                      </li>";
+                  }
+
+                  if ($nav == 'facility') {
+                      echo "<li class='nav-item active'>
+                      <a class='nav-link' href='" . $page_url . "court_booking' id='current'>Book Court <span class='sr-only'>(current)</span></a>
+                      </li>";
+                  } else {
+                      echo "<li class='nav-item'>
+                      <a class='nav-link' href='" . $page_url . "court_booking'>Book Court</a>
+                      </li>";
+                  }
+
+                  if ($nav == 'session_share') {
+                      echo "<li class='nav-item active'>
+                      <a class='nav-link' href='" . $page_url . "session_share' id='current'>Session Share <span class='sr-only'>(current)</span></a>
+                      </li>";
+                  } else {
+                      echo "<li class='nav-item'>
+                      <a class='nav-link' href='" . $page_url . "session_share'>Session Share</a>
+                      </li>";
+                  }
                 }
 
-                if ($nav == 'course') {
-                    echo "<li class='nav-item active'>
-                    <a class='nav-link' href='" . $page_url . "course' id='current'>Course <span class='sr-only'>(current)</span></a>
-                    </li>";
-                } else {
-                    echo "<li class='nav-item'>
-                    <a class='nav-link' href='" . $page_url . "course'>Course</a>
-                    </li>";
-                }
-
-                if ($nav == 'facility') {
-                    echo "<li class='nav-item active'>
-                    <a class='nav-link' href='" . $page_url . "court_booking' id='current'>Book Court <span class='sr-only'>(current)</span></a>
-                    </li>";
-                } else {
-                    echo "<li class='nav-item'>
-                    <a class='nav-link' href='" . $page_url . "court_booking'>Book Court</a>
-                    </li>";
-                }
-
-                if ($nav == 'session_share') {
-                    echo "<li class='nav-item active'>
-                    <a class='nav-link' href='" . $page_url . "session_share' id='current'>Session Share <span class='sr-only'>(current)</span></a>
-                    </li>";
-                } else {
-                    echo "<li class='nav-item'>
-                    <a class='nav-link' href='" . $page_url . "session_share'>Session Share</a>
-                    </li>";
-                }
                 ?>
             </ul>
             <ul class="navbar-nav mr-2">
@@ -86,17 +118,22 @@
                                 data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                 {$_SESSION['username']}
                                 </a>
-                                <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
-                                <a class='dropdown-item' href='" . $page_url . "profile/" . $_SESSION['username'] . "'>Profile</a>
-                                <div class='dropdown-divider'></div>
+                                <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>";
+
+                                if ($_SESSION['usertype'] != 'admin') {
+                                  echo "<a class='dropdown-item' href='" . $page_url . "profile/" . $_SESSION['username'] . "'>Profile</a>
+                                        <div class='dropdown-divider'></div>";
+                                }
+                    echo "
+
                                 <a class='dropdown-item align-text-bottom' href='" . $page_url . "login/logout'>
                                     Logout
                                     <span class='span-icon'><i class='material-icons inline-icons'>exit_to_app</i></span>
                                 </a>
 
-                    </div>
-                </li>
-                        ";
+                              </div>
+                          </li>";
+
                 } else {
                     echo "
                         <li class='nav-item'>

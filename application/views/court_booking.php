@@ -64,21 +64,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!--                    <tr id="tr-id-0" class="tr-class-0" data-row-index="0">-->
-                <!--                        <td class="time-range"></td>-->
-                <!--                        <td class="session bg-danger">Booked</td>-->
-                <!--                        <td class="session">-->
-                <!--                            <div class="custom-control custom-checkbox text-center">-->
-                <!--                                <input type="checkbox" class="custom-control-input text-center" id="test">-->
-                <!--                                <label class="custom-control-label" for="test"></label>-->
-                <!--                            </div>-->
-                <!--                        </td>-->
-                <!--                        <td class="session">Booked</td>-->
-                <!--                        <td class="session">Booked</td>-->
-                <!--                        <td class="session">Booked</td>-->
-                <!--                        <td class="session">Booked</td>-->
-                <!--                        <td class="session">Booked</td>-->
-                <!--                    </tr>-->
+                    <?php ?>
                 </tbody>
             </table>
         </form>
