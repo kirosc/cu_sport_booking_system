@@ -11,10 +11,9 @@ class Session_model extends CI_Model
 
     //Function
     //New Session (New Entry)
-    public function new_session($name, $start_time, $venue_id)
+    public function new_session($start_time, $venue_id)
     {
         //session_id will be generated automatically
-        $this->name = $name;
         $this->start_time = $start_time;
         $this->venue_id = $venue_id;
 
@@ -37,6 +36,30 @@ class Session_model extends CI_Model
     {
         $this->db->where('session_id', $session_id);
         $this->db->delete('session');
+    }
+
+    public function get_all_session()
+    {
+      $this->db->select('*');
+      $this->db->from('session');
+      $query = $this->db->get();
+
+      $allsession = $query->result();
+      $data = array();
+
+      foreach ($allsession as $session) {
+        $venue_id = $session->venue_id;
+        $date = substr($session->start_time, 0, 10);
+        $hour = substr($session->start_time, 11, 2);
+
+        $j['venue_id'] = $venue_id;
+        $j['date'] = $date;
+        $j['hour'] = $hour;
+
+        array_push($data, $j);
+      }
+
+      return $data;
     }
 
     public function get_available_session()

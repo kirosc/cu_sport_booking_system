@@ -6,20 +6,15 @@
 ?>
 
 <form action='<?php echo $page_url; ?>admin/session_handler' method='post'>
-    Select College:<br>
-    <select name="college">
-        <?php foreach ($colleges as $college) : ?>
-            <option value="<?php echo $college->college_id; ?>"><?php echo $college->name; ?></option>
-        <?php endforeach; ?>
-    </select><br>
 
-    <br>//here is base on the chosen college shown related venue<br>
+
     Select Venue:<br>
     <select name="venue">
         <?php foreach ($venues as $venue) : ?>
             <option value="<?php echo $venue->venue_id; ?>"><?php echo $venue->venue; ?></option>
         <?php endforeach; ?>
     </select><br>
+
 
     <div class="m-md-4 m-2">
         <div class="table-responsive-md">
@@ -34,6 +29,7 @@
                       <th data-col="time"></th>
 
                       <?php
+                        $_SESSION['admin_session_page'] = $currentpage;
                         $ts = date(strtotime('previous monday'));
                         $ts = $ts + $currentpage * 86400 * 7;
                         for ($i=0; $i < 7; $i++):
@@ -59,7 +55,11 @@
                           <?php endif; ?>
 
                           <?php for ($j=0; $j < 7; $j++): ?>
-                            <td><input type="checkbox" name="checkbox-<?php echo $j.$i;?>" value="checked"/></td>
+                            <?php if (in_array($st, $sessions)): ?>
+                              <td></td>
+                            <?php else: ?>
+                              <td><input type="checkbox" name="checkbox-<?php echo $j.$st;?>" value="checked"/></td>
+                            <?php endif; ?>
                           <?php endfor; ?>
 
                         </tr>

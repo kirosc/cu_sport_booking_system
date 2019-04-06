@@ -37,8 +37,7 @@ class Admin extends SBooking_Controller
     $data['colleges'] = $this->College_model->college_search();
     $data['sports'] = $this->Sports_model->get_sports();
     $data['venues'] = $this->Venue_model->venue_search();
-    $data['sessions'] = $this->Session_model->get_available_session();
-    $data['json'] = json_encode($this->json_formatter($data['sessions']));
+    $data['sessions'] = $this->Session_model->get_all_session();
 
     $this->load->view('header', $data);
     $this->load->view('admin_session', $data);
@@ -69,50 +68,34 @@ class Admin extends SBooking_Controller
     $this->load->view('footer');
   }
 
-  public function json_formatter($sessions)
-  {
-    $array = array();
-    $venue_id = array();
-    $data = array();
-    foreach ($sessions as $session) {
-      $test = false;
-      $data['venue_id'] = $session->venue_id;
-      $data['date'] = substr($session->start_time, 0, 10);
-      $data['availableTimeSlot'] = array();
-      $availableTimeSlot = (int)substr($session->start_time, 11, 2) - 8;
-      for ($i=0; $i < count($array); $i++) {
-        if ($array[$i]['venue_id'] == $data['venue_id'] && $array[$i]['date'] == $data['date']) {
-          array_push($array[$i]['availableTimeSlot'], $availableTimeSlot);
-          $test = true;
-          break;
-        }
-      }
-      if ($test != true) {
-        array_push($data['availableTimeSlot'], $availableTimeSlot);
-        array_push($venue_id, $data['venue_id']);
-        array_push($array, $data);
-      }
-
-
-      unset($data['availableTimeSlot']);
-    }
-
-
-    return $array;
-  }
-
   public function session_handler()
   {
-    echo $currentpage;
-    $date = array();
-    $time = array();
-    for ($i=0; $i < 15; $i++) {
+    $this->load->model('Session_model');
+
+    $count = $_SESSION['admin_session_page'];
+    $ts = date(strtotime('previous monday'));
+    $ts = $ts + $count * 86400 * 7;
+
+    for ($i=8; $i < 23; $i++) {
       for ($j=0; $j < 7; $j++) {
         if (isset($_POST['checkbox-'.$j.$i])) {
-          array_push($week, $j.$i);
+          $date = date('Y-m-d', $ts + 86400 * $j);
+          if ($i == 8) {
+            $time = '08:00:00';
+          }elseif ($i == 9) {
+            $time = '09:00:00';
+          }else{
+            $time = $i . ':00:00';
+          }
+
+          $start_time = $date . " " . $time;
+          $this->Session_model->new_session($start_time, $_POST['venue']);
         }
       }
     }
+
+    echo '<script>alert("Session Added!");</script>';
+    redirect('admin/session', 'refresh');
   }
 }
 
