@@ -69,18 +69,24 @@
                 </tr>
                 </thead>
                 <tbody>
-<!--                <tr id="tr-id-0" class="tr-class-0" data-row-index="0">-->
-<!--                    <td class="time-range"></td>-->
-<!--                    <td class="session">Booked</td>-->
-<!--                    <td class="session">Booked</td>-->
-<!--                    <td class="session">Booked</td>-->
-<!--                    <td class="session">Booked</td>-->
-<!--                    <td class="session">Booked</td>-->
-<!--                    <td class="session">Booked</td>-->
-<!--                    <td class="session">Booked</td>-->
-<!--                </tr>-->
+                <!--                <tr id="tr-id-0" class="tr-class-0" data-row-index="0">-->
+                <!--                    <td class="time-range"></td>-->
+                <!--                    <td class="session bg-danger">Booked</td>-->
+                <!--                    <td class="session">Booked</td>-->
+                <!--                    <td class="session">Booked</td>-->
+                <!--                    <td class="session">Booked</td>-->
+                <!--                    <td class="session">Booked</td>-->
+                <!--                    <td class="session">Booked</td>-->
+                <!--                    <td class="session">Booked</td>-->
+                <!--                </tr>-->
                 </tbody>
             </table>
         </div>
     </div>
+    <script>
+        //let json = JSON.parse('<?php //echo $json; ?>//');
+        // let availableDayArray = json.filter(function(a){return +(a.venue_id) === 16;});
+        //let base64JSON = "<?php //echo base64_encode($json); ?>//";
+    </script>
+    <script id="base64-JSON" type="text/json"><?php echo base64_encode($json); ?></script>
 </div>

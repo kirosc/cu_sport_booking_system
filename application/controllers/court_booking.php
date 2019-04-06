@@ -15,6 +15,7 @@ class Court_booking extends SBooking_Controller
     $this->loadCSS('libraries/bootstrap-table.min.css');
     $this->loadCSS('court_booking.css');
     $this->loadJS('libraries/bootstrap-table.min.js');
+    $this->loadJS('libraries/moment.js');
     $this->loadJS('court_booking.js');
 
     $data = $this->getHeaderData();

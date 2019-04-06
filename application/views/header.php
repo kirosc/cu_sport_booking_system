@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../../styles/header.css"/>
     <meta charset="utf-8">
     <title>CU Sport Booking System</title>
     <meta name="description" content="">

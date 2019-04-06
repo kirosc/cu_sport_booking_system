@@ -27,7 +27,7 @@ class Login extends SBooking_Controller{
     $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
     $this->loadJS('../vendor/animsition/js/animsition.min.js');
     $this->loadJS('../vendor/select2/select2.min.js');
-    $this->loadJS('../vendor/daterangepicker/moment.min.js');
+    $this->loadJS('libraries/moment.js');
     $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
     $this->loadJS('../vendor/countdowntime/countdowntime.js');
     $this->loadJS('login.js');
@@ -54,7 +54,7 @@ class Login extends SBooking_Controller{
     $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
     $this->loadJS('../vendor/animsition/js/animsition.min.js');
     $this->loadJS('../vendor/select2/select2.min.js');
-    $this->loadJS('../vendor/daterangepicker/moment.min.js');
+    $this->loadJS('libraries/moment.js');
     $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
     $this->loadJS('../vendor/countdowntime/countdowntime.js');
     $this->loadJS('register.js');
