@@ -44,7 +44,8 @@ class User_model extends CI_Model
         $this->db->select(
           "user.username AS username,
           user.password AS password,
-          CONCAT(user.first_name, ' ', user.last_name) AS user_fullname,
+          user.first_name AS first_name,
+          user.last_name AS last_name,
           user.icon AS icon,
           coach.self_introduction AS intro,
           coach.experience AS experience
