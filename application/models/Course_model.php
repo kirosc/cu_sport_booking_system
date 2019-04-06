@@ -99,6 +99,7 @@ class Course_model extends CI_Model
         course.description AS description,
         level.description AS level,
         CONCAT(user.first_name, " ", user.last_name) AS coach,
+        user.username AS coach_username,
         course.image AS course_image');
       $this->db->from('course');
       $this->db->join('venue', 'venue.venue_id = course.venue_id');

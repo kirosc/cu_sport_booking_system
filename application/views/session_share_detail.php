@@ -54,9 +54,10 @@
                       </h4>
                       <div class="coach row m-0">
                           <div class="coach-container float-left mr-3">
+                            <a href="<?php echo $page_url."profile/".$session->host;?>" class="text-center mt-2">
                               <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
                                    class="rounded" alt="profile pic">
-                              <a href="javascript:void(0)" class="text-center mt-2"><?php echo $session->user_fullname; ?></a>
+                              <?php echo $session->user_fullname; ?></a>
                           </div>
                       </div>
                     </div>
@@ -71,9 +72,7 @@
                             <span>Venue</span>
                         </h4>
                         <p>
-                            <a href="">
-                                <?php echo $session->college." - ".$session->venue; ?>
-                            </a>
+                              <?php echo $session->college." - ".$session->venue; ?>
                         </p>
                     </div>
                 </div>

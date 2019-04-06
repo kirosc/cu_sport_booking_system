@@ -15,8 +15,10 @@
         foreach ($courses as $course) : ?>
             <div class="course row">
                 <div class="course-info col-lg-3">
+                  <a href="<?php echo $detail_url . $course->course_id; ?>">
                     <img src="<?php echo base_url(); ?>images/course/C001.jpg"
                          alt="Sport thumbnail">
+                  </a>
                 </div>
                 <div class="course-info col col-lg-9">
                     <div class="course-info">
