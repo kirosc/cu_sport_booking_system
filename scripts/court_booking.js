@@ -7,16 +7,6 @@ if (startDay.isoWeekday() !== SUN - 1) {
 console.log(startDay.format("YYYY-MM-DD, h:mm:ss a'"));
 console.log(endDay.format("YYYY-MM-DD, h:mm:ss a'"));
 
-Date.prototype.yyyymmdd = function () {
-    var mm = this.getMonth() + 1; // getMonth() is zero-based
-    var dd = this.getDate();
-
-    return [this.getFullYear(), '-' +
-    (mm > 9 ? '' : '0') + mm, '-' +
-    (dd > 9 ? '' : '0') + dd
-    ].join('');
-};
-
 function initializeRow(table) {
     $('td').remove();
     for (let i = 0; i <= 14; i++) {
@@ -57,7 +47,6 @@ function initializeSession(table) {
     let date = moment();
     let day = date.isoWeekday();
     let hours = date.hours();
-    console.log(hours);
     let currentSession;
 
     if (day === SUN && hours === 22) {
@@ -69,8 +58,13 @@ function initializeSession(table) {
 
     for (let col = MON; col < day; col++) {
         for (let row = 0; row <= 14; row++) {
+            // Before 8 a.m.
+            if (col === day - 1 && currentSession < 0) {
+                break;
+            }
             let selectedSession = '#slot-' + col + '-' + row;
             $(selectedSession).addClass('bg-danger');
+            // Reach current hour
             if (col === day - 1 && row === currentSession) {
                 break;
             }
