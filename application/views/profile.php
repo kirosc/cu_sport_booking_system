@@ -1,6 +1,6 @@
 <div class="wrapper">
     <section class="container-fluid">
-      <?php if ($user['db']->username == $_SESSION['username']): ?>
+      <?php if (isset($_SESSION['username']) && $user['db']->username == $_SESSION['username']): ?>
         <a href="<?php echo $page_url ?>profile/edit_profile" class="btn btn-info btn-md-block">Edit Profile</a>
       <?php endif; ?>
         <div class="row mt-3">
