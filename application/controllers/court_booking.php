@@ -63,18 +63,20 @@ class Court_booking extends SBooking_Controller
     $venue_id = array();
     $data = array();
     foreach ($sessions as $session) {
+      $check = true;
       $data['venue_id'] = $session->venue_id;
       $data['date'] = substr($session->start_time, 0, 10);
       $data['availableTimeSlot'] = array();
       $availableTimeSlot = (int)substr($session->start_time, 11, 2) - 8;
 
-      if (in_array($data['venue_id'], $venue_id)) {
-        for ($i=0; $i < count($array); $i++) {
-          if ($array[$i]['venue_id'] == $data['venue_id'] && $array[$i]['date'] == $data['date']) {
-            array_push($array[$i]['availableTimeSlot'], $availableTimeSlot);
-          }
+
+      for ($i=0; $i < count($array); $i++) {
+        if ($array[$i]['venue_id'] == $data['venue_id'] && $array[$i]['date'] == $data['date']) {
+          array_push($array[$i]['availableTimeSlot'], $availableTimeSlot);
+          $check = false;
         }
-      }else{
+      }
+      if ($check) {
         array_push($data['availableTimeSlot'], $availableTimeSlot);
         array_push($venue_id, $data['venue_id']);
         array_push($array, $data);
@@ -82,7 +84,6 @@ class Court_booking extends SBooking_Controller
       }
       unset($data['availableTimeSlot']);
     }
-
 
     return $array;
   }

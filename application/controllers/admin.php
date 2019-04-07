@@ -38,6 +38,7 @@ class Admin extends SBooking_Controller
     $data['sports'] = $this->Sports_model->get_sports();
     $data['venues'] = $this->Venue_model->venue_search();
     $data['sessions'] = $this->Session_model->get_all_session();
+    $data['available_sessions'] = $this->Session_model->get_available_session();
 
     $this->load->view('header', $data);
     $this->load->view('admin_session', $data);
@@ -68,7 +69,7 @@ class Admin extends SBooking_Controller
     $this->load->view('footer');
   }
 
-  public function session_handler()
+  public function add_session_handler()
   {
     $this->load->model('Session_model');
 
@@ -96,6 +97,51 @@ class Admin extends SBooking_Controller
 
     echo '<script>alert("Session Added!");</script>';
     redirect('admin/session', 'refresh');
+  }
+
+  public function delete_session_handler()
+  {
+    // code...
+  }
+
+  public function test()
+  {
+    $this->load->model('Session_model');
+    $sessions = $this->Session_model->get_available_session_by_id($_POST['venue_id']);
+    $data = json_encode($this->json_formatter($sessions));
+
+    echo $data;
+  }
+
+  public function json_formatter($sessions)
+  {
+    $array = array();
+    $venue_id = array();
+    $data = array();
+    foreach ($sessions as $session) {
+      $check = true;
+      $data['venue_id'] = $session->venue_id;
+      $data['date'] = substr($session->start_time, 0, 10);
+      $data['availableTimeSlot'] = array();
+      $availableTimeSlot = (int)substr($session->start_time, 11, 2) - 8;
+
+
+      for ($i=0; $i < count($array); $i++) {
+        if ($array[$i]['venue_id'] == $data['venue_id'] && $array[$i]['date'] == $data['date']) {
+          array_push($array[$i]['availableTimeSlot'], $availableTimeSlot);
+          $check = false;
+        }
+      }
+      if ($check) {
+        array_push($data['availableTimeSlot'], $availableTimeSlot);
+        array_push($venue_id, $data['venue_id']);
+        array_push($array, $data);
+
+      }
+      unset($data['availableTimeSlot']);
+    }
+
+    return $array;
   }
 }
 

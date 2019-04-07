@@ -80,6 +80,25 @@ class Session_model extends CI_Model
       return $available;
     }
 
+    public function get_available_session_by_id($venue_id)
+    {
+      $this->db->select('*');
+      $this->db->from('session');
+      $this->db->join('reserve', 'session.session_id = reserve.session_id', 'left');
+      $this->db->where('session.venue_id', $venue_id);
+      $query = $this->db->get();
+
+      $allsession = $query->result();
+      $available = array();
+
+      foreach ($allsession as $session) {
+        if ($session->email == NULL) {
+          array_push($available, $session);
+        }
+      }
+      return $available;
+    }
+
     //Get Name
     public function get_name($session_id)
     {
