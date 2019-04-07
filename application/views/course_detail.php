@@ -65,8 +65,8 @@
                         <div class="coach-container float-left mr-3">
                           <a href="<?php echo $page_url."profile/".$course->coach_username;?>" class="text-center mt-2">
                             <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
-                                 class="img-thumbnail" alt="profile pic">
-                            <?php echo $course->coach; ?>
+                                 class="img-thumbnail mb-1" alt="profile pic">
+                              <br><?php echo $course->coach; ?>
                           </a>
                         </div>
                     </div>
