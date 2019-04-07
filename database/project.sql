@@ -253,30 +253,29 @@ INSERT INTO `shared_session` (`session_id`, `available_seats`, `description`) VA
 
 CREATE TABLE `sports` (
   `sports_id` int(2) NOT NULL,
-  `name` varchar(256) NOT NULL,
-  `share` tinyint(1) NOT NULL
+  `name` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- 資料表的匯出資料 `sports`
 --
 
-INSERT INTO `sports` (`sports_id`, `name`, `share`) VALUES
-(1, 'Basketball', 1),
-(2, 'Tennis', 1),
-(3, 'Table Tennis', 1),
-(4, 'Badminton', 1),
-(5, 'Volleyball', 1),
-(6, 'Track and Field', 0),
-(7, 'Handball', 1),
-(8, 'Football', 1),
-(9, 'Swimming', 0),
-(10, 'Gymnastics', 0),
-(11, 'Softball', 1),
-(12, 'Squash', 1),
-(13, 'Archery', 0),
-(14, 'Yoga', 0),
-(15, 'Tai Chi', 0);
+INSERT INTO `sports` (`sports_id`, `name`) VALUES
+(1, 'Basketball'),
+(2, 'Tennis'),
+(3, 'Table Tennis'),
+(4, 'Badminton'),
+(5, 'Volleyball'),
+(6, 'Track and Field'),
+(7, 'Handball'),
+(8, 'Football'),
+(9, 'Swimming'),
+(10, 'Gymnastics'),
+(11, 'Softball'),
+(12, 'Squash'),
+(13, 'Archery'),
+(14, 'Yoga'),
+(15, 'Tai Chi');
 
 -- --------------------------------------------------------
 
@@ -325,9 +324,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`email`, `password`, `username`, `first_name`, `last_name`, `icon`) VALUES
 ('admin@testing.com', '000000', 'admin', 'Tai Man', 'Chan', ''),
 ('bobby@testing.com', '000000', 'bobby', 'Bobby', 'Chan', ''),
-('coach_peter@testing.com', '000000', 'Peter Chan', 'Peter', 'Chan', ''),
-('coach_rex@tseting.com', '000000', 'Boxing Rex', 'Rex', 'Tso', ''),
-('coach_yong@testing.com', '000000', 'Coach Yong', 'Kam Wa', 'Yong', ''),
+('coach_peter@testing.com', '000000', 'PeterChan', 'Peter', 'Chan', ''),
+('coach_rex@tseting.com', '000000', 'BoxingRex', 'Rex', 'Tso', ''),
+('coach_yong@testing.com', '000000', 'CoachYong', 'Kam Wa', 'Yong', ''),
 ('kelvin@testing.com', '000000', 'kelvin', 'Kelvin', 'Yung', ''),
 ('kenny@testing.com', '000000', 'kenny', 'Kenny', 'Tsang', ''),
 ('kiros@testing.com', '000000', 'kiros', 'Kiros', 'Choi', ''),
