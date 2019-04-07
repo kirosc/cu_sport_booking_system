@@ -109,25 +109,8 @@
             <div class="table-responsive-md">
                   <table data-toggle="table" class="table-hover-md" id="table-2">
                       <thead>
-                        <tr>
-                            <td><a href="<?php echo "{$_SERVER['PHP_SELF']}?currentpage=$prevpage"; ?>"> << </a> </td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td>
-                            <td><a href="<?php echo "{$_SERVER['PHP_SELF']}?currentpage=$nextpage"; ?>"> >> </a> </td>
-                        </tr>
                       <tr>
                           <th data-col="time"></th>
-
-                          <?php
-                            $_SESSION['admin_session_page'] = $currentpage;
-                            $ts = date(strtotime('previous monday'));
-                            $ts = $ts + $currentpage * 86400 * 7;
-                            for ($i=0; $i < 7; $i++):
-                          ?>
-                              <th class="text-center">
-                                  <?php echo date('Y-m-d', $ts+86400*$i) . "<br>" . $dow[$i]; ?>
-                              </th>
-                          <?php endfor; ?>
-
                       </tr>
                       </thead>
                       <tbody>
@@ -163,11 +146,15 @@
                  var avail_time = result[i].availableTimeSlot;
 
                  var tr_str = "<tr>" +
-                    "<td align='center'>" + (i+1) + "</td>" +
-                    "<td align='center'>" + venue + "</td>" +
-                    "<td align='center'>" + date + "</td>" +
-                    "<td align='center'>" + avail_time + "</td>" +
-                    "</tr>";
+                    "<td align='center'>" + date + "</td>";
+
+                 for (var j = 0; j < avail_time.length; j++) {
+                   if (avail_time[j] === j) {
+                     tr_str = tr_str + "<td align='center'><input type='checkbox' name='delete-checkbox-" + date + (j+8) + "' value='checked'/>" + (j+8) + ":00 - " + (j+9) + ":00</td>";
+                   }
+                 }
+
+                tr_str = tr_str + "</tr>";
 
                  $("#table-2 tbody").append(tr_str);
                }
