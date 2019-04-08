@@ -1,17 +1,26 @@
-.title > .fa {
-    color: #e53935;
-}
-
 .title {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
 }
 
-.fa {
+.title > .fa {
+    color: #e53935;
     font-size: 1.1rem;
     width: 1rem;
     height: 1rem;
     margin-right: 5px;
     vertical-align: middle;
+}
+
+.form-group > label {
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+    .form-group > label {
+        text-align: right;
+    }
 }

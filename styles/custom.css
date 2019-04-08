@@ -60,9 +60,9 @@ html {
         font-size: 1.2rem;
     }
 
-    .row {
-        margin: 0 5%;
-    }
+    /*.row {*/
+    /*    margin: 0 5%;*/
+    /*}*/
 }
 
 @media (min-width: 992px) {

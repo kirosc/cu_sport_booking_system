@@ -31,6 +31,11 @@ class Profile extends SBooking_Controller
     $this->setTitle('Profile');
     $this->setNav('profile');
 
+    $this->loadJS('libraries/moment.js');
+    $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
+    $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
+    $this->loadCSS('profile.css');
+
     $data = $this->getHeaderData();
 
     $data['user'] = $this->User_model->get_user_detail($_SESSION['username']);
