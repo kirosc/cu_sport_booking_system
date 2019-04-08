@@ -55,9 +55,11 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['course'] = 'course/course_main';
 $route['course/id/:num'] = 'course/detail';
-$route['course/add_course'] = 'course/add_course_page';
 $route['course/id/:num/apply'] = 'course/apply_check';
+
+$route['add_course'] = 'course/add_course_page';
 $route['court_booking'] = 'court_booking/book_court';
+
 $route['session_share'] = 'session_share/session_share_main';
 $route['session_share/id/:num'] = 'session_share/detail';
 
@@ -72,4 +74,3 @@ $route['admin'] = 'admin/index';
 $route['admin/session'] = 'admin/session';
 $route['admin/course'] = 'admin/course';
 $route['admin/user'] = 'admin/user';
-$route['admin/search_session_handler'] = 'admin/search_session_handler';

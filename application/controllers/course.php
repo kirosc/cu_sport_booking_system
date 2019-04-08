@@ -68,6 +68,12 @@ class Course extends SBooking_Controller
     $this->load->model('Session_model');
 
     $this->setNav('course');
+
+    $this->loadCSS('libraries/bootstrap-table.min.css');
+    $this->loadCSS('court_booking.css');
+    $this->loadJS('libraries/bootstrap-table.min.js');
+    $this->loadJS('libraries/moment.js');
+    $this->loadJS('court_booking.js');
     $data = $this->getHeaderData();
 
     $data['colleges'] = $this->College_model->college_search();

@@ -122,7 +122,7 @@ function getVenue(val) {
 
     var params = {
       type: "POST",
-      url: "court_booking/search_venue_handler",
+      url: "util/search_venue_handler",
       dataType: 'json'
     };
     if (college !== 'None' && sport !== 'None') {
@@ -159,7 +159,7 @@ function getJSON(venueDropdown, table) {
     let venue_id = venueDropdown;
     $.ajax({
         type: "POST",
-        url: "admin/search_session_handler",
+        url: "util/search_session_handler",
         data: {venue_id},
         dataType: 'json',
     })

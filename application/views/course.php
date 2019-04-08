@@ -3,7 +3,7 @@
         <div class="tool row">
             <div class="tool-container col col-md-12">
                 <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student') { ?>
-                    <a href="<?php echo $page_url ?>course/add_course" class="btn btn-info btn-md-block">Add Course</a>
+                    <a href="<?php echo $page_url ?>add_course" class="btn btn-info btn-md-block">Add Course</a>
                 <?php } ?>
             </div>
         </div>
