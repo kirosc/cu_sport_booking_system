@@ -73,7 +73,7 @@
                 <div class="col-xl-4">
                     <label for="seat">Available Seat(s)</label>
                     <!--            TODO:  Add require when based on radio button-->
-                    <input type="number" class="form-control" id="seat" placeholder="Number of people" value="seat">
+                    <input type="number" class="form-control" id="seat" placeholder="Number of people">
                 </div>
             </div>
 
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="row m-2 m-md-4">
+            <div class="row m-2 m-md-4" id="row-submit">
                 <div class="col-xl-4">
                     <button class="btn btn-success" type="submit" value="book" id="book">Book Now</button>
                 </div>
