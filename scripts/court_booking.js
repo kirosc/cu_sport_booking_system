@@ -141,9 +141,20 @@ function getJSON(venueDropdown, table) {
 $(function () {
     let rawJSON;
     let table = $('#table');
-    $('#bs_venue').change(async function () {
+    $('#venue').change(async function () {
         console.log($(this).val());
         getJSON($(this).val(), table);
         console.log('rawJSON:' + typeof rawJSON);
     });
+
+    $('input[type=radio][name=is-share]').change(function () {
+        if (this.value === '1') {
+            $('#row-seat, #row-description').toggleClass('hidden');
+            $('#seat').prop('required', true);
+        } else {
+            $('#row-seat, #row-description').toggleClass('hidden');
+            $('#seat').prop('required', false);
+        }
+    });
+    // TODO: Check submit time to booking session
 });
