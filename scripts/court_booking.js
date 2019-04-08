@@ -43,7 +43,7 @@ function initializeRow(table) {
     }
 }
 
-function initializeSession(table) {
+function highlightPastTime(table) {
     let date = moment();
     let day = date.isoWeekday();
     let hours = date.hours();
@@ -116,15 +116,36 @@ function loadWeekSession(table, json, venueID) {
     }
 }
 
+// Perform AJAX request when venue is selected
+function getJSON(venueDropdown, table) {
+    let venue_id = venueDropdown;
+    alert("value in js " + venue_id);
+
+    $.ajax({
+        type: "POST",
+        url: "admin/search_session_handler",
+        data: {venue_id},
+        dataType: 'json',
+    })
+        .done(result => {
+            console.log('request success');
+            console.log(result);
+            initializeRow(table);
+            highlightPastTime(table);
+            loadWeekSession(table, result, venue_id);
+        })
+        .fail((jqXHR, textStatus, errorThrown) => {
+            console.log('request failed');
+        });
+}
+
+
 $(function () {
+    let rawJSON;
     let table = $('#table');
-    initializeRow(table);
-    initializeSession(table);
-    let rawJson = JSON.parse(atob($('script[type="text/json"]#' + 'base64-JSON').text().trim()));
-    console.log(rawJson);
-    let availableDate = moment('2019-04-06', 'YYYY-MM-DD');
-    let venueID = 16; // TODO: Get from dropdown menu
-    // console.log(getSessions(rawJson, availableDate, venueID))
-    // loadDaySession(table, getSessions(rawJson, availableDate, venueID))
-    loadWeekSession(table, rawJson, venueID);
+    $('#venue').change(async function () {
+        console.log($(this).val());
+        getJSON($(this).val(), table);
+        console.log('rawJSON:' + typeof rawJSON);
+    });
 });
