@@ -120,11 +120,9 @@ $(function () {
     let table = $('#table');
     initializeRow(table);
     initializeSession(table);
-    // let rawJson = JSON.parse(atob($('script[type="text/json"]#' + 'base64-JSON').text().trim()));
-    // Test JSON below
-    let rawJson = JSON.parse('[{"venue_id":"16","date":"2019-04-06","availableTimeSlot":[4,5,6,14]},{"venue_id":"16","date":"2019-04-07","availableTimeSlot":[2,4,5]},{"venue_id":"31","date":"2019-04-07","availableTimeSlot":[5,6,7,8,9]}]');
+    let rawJson = JSON.parse(atob($('script[type="text/json"]#' + 'base64-JSON').text().trim()));
     console.log(rawJson);
-    let availableDate = moment('2019-04-06', 'YYYY-MM-DD')
+    let availableDate = moment('2019-04-06', 'YYYY-MM-DD');
     let venueID = 16; // TODO: Get from dropdown menu
     // console.log(getSessions(rawJson, availableDate, venueID))
     // loadDaySession(table, getSessions(rawJson, availableDate, venueID))

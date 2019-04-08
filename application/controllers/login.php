@@ -172,6 +172,7 @@ class Login extends SBooking_Controller{
     //   $this->register_main();
     // }
 
+    $this->loadCSS('login_result.css');
     $data = $this->getHeaderData();
 
     $this->setTitle("Register Checking");
