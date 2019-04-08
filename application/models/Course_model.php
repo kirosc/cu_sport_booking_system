@@ -9,7 +9,7 @@ class Course_model extends CI_Model
     public $name;
     public $start_time;
     public $end_time;
-    public $venue_id;
+    public $session_id;
     public $price;
     public $available_seats;
     public $description;
@@ -19,13 +19,13 @@ class Course_model extends CI_Model
 
     //Function
     //New Course (New Entry)
-    public function new_course($name, $start_time, $end_time, $venue_id, $price, $available_seats, $description, $level_id, $email, $image='')
+    public function new_course($name, $start_time, $end_time, $session_id, $price, $available_seats, $description, $level_id, $email, $image='')
     {
         //course_id will be generated automatically
         $this->name = $name;
         $this->start_time = $start_time;
         $this->end_time = $end_time;
-        $this->venue_id = $venue_id;
+        $this->session_id = $session_id;
         $this->price = $price;
         $this->available_seats = $available_seats;
         $this->description = $description;
@@ -37,12 +37,12 @@ class Course_model extends CI_Model
     }
 
     //Update Course (Update Entry)
-    public function update_course($course_id, $name, $start_time, $end_time, $venue_id, $price, $available_seats, $description, $level_id, $email, $image='')
+    public function update_course($course_id, $name, $start_time, $end_time, $session_id, $price, $available_seats, $description, $level_id, $email, $image='')
     {
       $this->name = $name;
       $this->start_time = $start_time;
       $this->end_time = $end_time;
-      $this->venue_id = $venue_id;
+      $this->session_id = $session_id;
       $this->price = $price;
       $this->available_seats = $available_seats;
       $this->description = $description;
@@ -76,7 +76,8 @@ class Course_model extends CI_Model
         course.description AS description,
         course.image AS course_image');
       $this->db->from('course');
-      $this->db->join('venue', 'venue.venue_id = course.venue_id');
+      $this->db->join('session', 'session.session_id = course.session_id');
+      $this->db->join('venue', 'venue.venue_id = session.venue_id');
       $this->db->join('college', 'college.college_id = venue.college_id');
       $query = $this->db->get();
 
@@ -100,9 +101,11 @@ class Course_model extends CI_Model
         level.description AS level,
         CONCAT(user.first_name, " ", user.last_name) AS coach,
         user.username AS coach_username,
-        course.image AS course_image');
+        course.image AS course_image,
+        venue.map AS map');
       $this->db->from('course');
-      $this->db->join('venue', 'venue.venue_id = course.venue_id');
+      $this->db->join('session', 'session.session_id = course.session_id');
+      $this->db->join('venue', 'venue.venue_id = session.venue_id');
       $this->db->join('college', 'college.college_id = venue.college_id');
       $this->db->join('sports', 'sports.sports_id = venue.sports_id');
       $this->db->join('level', 'level.level_id = course.level_id');

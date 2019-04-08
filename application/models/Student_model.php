@@ -43,10 +43,10 @@ class Student_model extends CI_Model
     public function delete_student($email)
     {
         $this->db->where('email', $email);
-        $this->db->delete('user');
+        $this->db->delete('student');
 
         $this->db->where('email', $email);
-        $this->db->delete('student');
+        $this->db->delete('user');
     }
 
     //Get Interest

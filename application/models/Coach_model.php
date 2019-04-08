@@ -38,10 +38,10 @@ class Coach_model extends CI_Model
     public function delete_coach($email)
     {
         $this->db->where('email', $email);
-        $this->db->delete('user');
+        $this->db->delete('coach');
 
         $this->db->where('email', $email);
-        $this->db->delete('coach');
+        $this->db->delete('user');
     }
 
     //Get Self Intro
