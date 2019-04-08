@@ -1,14 +1,14 @@
 <form action='<?php echo $page_url; ?>court_booking/check_booking' method='post'>
 
     Select College:<br>
-    <select name="college" id="college">
+    <select name="college" id="college" onchange="getVenue()">
         <?php foreach ($colleges as $college) : ?>
             <option value="<?php echo $college->college_id; ?>"><?php echo $college->name; ?></option>
         <?php endforeach; ?>
     </select><br>
 
     Select Sport:<br>
-    <select name="sport" id="sport">
+    <select name="sport" id="sport" onchange="getVenue()">
         <?php foreach ($sports as $sport) : ?>
             <option value="<?php echo $sport->sports_id; ?>"><?php echo $sport->name; ?></option>
         <?php endforeach; ?>
@@ -84,9 +84,6 @@
     $('#venue').change(function(){
         //Selected value
         var venue_id = $(this).val();
-        alert("value in js "+venue_id);
-
-
         $.ajax({
             type: "POST",
             url: "<?php echo $page_url; ?>admin/search_session_handler",
