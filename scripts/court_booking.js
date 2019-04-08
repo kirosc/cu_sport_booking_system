@@ -138,7 +138,7 @@ function getVenue(val) {
 
       $.ajax(params).done(result => {
         console.log(result);
-        var html_string = "<option value='none' selected>venue</option>"
+        var html_string = "<option value='none' selected>Select venue</option>"
         for (var i = 0; i < result.length; i++) {
           html_string = html_string + '<option value="' + result[i].venue_id + '">' + result[i].venue + '</option>';
         }

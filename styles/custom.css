@@ -99,9 +99,14 @@ body {
     }
 }
 
-/* Make tabel cell fit content */
+/* Make table cell fit content */
 .table td.fit,
 .table th.fit {
     white-space: nowrap;
     width: 1%;
+}
+
+.btn-icon {
+    box-sizing: content-box;
+    max-height: 24px;
 }
