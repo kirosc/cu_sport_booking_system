@@ -2,9 +2,9 @@
     <section class="container-fluid" id="course-tool">
         <div class="tool row">
             <div class="tool-container col col-md-12">
-            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student') { ?>
-                <a href="<?php echo $page_url ?>course/add_course" class="btn btn-info btn-md-block">Add Course</a>
-            <?php } ?>
+                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student') { ?>
+                    <a href="<?php echo $page_url ?>add_course" class="btn btn-info btn-md-block">Add Course</a>
+                <?php } ?>
             </div>
         </div>
     </section>
@@ -14,7 +14,13 @@
         $count = 0;
         foreach ($courses as $course) : ?>
             <div class="course row">
-                <div class="course-info col">
+                <div class="course-info col-lg-3">
+                  <a href="<?php echo $detail_url . $course->course_id; ?>">
+                    <img src="<?php echo base_url(); ?>images/course/C001.jpg"
+                         alt="Sport thumbnail">
+                  </a>
+                </div>
+                <div class="course-info col col-lg-9">
                     <div class="course-info">
                         <table>
                             <tbody>
@@ -35,7 +41,7 @@
                                     <span>Location</span>
                                 </th>
                                 <td>
-                                    <?php echo $course->college." - ".$course->venue; ?></td>
+                                    <?php echo $course->college . " - " . $course->venue; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">

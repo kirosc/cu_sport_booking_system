@@ -1,4 +1,4 @@
-/* course Listing */
+/* ss Listing */
 .highlight {
     color: white;
     background-color: #e53935;
@@ -20,74 +20,74 @@
     margin: 1rem 5%;
 }
 
-.course {
+.ss {
     margin: 5rem 5%;
 }
 
-.course:nth-child(1) {
+.ss:nth-child(1) {
     margin: 0 5%;
 }
 
-.course .course-info {
+.ss .ss-info {
     height: 100%;
     overflow-x: auto;
 }
 
-.course .course-info img {
+.ss .ss-info img {
     display: block;
     max-width: 100%;
     height: auto;
 }
 
-.course .course-info table {
+.ss .ss-info table {
     width: 100%;
     border: none;
     border-radius: 5px;
 }
 
-.course .course-info tr > * {
+.ss .ss-info tr > * {
     padding: 1rem;
 }
 
-.course .course-info th {
+.ss .ss-info th {
     width: 22%;
     color: #e53935;
     letter-spacing: .5px;
 }
 
-.course .course-info th .fa {
+.ss .ss-info th .fa {
     width: 1.5rem;
     height: 1.5rem;
     margin-right: 5px;
 }
 
-.course .course-info td {
+.ss .ss-info td {
     width: 78%;
     text-align: justify;
 }
 
-.course .course-info td p {
+.ss .ss-info td p {
     margin-bottom: 0px;
 }
 
-.course .course-info tr:nth-child(odd) {
+.ss .ss-info tr:nth-child(odd) {
     background-color: #e9e9e9;
 }
 
-.course .course-info tr:nth-child(even) {
+.ss .ss-info tr:nth-child(even) {
     background-color: #f6f6f6;
 }
 
-.course-info {
+.ss-info {
     margin-left: auto;
     margin-right: auto;
 }
 
-.course-info a {
+.ss-info a {
     color: #0000b5;
     font-weight: bold;
 }
 
-.course-info a:hover {
+.ss-info a:hover {
     text-decoration: underline;
 }

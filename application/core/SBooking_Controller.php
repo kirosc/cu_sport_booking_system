@@ -10,6 +10,8 @@ class SBooking_Controller extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    date_default_timezone_set("Asia/Hong_Kong");
+    
     $this->page_url = base_url().'index.php/';
     $this->image_url = base_url().'images/';
     $this->css_url = base_url().'styles/';
@@ -55,8 +57,15 @@ class SBooking_Controller extends CI_Controller
   protected function loadCSS($path)
   {
     array_push(
-      $this->header_data['css_file'],
-      $this->css_url.$path
+        $this->header_data['css_file'],
+        $this->css_url.$path
+    );
+  }
+
+  protected function loadCDNCSS($path)
+  {
+    array_push(
+        $this->header_data['css_file'], $path
     );
   }
 
@@ -65,6 +74,13 @@ class SBooking_Controller extends CI_Controller
     array_push(
       $this->header_data['js_file'],
       $this->js_url.$path
+    );
+  }
+
+  protected function loadCDNJS($path)
+  {
+    array_push(
+        $this->header_data['js_file'], $path
     );
   }
 

@@ -1,0 +1,14 @@
+.custom-checkbox .custom-control-label::before {
+    /* Checkbox color */
+    /*border: #000 solid 1px!important;*/
+}
+
+/*@media (min-width: 992px) {*/
+/*    .container-fluid > .m-2.m-md-4 {*/
+/*        margin: 1rem 5rem!important;*/
+/*    }*/
+/*}*/
+
+#row-submit {
+    margin-top: 5rem!important;
+}

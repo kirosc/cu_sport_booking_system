@@ -1,11 +1,11 @@
 <div class="wrapper">
-    <section class="container-fluid" id="session-container">
+    <section class="container-fluid" id="session-share-container">
         <?php
         $count = 0;
         foreach ($sessions as $session) : ?>
-            <div class="session row">
-                <div class="session-info col">
-                    <div class="session-info">
+            <div class="ss row">
+                <div class="ss-info col">
+                    <div class="ss-info">
                         <table>
                             <tbody>
                             <tr>
@@ -15,7 +15,7 @@
                                 </th>
                                 <td>
                                     <a href="<?php echo $detail_url . $session->session_id; ?>">
-                                        <?php echo $session->facility." - ".$session->court; ?>
+                                        <?php echo $session->college." - ".$session->venue; ?>
                                     </a>
                                 </td>
                             </tr>
@@ -24,7 +24,11 @@
                                     <i class="fa fa-indent" aria-hidden="true"></i>
                                     <span>Host</span>
                                 </th>
-                                <td><?php echo $session->fullname; ?></td>
+                                <td>
+                                  <a href="<?php echo $page_url."profile/".$session->host;?>">
+                                    <?php echo $session->user_fullname; ?>
+                                  </a>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -32,7 +36,14 @@
                                     <span>Session Time</span>
                                 </th>
                                 <td>
-                                    <?php echo $session->start_time . " - " . $session->end_time; ?></td>
+                                    <?php echo $session->start_time ; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="fa fa-indent" aria-hidden="true"></i>
+                                    <span>Sport</span>
+                                </th>
+                                <td><?php echo $session->sport; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -54,7 +65,7 @@
                                         echo $seat_remain[$count] . " remaining /";
                                     }
                                     ?>
-                                    <?php echo $session->available_seats . " total"; ?>
+                                    <?php echo $session->seats . " total"; ?>
                                 </td>
                             </tr>
                             </tbody>

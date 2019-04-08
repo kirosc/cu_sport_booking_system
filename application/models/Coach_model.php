@@ -23,18 +23,11 @@ class Coach_model extends CI_Model
 
     //Warning - User can't change their email
     //Update User & Coach (Update Entry)
-    public function update_coach($email, $password, $username, $first_name, $last_name, $icon, $self_introduction, $experience)
+    public function update_coach($email, $self_introduction, $experience)
     {
-        $this->password = $password;
-        $this->username = $username;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->icon = $icon;
+        $this->email = $email;
         $this->self_introduction = $self_introduction;
         $this->experience = $experience;
-
-        $this->db->where('email', $email);
-        $this->db->update('user', $User_model);
 
         $this->db->where('email', $email);
         $this->db->update('coach', $this);

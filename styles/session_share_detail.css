@@ -2,7 +2,7 @@ p {
     margin-bottom: .8rem;
 }
 
-#course-name::first-letter, .title > .fa {
+#ss-name::first-letter, .title > .fa {
     color: #e53935;
 }
 

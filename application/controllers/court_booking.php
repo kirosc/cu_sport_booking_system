@@ -12,6 +12,12 @@ class Court_booking extends SBooking_Controller
     $this->load->model('Venue_model');
     $this->load->model('Session_model');
 
+    $this->loadCSS('libraries/bootstrap-table.min.css');
+    $this->loadCSS('court_booking.css');
+    $this->loadJS('libraries/bootstrap-table.min.js');
+    $this->loadJS('libraries/moment.js');
+    $this->loadJS('court_booking.js');
+
     $data = $this->getHeaderData();
 
     $data['colleges'] = $this->College_model->college_search();
@@ -35,6 +41,7 @@ class Court_booking extends SBooking_Controller
     $this->load->model('Reserve_model');
 
     $this->setNav('course');
+
     $data = $this->getHeaderData();
 
     $this->Reserve_model->new_reserve($_SESSION['email'], $_POST['session']);
@@ -56,18 +63,20 @@ class Court_booking extends SBooking_Controller
     $venue_id = array();
     $data = array();
     foreach ($sessions as $session) {
+      $check = true;
       $data['venue_id'] = $session->venue_id;
       $data['date'] = substr($session->start_time, 0, 10);
       $data['availableTimeSlot'] = array();
       $availableTimeSlot = (int)substr($session->start_time, 11, 2) - 8;
 
-      if (in_array($data['venue_id'], $venue_id)) {
-        for ($i=0; $i < count($array); $i++) {
-          if ($array[$i]['venue_id'] == $data['venue_id'] && $array[$i]['date'] == $data['date']) {
-            array_push($array[$i]['availableTimeSlot'], $availableTimeSlot);
-          }
+
+      for ($i=0; $i < count($array); $i++) {
+        if ($array[$i]['venue_id'] == $data['venue_id'] && $array[$i]['date'] == $data['date']) {
+          array_push($array[$i]['availableTimeSlot'], $availableTimeSlot);
+          $check = false;
         }
-      }else{
+      }
+      if ($check) {
         array_push($data['availableTimeSlot'], $availableTimeSlot);
         array_push($venue_id, $data['venue_id']);
         array_push($array, $data);
@@ -75,7 +84,6 @@ class Court_booking extends SBooking_Controller
       }
       unset($data['availableTimeSlot']);
     }
-
 
     return $array;
   }

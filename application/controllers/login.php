@@ -27,7 +27,7 @@ class Login extends SBooking_Controller{
     $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
     $this->loadJS('../vendor/animsition/js/animsition.min.js');
     $this->loadJS('../vendor/select2/select2.min.js');
-    $this->loadJS('../vendor/daterangepicker/moment.min.js');
+    $this->loadJS('libraries/moment.js');
     $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
     $this->loadJS('../vendor/countdowntime/countdowntime.js');
     $this->loadJS('login.js');
@@ -54,7 +54,7 @@ class Login extends SBooking_Controller{
     $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
     $this->loadJS('../vendor/animsition/js/animsition.min.js');
     $this->loadJS('../vendor/select2/select2.min.js');
-    $this->loadJS('../vendor/daterangepicker/moment.min.js');
+    $this->loadJS('libraries/moment.js');
     $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
     $this->loadJS('../vendor/countdowntime/countdowntime.js');
     $this->loadJS('register.js');
@@ -172,6 +172,7 @@ class Login extends SBooking_Controller{
     //   $this->register_main();
     // }
 
+    $this->loadCSS('login_result.css');
     $data = $this->getHeaderData();
 
     $this->setTitle("Register Checking");
@@ -200,15 +201,12 @@ class Login extends SBooking_Controller{
 
   public function logout()
   {
-    unset($_SESSION['user_name'], $_SESSION['email']);
+    unset($_SESSION['user_name'], $_SESSION['email'], $_SESSION['usertype']);
     $data = array('logged_in' => FALSE);
     $this->session->set_userdata($data);
 
-    $data = $this->getHeaderData();
-    $this->setTitle("Logout");
-    $this->load->view('header', $data);
-    $this->load->view('logout');
-    $this->load->view('footer');
+    echo '<script>alert("You Have Successfully Logout!");</script>';
+    redirect('home', 'refresh');
   }
 
   // function verify_email(){

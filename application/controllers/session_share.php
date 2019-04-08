@@ -12,21 +12,27 @@ class Session_share extends SBooking_Controller
 
     $this->setTitle('Session-Share');
     $this->setNav('session_share');
+
+    $this->loadCSS('libraries/material-clear.css');
+    $this->loadCSS('libraries/material-combobox.css');
+    $this->loadCSS('libraries/material-textbox.css');
+    $this->loadCSS('libraries/material-form.css');
+    $this->loadCSS('session_share_listing.css');
     $data = $this->getHeaderData();
 
     $data['sessions'] = $this->Shared_session_model->get_shared_session();
     $data['seat_remain'] = array();
     foreach ($data['sessions'] as $session) {
-      $seat_remain = $session->seats - $this->Share_model->countShareBySessionID($session->session_id);
+      $seat_remain = $session->seats - $this->Share_model->count_share_by_sessionid($session->session_id);
       array_push(
         $data['seat_remain'],
         $seat_remain
       );
     }
-    $data['detail_url'] = $data['page_url'] . 'session/id/';
+    $data['detail_url'] = $data['page_url'] . 'session_share/id/';
 
     $this->load->view('header', $data);
-    $this->load->view('session-share', $data);
+    $this->load->view('session_share', $data);
     $this->load->view('footer');
   }
 
@@ -37,11 +43,13 @@ class Session_share extends SBooking_Controller
 
     $this->setNav('session_share');
 
+    $this->loadCSS('session_share_detail.css');
     $data = $this->getHeaderData();
     $session_id = $this->uri->segment(3);
 
     $data['session'] = $this->Shared_session_model->get_shared_session_by_id($session_id);
-    $data['seat_remain'] = $data['course']->available_seats - $this->Share_model->count_share_by_session_id($data['session']->$session_id);
+    $data['seat_remain'] = $data['session']->seats - $this->Share_model->count_share_by_sessionid($session_id);
+
 
     $this->setTitle('Session-Share');
     $this->load->view('header', $data);
