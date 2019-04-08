@@ -3,10 +3,8 @@
     /*border: #000 solid 1px!important;*/
 }
 
-
-
-@media (min-width: 992px) {
-    .table-container {
-        margin: 1rem 5rem!important;
-    }
-}
+/*@media (min-width: 992px) {*/
+/*    .container-fluid > .m-2.m-md-4 {*/
+/*        margin: 1rem 5rem!important;*/
+/*    }*/
+/*}*/
