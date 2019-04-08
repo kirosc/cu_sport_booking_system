@@ -102,7 +102,7 @@ class Login extends SBooking_Controller{
         'logged_in' => TRUE
       );
       if ($sql_query[0]->couch != NULL) {
-        $user_data['usertype'] = 'couch';
+        $user_data['usertype'] = 'coach';
       }elseif ($sql_query[0]->student != NULL) {
         $user_data['usertype'] = 'student';
       }else {

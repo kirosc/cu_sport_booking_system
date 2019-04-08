@@ -12,6 +12,8 @@ class Court_booking extends SBooking_Controller
     $this->load->model('Venue_model');
     $this->load->model('Session_model');
 
+    $this->setNav('court_booking');
+
     $this->loadCSS('libraries/bootstrap-table.min.css');
     $this->loadCSS('court_booking.css');
     $this->loadJS('libraries/bootstrap-table.min.js');
@@ -40,7 +42,7 @@ class Court_booking extends SBooking_Controller
     $this->load->model('Shared_session_model');
     $this->load->model('Reserve_model');
 
-    $this->setNav('course');
+    $this->setNav('court_booking');
 
     $data = $this->getHeaderData();
 

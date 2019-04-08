@@ -45,7 +45,6 @@
       }else {
         $data = $this->Venue_model->venue_search();
       }
-
       echo json_encode($data);
     }
 
@@ -56,6 +55,13 @@
       $data = json_encode($this->json_formatter($sessions));
 
       echo $data;
+    }
+
+    public function search_usertype_handler()
+    {
+      $this->load->model('User_model');
+      $users = $this->User_model->get_users_on_usertype($_POST['usertype']);
+      echo json_encode($users);
     }
 
   }
