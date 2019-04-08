@@ -28,10 +28,10 @@
 
     Birthday:<br>
     <input type="date" name="birthday" value="<?php echo $user['db']->birthday;?>"><br>
-    <?php endif; ?>
 
     Phone Number:<br>
     <input type="text" name="phone" value="<?php echo $user['db']->phone;?>"><br>
+    <?php endif; ?>
 
     <input type="submit">
 </form>
