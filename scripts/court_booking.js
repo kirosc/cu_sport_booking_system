@@ -117,25 +117,37 @@ function loadWeekSession(table, json, venueID) {
 }
 
 function getVenue(val) {
-    var course = $("#college").val();
+    var college = $("#college").val();
     var sport = $("#sport").val();
 
-      $.ajax({
-          type: "POST",
-          url: "court_booking/search_venue_handler"
-          if (course && sport) {
-            data:{"course_id": course,"sport_id":sport}
-          }else if (course) {
-            data:{"course_id": course}
-          }else if (sport) {
-            data:{"sport_id":sport}
-          }else{
-            data:{}
-          }
-      }).done(result => {
-        console.log('request success');
+    var params = {
+      type: "POST",
+      url: "court_booking/search_venue_handler",
+      dataType: 'json'
+    };
+    if (college !== 'None' && sport !== 'None') {
+      params.data = {"college_id": college,"sport_id":sport};
+    }else if (college !== 'None') {
+      console.log('2');
+      params.data = {"college_id": college};
+    }else if (sport !== 'None') {
+      params.data = {"sport_id":sport};
+    }else{
+      params.data = {};
+    }
+
+      $.ajax(params).done(result => {
         console.log(result);
-        $("#venue").val(result);
+        var html_string = "<option value='none' selected>venue</option>"
+        for (var i = 0; i < result.length; i++) {
+          html_string = html_string + '<option value="' + result[i].venue_id + '">' + result[i].venue + '</option>';
+        }
+        $("#venue")
+          .find('option')
+          .remove()
+          .end()
+          .append(html_string);
+
       }).fail((jqXHR, textStatus, errorThrown) => {
           console.log('request failed');
       });
