@@ -119,8 +119,6 @@ function loadWeekSession(table, json, venueID) {
 // Perform AJAX request when venue is selected
 function getJSON(venueDropdown, table) {
     let venue_id = venueDropdown;
-    alert("value in js " + venue_id);
-
     $.ajax({
         type: "POST",
         url: "admin/search_session_handler",
@@ -143,7 +141,7 @@ function getJSON(venueDropdown, table) {
 $(function () {
     let rawJSON;
     let table = $('#table');
-    $('#venue').change(async function () {
+    $('#bs_venue').change(async function () {
         console.log($(this).val());
         getJSON($(this).val(), table);
         console.log('rawJSON:' + typeof rawJSON);
