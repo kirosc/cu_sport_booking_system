@@ -116,9 +116,36 @@ function loadWeekSession(table, json, venueID) {
     }
 }
 
+function getVenue(val) {
+    var course = $("#college").val();
+    var sport = $("#sport").val();
+
+      $.ajax({
+          type: "POST",
+          url: "court_booking/search_venue_handler"
+          if (course && sport) {
+            data:{"course_id": course,"sport_id":sport}
+          }else if (course) {
+            data:{"course_id": course}
+          }else if (sport) {
+            data:{"sport_id":sport}
+          }else{
+            data:{}
+          }
+      }).done(result => {
+        console.log('request success');
+        console.log(result);
+        $("#venue").val(result);
+      }).fail((jqXHR, textStatus, errorThrown) => {
+          console.log('request failed');
+      });
+
+}
+
 // Perform AJAX request when venue is selected
 function getJSON(venueDropdown, table) {
     let venue_id = venueDropdown;
+
     $.ajax({
         type: "POST",
         url: "admin/search_session_handler",
