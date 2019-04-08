@@ -97,7 +97,7 @@ class Court_booking extends SBooking_Controller
     }elseif (isset($_POST["college_id"])) {
       $data = $this->Venue_model->venue_search($_POST["college_id"]);
     }elseif (isset($_POST["sport_id"])) {
-      $data = $this->Venue_model->venue_search("", $_POST["sport_id"]);
+      $data = $this->Venue_model->venue_search('', $_POST["sport_id"]);
     }else {
       $data = $this->Venue_model->venue_search();
     }
