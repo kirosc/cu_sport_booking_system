@@ -35,14 +35,14 @@
 
             <div class="row m-2 m-md-4 justify-content-between">
                 <div class="col-2 col-lg-2">
-                    <button class="btn btn-primary btn-icon" type="button">
+                    <button class="btn btn-primary btn-icon" type="button" value="prev" id="prev">
                         <i class="material-icons">keyboard_arrow_left</i></button>
                 </div>
                 <div class="col text-center">
-                    <button class="btn btn-primary " type="button">Today</button>
+                    <button class="btn btn-primary" type="button" value="today">Today</button>
                 </div>
                 <div class="col-2 col-lg-2">
-                    <button class="btn btn-primary btn-icon float-right" type="button">
+                    <button class="btn btn-primary btn-icon float-right" type="button" value="next">
                         <i class="material-icons">keyboard_arrow_right</i></button>
                 </div>
             </div>

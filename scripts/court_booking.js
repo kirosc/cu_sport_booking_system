@@ -151,7 +151,6 @@ function getVenue(val) {
       }).fail((jqXHR, textStatus, errorThrown) => {
           console.log('request failed');
       });
-
 }
 
 // Perform AJAX request when venue is selected
@@ -193,6 +192,17 @@ $(function () {
             $('#row-seat, #row-description').toggleClass('hidden');
             $('#seat').prop('required', false);
         }
+    });
+
+    $('button').click(function () {
+        let value = $(this).val();
+        if (value === 'prev') {
+        }
+        else if (value === "next") {
+        }
+        else if (value === 'today') {
+        }
+        console.log(value);
     });
     // TODO: Check submit time to booking session
 });
