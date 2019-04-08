@@ -1,14 +1,14 @@
 <form action='<?php echo $page_url; ?>court_booking/check_booking' method='post'>
 
     Select College:<br>
-    <select name="college">
+    <select name="college" id="college">
         <?php foreach ($colleges as $college) : ?>
             <option value="<?php echo $college->college_id; ?>"><?php echo $college->name; ?></option>
         <?php endforeach; ?>
     </select><br>
 
     Select Sport:<br>
-    <select name="sport">
+    <select name="sport" id="sport">
         <?php foreach ($sports as $sport) : ?>
             <option value="<?php echo $sport->sports_id; ?>"><?php echo $sport->name; ?></option>
         <?php endforeach; ?>
@@ -17,7 +17,7 @@
 
     <br>//here is base on the chosen college and sport shown related venue<br>
     Select Venue:<br>
-    <select name="venue">
+    <select name="venue" id="venue">
         <?php foreach ($venues as $venue) : ?>
             <option value="<?php echo $venue->venue_id; ?>"><?php echo $venue->venue; ?></option>
         <?php endforeach; ?>
@@ -77,3 +77,41 @@
 </script>
 <script id="base64-JSON" type="text/json"><?php echo base64_encode($json); ?></script>
 </div>
+
+
+<script>
+    $(document).ready(function(){
+    $('#venue').change(function(){
+        //Selected value
+        var venue_id = $(this).val();
+        alert("value in js "+venue_id);
+
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo $page_url; ?>admin/search_session_handler",
+            data: {venue_id},
+            dataType: 'json',
+            success: function(result){
+               $("#table tbody").html("");
+               for (var i = 0; i < result.length; i++) {
+                 var venue = result[i].venue_id;
+                 var date = result[i].date;
+                 var avail_time = result[i].availableTimeSlot;
+
+                 var tr_str = "<tr>" +
+                    "<td align='center'>" + date + "</td>";
+
+                 for (var j = 0; j < avail_time.length; j++) {
+                   tr_str = tr_str + "<td align='center'><input type='checkbox' name='delete-checkbox-" + date + (avail_time[j]+8) + "' value='checked'/>" + (avail_time[j]+8) + ":00 - " + (avail_time[j]+9) + ":00</td>";
+                 }
+
+                tr_str = tr_str + "</tr>";
+
+                 $("#table tbody").append(tr_str);
+               }
+            }
+        });
+    });
+});
+</script>

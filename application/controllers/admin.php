@@ -104,7 +104,7 @@ class Admin extends SBooking_Controller
     // code...
   }
 
-  public function test()
+  public function search_session_handler()
   {
     $this->load->model('Session_model');
     $sessions = $this->Session_model->get_available_session_by_id($_POST['venue_id']);

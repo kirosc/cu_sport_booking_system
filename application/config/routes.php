@@ -72,4 +72,4 @@ $route['admin'] = 'admin/index';
 $route['admin/session'] = 'admin/session';
 $route['admin/course'] = 'admin/course';
 $route['admin/user'] = 'admin/user';
-$route['admin/test'] = 'admin/test';
+$route['admin/search_session_handler'] = 'admin/search_session_handler';

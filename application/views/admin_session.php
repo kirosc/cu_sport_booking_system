@@ -134,12 +134,14 @@
         var venue_id = $(this).val();
         alert("value in js "+venue_id);
 
+
         $.ajax({
             type: "POST",
-            url: "<?php echo $page_url; ?>admin/test",
+            url: "<?php echo $page_url; ?>admin/search_session_handler",
             data: {venue_id},
             dataType: 'json',
             success: function(result){
+               $("#table-2 tbody").html("");
                for (var i = 0; i < result.length; i++) {
                  var venue = result[i].venue_id;
                  var date = result[i].date;
@@ -149,9 +151,7 @@
                     "<td align='center'>" + date + "</td>";
 
                  for (var j = 0; j < avail_time.length; j++) {
-                   if (avail_time[j] === j) {
-                     tr_str = tr_str + "<td align='center'><input type='checkbox' name='delete-checkbox-" + date + (j+8) + "' value='checked'/>" + (j+8) + ":00 - " + (j+9) + ":00</td>";
-                   }
+                   tr_str = tr_str + "<td align='center'><input type='checkbox' name='delete-checkbox-" + date + (avail_time[j]+8) + "' value='checked'/>" + (avail_time[j]+8) + ":00 - " + (avail_time[j]+9) + ":00</td>";
                  }
 
                 tr_str = tr_str + "</tr>";
