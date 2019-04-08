@@ -13,15 +13,36 @@ class User_model extends CI_Model
     public $icon;
 
     //Function
-    public function get_user_detail($username)
+    public function get_user($email)
+    {
+      $this->db->select('*');
+      $this->db->from('user');
+      $this->db->where('email', $email);
+      $query = $this->db->get();
+
+      return $query->result()[0];
+    }
+
+    public function check_usertype($email, $username)
     {
       $this->db->select('user.email AS u, coach.email AS c, student.email AS s');
       $this->db->from('coach');
       $this->db->join('user', 'user.email = coach.email', 'right');
       $this->db->join('student', 'user.email = student.email', 'left');
-      $this->db->where('user.username', $username);
+
+      if ($email != NULL) {
+        $this->db->where('user.email', $email);
+      }elseif ($username != NULL) {
+        $this->db->where('user.username', $username);
+      }
+
       $query = $this->db->get();
-      $result = $query->result()[0];
+      return $query->result()[0];
+    }
+
+    public function get_user_detail($username)
+    {
+      $result = $this->check_usertype(NULL, $username);
 
       if ($result->s != NULL) {
         $data['usertype'] = 'student';
@@ -72,6 +93,21 @@ class User_model extends CI_Model
       }
       $query = $this->db->get();
       return $query->result();
+    }
+
+    public function update_password($email, $password="000000")
+    {
+      $user = $this->get_user($email);
+
+      $this->email = $email;
+      $this->password = $password;
+      $this->username = $user->username;
+      $this->first_name = $user->first_name;
+      $this->last_name = $user->last_name;
+      $this->icon = $user->icon;
+
+      $this->db->where('username', $username);
+      $this->db->update('user', $this);
     }
 
 

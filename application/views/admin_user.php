@@ -6,7 +6,7 @@
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="password-reset" role="tabpanel" aria-labelledby="password-reset-tab">
-    <form action='<?php echo $page_url; ?>admin/reset_user_handler' method='post'>
+    <form action='<?php echo $page_url; ?>admin/reset_password_handler' method='post'>
         Select Usertype:<br>
         <select name="usertype" id="usertype1">
             <option value="None" selected>---</option>
@@ -18,13 +18,13 @@
         <select name="user" id="user1">
             <option value="None" selected>---</option>
             <?php foreach ($users as $user): ?>
-                <option value="<?php echo $user->username; ?>"><?php echo $user->username; ?></option>
+                <option value="<?php echo $user->email; ?>"><?php echo $user->username; ?></option>
             <?php endforeach; ?>
         </select><br>
 
         <div id="profile1"></div>
 
-        <input type="submit" value="Confirm"/>
+        <input type="submit" value="Reset This User Password"/>
     </form>
 
   </div>
@@ -42,13 +42,13 @@
         <select value="None" name="user" id="user2">
             <option selected>---</option>
             <?php foreach ($users as $user): ?>
-                <option value="<?php echo $user->username; ?>"><?php echo $user->username; ?></option>
+                <option value="<?php echo $user->email; ?>"><?php echo $user->username; ?></option>
             <?php endforeach; ?>
         </select><br>
 
         <div id="profile2"></div>
 
-        <input type="submit" value="Confirm"/>
+        <input type="submit" value="Delete This User"/>
     </form>
   </div>
 
@@ -69,7 +69,8 @@
                var html_str = "<option selected>---</option>";
                for (var i = 0; i < result.length; i++) {
                  var username = result[i].username;
-                 html_str = html_str + "<option value=" + username + ">"+ username +"</option>";
+                 var email = result[i].email;
+                 html_str = html_str + "<option value=" + email + ">"+ username +"</option>";
                }
                $("#user1").append(html_str);
             }
@@ -103,7 +104,8 @@
                var html_str = "<option selected>---</option>";
                for (var i = 0; i < result.length; i++) {
                  var username = result[i].username;
-                 html_str = html_str + "<option value=" + username + ">"+ username +"</option>";
+                 var email = result[i].email;
+                 html_str = html_str + "<option value=" + email + ">"+ username +"</option>";
                }
                $("#user2").append(html_str);
             }

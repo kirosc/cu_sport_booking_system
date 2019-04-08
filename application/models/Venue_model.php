@@ -8,6 +8,7 @@ class Venue_model extends CI_Model
     //Attribute
     public $venue_id;
     public $name;
+    public $map;
     public $price;
     public $sports_id;
     public $college_id;

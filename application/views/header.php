@@ -46,16 +46,6 @@
                       </li>
                     <?php endif; ?>
 
-                    <?php if ($nav == 'admin_course'): ?>
-                      <li class='nav-item active'>
-                        <a class='nav-link' href='<?php echo $page_url;?>admin/course' id='current'>Course Control <span class='sr-only'>(current)</span></a>
-                      </li>
-                    <?php else:?>
-                      <li class='nav-item'>
-                        <a class='nav-link' href='<?php echo $page_url;?>admin/course'>Course Control</a>
-                      </li>
-                    <?php endif; ?>
-
                     <?php if ($nav == 'admin_user'): ?>
                       <li class='nav-item active'>
                         <a class='nav-link' href='<?php echo $page_url;?>admin/user' id='current'>User Control <span class='sr-only'>(current)</span></a>
