@@ -36,7 +36,12 @@
 
                           <?php
                             $_SESSION['admin_session_page'] = $currentpage;
-                            $ts = date(strtotime('previous monday'));
+
+                            if (date('D', strtotime('today')) == 'Mon') {
+                              $ts = date(strtotime('today'));
+                            }else{
+                              $ts = date(strtotime('previous monday'));
+                            }
                             $ts = $ts + $currentpage * 86400 * 7;
                             for ($i=0; $i < 7; $i++):
                           ?>
@@ -137,7 +142,7 @@
 
         $.ajax({
             type: "POST",
-            url: "<?php echo $page_url; ?>admin/search_session_handler",
+            url: "<?php echo $page_url; ?>util/search_session_handler",
             data: {venue_id},
             dataType: 'json',
             success: function(result){

@@ -61,6 +61,19 @@ class User_model extends CI_Model
 
     }
 
+    public function get_users_on_usertype($usertype = "")
+    {
+      $this->db->select('username, user.email AS email');
+      $this->db->from('user');
+      if ($usertype == 'coach') {
+        $this->db->join('coach', 'user.email = coach.email');
+      }elseif ($usertype == 'student') {
+        $this->db->join('student', 'user.email = student.email');
+      }
+      $query = $this->db->get();
+      return $query->result();
+    }
+
 
     //New User (New Entry)
     public function new_user($email, $password, $username, $first_name, $last_name, $icon = "NA")

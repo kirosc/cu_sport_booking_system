@@ -2,7 +2,7 @@
     <section class="container-fluid">
         <div class="row mt-3">
             <div class="col-md-8">
-                <div class="session-title info-block mb-3">
+                <div class="ss-title info-block mb-3">
                     <h4><?php echo $session->user_fullname.'s shared session'; ?></h4>
                     <p>
                         Sport Type:

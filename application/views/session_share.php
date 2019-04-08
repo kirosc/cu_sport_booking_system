@@ -1,11 +1,11 @@
 <div class="wrapper">
-    <section class="container-fluid" id="session-container">
+    <section class="container-fluid" id="session-share-container">
         <?php
         $count = 0;
         foreach ($sessions as $session) : ?>
-            <div class="session row">
-                <div class="session-info col">
-                    <div class="session-info">
+            <div class="ss row">
+                <div class="ss-info col">
+                    <div class="ss-info">
                         <table>
                             <tbody>
                             <tr>

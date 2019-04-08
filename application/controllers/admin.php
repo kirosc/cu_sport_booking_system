@@ -5,18 +5,6 @@
 class Admin extends SBooking_Controller
 {
 
-  public function index()
-  {
-    $this->setTitle('Admin');
-    $this->setNav('admin');
-
-    $data = $this->getHeaderData();
-
-    $this->load->view('header', $data);
-    $this->load->view('admin');
-    $this->load->view('footer');
-  }
-
   public function session()
   {
     $this->load->model('College_model');
@@ -45,24 +33,16 @@ class Admin extends SBooking_Controller
     $this->load->view('footer');
   }
 
-  public function course()
-  {
-    $this->setTitle('Admin');
-    $this->setNav('admin_course');
-
-    $data = $this->getHeaderData();
-
-    $this->load->view('header', $data);
-    $this->load->view('admin_course', $data);
-    $this->load->view('footer');
-  }
-
   public function user()
   {
+    $this->load->model('User_model');
+
     $this->setTitle('Admin');
     $this->setNav('admin_user');
 
     $data = $this->getHeaderData();
+
+    $data['users'] = $this->User_model->get_users_on_usertype();
 
     $this->load->view('header', $data);
     $this->load->view('admin_user', $data);
@@ -101,16 +81,17 @@ class Admin extends SBooking_Controller
 
   public function delete_session_handler()
   {
+    //code...
+  }
+
+  public function reset_user_handler()
+  {
     // code...
   }
 
-  public function search_session_handler()
+  public function delete_user_handler()
   {
-    $this->load->model('Session_model');
-    $sessions = $this->Session_model->get_available_session_by_id($_POST['venue_id']);
-    $data = json_encode($this->json_formatter($sessions));
-
-    echo $data;
+    // code...
   }
 
   public function json_formatter($sessions)
@@ -142,6 +123,15 @@ class Admin extends SBooking_Controller
     }
 
     return $array;
+  }
+
+  public function show_user_profile()
+  {
+    $this->load->model('User_model');
+    $this->loadCSS('profile.css');
+    $data = $this->getHeaderData();
+    $data['user'] = $this->User_model->get_user_detail($_POST['user']);
+    echo $this->load->view('profile', $data, true);
   }
 }
 
