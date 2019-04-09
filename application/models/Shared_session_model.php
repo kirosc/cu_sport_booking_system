@@ -51,11 +51,9 @@ class Shared_session_model extends CI_Model
         reserve.email AS host_email,
         venue.name AS venue,
         college.name AS college,
-        college.image AS college_image,
         sports.name AS sport,
         user.username AS host,
-        CONCAT(user.first_name, ' ', user.last_name) AS user_fullname,
-        student.phone_no AS phone_no
+        CONCAT(user.first_name, ' ', user.last_name) AS user_fullname
         ");
       $this->db->from('shared_session');
       $this->db->join('session', 'session.session_id = shared_session.session_id');

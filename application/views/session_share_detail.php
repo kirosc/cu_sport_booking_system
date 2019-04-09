@@ -25,7 +25,7 @@
                     </h4>
                     <p>
                         <i style="margin-right: 5px;" class="fa fa-calendar" aria-hidden="true"></i>
-                        <span>Starting Time: <?php echo $session->start_time; ?></span>
+                        <span>Time: <?php echo substr($session->start_time, 0, 16).' - '.$end_time.':00'; ?></span>
                     </p>
                     <p>
                         <i style="margin-right: 5px;" class="fa fa-users" aria-hidden="true"></i>

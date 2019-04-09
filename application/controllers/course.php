@@ -24,6 +24,9 @@ class Course extends SBooking_Controller
     $data['courses'] = $this->Course_model->courseSearch();
     $data['seat_remain'] = array();
     foreach ($data['courses'] as $course) {
+      $data['date'] = substr($course->start_time, 0, 10);
+      $data['start_time'] = substr($course->start_time, 11, 5);
+      $data['end_time'] = substr($course->end_time, 11, 5);
       $seat_remain = $course->seats - $this->Participate_model->countParticipateByCourseID($course->course_id);
       array_push(
         $data['seat_remain'],
@@ -52,6 +55,10 @@ class Course extends SBooking_Controller
 
     $data['course'] = $this->Course_model->get_course_detail_by_courseid($course_id);
     $data['seat_remain'] = $data['course']->seats - $this->Participate_model->countParticipateByCourseID($course_id);
+
+    $data['date'] = substr($data['course']->start_time, 0, 10);
+    $data['start_time'] = substr($data['course']->start_time, 11, 5);
+    $data['end_time'] = substr($data['course']->end_time, 11, 5);
 
     $this->setTitle('Course');
     $this->load->view('header', $data);

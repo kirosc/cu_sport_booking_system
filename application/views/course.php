@@ -16,7 +16,7 @@
             <div class="course row">
                 <div class="course-info col-lg-3">
                   <a href="<?php echo $detail_url . $course->course_id; ?>">
-                    <img src="<?php echo base_url(); ?>images/course/C001.jpg"
+                    <img src="<?php echo base_url(); ?>images/course/<?php echo $course->course_image; ?>"
                          alt="Sport thumbnail">
                   </a>
                 </div>
@@ -49,7 +49,7 @@
                                     <span>Course Period</span>
                                 </th>
                                 <td>
-                                    <?php echo $course->start_time . " - " . $course->end_time; ?></td>
+                                    <?php echo $date . " " . $start_time . " - " . $end_time; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">

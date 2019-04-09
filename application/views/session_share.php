@@ -14,8 +14,8 @@
                                     <span>Location</span>
                                 </th>
                                 <td>
-                                    <a href="<?php echo $detail_url . $session->session_id; ?>">
-                                        <?php echo $session->college." - ".$session->venue; ?>
+                                    <a href="<?php echo $detail_url . $session['start_session_id'] . '/' . $session['end_session_id']; ?>">
+                                        <?php echo $session['college']." - ".$session['venue']; ?>
                                     </a>
                                 </td>
                             </tr>
@@ -25,8 +25,8 @@
                                     <span>Host</span>
                                 </th>
                                 <td>
-                                  <a href="<?php echo $page_url."profile/".$session->host;?>">
-                                    <?php echo $session->user_fullname; ?>
+                                  <a href="<?php echo $page_url."profile/".$session['host'];?>">
+                                    <?php echo $session['user_fullname']; ?>
                                   </a>
                                 </td>
                             </tr>
@@ -36,21 +36,21 @@
                                     <span>Session Time</span>
                                 </th>
                                 <td>
-                                    <?php echo $session->start_time ; ?></td>
+                                    <?php echo $session['date']." ".$session['start_time'].":00 - ".$session['end_time'].":00"; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
                                     <i class="fa fa-indent" aria-hidden="true"></i>
                                     <span>Sport</span>
                                 </th>
-                                <td><?php echo $session->sport; ?></td>
+                                <td><?php echo $session['sport']; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
                                     <i class="fa fa-indent" aria-hidden="true"></i>
                                     <span>Description</span>
                                 </th>
-                                <td><?php echo $session->description; ?></td>
+                                <td><?php echo $session['description']; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -59,13 +59,13 @@
                                 </th>
                                 <td>
                                     <?php
-                                    if ($seat_remain[$count] == 0) {
+                                    if ($session['seat_remain'] == 0) {
                                         echo 'FULL /';
                                     } else {
-                                        echo $seat_remain[$count] . " remaining /";
+                                        echo $session['seat_remain'] . " remaining /";
                                     }
                                     ?>
-                                    <?php echo $session->seats . " total"; ?>
+                                    <?php echo $session['seats'] . " total"; ?>
                                 </td>
                             </tr>
                             </tbody>

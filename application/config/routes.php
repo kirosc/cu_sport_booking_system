@@ -61,7 +61,7 @@ $route['add_course'] = 'course/add_course_page';
 $route['court_booking'] = 'court_booking/book_court';
 
 $route['session_share'] = 'session_share/session_share_main';
-$route['session_share/id/:num'] = 'session_share/detail';
+$route['session_share/id/:num/:num'] = 'session_share/detail';
 
 $route['login'] = 'login/login_main';
 $route['register'] = 'login/register_main';
