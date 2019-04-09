@@ -104,7 +104,7 @@
                                         <div class="embed-responsive embed-responsive-4by3" id="google-map">
                                             <iframe
                                                     frameborder="0" style="border:0"
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1199.3965160099901!2d114.20287282923812!3d22.420200238811688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDI1JzEyLjciTiAxMTTCsDEyJzEyLjMiRQ!5e1!3m2!1szh-TW!2shk!4v1554742410577!5m2!1szh-TW!2shk"
+                                                    src="<?php echo $course->map;?>"
                                                     allowfullscreen>
                                             </iframe>
                                         </div>

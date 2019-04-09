@@ -156,7 +156,7 @@
                     "<td align='center'>" + date + "</td>";
 
                  for (var j = 0; j < avail_time.length; j++) {
-                   tr_str = tr_str + "<td align='center'><input type='checkbox' name='delete-checkbox-" + date + (avail_time[j]+8) + "' value='checked'/>" + (avail_time[j]+8) + ":00 - " + (avail_time[j]+9) + ":00</td>";
+                   tr_str = tr_str + "<td align='center'><input type='checkbox' name='delete-checkbox[" + date + (avail_time[j]+8) + "]' value='checked'/>" + (avail_time[j]+8) + ":00 - " + (avail_time[j]+9) + ":00</td>";
                  }
 
                 tr_str = tr_str + "</tr>";

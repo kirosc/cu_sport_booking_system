@@ -28,7 +28,7 @@ class Session_share extends SBooking_Controller
     foreach ($sessions as $session) {
       $date = substr($session->start_time, 0, 10);
       $start_time = substr($session->start_time, 11, 2);
-      $seat_remain = $session->seats - $this->Share_model->count_share_by_sessionid($session->session_id);
+      $seat_remain = $session->seats - $this->Share_model->get_share_by_id($session->session_id, 1);
       array_push(
         $dates,
         $date
@@ -68,13 +68,37 @@ class Session_share extends SBooking_Controller
     $end_session_time = 1+substr($this->Session_model->get_start_time($end_session_id)->start_time, 11, 2);
     $data['session'] = $this->Shared_session_model->get_shared_session_by_id($start_session_id);
     $data['end_time'] = $end_session_time;
-    $data['seat_remain'] = $data['session']->seats - $this->Share_model->count_share_by_sessionid($start_session_id);
+    $data['seat_remain'] = $data['session']->seats - $this->Share_model->get_share_by_id($start_session_id, 1);
 
 
     $this->setTitle('Session-Share');
     $this->load->view('header', $data);
     $this->load->view('session_share_detail', $data);
     $this->load->view('footer');
+  }
+
+  public function join()
+  {
+    $this->load->model('Shared_session_model');
+    $this->load->model('Share_model');
+
+    $this->setNav('session_share');
+
+    $session_id = $this->uri->segment(3);
+
+    $shares = $this->Share_model->get_share_by_id($session_id, 0);
+
+    foreach ($shares as $share) {
+      if ($_SESSION['email'] == $share->email) {
+        echo '<script>alert("You Have Already Join This Session!");</script>';
+        redirect('session_share', 'refresh');
+      }
+    }
+
+    $this->Share_model->new_share($_SESSION['email'], $session_id);
+
+    echo '<script>alert("You Have Successfully Join This Session!");</script>';
+    redirect('session_share', 'refresh');
   }
 
   public function merge_continue_session($sessions, $dates, $start_times, $seat_remains)

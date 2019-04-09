@@ -54,13 +54,16 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['course'] = 'course/course_main';
+$route['course/payment_finish'] = 'course/payment_finish';
 $route['course/id/:num'] = 'course/detail';
 $route['course/id/:num/apply'] = 'course/apply_check';
 
 $route['add_course'] = 'course/add_course_page';
 $route['court_booking'] = 'court_booking/book_court';
+$route['court_booking/payment_finish'] = 'court_booking/payment_finish';
 
 $route['session_share'] = 'session_share/session_share_main';
+$route['session_share/id/:num/join'] = 'session_share/join';
 $route['session_share/id/:num/:num'] = 'session_share/detail';
 
 $route['login'] = 'login/login_main';

@@ -115,5 +115,14 @@ class Course_model extends CI_Model
 
       return $query->result()[0];
     }
+
+    public function get_price_by_id($course_id)
+    {
+      $this->db->select('price');
+      $this->db->where('course_id', $course_id);
+      $query = $this->db->get('course');
+
+      return $query->result()[0];
+    }
 }
 ?>
