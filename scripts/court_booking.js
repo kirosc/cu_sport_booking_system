@@ -1,14 +1,21 @@
 const MON = 0, TUE = 1, WED = 2, THU = 3, FRI = 4, SAT = 5, SUN = 6;
+let JSON;
+let today = moment();
 let startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
-let endDay = moment().set({hour: 23, minute: 59, second: 59, millisecond: 9});
-if (startDay.isoWeekday() !== SUN - 1) {
-    endDay = moment(endDay).day(SUN + 1);
-}
-console.log(startDay.format("YYYY-MM-DD, h:mm:ss a'"));
-console.log(endDay.format("YYYY-MM-DD, h:mm:ss a'"));
+// let endDay = moment().set({hour: 23, minute: 59, second: 59, millisecond: 9});
+// if (startDay.isoWeekday() !== SUN - 1) {
+//     endDay = moment(endDay).day(SUN + 1);
+// }
+let nextStartDay = startDay.clone();
+nextStartDay.add(1, 'weeks').isoWeekday(MON + 1);
+let prevStartDay = null;
+let lastAvailableDay = null;
+console.log('startDay' + startDay.format("YYYY-MM-DD, h:mm:ss a'"));
+console.log('nextStartDay' + nextStartDay.format("YYYY-MM-DD, h:mm:ss a'"));
+console.log(prevStartDay);
 
 function initializeRow(table) {
-    $('td').remove();
+    $('tbody').empty();
     for (let i = 0; i <= 14; i++) {
         let lastRow = $('<tr/>').appendTo(table.find('tbody:last'));
         let startTime = (i + 8) % 12;
@@ -43,10 +50,14 @@ function initializeRow(table) {
     }
 }
 
-function highlightPastTime(table) {
-    let date = moment();
-    let day = date.isoWeekday();
-    let hours = date.hours();
+function highlightPastTime(table, table_monday) {
+    let today = moment();
+    if (table_monday > today) {
+        return;
+    }
+    // Get day of the week, Monday = 1; Sunday = 7
+    let day = today.isoWeekday();
+    let hours = today.hours();
     let currentSession;
 
     if (day === SUN && hours === 22) {
@@ -79,21 +90,23 @@ function getSessions(json, date, venueID) {
     });
 }
 
-// Load all available session to the table
+// Load all available day session to the table
 // SHOULD pass only one date only to the function
 function loadDaySession(table, json) {
-    if (json.length !== 1) {
+    if (json.length !== 1) {    // If JSON is empty, i.e. no available session
+        console.log('No session today');
         return;
     }
     let loadingDate = moment(json[0]['date']);
     json[0]['availableTimeSlot'].forEach(function (value) {
         let day = loadingDate.isoWeekday() - 1;
         let session = $('#slot-' + (day) + '-' + value + ':not(.bg-danger)');
-        console.log('#slot-' + (day) + '-' + value + ':not(.bg-danger)');
+        // console.log('#slot-' + (day) + '-' + value + ':not(.bg-danger)');
         if (session.length === 0) {
             return;
         }
         let checkboxID = 'cb-' + (day) + '-' + value;
+        // Add checkbox
         session.append(
             $('<div class=\"custom-control custom-checkbox text-center\">')
                 .append('<input type="checkbox" class="custom-control-input text-center" id="' + checkboxID + '">' +
@@ -103,54 +116,64 @@ function loadDaySession(table, json) {
     });
 }
 
-function loadWeekSession(table, json, venueID) {
-    let loadingDay = startDay.clone();
+function loadWeekSession(table, json, venueID, mStartDay, mEndDay) {
+    console.log('mStartDay ' + mStartDay.format("YYYY-MM-DD, h:mm:ss a'"));
+    console.log('mEndDay ' + mEndDay.format("YYYY-MM-DD, h:mm:ss a'"));
+
+    let loadingDay = mStartDay.clone();
+    let sunday = mEndDay.clone();
     while (true) {
-        console.log('loading: ' + loadingDay.format('YYYY-MM-DD'));
+        console.log('Loading day: ' + loadingDay.format('YYYY-MM-DD'));
+        // Filter JSON result by desired day
         let daySessions = getSessions(json, loadingDay.format('YYYY-MM-DD'), venueID);
         loadDaySession(table, daySessions);
-        if (moment(loadingDay).isSame(endDay, 'date')) {
+        if (moment(loadingDay).isSame(sunday, 'date')) {
             break;
         }
         loadingDay.add(1, 'day');
     }
 }
 
-function getVenue(val) {
+function getVenue() {
     var college = $("#college").val();
     var sport = $("#sport").val();
 
     var params = {
-      type: "POST",
-      url: "util/search_venue_handler",
-      dataType: 'json'
+        type: "POST",
+        url: "util/search_venue_handler",
+        dataType: 'json'
     };
     if (college !== 'None' && sport !== 'None') {
-      params.data = {"college_id": college,"sport_id":sport};
-    }else if (college !== 'None') {
-      console.log('2');
-      params.data = {"college_id": college};
-    }else if (sport !== 'None') {
-      params.data = {"sport_id":sport};
-    }else{
-      params.data = {};
+        params.data = {"college_id": college, "sport_id": sport};
+    } else if (college !== 'None') {
+        console.log('2');
+        params.data = {"college_id": college};
+    } else if (sport !== 'None') {
+        params.data = {"sport_id": sport};
+    } else {
+        params.data = {};
     }
 
-      $.ajax(params).done(result => {
+    $.ajax(params).done(result => {
         console.log(result);
-        var html_string = "<option value='none' selected>Select venue</option>"
+        let html_string = "<option value='None' selected>-----</option>";
         for (var i = 0; i < result.length; i++) {
-          html_string = html_string + '<option value="' + result[i].venue_id + '">' + result[i].venue + '</option>';
+            html_string = html_string + '<option value="' + result[i].venue_id + '">' + result[i].venue + '</option>';
         }
         $("#venue")
-          .find('option')
-          .remove()
-          .end()
-          .append(html_string);
+            .find('option')
+            .remove()
+            .end()
+            .append(html_string);
+    }).fail((jqXHR, textStatus, errorThrown) => {
+        console.log('request failed');
+    });
+}
 
-      }).fail((jqXHR, textStatus, errorThrown) => {
-          console.log('request failed');
-      });
+function loadWeekNumber() {
+    let monday = startDay.clone().isoWeekday(1);
+    let week = '' + monday.format('D/M') + ' ~ ' + monday.isoWeekday(7).format('D/M');
+    $('.th-inner:first').html(week).css('text-align', 'center');
 }
 
 // Perform AJAX request when venue is selected
@@ -163,25 +186,45 @@ function getJSON(venueDropdown, table) {
         dataType: 'json',
     })
         .done(result => {
-            console.log('request success');
-            console.log(result);
-            initializeRow(table);
-            highlightPastTime(table);
-            loadWeekSession(table, result, venue_id);
+            console.log('Request success');
+            console.log('len' + result.length);
+            if (result.length === 0) {
+                console.log('Empty response');
+                $('tbody').empty().append(
+                    $('<tr class="no-records-found">')
+                        .append('<td colspan="8">No session available</td>')
+                );
+                $('#next, #prev, #today').addClass('disabled');
+            } else {
+                console.log(result);
+                initializeRow(table);
+                highlightPastTime(table, startDay);
+                loadWeekSession(table, result, venue_id, startDay, startDay.clone().isoWeekday(SUN + 1));
+                lastAvailableDay = moment(result[result.length - 1].date, 'YYYY-MM-DD');
+                if (lastAvailableDay.isAfter(startDay.clone().isoWeekday(SUN + 1), 'date')) {
+                    $('#today, #next').removeClass('disabled');
+                }
+                JSON = result;
+            }
         })
         .fail((jqXHR, textStatus, errorThrown) => {
-            console.log('request failed');
+            console.log('Request failed');
         });
 }
 
 
 $(function () {
-    let rawJSON;
+    loadWeekNumber();
     let table = $('#table');
     $('#venue').change(async function () {
-        console.log($(this).val());
-        getJSON($(this).val(), table);
-        console.log('rawJSON:' + typeof rawJSON);
+        let venue_id = $(this).val();
+
+        if (venue_id === 'None') {
+            $('.table-control-container').addClass('hidden');
+        } else {
+            $('.table-control-container').removeClass('hidden');
+            getJSON($(this).val(), table);
+        }
     });
 
     $('input[type=radio][name=is-share]').change(function () {
@@ -195,14 +238,66 @@ $(function () {
     });
 
     $('button').click(function () {
+        if ($(this).hasClass('disabled')) {
+            return;
+        }
+        let venue_id = $('#venue').val();
         let value = $(this).val();
+        let goToToday = () => {
+            startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
+            nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
+            prevStartDay = null;
+            initializeRow(table);
+            highlightPastTime(table, startDay);
+            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().isoWeekday(7));
+            $('#prev').addClass('disabled');
+            $('#next').removeClass('disabled');
+            loadWeekNumber();
+        };
+
         if (value === 'prev') {
-        }
-        else if (value === "next") {
-        }
-        else if (value === 'today') {
+            if (prevStartDay === null || prevStartDay.isSame(today, 'date')) {
+                goToToday();
+                return;
+            }
+            [prevStartDay, startDay] = [startDay, prevStartDay];
+            [prevStartDay, nextStartDay] = [nextStartDay, prevStartDay];
+            prevStartDay = null;
+            initializeRow(table);
+            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().add(6, 'days'));
+            loadWeekNumber();
+        } else if (value === "next") {
+            if (venue_id === 'None' && JSON === undefined) {
+                return;
+            }
+            initializeRow(table);
+            loadWeekSession(table, JSON, venue_id, nextStartDay, nextStartDay.clone().add(6, 'days'));
+            [prevStartDay, startDay] = [startDay, prevStartDay];
+            [nextStartDay, startDay] = [startDay, nextStartDay];
+            nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
+            console.log("@" + prevStartDay.format("YYYY-MM-DD, h:mm:ss a'"));
+            console.log(startDay.format("YYYY-MM-DD, h:mm:ss a'"));
+            console.log(nextStartDay.format("YYYY-MM-DD, h:mm:ss a'"));
+
+            // Change buttons appearance
+            $('#prev').removeClass('disabled');
+            if (lastAvailableDay.isBefore(nextStartDay, 'date')) {
+                $('#next').addClass('disabled');
+            }
+            loadWeekNumber();
+        } else if (value === 'today') {
+            if (startDay != null) {
+                if (startDay.diff(moment(), 'days') === 0) {
+                    return;
+                }
+            }
+            goToToday();
         }
         console.log(value);
     });
     // TODO: Check submit time to booking session
+    // course can show up to 2 weeks
+    // book venue show date up to 1 week
+    // both of them only allow same day and continue session
 });
+//console.log(startDay.format("YYYY-MM-DD, h:mm:ss a'"));
