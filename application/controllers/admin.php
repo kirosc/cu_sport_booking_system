@@ -56,6 +56,7 @@ class Admin extends SBooking_Controller
     $count = $_SESSION['admin_session_page'];
     $ts = date(strtotime('previous monday'));
     $ts = $ts + $count * 86400 * 7;
+    $start_times = array();
 
     for ($i=8; $i < 23; $i++) {
       for ($j=0; $j < 7; $j++) {
@@ -70,10 +71,16 @@ class Admin extends SBooking_Controller
           }
 
           $start_time = $date . " " . $time;
-          $this->Session_model->new_session($start_time, $_POST['venue']);
+          array_push($start_times, $start_time);
+
         }
       }
     }
+    sort($start_times);
+    foreach ($start_times as $k) {
+      $this->Session_model->new_session($k, $_POST['venue']);
+    }
+
 
     echo '<script>alert("Session Added!");</script>';
     redirect('admin/session', 'refresh');
