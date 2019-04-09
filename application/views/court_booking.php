@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <form action='<?php echo $page_url; ?>court_booking/check_booking' method='post'>
+    <form action='<?php echo $page_url; ?>court_booking/check_booking' method='post' id="booking-form">
         <div class="container-fluid">
             <div class="row m-2 m-md-4">
                 <div class="col-xl-4 mb-1">

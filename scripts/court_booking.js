@@ -110,7 +110,7 @@ function loadDaySession(table, json) {
         // Add checkbox
         session.append(
             $('<div class=\"custom-control custom-checkbox text-center\">')
-                .append('<input type="checkbox" class="custom-control-input text-center" id="' + checkboxID + '">' +
+                .append('<input type="checkbox" class="custom-control-input text-center" value="' + checkboxID + '" id="' + checkboxID + '">' +
                     '<label class="custom-control-label" for="' + checkboxID + '">'
                 )
         );
@@ -297,6 +297,7 @@ $(function () {
         console.log(value);
     });
 
+    // Checkbox Listener
     $("body").change(function (event) {
         if ($(event.target).is('input:checkbox:checked')) {
             let id = event.target.id;
@@ -353,9 +354,13 @@ $(function () {
         }
     });
 
+    $('form').submit(function () {
+        let dayOfWeek = Number(checkedSession[0].day) + 1;
+        let finalDate = startDay.clone().isoWeekday(dayOfWeek);
+        $('<input />').attr('type', 'hidden')
+            .attr('name', "date")
+            .attr('value', finalDate.format("YYYY-MM-DD"))
+            .appendTo('form');
+    });
     // TODO: Check submit time to booking session
-    // course can show up to 2 weeks
-    // book venue show date up to 1 week
-    // both of them only allow same day and continue session
 });
-//console.log(startDay.format("YYYY-MM-DD, h:mm:ss a'"));
