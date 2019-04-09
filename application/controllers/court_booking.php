@@ -37,6 +37,8 @@ class Court_booking extends SBooking_Controller
   {
     $price = '10';
 
+    print_r ($_POST);
+
     $this->load->model('Session_model');
     $this->load->model('Shared_session_model');
     $this->load->model('Reserve_model');

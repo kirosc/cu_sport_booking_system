@@ -110,7 +110,7 @@ function loadDaySession(table, json) {
         // Add checkbox
         session.append(
             $('<div class=\"custom-control custom-checkbox text-center\">')
-                .append('<input type="checkbox" class="custom-control-input text-center" value="' + checkboxID + '" id="' + checkboxID + '">' +
+                .append('<input type="checkbox" class="custom-control-input text-center" name="time[' + checkboxID + ']" value="' + checkboxID + '" id="' + checkboxID + '">' +
                     '<label class="custom-control-label" for="' + checkboxID + '">'
                 )
         );
