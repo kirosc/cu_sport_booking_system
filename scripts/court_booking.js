@@ -43,10 +43,14 @@ function initializeRow(table) {
     }
 }
 
-function highlightPastTime(table) {
-    let date = moment();
-    let day = date.isoWeekday();
-    let hours = date.hours();
+function highlightPastTime(table, table_monday) {
+    let today = moment();
+    if (table_monday > today) {
+        return;
+    }
+    // Get day of the week, Monday = 1; Sunday = 7
+    let day = today.isoWeekday();
+    let hours = today.hours();
     let currentSession;
 
     if (day === SUN && hours === 22) {
@@ -103,13 +107,14 @@ function loadDaySession(table, json) {
     });
 }
 
-function loadWeekSession(table, json, venueID) {
-    let loadingDay = startDay.clone();
+function loadWeekSession(table, json, venueID, mStartDay, mEndDay) {
+    let loadingDay = mStartDay.clone();
+    let sunday = mEndDay.clone();
     while (true) {
         console.log('loading: ' + loadingDay.format('YYYY-MM-DD'));
         let daySessions = getSessions(json, loadingDay.format('YYYY-MM-DD'), venueID);
         loadDaySession(table, daySessions);
-        if (moment(loadingDay).isSame(endDay, 'date')) {
+        if (moment(loadingDay).isSame(sunday, 'date')) {
             break;
         }
         loadingDay.add(1, 'day');
@@ -166,8 +171,9 @@ function getJSON(venueDropdown, table) {
             console.log('request success');
             console.log(result);
             initializeRow(table);
-            highlightPastTime(table);
-            loadWeekSession(table, result, venue_id);
+            highlightPastTime(table, moment());
+            loadWeekSession(table, result, venue_id, startDay, endDay);
+
         })
         .fail((jqXHR, textStatus, errorThrown) => {
             console.log('request failed');
@@ -205,4 +211,7 @@ $(function () {
         console.log(value);
     });
     // TODO: Check submit time to booking session
+    // course can show up to 2 weeks
+    // book venue show date up to 1 week
+    // both of them only allow same day and continue session
 });
