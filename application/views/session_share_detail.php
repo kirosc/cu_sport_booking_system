@@ -36,7 +36,7 @@
                         echo '<p>FULL</p>';
                       }else {
                         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == TRUE) {
-                          echo "<a href='".$page_url."session/id/".$session->session_id."/join' class='btn cu-btn btn-danger'>Join Session</a>";
+                          echo "<a href='".$page_url."session_share/id/".$session->session_id."/join' class='btn cu-btn btn-danger'>Join Session</a>";
                         }else{
                           echo "<a href='".$page_url."login/login_main' class='btn cu-btn btn-danger'>Login to Join</a>";
                         }

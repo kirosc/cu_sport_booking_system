@@ -27,7 +27,7 @@ class Course extends SBooking_Controller
       $data['date'] = substr($course->start_time, 0, 10);
       $data['start_time'] = substr($course->start_time, 11, 5);
       $data['end_time'] = substr($course->end_time, 11, 5);
-      $seat_remain = $course->seats - $this->Participate_model->countParticipateByCourseID($course->course_id);
+      $seat_remain = $course->seats - $this->Participate_model->get_participate_by_id($course->course_id, 1);
       array_push(
         $data['seat_remain'],
         $seat_remain
@@ -54,7 +54,7 @@ class Course extends SBooking_Controller
     $course_id = $this->uri->segment(3);
 
     $data['course'] = $this->Course_model->get_course_detail_by_courseid($course_id);
-    $data['seat_remain'] = $data['course']->seats - $this->Participate_model->countParticipateByCourseID($course_id);
+    $data['seat_remain'] = $data['course']->seats - $this->Participate_model->get_participate_by_id($course_id, 1);
 
     $data['date'] = substr($data['course']->start_time, 0, 10);
     $data['start_time'] = substr($data['course']->start_time, 11, 5);
@@ -115,16 +115,37 @@ class Course extends SBooking_Controller
 
   public function apply_check()
   {
+    $this->load->model('Course_model');
     $this->load->model('Participate_model');
 
     $this->setNav('course');
     $data = $this->getHeaderData();
-
     $course_id = $this->uri->segment(3);
-    $this->Participate_model->newParticipate($_SESSION['email'], $course_id);
-    $this->load->view('header', $data);
 
+    $participates = $this->Participate_model->get_participate_by_id($course_id, 0);
+
+    foreach ($participates as $participate) {
+      if ($_SESSION['email'] == $participate->email) {
+        echo '<script>alert("You Have Already Join This Course!");</script>';
+        redirect('course', 'refresh');
+      }
+    }
+    $data['price'] = $this->Course_model->get_price_by_id($course_id)->price;
+    $data['course_id'] = $course_id;
+
+    $this->load->view('header', $data);
+    $this->load->view('payment', $data);
     $this->load->view('footer');
+
+    //$this->Participate_model->new_participate($_SESSION['email'], $course_id);
+  }
+
+  public function payment_finish()
+  {
+    $this->load->model('Participate_model');
+    $this->Participate_model->new_participate($_SESSION['email'], $_POST['course_id']);
+    redirect('course', 'refresh');
+
   }
 }
 

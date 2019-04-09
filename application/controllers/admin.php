@@ -88,7 +88,17 @@ class Admin extends SBooking_Controller
 
   public function delete_session_handler()
   {
-    //code...
+    $this->load->model('Session_model');
+
+    $venue_id = $_POST['venue'];
+    foreach ($_POST['delete-checkbox'] as $key => $value) {
+      $year = substr($key, 0, 4);
+      $month = substr($key, 5, 2);
+      $day = substr($key, 8, 2);
+      $hour = substr($key, 10);
+      $start_time = date("Y-m-d h:i:s", mktime($hour, 0, 0, $month, $day, $year));
+      $this->Session_model->delete_session($start_time, $venue_id);
+    }
   }
 
   public function reset_password_handler()

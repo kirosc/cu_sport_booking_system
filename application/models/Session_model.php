@@ -32,9 +32,10 @@ class Session_model extends CI_Model
     }
 
     //Delete Session (Delete Entry)
-    public function delete_session($session_id)
+    public function delete_session($start_time, $venue_id)
     {
-        $this->db->where('session_id', $session_id);
+        $this->db->where('start_time', $start_time);
+        $this->db->where('venue_id', $venue_id);
         $this->db->delete('session');
     }
 

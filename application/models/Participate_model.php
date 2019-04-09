@@ -10,15 +10,19 @@ class Participate_model extends CI_Model
     public $payment_method;
 
 
-    public function countParticipateByCourseID($course_id)
+    public function get_participate_by_id($course_id, $method)
     {
       $this->db->from('participate');
       $this->db->where('course_id', $course_id);
 
-      return $this->db->count_all_results();
+      if ($method == 0) {
+        return $this->db->get()->result();
+      }elseif ($method == 1) {
+        return $this->db->count_all_results();
+      }
     }
 
-    public function newParticipate($email, $course_id, $payment_method='Credit Card')
+    public function new_participate($email, $course_id, $payment_method='Credit Card')
     {
         $this->email = $email;
         $this->course_id = $course_id;
