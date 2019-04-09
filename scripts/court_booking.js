@@ -170,6 +170,12 @@ function getVenue() {
     });
 }
 
+function loadWeekNumber() {
+    let monday = startDay.clone().isoWeekday(1);
+    let week = '' + monday.format('D/M') + ' ~ ' + monday.isoWeekday(7).format('D/M');
+    $('.th-inner:first').html(week).css('text-align', 'center');
+}
+
 // Perform AJAX request when venue is selected
 function getJSON(venueDropdown, table) {
     let venue_id = venueDropdown;
@@ -208,6 +214,7 @@ function getJSON(venueDropdown, table) {
 
 
 $(function () {
+    loadWeekNumber();
     let table = $('#table');
     $('#venue').change(async function () {
         let venue_id = $(this).val();
@@ -245,6 +252,7 @@ $(function () {
             loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().isoWeekday(7));
             $('#prev').addClass('disabled');
             $('#next').removeClass('disabled');
+            loadWeekNumber();
         };
 
         if (value === 'prev') {
@@ -257,9 +265,8 @@ $(function () {
             prevStartDay = null;
             initializeRow(table);
             loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().add(6, 'days'));
-        }
-
-        else if (value === "next") {
+            loadWeekNumber();
+        } else if (value === "next") {
             if (venue_id === 'None' && JSON === undefined) {
                 return;
             }
@@ -268,7 +275,7 @@ $(function () {
             [prevStartDay, startDay] = [startDay, prevStartDay];
             [nextStartDay, startDay] = [startDay, nextStartDay];
             nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
-            console.log("@"+prevStartDay.format("YYYY-MM-DD, h:mm:ss a'"));
+            console.log("@" + prevStartDay.format("YYYY-MM-DD, h:mm:ss a'"));
             console.log(startDay.format("YYYY-MM-DD, h:mm:ss a'"));
             console.log(nextStartDay.format("YYYY-MM-DD, h:mm:ss a'"));
 
@@ -277,11 +284,8 @@ $(function () {
             if (lastAvailableDay.isBefore(nextStartDay, 'date')) {
                 $('#next').addClass('disabled');
             }
-
-
-        }
-
-        else if (value === 'today') {
+            loadWeekNumber();
+        } else if (value === 'today') {
             if (startDay != null) {
                 if (startDay.diff(moment(), 'days') === 0) {
                     return;
