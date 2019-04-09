@@ -1,5 +1,6 @@
 const MON = 0, TUE = 1, WED = 2, THU = 3, FRI = 4, SAT = 5, SUN = 6;
 let JSON;
+let checkedSession = [];
 let today = moment();
 let startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
 // let endDay = moment().set({hour: 23, minute: 59, second: 59, millisecond: 9});
@@ -295,6 +296,63 @@ $(function () {
         }
         console.log(value);
     });
+
+    $("body").change(function (event) {
+        if ($(event.target).is('input:checkbox:checked')) {
+            let id = event.target.id;
+            let day, timeSlot;
+            let isSameDay = true, isContinuous = false;
+            day = id.substring(
+                id.indexOf("-") + 1,
+                id.lastIndexOf("-")
+            );
+            timeSlot = Number(id.substring(id.lastIndexOf("-") + 1));
+
+            if (checkedSession.length === 0) {
+                isContinuous = true;
+            } else {
+                checkedSession.forEach((value, index) => {
+                    if (value.day !== day && isSameDay) {
+                        alert('Only can select same day');
+                        isSameDay = false;
+                        $(event.target).prop("checked", false);
+                    } else if ((timeSlot === value.timeSlot - 1 || timeSlot === value.timeSlot + 1) && !isContinuous) {
+                        isContinuous = true;
+                    }
+                });
+                if (isSameDay && !isContinuous) {
+                    alert('Only can select continuous session');
+                    $(event.target).prop("checked", false);
+                }
+            }
+            if (isSameDay && isContinuous) {
+                checkedSession.push({
+                    day: day,
+                    timeSlot: timeSlot
+                });
+                checkedSession.sort((a, b) => a.timeSlot - b.timeSlot);
+            }
+        } else if ($(event.target).is('input:checkbox:not(:checked)')) {
+            let id = event.target.id;
+            let timeSlot = Number(id.substring(id.lastIndexOf("-") + 1));
+            console.log('timeSlot ' + timeSlot);
+            if (checkedSession.length !== 0 &&
+                timeSlot !== checkedSession[0].timeSlot &&
+                timeSlot !== checkedSession[checkedSession.length - 1].timeSlot) {
+                alert('Only can select continuous session');
+                $(event.target).prop("checked", true);
+            } else {
+                // Remove from list
+                for (let i = 0; i < checkedSession.length; i++) {
+                    if (checkedSession[i].timeSlot === timeSlot) {
+                        checkedSession.splice(i, 1);
+                        break;
+                    }
+                }
+            }
+        }
+    });
+
     // TODO: Check submit time to booking session
     // course can show up to 2 weeks
     // book venue show date up to 1 week

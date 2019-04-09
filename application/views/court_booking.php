@@ -51,24 +51,22 @@
 
                 <div class="row m-0 m-md-4">
                     <div class="col-xl table-responsive-md">
-                        <form>
-                            <table data-toggle="table" id="table">
-                                <thead>
-                                <tr>
-                                    <th data-col="time"></th>
-                                    <th class="text-center" data-col="mon">Mon</th>
-                                    <th class="text-center" data-col="tue">Tue</th>
-                                    <th class="text-center" data-col="wed">Wed</th>
-                                    <th class="text-center" data-col="thu">Thu</th>
-                                    <th class="text-center" data-col="fri">Fri</th>
-                                    <th class="text-center" data-col="sat">Sat</th>
-                                    <th class="text-center" data-col="sun">Sun</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </form>
+                        <table data-toggle="table" id="table">
+                            <thead>
+                            <tr>
+                                <th data-col="time"></th>
+                                <th class="text-center" data-col="mon">Mon</th>
+                                <th class="text-center" data-col="tue">Tue</th>
+                                <th class="text-center" data-col="wed">Wed</th>
+                                <th class="text-center" data-col="thu">Thu</th>
+                                <th class="text-center" data-col="fri">Fri</th>
+                                <th class="text-center" data-col="sat">Sat</th>
+                                <th class="text-center" data-col="sun">Sun</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
