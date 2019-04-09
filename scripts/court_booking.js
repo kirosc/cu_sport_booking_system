@@ -1,5 +1,6 @@
 const MON = 0, TUE = 1, WED = 2, THU = 3, FRI = 4, SAT = 5, SUN = 6;
 let JSON;
+let today = moment();
 let startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
 // let endDay = moment().set({hour: 23, minute: 59, second: 59, millisecond: 9});
 // if (startDay.isoWeekday() !== SUN - 1) {
@@ -207,7 +208,6 @@ function getJSON(venueDropdown, table) {
 
 
 $(function () {
-    let rawJSON;
     let table = $('#table');
     $('#venue').change(async function () {
         let venue_id = $(this).val();
@@ -234,11 +234,29 @@ $(function () {
         if ($(this).hasClass('disabled')) {
             return;
         }
-
         let venue_id = $('#venue').val();
         let value = $(this).val();
-        if (value === 'prev') {
+        let goToToday = () => {
+            startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
+            nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
+            prevStartDay = null;
+            initializeRow(table);
+            highlightPastTime(table, startDay);
+            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().isoWeekday(7));
+            $('#prev').addClass('disabled');
+            $('#next').removeClass('disabled');
+        };
 
+        if (value === 'prev') {
+            if (prevStartDay === null || prevStartDay.isSame(today, 'date')) {
+                goToToday();
+                return;
+            }
+            [prevStartDay, startDay] = [startDay, prevStartDay];
+            [prevStartDay, nextStartDay] = [nextStartDay, prevStartDay];
+            prevStartDay = null;
+            initializeRow(table);
+            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().add(6, 'days'));
         }
 
         else if (value === "next") {
@@ -269,14 +287,7 @@ $(function () {
                     return;
                 }
             }
-            startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
-            nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
-            prevStartDay = null;
-            initializeRow(table);
-            highlightPastTime(table, startDay);
-            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().isoWeekday(7));
-            $('#prev').addClass('disabled');
-            $('#next').removeClass('disabled');
+            goToToday();
         }
         console.log(value);
     });
