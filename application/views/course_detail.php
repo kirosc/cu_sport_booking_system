@@ -27,15 +27,15 @@
                     </h4>
                     <p>
                         <i style="margin-right: 5px;" class="fa fa-calendar" aria-hidden="true"></i>
-                        <span>Starting Time: <?php echo $course->start_time; ?></span>
+                        <span>Date: <?php echo $date; ?></span>
                     </p>
                     <p>
                         <i style="margin-right: 5px;" class="fa fa-calendar" aria-hidden="true"></i>
-                        <span>Ending Time: <?php echo $course->end_time; ?></span>
+                        <span>Time: <?php echo $start_time." - ".$end_time; ?></span>
                     </p>
                     <p>
                         <i style="margin-right: 5px;" class="fa fa-ticket" aria-hidden="true"></i>
-                        <span>Cost: <?php echo $course->price; ?></span>
+                        <span>Cost: <?php echo "$".$course->price; ?></span>
                     </p>
                     <p>
                         <i style="margin-right: 5px;" class="fa fa-users" aria-hidden="true"></i>
