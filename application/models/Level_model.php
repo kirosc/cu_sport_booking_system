@@ -16,5 +16,14 @@ class Level_model extends CI_Model
 
       return $query->result();
     }
+
+    public function get_name($level_id)
+    {
+      $this->db->select('description');
+      $this->db->where('level_id', $level_id);
+      $query = $this->db->get('level');
+
+      return $query->result()[0];
+    }
 }
 ?>

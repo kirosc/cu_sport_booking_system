@@ -96,21 +96,76 @@ class Course extends SBooking_Controller
 
   public function check_add_course()
   {
-    $this->load->model('Course_model');
-    $this->load->model('Session_model');
-    $this->load->model('Reserve_model');
+    $this->load->model('Venue_model');
+    $this->load->model('Level_model');
 
     $this->setNav('course');
     $data = $this->getHeaderData();
 
-    $this->Reserve_model->new_reserve($_SESSION['email'], $_POST['session']);
-    $start = $this->Session_model->get_start_time($_POST['session']);
-    $end = $this->Session_model->get_end_time($_POST['session']);
-    $this->Course_model->new_course($_POST["course_title"], $start, $end, $_POST["category"], $_POST["facility"], $_POST["price"], $_POST["seat"], $_POST["description"], $_POST["level"], $_SESSION["email"]);
+    $data['title'] = $_POST['title'];
+    $data['level'] = $_POST['level'];
+    $data['level_name'] = $this->Level_model->get_name($data['level'])->description;
+    $data['description'] = $_POST['description'];
+    $data['course_price'] = $_POST['price'];
+    $data['course_seat'] = $_POST['people'];
+
+    $data['date'] = $_POST['date'];
+    $year = substr($data['date'], 0, 4);
+    $month = substr($data['date'], 5, 2);
+    $day = substr($data['date'], 8, 2);
+
+    $data['venue_id'] = $_POST['venue'];
+    $data['venue'] = $this->Venue_model->get_name($_POST['venue'])->venue;
+    $data['sessions_time'] = array();
+    foreach ($_POST['time'] as $value) {
+      $time = 8+substr($value, 5);
+      $data['end_time'] = ($time + 1).":00";
+      $start_time = date("Y-m-d H:i:s", mktime($time, 0, 0, $month, $day, $year));
+      array_push($data['sessions_time'], $start_time);
+    }
+    $data['start_time'] = substr($data['sessions_time'][0], 11, 5);
+
+    $price = $this->Venue_model->get_venue_price($data['venue_id'])->price;
+    $data['court_price'] = $price * sizeof($data['sessions_time']);
+
+    $data['sessions_time'] = json_encode($data['sessions_time']);
 
     $this->load->view('header', $data);
-    $this->load->view('course_add_success', $data);
+    $this->load->view('course_add_payment', $data);
     $this->load->view('footer');
+
+  }
+
+  public function course_add_payment_finish()
+  {
+    $this->load->model('Course_model');
+    $this->load->model('Session_model');
+    $this->load->model('Reserve_model');
+    $this->load->model('Course_session_model');
+
+    $title = $_POST['title'];
+    $level_id = $_POST['level_id'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $seat = $_POST['seat'];
+    $venue_id = $_POST['venue_id'];
+    $sessions_time = $_POST['sessions_time'];
+    $start = $_POST['date']." ".$_POST['start_time'].":00";
+    $end = $_POST['date']." ".$_POST['end_time'].":00";
+
+    $session_ids = array();
+
+    foreach ($sessions_time as $start_time) {
+      $session_id = $this->Session_model->get_session_id($venue_id, $start_time)->session_id;
+      $this->Reserve_model->new_reserve($_SESSION['email'], $session_id);
+      array_push($session_ids, $session_id);
+    }
+    $course_id = $this->Course_model->new_course($title, $start, $end, $price, $seat, $description, $level_id, $_SESSION['email']);
+
+    foreach ($session_ids as $session_id) {
+      $this->Course_session_model->new_course_session($course_id, $session_id);
+    }
+
   }
 
   public function apply_check()
@@ -134,11 +189,11 @@ class Course extends SBooking_Controller
     $data['course_id'] = $course_id;
 
     $this->load->view('header', $data);
-    $this->load->view('payment', $data);
+    $this->load->view('course_apply_payment', $data);
     $this->load->view('footer');
   }
 
-  public function payment_finish()
+  public function course_apply_payment_finish()
   {
     $this->load->model('Participate_model');
     $this->Participate_model->new_participate($_SESSION['email'], $_POST['course_id']);

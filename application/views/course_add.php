@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <form action='<?php echo $page_url; ?>court_booking/check_booking' method='post'>
+    <form action='<?php echo $page_url; ?>course/check_add_course' method='post'>
         <div class="container-fluid">
             <div class="row m-2 mt-4 m-md-4">
                 <div class="col-xl-4">
@@ -22,7 +22,7 @@
             <div class="row m-2 m-md-4" id="row-description">
                 <div class="col-xl-4">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="description" rows="3"
+                    <textarea class="form-control" id="description" rows="3" name="description"
                               placeholder="Goal? Requirement? Equipment?"></textarea>
                 </div>
             </div>
@@ -100,9 +100,6 @@
             <div class="row m-2 m-md-4">
                 <div class="col-xl-4">
                     <button class="btn btn-success mr-2" type="submit" value="add" id="add">Add</button>
-                    <small id="submitHelpInline" class="text-muted">
-                        All courses will be reviewed before publishing.
-                    </small>
                 </div>
             </div>
         </div>

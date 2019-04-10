@@ -227,6 +227,11 @@ class Login extends SBooking_Controller{
     $this->load->view('footer');
   }
 
+  public function forgot_check()
+  {
+    /**/
+  }
+
   public function logout()
   {
     unset($_SESSION['user_name'], $_SESSION['email'], $_SESSION['usertype']);

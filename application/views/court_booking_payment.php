@@ -133,10 +133,6 @@
                         });
                     }
                 }).render('#paypal-button-container');
-
-                $(function() {
-
-                });
             </script>
         </div>
     </div>
