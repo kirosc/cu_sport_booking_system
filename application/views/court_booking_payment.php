@@ -65,7 +65,6 @@
             </div>
             <hr>
 
-            <script src="https://www.paypal.com/sdk/js?client-id=AYDQJl8dnU3Uma0Sulb7wLiBdqe55xo9GNJDuomq9BqN4Vt32ugISG_2wH_YLcDwLTOoGX2H1wbQZ1Kd"></script>
             <div id="paypal-button-container"></div>
             <div class="text-center mb-2">
                 <small id="paypalNote" class="text-muted font-weight-bold">THIS SERVICE DOES NOT CHARGE ANY COMMISSION
@@ -83,7 +82,7 @@
                             <h4 class="modal-title col">Successful Booking!</h4>
                         </div>
                         <div class="modal-body">
-                            <p class="text-center">Booking Ref. REFWM5LT3R3TW</p>
+                            <p class="text-center" id="booking-ref">Booking Ref. </p>
                         </div>
                         <div class="modal-footer">
                             <form action='<?php echo base_url(); ?>' method='post' id="back-form"></form>
@@ -95,6 +94,8 @@
         </div>
     </div>
 </div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AYDQJl8dnU3Uma0Sulb7wLiBdqe55xo9GNJDuomq9BqN4Vt32ugISG_2wH_YLcDwLTOoGX2H1wbQZ1Kd"></script>
 
 <script>
     paypal.Buttons({
@@ -111,8 +112,9 @@
         onApprove: function (data, actions) {
             // Capture the funds from the transaction
             return actions.order.capture().then(function (details) {
-                var s = '<?php echo $sessions_time;?>';
-                var sessions = JSON.parse(s);
+                let s = '<?php echo $sessions_time;?>';
+                let sessions = JSON.parse(s);
+                let orderID = data.orderID;
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo $page_url . "court_booking/payment_finish";?>',
@@ -124,19 +126,18 @@
                         description: "<?php echo $description;?>",
                         <?php endif;?>
                     },
-                    success: function (data) {
-                        console.log('success');
-                        console.log(data);
+                    success: function () {
+                        console.log('Update database success');
+                        // Show a success message to your buyer
+                        $('#booking-ref').append(orderID);
+                        $('.modal').modal('show');
+                        // Disable other dismissing methods
+                        $('.modal').modal({backdrop: 'static', keyboard: false})
                     },
                     fail: function(xhr, textStatus, errorThrown){
                         console.log(textStatus);
                     }
                 });
-
-                // Show a success message to your buyer
-                $('.modal').modal('show');
-                // Disable other dismissing methods
-                $('.modal').modal({backdrop: 'static', keyboard: false})
             });
         }
     }).render('#paypal-button-container');
