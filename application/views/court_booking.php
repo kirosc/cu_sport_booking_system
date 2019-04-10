@@ -1,3 +1,10 @@
+<!-- Redirect to login page if user is not logged in -->
+<script>
+    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == FALSE) { ?>
+    window.location.href = "<?php echo $page_url;?>login/login_main";
+    <?php } ?>
+</script>
+
 <div class="wrapper">
     <form action='<?php echo $page_url; ?>court_booking/check_booking' method='post' id="booking-form">
         <div class="container-fluid">
