@@ -55,6 +55,7 @@ class Shared_session_model extends CI_Model
         session.start_time AS start_time,
         reserve.email AS host_email,
         venue.name AS venue,
+        venue.map AS map,
         college.name AS college,
         college.image AS college_image,
         sports.name AS sport,

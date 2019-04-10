@@ -35,21 +35,61 @@ class Court_booking extends SBooking_Controller
 
   public function check_booking()
   {
-    $price = '10';
+    $this->load->model('Venue_model');
 
-    print_r ($_POST);
+    $this->setNav('court_booking');
 
-    $this->load->model('Session_model');
-    $this->load->model('Shared_session_model');
+    $data = $this->getHeaderData();
+
+    $data['date'] = $_POST['date'];
+    $year = substr($data['date'], 0, 4);
+    $month = substr($data['date'], 5, 2);
+    $day = substr($data['date'], 8, 2);
+    $data['is_share'] = $_POST['is-share'];
+    $data['venue_id'] = $_POST['venue'];
+    $data['sessions_time'] = array();
+    foreach ($_POST['time'] as $value) {
+      $time = 8+substr($value, 5);
+      $data['end_time'] = ($time + 1).":00";
+      $start_time = date("Y-m-d H:i:s", mktime($time, 0, 0, $month, $day, $year));
+      array_push($data['sessions_time'], $start_time);
+    }
+    $data['start_time'] = substr($data['sessions_time'][0], 11, 5);
+
+    $price = $this->Venue_model->get_venue_price($data['venue_id'])->price;
+    $data['price'] = $price * sizeof($data['sessions_time']);
+
+    if ($data['is_share'] == 1) {
+      $data['seats'] = $_POST['seats'];
+      $data['description'] = $_POST['description'];
+    }
+    $data['sessions_time'] = json_encode($data['sessions_time']);
+
+    $this->load->view('header', $data);
+    $this->load->view('court_booking_payment', $data);
+    $this->load->view('footer');
+  }
+
+  public function payment_finish()
+  {
     $this->load->model('Reserve_model');
+    $this->load->model('Shared_session_model');
+    $this->load->model('Session_model');
 
-    $this->Reserve_model->new_reserve($_SESSION['email'], $_POST['session']);
-    if ($_POST['is_share'] == '1') {
-      $this->Shared_session_model->new_shared_session($_POST['session'], $_POST['seat'], $_POST['description']);
+    $venue_id = $_POST['venue_id'];
+    $sessions_time = $_POST['sessions_time'];
+    if (isset($_POST['seats']) && isset($_POST['description'])) {
+      $seats = $_POST['seats'];
+      $description = $_POST['description'];
     }
 
-    echo '<script>alert("You Have Successfully Book the Court!");</script>';
-    redirect('court_booking', 'refresh');
+    foreach ($sessions_time as $start_time) {
+      $session_id = $this->Session_model->get_session_id($venue_id, $start_time)->session_id;
+      $this->Reserve_model->new_reserve($_SESSION['email'], $session_id);
+      if (isset($_POST['seats']) && isset($_POST['description'])) {
+        $this->Shared_session_model->new_shared_session($session_id, $seats, $description);
+      }
+    }
   }
 
   public function json_formatter($sessions)

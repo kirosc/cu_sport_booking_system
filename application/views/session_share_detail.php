@@ -91,7 +91,7 @@
                                         <div class="embed-responsive embed-responsive-4by3" id="google-map">
                                             <iframe
                                                     frameborder="0" style="border:0"
-                                                    src="javascript:void"
+                                                    src="<?php echo $session->map;?>"
                                                     allowfullscreen>
                                             </iframe>
                                         </div>

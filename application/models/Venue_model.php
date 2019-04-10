@@ -27,5 +27,14 @@ class Venue_model extends CI_Model
       $query = $this->db->get();
       return $query->result();
     }
+
+    public function get_venue_price($venue_id)
+    {
+      $this->db->select('price');
+      $this->db->from('venue');
+      $this->db->where('venue_id', $venue_id);
+      $query = $this->db->get();
+      return $query->result()[0];
+    }
 }
 ?>

@@ -63,11 +63,14 @@ class Session_model extends CI_Model
       return $data;
     }
 
-    public function get_available_session()
+    public function get_available_session($venue_id = NULL)
     {
       $this->db->select('*');
       $this->db->from('session');
       $this->db->join('reserve', 'session.session_id = reserve.session_id', 'left');
+      if ($venue_id != NULL) {
+        $this->db->where('session.venue_id', $venue_id);
+      }
       $query = $this->db->get();
 
       $allsession = $query->result();
@@ -81,23 +84,15 @@ class Session_model extends CI_Model
       return $available;
     }
 
-    public function get_available_session_by_id($venue_id)
+    public function get_session_id($venue_id, $start_time)
     {
-      $this->db->select('*');
+      $this->db->select('session_id');
       $this->db->from('session');
-      $this->db->join('reserve', 'session.session_id = reserve.session_id', 'left');
-      $this->db->where('session.venue_id', $venue_id);
+      $this->db->where('venue_id', $venue_id);
+      $this->db->where('start_time', $start_time);
       $query = $this->db->get();
 
-      $allsession = $query->result();
-      $available = array();
-
-      foreach ($allsession as $session) {
-        if ($session->email == NULL) {
-          array_push($available, $session);
-        }
-      }
-      return $available;
+      return $query->result()[0];
     }
 
     //Get Name
