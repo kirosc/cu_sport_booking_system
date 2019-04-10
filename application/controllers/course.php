@@ -153,19 +153,18 @@ class Course extends SBooking_Controller
     $start = $_POST['date']." ".$_POST['start_time'].":00";
     $end = $_POST['date']." ".$_POST['end_time'].":00";
 
-    $session_ids = array();
-
     foreach ($sessions_time as $start_time) {
       $session_id = $this->Session_model->get_session_id($venue_id, $start_time)->session_id;
       $this->Reserve_model->new_reserve($_SESSION['email'], $session_id);
-      array_push($session_ids, $session_id);
     }
-    $course_id = $this->Course_model->new_course($title, $start, $end, $price, $seat, $description, $level_id, $_SESSION['email']);
 
-    foreach ($session_ids as $session_id) {
+    $this->Course_model->new_course($title, $start, $end, $price, $seat, $description, $level_id, $_SESSION['email']);
+    $course_id = $this->Course_model->get_course_id($title, $start, $end, $_SESSION['email'])->course_id;
+
+    foreach ($sessions_time as $start_time) {
+      $session_id = $this->Session_model->get_session_id($venue_id, $start_time)->session_id;
       $this->Course_session_model->new_course_session($course_id, $session_id);
     }
-
   }
 
   public function apply_check()
