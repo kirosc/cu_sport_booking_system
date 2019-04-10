@@ -1,5 +1,6 @@
 $(function () {
     "use strict";
+    let isCoach = false;
 
 
     /*==================================================================
@@ -17,9 +18,9 @@ $(function () {
 
     /*==================================================================
     [ Validate ]*/
-    var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit', function () {
+        var input = $('.validate-input:not(.hidden) .input100');
         var check = true;
 
         for (var i = 0; i < input.length; i++) {
@@ -38,13 +39,19 @@ $(function () {
         });
     });
 
-    // Check if the input is empty
     function validate(input) {
-        if ($(input).attr('name') === 'email') {
+        if ($(input).attr('name') === 'user_name') {
+            // Check if username contains whitespace
+            if ($(input).val().match(/^\S*$/) == null) {
+                return false;
+            }
+        } else if ($(input).attr('name') === 'email') {
+            // Check email format
             if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
                 return false;
             }
         } else {
+            // Check if the input is empty
             if ($(input).val().trim() === '') {
                 return false;
             }
@@ -84,11 +91,16 @@ $(function () {
     /*==================================================================
     [ Submit ]*/
 
-    $('.login100-form-btn').on('click', function () {
-        if ($('.iscoach-checkbox').is(':checked')) {
-            // alert('checked');
+
+    $('input[type=checkbox]').on('click', function () {
+        if (isCoach) {
+            $('.coach').addClass("hidden");
+            $('.student').removeClass("hidden");
+            isCoach = !isCoach;
         } else {
-            // alert('Not checked');
+            $('.student').addClass("hidden");
+            $('.coach').removeClass("hidden");
+            isCoach = !isCoach;
         }
     });
 

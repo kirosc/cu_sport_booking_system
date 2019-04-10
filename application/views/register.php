@@ -4,7 +4,7 @@
 					<span class="login100-form-title p-b-26">
 						Register
 					</span>
-            <div class="wrap-input100 validate-input" data-validate="Enter username">
+            <div class="wrap-input100 validate-input" data-validate="Invalid username">
                 <input class="input100" type="text" name="user_name">
                 <span class="focus-input100" data-placeholder="Username"></span>
             </div>
@@ -32,27 +32,37 @@
                 <span class="focus-input100" data-placeholder="Email"></span>
             </div>
 
-            <div class="register-student">
-                <div class="wrap-input100 validate-input" data-validate="Interest">
+                <div class="wrap-input100 validate-input student">
                     <input class="input100" type="text" name="interest">
                     <span class="focus-input100" data-placeholder="Interest"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Birthday">
+                <div class="wrap-input100 validate-input student" data-validate="Birthday">
                     <input class="input100 has-val" name="birthday" type="text" value=""/>
                     <span class="focus-input100" data-placeholder="Birthday"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Enter phone number">
+                <div class="wrap-input100 validate-input student" data-validate="Enter phone number">
                     <input class="input100 number" type="text" name="phone">
                     <span class="focus-input100" data-placeholder="Phone Number"></span>
                 </div>
+
+                <div class="wrap-input100 validate-input coach hidden" data-validate="Enter experience">
+                    <textarea class="input100" id="experience" name="experience"
+                              rows="3"></textarea>
+                    <span class="focus-input100" data-placeholder="Experience"></span>
+                </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Required">
+                    <textarea class="input100" id="description" name="description"
+                              rows="3"></textarea>
+                <span class="focus-input100" data-placeholder="Description about yourself"></span>
             </div>
 
             <label class="control control-checkbox">
                 <span class="checkbox-container">
                     I am a coach
-                    <input type="checkbox" class="iscoach-checkbox" name='is_coach' value="Yes"/>
+                    <input type="checkbox" class="iscoach-checkbox" name='is_coach'/>
                     <div class="control_indicator"></div>
                 </span>
             </label>
