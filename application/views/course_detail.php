@@ -62,7 +62,7 @@
                         <span>Coach</span>
                     </h4>
                     <div class="coach row m-0">
-                        <div class="coach-container float-left mr-3">
+                        <div class="host-container float-left mr-3">
                           <a href="<?php echo $page_url."profile/".$course->coach_username;?>" class="text-center mt-2">
                             <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
                                  class="img-thumbnail mb-1" alt="profile pic">
@@ -95,11 +95,6 @@
                                 <!--Content-->
                                 <div class="modal-content">
                                     <!--Body-->
-                                    <!--TODO: Load Google Map dynamically-->
-                                    <!--To embed a google map place. First, find the place_id from the following link-->
-                                    <!--https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder-->
-                                    <!--Then, insert the place_id to the query link and put into the <iframe> src-->
-                                    <!--https://www.google.com/maps/embed/v1/place?key=AIzaSyD9USDNBoGIA1OJWavMMd5bob_NhwM73-E&q=place_id:ChIJQ0Di4ZsIBDQR05LxslXE4XU-->
                                     <div class="modal-body p-0">
                                         <div class="embed-responsive embed-responsive-4by3" id="google-map">
                                             <iframe

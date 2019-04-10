@@ -3,9 +3,9 @@
         <?php
         $count = 0;
         foreach ($sessions as $session) : ?>
-            <div class="ss row">
-                <div class="ss-info col">
-                    <div class="ss-info">
+            <div class="session row">
+                <div class="session-info col">
+                    <div class="session-info">
                         <table>
                             <tbody>
                             <tr>
