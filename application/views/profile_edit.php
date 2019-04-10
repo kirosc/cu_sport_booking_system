@@ -1,10 +1,10 @@
 <div class="wrapper">
     <div class="form-wrapper m-4">
         <form class="card bg-light card-body mb-3 col-md-8 col-xl-6 m-auto"
-              action='<?php echo $page_url; ?>profile/update_profile' method='post'>
+              action='<?php echo $page_url; ?>profile/update_profile' method='post' enctype="multipart/form-data">
             <fieldset>
                 <div class="form-group text-center">
-                    <img src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
+                    <img src="<?php echo base_url() . 'images/user/' . $user['db']->icon; ?>"
                          class="img-thumbnail m-auto" alt="profile pic">
                 </div>
                 <div class="row form-group">
@@ -12,9 +12,9 @@
                     <div class="col-md-8 col-xl-10 inputGroupContainer">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="validatedCustomFile" name="icon"
-                                   accept="image/jpeg">
+                                   accept="image/*">
                             <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                            <div class="invalid-feedback">Only accept .JPG .JPEG</div>
+                            <div class="invalid-feedback">Only accept .jpg .jpeg .png</div>
                         </div>
                     </div>
                 </div>

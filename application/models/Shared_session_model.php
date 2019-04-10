@@ -60,6 +60,7 @@ class Shared_session_model extends CI_Model
         college.image AS college_image,
         sports.name AS sport,
         user.username AS host,
+        user.icon AS host_icon,
         CONCAT(user.first_name, ' ', user.last_name) AS user_fullname,
         student.phone_no AS phone_no
         ");
