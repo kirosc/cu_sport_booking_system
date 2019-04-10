@@ -184,7 +184,7 @@ class Course extends SBooking_Controller
         redirect('course', 'refresh');
       }
     }
-    $data['price'] = $this->Course_model->get_price_by_id($course_id)->price;
+    $data['course'] = $this->Course_model->get_course_detail_by_courseid($course_id);
     $data['course_id'] = $course_id;
 
     $this->load->view('header', $data);
