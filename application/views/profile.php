@@ -10,19 +10,14 @@
                         <div class="info-block mb-3 text-center"><img
                                     src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
                                     class="img-thumbnail" alt="profile pic"></div>
-                        <h4 class="title">
-                            <i class="fa fa-user align-middle" aria-hidden="true"></i>
-                            <span>User group</span>
-                        </h4>
-                        <p><?php echo $user['usertype']; ?></p>
-
                         <div class="info-block mb-3">
                             <h4 class="title">
-                                <i class="fa fa-file align-middle" aria-hidden="true"></i>
-                                <span>Introduction</span>
+                                <i class="fa fa-user align-middle" aria-hidden="true"></i>
+                                <span>User group</span>
                             </h4>
-                            <p><?php echo $user['db']->intro; ?></p>
+                            <p><?php echo $user['usertype']; ?></p>
                         </div>
+
                         <?php if ($user['usertype'] == 'coach'): ?>
                             <div class="info-block mb-3">
                                 <h4 class="title">
@@ -36,26 +31,34 @@
                         <?php if ($user['usertype'] == 'student'): ?>
                             <div class="info-block mb-3">
                                 <h4 class="title">
-                                    <i class="fa fa-pencil-square-o align-middle" aria-hidden="true"></i>
+                                    <i class="fa fa-soccer-ball-o"></i>
                                     <span>Interest</span>
                                 </h4>
                                 <p><?php echo $user['db']->interest; ?></p>
                             </div>
                             <div class="info-block mb-3">
                                 <h4 class="title">
-                                    <i class="fa fa-pencil-square-o align-middle" aria-hidden="true"></i>
+                                    <i class="fa fa-birthday-cake"></i>
                                     <span>Birthday</span>
                                 </h4>
                                 <p><?php echo $user['db']->birthday; ?></p>
                             </div>
                             <div class="info-block mb-3">
                                 <h4 class="title">
-                                    <i class="fa fa-pencil-square-o align-middle" aria-hidden="true"></i>
+                                    <i class="fa fa-phone"></i>
                                     <span>Phone number</span>
                                 </h4>
                                 <p><?php echo $user['db']->phone; ?></p>
                             </div>
                         <?php endif; ?>
+
+                        <div class="info-block mb-3">
+                            <h4 class="title">
+                                <i class="fa fa-file align-middle" aria-hidden="true"></i>
+                                <span>Introduction</span>
+                            </h4>
+                            <p><?php echo $user['db']->intro; ?></p>
+                        </div>
                     </div>
 
                     <?php if (isset($_SESSION['username']) && $user['db']->username == $_SESSION['username']): ?>
