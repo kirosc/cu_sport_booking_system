@@ -101,6 +101,7 @@ class Course_model extends CI_Model
         level.description AS level,
         CONCAT(user.first_name, " ", user.last_name) AS coach,
         user.username AS coach_username,
+        user.icon AS coach_icon,
         course.image AS course_image,
         venue.map AS map');
       $this->db->from('course');

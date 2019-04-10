@@ -46,7 +46,7 @@ class Court_booking extends SBooking_Controller
     $month = substr($data['date'], 5, 2);
     $day = substr($data['date'], 8, 2);
     $data['is_share'] = $_POST['is-share'];
-    $data['venue_id'] = $_POST['venue'];
+    $data['venue'] = $this->Venue_model->get_name($_POST['venue']);
     $data['sessions_time'] = array();
     foreach ($_POST['time'] as $value) {
       $time = 8+substr($value, 5);

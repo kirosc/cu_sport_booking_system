@@ -14,6 +14,16 @@ class Venue_model extends CI_Model
     public $college_id;
 
     //Function
+    public function get_name($venue_id)
+    {
+      $this->db->select('name AS venue');
+      $this->db->from('venue');
+      $this->db->where('venue_id', $venue_id);
+      $query = $this->db->get();
+      return $query->result()[0];
+    }
+
+
     public function venue_search($college_id = '', $sports_id = '')
     {
       $this->db->select('venue_id, name AS venue');

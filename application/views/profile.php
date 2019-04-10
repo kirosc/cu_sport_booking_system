@@ -8,7 +8,7 @@
                     </div>
                     <div class="card-body">
                         <div class="info-block mb-3 text-center"><img
-                                    src="https://vignette.wikia.nocookie.net/uncyclopedia/images/0/03/200px-Super_Saiyan.jpg"
+                                    src="<?php echo base_url() . 'images/user/' . $user['db']->icon; ?>"
                                     class="img-thumbnail" alt="profile pic"></div>
                         <div class="info-block mb-3">
                             <h4 class="title">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <?php if (isset($_SESSION['username']) && $user['db']->username == $_SESSION['username']): ?>
+                    <?php if (isset($_SESSION['username']) && strtolower($user['db']->username) == strtolower($_SESSION['username'])): ?>
                         <a href="<?php echo $page_url ?>profile/edit_profile" class="btn btn-primary">Edit
                             Profile</a>
                     <?php endif; ?>
