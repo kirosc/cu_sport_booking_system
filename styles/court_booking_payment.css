@@ -13,14 +13,6 @@ h4 {
     border-radius: 10px;
 }
 
-@media screen and (min-width: 1024px) {
-    .summary-container {
-        width: 740px;
-        margin: 2rem auto;
-    }
-}
-
-
 .material-icons {
     color: #868686;
     margin-right: 10px;
@@ -54,12 +46,17 @@ h4 {
 }
 
 @media (min-width: 1024px) {
+    .summary-container {
+        width: 740px;
+        margin: 2rem auto;
+    }
+
     .summary-row  > div {
-        font-size: 1.40625rem;
+        font-size: 1.20625rem;
     }
 
     .summary-row {
-        margin: 2rem 1rem;
+        margin: 2rem 0;
     }
 
     .summary-container {
