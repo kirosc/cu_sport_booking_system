@@ -136,8 +136,6 @@ class Course extends SBooking_Controller
     $this->load->view('header', $data);
     $this->load->view('payment', $data);
     $this->load->view('footer');
-
-    //$this->Participate_model->new_participate($_SESSION['email'], $course_id);
   }
 
   public function payment_finish()

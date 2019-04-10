@@ -51,7 +51,7 @@
     public function search_session_handler()
     {
       $this->load->model('Session_model');
-      $sessions = $this->Session_model->get_available_session_by_id($_POST['venue_id']);
+      $sessions = $this->Session_model->get_available_session($_POST['venue_id']);
       $data = json_encode($this->json_formatter($sessions));
 
       echo $data;

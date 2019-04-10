@@ -96,7 +96,7 @@
                         <div class="col-xl-4">
                             <label for="seat">Available Seat(s)</label>
                             <!--            TODO:  Add require when based on radio button-->
-                            <input type="number" class="form-control" id="seat" placeholder="Number of people">
+                            <input type="number" class="form-control" id="seat" name="seats" placeholder="Number of people">
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@
                         <div class="col-xl-4">
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" rows="3"
-                                      placeholder="What you wanna say?"></textarea>
+                                      name="description" placeholder="What you wanna say?"></textarea>
                         </div>
                     </div>
 
