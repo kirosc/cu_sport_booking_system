@@ -103,7 +103,7 @@
                         <div class="col-xl-4">
                             <label for="seat">Available Seat(s)</label>
                             <!--            TODO:  Add require when based on radio button-->
-                            <input type="number" class="form-control" id="seat" name="seats" placeholder="Number of people">
+                            <input type="text" class="form-control number" id="seat" name="seats" placeholder="Number of people">
                         </div>
                     </div>
 
