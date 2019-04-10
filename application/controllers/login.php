@@ -52,9 +52,10 @@ class Login extends SBooking_Controller{
     $this->loadCSS('../vendor/select2/select2.min.css');
     $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
     $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
+    $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
+    $this->loadJS('libraries/moment.js');
     $this->loadJS('../vendor/animsition/js/animsition.min.js');
     $this->loadJS('../vendor/select2/select2.min.js');
-    $this->loadJS('libraries/moment.js');
     $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
     $this->loadJS('../vendor/countdowntime/countdowntime.js');
     $this->loadJS('register.js');

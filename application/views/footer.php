@@ -12,12 +12,15 @@
             </div>
         </footer>
         <script>
-            $("input[type='number']").keydown( function(e) {
+            $(".number").keydown( function(e) {
                 // prevent: "e", "=", ",", "-", "."
                 if ([69, 187, 188, 189, 190].includes(e.keyCode)) {
                     e.preventDefault();
                 }
-            });
+            })
+                .on("paste keyup",function(e){
+                    $(this).val(this.value.replace(/[^\d]/g,''))
+                })
         </script>
     </body>
 </html>

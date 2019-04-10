@@ -219,6 +219,7 @@ function getJSON(venueDropdown, table) {
                         .append('<td colspan="8">No session available</td>')
                 );
                 $('#next, #prev, #today').addClass('disabled');
+                updateTooltips();
             } else {
                 console.log(result);
                 initializeRow(table);
@@ -250,6 +251,8 @@ $(function () {
     $('#venue').change(async function () {
         let venue_id = $(this).val();
 
+        $('#booking-info-container').addClass('hidden');
+        checkedSession = [];
         if (venue_id === 'None') {
             $('.table-control-container').addClass('hidden');
         } else {

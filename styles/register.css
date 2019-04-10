@@ -92,7 +92,6 @@ iframe {
 }
 
 .wrap-login100 {
-    width: 390px;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -323,9 +322,9 @@ iframe {
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
-@media (max-width: 576px) {
+@media (max-width: 400px) {
     .wrap-login100 {
-        padding: 77px 15px 33px 15px;
+        padding: 77px 20px 33px 20px;
     }
 }
 
@@ -439,11 +438,19 @@ iframe {
 }
 
 .control input:checked ~ .control_indicator {
-    background: #2aa1c0;
+    background: #2c3e50;
+    border: #b4bcc2 solid 1px;
 }
+
 .control:hover input:not([disabled]):checked ~ .control_indicator,
 .control input:checked:focus ~ .control_indicator {
-    background: #e6647d;
+    background: #2c3e50;
+    border: #b4bcc2 solid 1px;
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 0.15s, 0.15s, 0.15s;
+    transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+    transition-delay: 0s, 0s, 0s;
 }
 .control input:disabled ~ .control_indicator {
     background: #e6e6e6;

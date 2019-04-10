@@ -76,7 +76,7 @@
                                                 class="fa fa-phone"></i></span>
                                 </div>
                                 <input id="phoneNumber" name="phone" placeholder="Phone Number"
-                                       class="form-control" value="" type="text">
+                                       class="form-control number" value="" type="text">
                             </div>
                         </div>
                     </div>
@@ -105,18 +105,17 @@
 
 <script>
     $(function () {
-        let birthday = moment($('#birthday').val(), 'YYYY-MM-DD');
         $('input[name="birthday"]').daterangepicker({
-            startDate: birthday,
+            locale: {
+                "format": "YYYY-MM-DD",
+                "separator": "-",
+                "firstDay": 1
+            },
+            startDate: moment($('#birthday').val(), 'YYYY-MM-DD'),
+            maxDate: moment(),
             singleDatePicker: true,
             showDropdowns: true,
-            minYear: 1901,
-            maxDate: moment().endOf('year').subtract(1, 'year').endOf('month')
-
-        });
-        $( "form" ).submit(function() {
-            // Change format
-            $('#birthday').val(moment($('#birthday').val(), 'MM/DD/YYYY').format('YYYY-MM-DD'));
+            minYear: 1901
         });
     });
 </script>
