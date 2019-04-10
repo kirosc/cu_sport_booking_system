@@ -19,7 +19,7 @@
       return actions.order.capture().then(function(details) {
         $.ajax({
             type: 'POST',
-            url: '<?php echo $page_url."course/payment_finish";?>',
+            url: '<?php echo $page_url."course/course_apply_payment_finish";?>',
             data: { course_id: <?php echo $course_id?> },
             success: function() {
               console.log('success');

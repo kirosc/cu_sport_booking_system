@@ -54,11 +54,14 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['course'] = 'course/course_main';
-$route['course/payment_finish'] = 'course/payment_finish';
+$route['course/course_apply_payment_finish'] = 'course/course_apply_payment_finish';
 $route['course/id/:num'] = 'course/detail';
 $route['course/id/:num/apply'] = 'course/apply_check';
 
 $route['add_course'] = 'course/add_course_page';
+$route['course/check_add_course'] = 'course/check_add_course';
+$route['course/course_add_payment_finish'] = 'course/course_add_payment_finish';
+
 $route['court_booking'] = 'court_booking/book_court';
 $route['court_booking/payment_finish'] = 'court_booking/payment_finish';
 
