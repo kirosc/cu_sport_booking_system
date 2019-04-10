@@ -429,7 +429,7 @@ iframe {
     -webkit-border-radius: 2px 2px 2px 2px;
 }
 .control-radio .control_indicator {
-    border-radius: undefined%;
+    border-radius: undefined;
 }
 
 .control:hover input ~ .control_indicator,
