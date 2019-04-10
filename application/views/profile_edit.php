@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="form-wrapper m-4">
-        <form class="card bg-light card-body mb-3 col-md-8 col-xl-6 m-auto"
+        <form class="card bg-light card-body mb-3 col-md-8 col-xl-8 m-auto"
               action='<?php echo $page_url; ?>profile/update_profile' method='post' enctype="multipart/form-data">
             <fieldset>
                 <div class="form-group text-center">
