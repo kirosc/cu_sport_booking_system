@@ -6,6 +6,13 @@
 
             <div class="summary-row">
                 <div>
+                    <i class="material-icons">location_on</i>
+                    <span class="key" class="key">Venue:</span>
+                </div>
+                <div><?php echo $venue; ?></div>
+            </div>
+            <div class="summary-row">
+                <div>
                     <i class="material-icons">date_range</i>
                     <span class="key" class="key">Date:</span>
                 </div>
@@ -85,55 +92,52 @@
                     </div>
                 </div>
             </div>
-
-            <script>
-                paypal.Buttons({
-                    createOrder: function (data, actions) {
-                        return actions.order.create({
-                            purchase_units: [{
-                                amount: {
-                                    currencyCode: 'HKD',
-                                    value: '<?php echo $price;?>'
-                                }
-                            }]
-                        });
-                    },
-                    onApprove: function (data, actions) {
-                        // Capture the funds from the transaction
-                        return actions.order.capture().then(function (details) {
-                            var s = '<?php echo $sessions_time;?>';
-                            var sessions = JSON.parse(s);
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo $page_url . "court_booking/payment_finish";?>',
-                                data: {
-                                    venue_id: <?php echo $venue_id;?>,
-                                    sessions_time: sessions,
-                                    <?php if ($is_share == 1):?>
-                                    seats: <?php echo $seats;?>,
-                                    description: "<?php echo $description;?>",
-                                    <?php endif;?>
-                                },
-                                success: function (data) {
-                                    console.log('success');
-                                    console.log(data);
-                                    $('.modal').modal('show');
-                                    // Disable other dismissing methods
-                                    $('.modal').modal({backdrop: 'static', keyboard: false})
-                                },
-                                fail: function(xhr, textStatus, errorThrown){
-                                    console.log(textStatus);
-                                    alert('request failed');
-                                }
-                            });
-
-                            // Show a success message to your buyer
-                            // alert('Transaction completed by ' + details.payer.name.given_name);
-
-                        });
-                    }
-                }).render('#paypal-button-container');
-            </script>
         </div>
     </div>
 </div>
+
+<script>
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        currencyCode: 'HKD',
+                        value: '<?php echo $price;?>'
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            // Capture the funds from the transaction
+            return actions.order.capture().then(function (details) {
+                var s = '<?php echo $sessions_time;?>';
+                var sessions = JSON.parse(s);
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo $page_url . "court_booking/payment_finish";?>',
+                    data: {
+                        venue_id: <?php echo $venue_id;?>,
+                        sessions_time: sessions,
+                        <?php if ($is_share == 1):?>
+                        seats: <?php echo $seats;?>,
+                        description: "<?php echo $description;?>",
+                        <?php endif;?>
+                    },
+                    success: function (data) {
+                        console.log('success');
+                        console.log(data);
+                    },
+                    fail: function(xhr, textStatus, errorThrown){
+                        console.log(textStatus);
+                    }
+                });
+
+                // Show a success message to your buyer
+                $('.modal').modal('show');
+                // Disable other dismissing methods
+                $('.modal').modal({backdrop: 'static', keyboard: false})
+            });
+        }
+    }).render('#paypal-button-container');
+</script>
