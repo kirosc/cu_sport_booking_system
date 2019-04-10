@@ -39,6 +39,8 @@ class Court_booking extends SBooking_Controller
 
     $this->setNav('court_booking');
 
+    $this->loadCSS('court_booking_payment.css');
+
     $data = $this->getHeaderData();
 
     $data['date'] = $_POST['date'];
