@@ -29,7 +29,16 @@
                         </div>
                     </div>
 
-                    <div class="text-center p-t-100">
+                    <div class="text-center p-t-90">
+                        <span class="txt1">
+							Can't login?
+						</span>
+                        <a class="txt2" href="<?php echo $page_url; ?>login/forgot_main">
+                            Forgot Password
+                        </a>
+                    </div>
+
+                    <div class="text-center p-t-10">
 						<span class="txt1">
 							Don’t have an account?
 						</span>
