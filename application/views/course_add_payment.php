@@ -42,14 +42,13 @@
               price: <?php echo $course_price;?>,
               seat: <?php echo $course_seat;?>,
               sessions_time: sessions,
-              start_time: <?php echo $start_time;?>,
-              end_time: <?php echo $end_time;?>,
-              date: <?php echo $date;?>,
+              start_time: "<?php echo $start_time;?>",
+              end_time: "<?php echo $end_time;?>",
+              date: "<?php echo $date;?>",
             },
             success: function(data) {
               console.log('success');
-              console.log(data);
-              window.location.href='<?php echo base_url();?>';
+              window.location.href='?php echo base_url();?>';
             }
         });
 

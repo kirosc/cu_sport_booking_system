@@ -18,7 +18,7 @@ class Course_model extends CI_Model
 
     //Function
     //New Course (New Entry)
-    public function new_course($name, $start_time, $end_time, $price, $available_seats, $description, $level_id, $email, $image='')
+    public function new_course($name, $start_time, $end_time, $price, $available_seats, $description, $level_id, $email, $image='default.jpg')
     {
         //course_id will be generated automatically
         $this->name = $name;
@@ -32,16 +32,10 @@ class Course_model extends CI_Model
         $this->email = $email;
 
         $this->db->insert('course', $this);
-
-        $this->db->select('SCOPE_IDENTITY() AS course_id');
-        $query = $this->db->get('course');
-
-        return $query->result()[0];
-
     }
 
     //Update Course (Update Entry)
-    public function update_course($course_id, $name, $start_time, $end_time, $session_id, $price, $available_seats, $description, $level_id, $email, $image='')
+    public function update_course($course_id, $name, $start_time, $end_time, $price, $available_seats, $description, $level_id, $email, $image='')
     {
       $this->name = $name;
       $this->start_time = $start_time;
@@ -131,9 +125,16 @@ class Course_model extends CI_Model
       return $query->result()[0];
     }
 
-    public function get_course_id()
+    public function get_course_id($name, $start_time, $end_time, $email)
     {
-      // code...
+      $this->db->select('course_id');
+      $this->db->where('name', $name);
+      $this->db->where('start_time', $start_time);
+      $this->db->where('end_time', $end_time);
+      $this->db->where('email', $email);
+      $query = $this->db->get('course');
+
+      return $query->result()[0];
     }
 }
 ?>
