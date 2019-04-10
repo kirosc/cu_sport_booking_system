@@ -34,17 +34,22 @@
             </div>
 
             <div class="table-control-container hidden">
-                <div class="row m-2 m-md-4 justify-content-between">
+                <div class="row m-2 m-md-4 justify-content-between" id="row-nav">
                     <div class="col-2 col-lg-2">
-                        <button class="btn btn-primary btn-icon disabled" type="button" value="prev" id="prev">
+                        <button class="btn btn-primary btn-icon disabled" type="button" value="prev" id="prev"
+                                data-toggle="tooltip"
+                                data-placement="top" data-original-title="">
                             <i class="material-icons">keyboard_arrow_left</i></button>
                     </div>
                     <div class="col text-center">
-                        <button class="btn btn-primary" type="button" value="today" id="today">Today</button>
+                        <button class="btn btn-primary" type="button" value="today" id="today" data-toggle="tooltip"
+                                data-placement="top" data-original-title="">Today
+                        </button>
                     </div>
                     <div class="col-2 col-lg-2">
                         <button class="btn btn-primary btn-icon float-right disabled" type="button" value="next"
-                                id="next">
+                                id="next" data-toggle="tooltip"
+                                data-placement="top" data-original-title="">
                             <i class="material-icons">keyboard_arrow_right</i></button>
                     </div>
                 </div>
@@ -70,40 +75,44 @@
                     </div>
                 </div>
 
-                <div class="row m-2 m-md-4">
-                    <div class="col-xl-4">
-                        <label for="isShare1">Share this session?</label><br>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="isShare1" name="is-share" class="custom-control-input" value="1">
-                            <label class="custom-control-label" for="isShare1">Of cuz!</label>
+                <div class="container-fluid hidden" id="booking-info-container">
+                    <div class="row m-2 m-md-4" id="row-share">
+                        <div class="col-xl-4">
+                            <label for="isShare1">Share this session?</label><br>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="isShare1" name="is-share" class="custom-control-input"
+                                       value="1">
+                                <label class="custom-control-label" for="isShare1">Of cuz!</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="isShare2" name="is-share" class="custom-control-input" value="0"
+                                       checked>
+                                <label class="custom-control-label" for="isShare2">Nah, next time.</label>
+                            </div>
                         </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="isShare2" name="is-share" class="custom-control-input" value="0"
-                                   checked>
-                            <label class="custom-control-label" for="isShare2">Nah, next time.</label>
+                    </div>
+
+                    <div class="row m-2 m-md-4 hidden" id="row-seat">
+                        <div class="col-xl-4">
+                            <label for="seat">Available Seat(s)</label>
+                            <!--            TODO:  Add require when based on radio button-->
+                            <input type="number" class="form-control" id="seat" placeholder="Number of people">
                         </div>
                     </div>
-                </div>
 
-                <div class="row m-2 m-md-4 hidden" id="row-seat">
-                    <div class="col-xl-4">
-                        <label for="seat">Available Seat(s)</label>
-                        <!--            TODO:  Add require when based on radio button-->
-                        <input type="number" class="form-control" id="seat" placeholder="Number of people">
+                    <div class="row m-2 m-md-4 hidden" id="row-description">
+                        <div class="col-xl-4">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" rows="3"
+                                      placeholder="What you wanna say?"></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div class="row m-2 m-md-4 hidden" id="row-description">
-                    <div class="col-xl-4">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" rows="3"
-                                  placeholder="What you wanna say?"></textarea>
-                    </div>
-                </div>
-
-                <div class="row m-2 m-md-4" id="row-submit">
-                    <div class="col-xl-4">
-                        <button class="btn btn-success" type="submit" value="book" id="book">Book Now</button>
+                    <div class="row m-2 m-md-4" id="row-submit">
+                        <div class="col-xl-4">
+                            <button class="btn btn-success" type="submit" value="confirm" id="confirm">Confirm
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

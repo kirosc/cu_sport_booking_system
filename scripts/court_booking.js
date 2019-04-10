@@ -7,8 +7,7 @@ let startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
 // if (startDay.isoWeekday() !== SUN - 1) {
 //     endDay = moment(endDay).day(SUN + 1);
 // }
-let nextStartDay = startDay.clone();
-nextStartDay.add(1, 'weeks').isoWeekday(MON + 1);
+let nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
 let prevStartDay = null;
 let lastAvailableDay = null;
 console.log('startDay' + startDay.format("YYYY-MM-DD, h:mm:ss a'"));
@@ -171,10 +170,34 @@ function getVenue() {
     });
 }
 
-function loadWeekNumber() {
+function updateDate() {
     let monday = startDay.clone().isoWeekday(1);
     let week = '' + monday.format('D/M') + ' ~ ' + monday.isoWeekday(7).format('D/M');
     $('.th-inner:first').html(week).css('text-align', 'center');
+    updateTooltips();
+}
+
+function updateTooltips() {
+    let prevButton = $('#prev');
+    let nextButton = $('#next');
+    let weekRange;
+    if (!prevButton.hasClass('disabled')) {
+        if (prevStartDay === null) {
+            weekRange = '' + moment().format('D/M') + ' ~ ' + moment().isoWeekday(7).format('D/M');
+
+        } else {
+            weekRange = '' + prevStartDay.format('D/M') + ' ~ ' + prevStartDay.clone().isoWeekday(7).format('D/M');
+        }
+        prevButton.attr('data-original-title', weekRange);
+    } else {
+        prevButton.attr('data-original-title', 'No available session');
+    }
+    if (!nextButton.hasClass('disabled')) {
+        weekRange = '' + nextStartDay.format('D/M') + ' ~ ' + nextStartDay.clone().isoWeekday(7).format('D/M');
+        nextButton.attr('data-original-title', weekRange);
+    } else {
+        nextButton.attr('data-original-title', 'No available session');
+    }
 }
 
 // Perform AJAX request when venue is selected
@@ -205,6 +228,8 @@ function getJSON(venueDropdown, table) {
                 if (lastAvailableDay.isAfter(startDay.clone().isoWeekday(SUN + 1), 'date')) {
                     $('#today, #next').removeClass('disabled');
                 }
+                updateTooltips();
+                $('#today').attr('data-original-title', startDay.format('D/M'));
                 JSON = result;
             }
         })
@@ -215,8 +240,13 @@ function getJSON(venueDropdown, table) {
 
 
 $(function () {
-    loadWeekNumber();
+    // Initialize Tooltips
+    $('[data-toggle="tooltip"]').tooltip();
+
+    updateDate();
     let table = $('#table');
+
+    // Dropdown listener
     $('#venue').change(async function () {
         let venue_id = $(this).val();
 
@@ -228,6 +258,7 @@ $(function () {
         }
     });
 
+    // Radio listener
     $('input[type=radio][name=is-share]').change(function () {
         if (this.value === '1') {
             $('#row-seat, #row-description').toggleClass('hidden');
@@ -250,15 +281,16 @@ $(function () {
             prevStartDay = null;
             initializeRow(table);
             highlightPastTime(table, startDay);
-            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().isoWeekday(7));
+            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().isoWeekday(SUN + 1));
             $('#prev').addClass('disabled');
             $('#next').removeClass('disabled');
-            loadWeekNumber();
+            updateDate();
         };
 
         if (value === 'prev') {
             if (prevStartDay === null || prevStartDay.isSame(today, 'date')) {
                 goToToday();
+                $(this).tooltip('show');
                 return;
             }
             [prevStartDay, startDay] = [startDay, prevStartDay];
@@ -266,7 +298,8 @@ $(function () {
             prevStartDay = null;
             initializeRow(table);
             loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().add(6, 'days'));
-            loadWeekNumber();
+            updateDate();
+            $(this).tooltip('show');
         } else if (value === "next") {
             if (venue_id === 'None' && JSON === undefined) {
                 return;
@@ -285,7 +318,8 @@ $(function () {
             if (lastAvailableDay.isBefore(nextStartDay, 'date')) {
                 $('#next').addClass('disabled');
             }
-            loadWeekNumber();
+            updateDate();
+            $(this).tooltip('show');
         } else if (value === 'today') {
             if (startDay != null) {
                 if (startDay.diff(moment(), 'days') === 0) {
@@ -332,6 +366,7 @@ $(function () {
                     timeSlot: timeSlot
                 });
                 checkedSession.sort((a, b) => a.timeSlot - b.timeSlot);
+                $('#booking-info-container').removeClass('hidden');
             }
         } else if ($(event.target).is('input:checkbox:not(:checked)')) {
             let id = event.target.id;
@@ -349,6 +384,9 @@ $(function () {
                         checkedSession.splice(i, 1);
                         break;
                     }
+                }
+                if (checkedSession.length === 0) {
+                    $('#booking-info-container').addClass('hidden');
                 }
             }
         }
