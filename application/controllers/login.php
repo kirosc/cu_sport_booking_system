@@ -67,6 +67,33 @@ class Login extends SBooking_Controller{
     $this->load->view('footer');
   }
 
+  public function forgot_main()
+  {
+    $this->setTitle('Forgot Password');
+
+    $this->loadCSS('forgot.css');
+    $this->loadCSS('util.css');
+    $this->loadCSS('../vendor/animate/animate.css');
+    $this->loadCSS('../vendor/css-hamburgers/hamburgers.min.css');
+    $this->loadCSS('../vendor/animsition/css/animsition.min.css');
+    $this->loadCSS('../vendor/select2/select2.min.css');
+    $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
+    $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
+    $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
+    $this->loadJS('libraries/moment.js');
+    $this->loadJS('../vendor/animsition/js/animsition.min.js');
+    $this->loadJS('../vendor/select2/select2.min.js');
+    $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
+    $this->loadJS('../vendor/countdowntime/countdowntime.js');
+    $this->loadJS('forgot.js');
+
+    $data = $this->getHeaderData();
+
+    $this->load->view('header', $data);
+    $this->load->view('forgot');
+    $this->load->view('footer');
+  }
+
   public function login_check()
   {
     $username = $_POST["user_name"];
