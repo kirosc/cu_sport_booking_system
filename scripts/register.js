@@ -1,4 +1,4 @@
-$(function ($) {
+$(function () {
     "use strict";
 
 
@@ -12,7 +12,7 @@ $(function ($) {
                 $(this).removeClass('has-val');
             }
         })
-    })
+    });
 
 
     /*==================================================================
@@ -90,5 +90,20 @@ $(function ($) {
         } else {
             // alert('Not checked');
         }
-    })
-})(jQuery);
+    });
+
+    /*==================================================================
+    [ Custom function ]*/
+    $('input[name="birthday"]').daterangepicker({
+        locale: {
+            "format": "YYYY-MM-DD",
+            "separator": "-",
+            "firstDay": 1
+        },
+        startDate: moment(),
+        maxDate: moment(),
+        singleDatePicker: true,
+        showDropdowns: true,
+        minYear: 1901
+    });
+});

@@ -27,14 +27,26 @@
                 <span class="focus-input100" data-placeholder="Last Name"></span>
             </div>
 
-            <div class="wrap-input100 validate-input" data-validate="Enter phone number">
-                <input class="input100" type="number" name="phone">
-                <span class="focus-input100" data-placeholder="Phone Number"></span>
-            </div>
-
             <div class="wrap-input100 validate-input" data-validate="Invalid email format">
                 <input class="input100" type="text" name="email" maxlength='255'>
                 <span class="focus-input100" data-placeholder="Email"></span>
+            </div>
+
+            <div class="register-student">
+                <div class="wrap-input100 validate-input" data-validate="Interest">
+                    <input class="input100" type="text" name="interest">
+                    <span class="focus-input100" data-placeholder="Interest"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Birthday">
+                    <input class="input100 has-val" name="birthday" type="text" value=""/>
+                    <span class="focus-input100" data-placeholder="Birthday"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter phone number">
+                    <input class="input100 number" type="text" name="phone">
+                    <span class="focus-input100" data-placeholder="Phone Number"></span>
+                </div>
             </div>
 
             <label class="control control-checkbox">
@@ -48,18 +60,16 @@
             <div class="container-login100-form-btn">
                 <div class="wrap-login100-form-btn">
                     <div class="login100-form-bgbtn"></div>
-                    <form action='#'>
-                        <button class="login100-form-btn">
-                            Register
-                        </button>
-                    </form>
+                    <button type="submit" class="login100-form-btn">
+                        Register
+                    </button>
                 </div>
             </div>
 
             <div class="text-center p-t-100">
-						<span class="txt1">
-							Already have an account?
-						</span>
+                <span class="txt1">
+                    Already have an account?
+                </span>
                 <a class="txt2" href="<?php echo $page_url; ?>login">
                     Login in
                 </a>
