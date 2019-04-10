@@ -3,10 +3,6 @@ let JSON;
 let checkedSession = [];
 let today = moment();
 let startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
-// let endDay = moment().set({hour: 23, minute: 59, second: 59, millisecond: 9});
-// if (startDay.isoWeekday() !== SUN - 1) {
-//     endDay = moment(endDay).day(SUN + 1);
-// }
 let nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
 let prevStartDay = null;
 let lastAvailableDay = null;
@@ -216,7 +212,7 @@ function getJSON(venueDropdown, table) {
                 console.log('Empty response');
                 $('tbody').empty().append(
                     $('<tr class="no-records-found">')
-                        .append('<td colspan="8">No session available</td>')
+                        .append('<td colspan="8">No available session</td>')
                 );
                 $('#next, #prev, #today').addClass('disabled');
                 updateTooltips();
@@ -239,6 +235,19 @@ function getJSON(venueDropdown, table) {
         });
 }
 
+function resetTable() {
+    JSON = null;
+    checkedSession = [];
+    today = moment();
+    startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
+    nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
+    prevStartDay = null;
+    lastAvailableDay = null;
+    $('#booking-info-container').addClass('hidden');
+    updateDate();
+    updateTooltips();
+}
+
 
 $(function () {
     // Initialize Tooltips
@@ -248,16 +257,22 @@ $(function () {
     let table = $('#table');
 
     // Dropdown listener
-    $('#venue').change(async function () {
-        let venue_id = $(this).val();
+    $('select').change(async function () {
+        if (this.id === 'venue') {
+            let venue_id = $(this).val();
 
-        $('#booking-info-container').addClass('hidden');
-        checkedSession = [];
-        if (venue_id === 'None') {
-            $('.table-control-container').addClass('hidden');
+            if (prevStartDay !== null) {
+                resetTable();
+            }
+            if (venue_id === 'None') {
+                $('.table-control-container').addClass('hidden');
+            } else {
+                $('.table-control-container').removeClass('hidden');
+                getJSON($(this).val(), table);
+            }
         } else {
-            $('.table-control-container').removeClass('hidden');
-            getJSON($(this).val(), table);
+            resetTable();
+            $('.table-control-container').addClass('hidden');
         }
     });
 
@@ -291,6 +306,7 @@ $(function () {
         };
 
         if (value === 'prev') {
+            checkedSession = [];
             if (prevStartDay === null || prevStartDay.isSame(today, 'date')) {
                 goToToday();
                 $(this).tooltip('show');
@@ -304,6 +320,7 @@ $(function () {
             updateDate();
             $(this).tooltip('show');
         } else if (value === "next") {
+            checkedSession = [];
             if (venue_id === 'None' && JSON === undefined) {
                 return;
             }
@@ -324,6 +341,7 @@ $(function () {
             updateDate();
             $(this).tooltip('show');
         } else if (value === 'today') {
+            checkedSession = [];
             if (startDay != null) {
                 if (startDay.diff(moment(), 'days') === 0) {
                     return;
