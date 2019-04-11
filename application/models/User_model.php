@@ -163,7 +163,7 @@ class User_model extends CI_Model
         $this->db->where('email', $email);
         $query = $this->db->get('user');
 
-        return $query->result();
+        return $query->result()[0];
     }
 
     //Get UserName

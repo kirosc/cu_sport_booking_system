@@ -133,6 +133,9 @@
                                   <div class='dropdown-divider'></div>
                           <?php endif; ?>
 
+                          <a class='dropdown-item' href='<?php echo $page_url;?>change_password/<?php echo $_SESSION['username'];?>'>Change Password</a>
+                                <div class='dropdown-divider'></div>
+
                           <a class='dropdown-item align-text-bottom' href='<?php echo $page_url;?>login/logout'>
                               Logout
                               <span class='span-icon'><i class='material-icons inline-icons'>exit_to_app</i></span>
