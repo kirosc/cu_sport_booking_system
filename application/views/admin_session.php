@@ -19,7 +19,7 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
             <form action='<?php echo $page_url; ?>admin/add_session_handler' method='post'>
                 <div class="m-md-4 m-2">
                     <label for="venue">Select Venue</label>
-                    <select class="form-control" name="venue" id="venue">
+                    <select class="form-control" name="venue">
                         <?php foreach ($venues as $venue) : ?>
                             <option value="<?php echo $venue->venue_id; ?>"><?php echo $venue->venue; ?></option>
                         <?php endforeach; ?>
@@ -64,9 +64,7 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $st = 8;
-                            $end = 9;
-                            for ($i = 0; $i < 15; $i++): ?>
+                            <?php $st = 8; $end = 9; for ($i = 0; $i < 15; $i++): ?>
                                 <tr>
                                     <?php if ($st == 8): ?>
                                         <td><?php echo "0" . $st . ":00 - 0" . $end . ":00"; ?></td>
@@ -82,14 +80,14 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                                         <?php if (in_array($st, $sessions)): ?>
                                             <td></td>
                                         <?php else: ?>
-                                            <td style="text-align: center;"><input type="checkbox" name="checkbox-<?php echo $j . $st; ?>"
-                                                       value="checked"/></td>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="checkbox-<?php echo $j . $st; ?>" value="checked">
+                                            </td>
                                         <?php endif; ?>
                                     <?php endfor; ?>
-
                                 </tr>
-                                <?php $st = $st + 1;
-                                $end = $end + 1; endfor; ?>
+                                <?php $st = $st + 1; $end = $end + 1; ?>
+                            <?php endfor; ?>
                             </tbody>
                         </table>
                     </div>
@@ -119,7 +117,7 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                 </div>
 
                 <div class="m-md-4 m-2">
-                    <div class="table-responsive-md">
+                    <div class="table-responsive-md" id="table-delete">
                         <table data-toggle="table" class="table-hover-md" id="table-2">
                             <thead>
                             <tr>
@@ -127,7 +125,6 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                             </tr>
                             </thead>
                             <tbody>
-
                             </tbody>
                         </table>
                     </div>
@@ -135,7 +132,6 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
 
                 <div class="m-md-4 m-2">
                     <button class="btn btn-lg btn-danger mr-2" type="submit">Delete</button>
-
                 </div>
             </form>
         </div>
@@ -144,23 +140,8 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
 
 <script>
     $(document).ready(function () {
-        $('#selectAll').click(function (event) {
-            if (this.checked) {
-                // Iterate each checkbox
-                $(':checkbox').each(function () {
-                    this.checked = true;
-                });
-            } else {
-                $(':checkbox').each(function () {
-                    this.checked = false;
-                });
-            }
-        });
-
-        $('#venue').change(function () {
-            //Selected value
-            var venue_id = $(this).val();
-
+        function getSession() {
+            let venue_id = $('#venue').val();
             $.ajax({
                 type: "POST",
                 url: "<?php echo $page_url; ?>util/search_session_handler",
@@ -186,6 +167,23 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                     }
                 }
             });
+        }
+
+        getSession();
+
+        $('#selectAll').click(function (event) {
+            if (this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function () {
+                    this.checked = true;
+                });
+            } else {
+                $(':checkbox').each(function () {
+                    this.checked = false;
+                });
+            }
         });
+
+        $('#venue').change(getSession);
     });
 </script>
