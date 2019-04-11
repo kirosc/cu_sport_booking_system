@@ -18,11 +18,11 @@
 }
 
 .course {
-    margin: 5rem 5%;
+    margin: 5rem 0;
 }
 
 .course:nth-child(1) {
-    margin: 0 5%;
+    margin: 0 0;
 }
 
 .course .course-info {
@@ -87,4 +87,58 @@
 
 .course-info a:hover {
     text-decoration: underline;
+}
+
+.row-participant th {
+    width: 0!important;
+}
+
+.row-participant td {
+    width: 100% !important;
+}
+
+.card {
+    border-bottom: 1px solid rgba(0,0,0,.125)!important;
+}
+
+.card-header {
+    padding: 1rem 0;
+}
+
+.button-participant {
+    width: 22%;
+    padding-left: 0;
+    color: #e53935;
+    font-weight: bold;
+    letter-spacing: .5px;
+    text-align: unset;
+}
+
+.button-participant:hover {
+    color: #c5221e;
+}
+
+.button-participant:hover, .button-participant:focus {
+    text-decoration: none;
+}
+
+.button-participant > i {
+    margin-left: 1rem;
+    margin-right: 5px;
+}
+
+
+.course-info .material-icons {
+    margin: 0 0 0 5px!important;
+    font-size: inherit;
+}
+
+.button-participant > .fa-sort-down {
+    margin: 0 0 0 5px;
+    vertical-align: top;
+}
+
+.button-participant > .fa-sort-up {
+    margin: 0 0 0 5px;
+    vertical-align: inherit;
 }

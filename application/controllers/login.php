@@ -212,7 +212,20 @@ class Login extends SBooking_Controller{
 
   public function forgot_check()
   {
-    /**/
+    /*$username = $_POST["user_name"];
+
+    $data = $this->getHeaderData();
+    $data["user_name"] = $username;*/
+
+    //$this->load->view('forgot_failure');
+
+    $this->setTitle("Verifying Your Identity");
+    $this->loadCSS('login_result.css');
+    $data = $this->getHeaderData();
+    $this->load->view('header', $data);
+    $this->load->view('forgot_success');
+    
+    $this->load->view('footer');
   }
 
   public function logout()

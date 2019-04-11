@@ -32,7 +32,7 @@ class Profile extends SBooking_Controller
     $this->setTitle('Profile');
     $this->setNav('profile');
 
-    $this->loadCSS('profile.css');
+    $this->loadCSS('profile_schedule.css');
 
     $data = $this->getHeaderData();
 
