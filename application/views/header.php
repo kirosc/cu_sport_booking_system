@@ -68,35 +68,54 @@
                       </li>
                     <?php endif; ?>
 
-                    <?php if ($nav == 'course'): ?>
-                      <li class='nav-item active'>
-                        <a class='nav-link' href='<?php echo $page_url;?>course' id='current'>Course <span class='sr-only'>(current)</span></a>
-                      </li>
-                    <?php else:?>
-                      <li class='nav-item'>
-                        <a class='nav-link' href='<?php echo $page_url;?>course'>Course</a>
-                      </li>
+                    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+
+                        <?php if($_SESSION['usertype'] == 'coach'): ?>
+                            <?php if ($nav == 'course'): ?>
+                              <li class='nav-item active'>
+                                <a class='nav-link' href='<?php echo $page_url ?>add_course' id='current'>Add Course <span class='sr-only'>(current)</span></a>
+                              </li>
+                            <?php else:?>
+                              <li class='nav-item'>
+                                <a class='nav-link' href='<?php echo $page_url ?>add_course'>Add Course</a>
+                              </li>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <?php if ($nav == 'course'): ?>
+                              <li class='nav-item active'>
+                                <a class='nav-link' href='<?php echo $page_url;?>course' id='current'>Course <span class='sr-only'>(current)</span></a>
+                              </li>
+                            <?php else:?>
+                              <li class='nav-item'>
+                                <a class='nav-link' href='<?php echo $page_url;?>course'>Course</a>
+                              </li>
+                            <?php endif; ?>
+                        <?php endif; ?>
+
+                        <?php if ($nav == 'court_booking'): ?>
+                          <li class='nav-item active'>
+                            <a class='nav-link' href='<?php echo $page_url;?>court_booking' id='current'>Book Court <span class='sr-only'>(current)</span></a>
+                          </li>
+                        <?php else:?>
+                          <li class='nav-item'>
+                            <a class='nav-link' href='<?php echo $page_url;?>court_booking'>Book Court</a>
+                          </li>
+                        <?php endif; ?>
+
+                        <?php if($_SESSION['usertype'] != 'coach'): ?>
+                            <?php if ($nav == 'session_share'): ?>
+                              <li class='nav-item active'>
+                                <a class='nav-link' href='<?php echo $page_url;?>session_share' id='current'>Session Share <span class='sr-only'>(current)</span></a>
+                              </li>
+                            <?php else:?>
+                              <li class='nav-item'>
+                                <a class='nav-link' href='<?php echo $page_url;?>session_share'>Session Share</a>
+                              </li>
+                            <?php endif; ?>
+                        <?php endif; ?>
+
                     <?php endif; ?>
 
-                    <?php if ($nav == 'court_booking'): ?>
-                      <li class='nav-item active'>
-                        <a class='nav-link' href='<?php echo $page_url;?>court_booking' id='current'>Book Court <span class='sr-only'>(current)</span></a>
-                      </li>
-                    <?php else:?>
-                      <li class='nav-item'>
-                        <a class='nav-link' href='<?php echo $page_url;?>court_booking'>Book Court</a>
-                      </li>
-                    <?php endif; ?>
-
-                    <?php if ($nav == 'session_share'): ?>
-                      <li class='nav-item active'>
-                        <a class='nav-link' href='<?php echo $page_url;?>session_share' id='current'>Session Share <span class='sr-only'>(current)</span></a>
-                      </li>
-                    <?php else:?>
-                      <li class='nav-item'>
-                        <a class='nav-link' href='<?php echo $page_url;?>session_share'>Session Share</a>
-                      </li>
-                    <?php endif; ?>
 
                 <?php endif; ?>
             </ul>

@@ -71,12 +71,13 @@ class Course_model extends CI_Model
         course.price AS price,
         course.available_seats AS seats,
         course.description AS description,
-        course.image AS course_image');
+        sports.image AS course_image');
       $this->db->from('course');
       $this->db->join('course_session', 'course_session.course_id = course.course_id', 'right');
       $this->db->join('session', 'session.session_id = course_session.session_id');
       $this->db->join('venue', 'venue.venue_id = session.venue_id');
       $this->db->join('college', 'college.college_id = venue.college_id');
+      $this->db->join('sports', 'sports.sports_id = venue.sports_id');
       $this->db->group_by('course_id');
       $query = $this->db->get();
 
