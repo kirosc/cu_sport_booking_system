@@ -41,6 +41,7 @@ class Shared_session_model extends CI_Model
       $this->db->join('user', 'reserve.email = user.email');
       $this->db->join('sports', 'sports.sports_id = venue.sports_id');
       $this->db->join('student', 'student.email = user.email');
+      $this->db->where('session.start_time >', 'NOW()');
       $query = $this->db->get();
 
       return $query->result();
@@ -73,6 +74,7 @@ class Shared_session_model extends CI_Model
       $this->db->join('sports', 'sports.sports_id = venue.sports_id');
       $this->db->join('student', 'student.email = user.email');
       $this->db->where('shared_session.session_id', $session_id);
+      $this->db->where('session.start_time >', 'NOW()');
       $query = $this->db->get();
 
       return $query->result()[0];

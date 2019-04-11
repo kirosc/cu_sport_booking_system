@@ -51,9 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = TRUE;
 
 $route['course'] = 'course/course_main';
+$route['course/page/:num'] = 'course/course_main';
 $route['course/course_apply_payment_finish'] = 'course/course_apply_payment_finish';
 $route['course/id/:num'] = 'course/detail';
 $route['course/id/:num/apply'] = 'course/apply_check';
@@ -74,9 +75,12 @@ $route['register'] = 'login/register_main';
 
 $route['profile/edit_profile'] = 'profile/edit_profile';
 $route['profile/update_profile'] = 'profile/update_profile';
+$route['change_password/:any'] = 'profile/change_password';
+$route['profile/change_password_check'] = 'profile/change_password_check';
 $route['profile/test'] = 'profile/test';
 $route['profile/:any'] = 'profile/profile_main';
 $route['schedule/:any'] = 'profile/schedule';
+
 
 $route['admin/session'] = 'admin/session';
 $route['admin/user'] = 'admin/user';

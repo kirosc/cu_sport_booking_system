@@ -8,6 +8,7 @@ class Sports_model extends CI_Model
     //Attribute
     public $sports_id;
     public $name;
+    public $image;
 
     //Function
     public function get_sports()

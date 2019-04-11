@@ -43,6 +43,7 @@ class Session_model extends CI_Model
     {
       $this->db->select('*');
       $this->db->from('session');
+      $this->db->where('start_time >', 'NOW()');
       $query = $this->db->get();
 
       $allsession = $query->result();
@@ -68,6 +69,7 @@ class Session_model extends CI_Model
       $this->db->select('*');
       $this->db->from('session');
       $this->db->join('reserve', 'session.session_id = reserve.session_id', 'left');
+      $this->db->where('session.start_time >', 'NOW()');
       if ($venue_id != NULL) {
         $this->db->where('session.venue_id', $venue_id);
       }

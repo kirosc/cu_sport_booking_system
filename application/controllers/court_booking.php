@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  *
  */
@@ -47,7 +47,7 @@ class Court_booking extends SBooking_Controller
     $year = substr($data['date'], 0, 4);
     $month = substr($data['date'], 5, 2);
     $day = substr($data['date'], 8, 2);
-    $data['is_share'] = $_POST['is-share'];
+
     $data['venue_id'] = $_POST['venue'];
     $data['venue'] = $this->Venue_model->get_name($_POST['venue'])->venue;
     $data['sessions_time'] = array();
@@ -61,6 +61,12 @@ class Court_booking extends SBooking_Controller
 
     $price = $this->Venue_model->get_venue_price($data['venue_id'])->price;
     $data['price'] = $price * sizeof($data['sessions_time']);
+
+    if (isset($_POST['is-share'])) {
+      $data['is_share'] = $_POST['is-share'];
+    }else {
+      $data['is_share'] = 0;
+    }
 
     if ($data['is_share'] == 1) {
       $data['seats'] = $_POST['seats'];

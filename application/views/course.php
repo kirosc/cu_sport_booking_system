@@ -2,9 +2,9 @@
     <section class="container-fluid" id="course-tool">
         <div class="tool row">
             <div class="tool-container col col-md-12">
-                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student') { ?>
+                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && $_SESSION['usertype'] != 'student'): ?>
                     <a href="<?php echo $page_url ?>add_course" class="btn btn-info btn-md-block">Add Course</a>
-                <?php } ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -16,7 +16,7 @@
             <div class="course row">
                 <div class="course-info col-lg-3">
                   <a href="<?php echo $detail_url . $course->course_id; ?>">
-                    <img src="<?php echo base_url(); ?>images/course/<?php echo $course->course_image; ?>"
+                    <img src="<?php echo base_url(); ?>images/sports/<?php echo $course->course_image; ?>"
                          alt="Sport thumbnail">
                   </a>
                 </div>
