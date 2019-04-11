@@ -74,12 +74,12 @@ nav {
 }
 
 @media (min-width: 992px) {
-    .navbar {
+    header .navbar {
         padding: .5rem;
     }
 
     /* The core button */
-    .nav-item {
+    header .nav-item {
         align-items: center;
         border: none;
         display: inline-flex;
@@ -95,7 +95,7 @@ nav {
     }
 
     /* ::before, which will become the hover effect */
-    .nav-item::before {
+    header .nav-item::before {
         content: '';
         display: block;
         opacity: 0;
@@ -113,12 +113,12 @@ nav {
         transition-property: transform, opacity;
     }
 
-    .nav-item:hover::before {
+    header .nav-item:hover::before {
         opacity: .7;
         transform: scale(1);
     }
 
-    .nav-item > a:hover {
+    header .nav-item > a:hover {
         color: #fff !important;
     }
 
@@ -126,17 +126,17 @@ nav {
         color: #fff !important;
     }
 
-    .nav-link {
+    header .nav-link {
         padding: .2rem 2rem;
     }
 
-    .nav-link:hover {
+    header .nav-link:hover {
         color: #fff;
     }
 }
 
 @media (max-width: 499px) {
-    .navbar-brand {
+    header .navbar-brand {
         font-size: 1rem;
     }
 }
@@ -146,7 +146,7 @@ nav {
         display: none!important;
     }
 
-    .navbar-brand {
+    header .navbar-brand {
         margin: 0 auto;
     }
 }
@@ -156,11 +156,11 @@ nav {
         display: none!important;
     }
 
-    .navbar-expand-lg .navbar-toggler {
+    header .navbar-expand-lg .navbar-toggler {
         display: unset;
     }
 
-    .navbar-expand-lg {
+    header .navbar-expand-lg {
          justify-content: space-between!important;
     }
 }

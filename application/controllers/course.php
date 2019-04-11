@@ -100,6 +100,9 @@ class Course extends SBooking_Controller
     $this->load->model('Level_model');
 
     $this->setNav('course');
+
+    $this->loadCSS('course_add_payment.css');
+
     $data = $this->getHeaderData();
 
     $data['title'] = $_POST['title'];
