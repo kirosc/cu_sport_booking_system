@@ -51,9 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = TRUE;
 
 $route['course'] = 'course/course_main';
+$route['course/page/:num'] = 'course/course_main';
 $route['course/course_apply_payment_finish'] = 'course/course_apply_payment_finish';
 $route['course/id/:num'] = 'course/detail';
 $route['course/id/:num/apply'] = 'course/apply_check';

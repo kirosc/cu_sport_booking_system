@@ -1,7 +1,4 @@
-<?php
-/**
- *
- */
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Course extends SBooking_Controller
 {
 
@@ -21,7 +18,7 @@ class Course extends SBooking_Controller
 
     $data = $this->getHeaderData();
 
-    $data['courses'] = $this->Course_model->courseSearch();
+    $data['courses'] = $this->Course_model->course_search();
     $data['seat_remain'] = array();
     foreach ($data['courses'] as $course) {
       $data['date'] = substr($course->start_time, 0, 10);
