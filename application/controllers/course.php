@@ -173,7 +173,11 @@ class Course extends SBooking_Controller
     $this->load->model('Participate_model');
 
     $this->setNav('course');
+
+    $this->loadCSS('course_apply_payment.css');
+
     $data = $this->getHeaderData();
+
     $course_id = $this->uri->segment(3);
 
     $participates = $this->Participate_model->get_participate_by_id($course_id, 0);

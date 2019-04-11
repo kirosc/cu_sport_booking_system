@@ -18,7 +18,7 @@ h4 {
     color: #868686;
     margin-right: 10px;
     position: relative;
-    top: 3px;
+    top: 4px;
 }
 
 .summary-row {
@@ -50,19 +50,19 @@ h4 {
     .summary-container {
         width: 740px;
         margin: 2rem auto;
-        margin: 2rem 0;
+        padding: 2rem;
     }
 
     .summary-row  > div {
         font-size: 1.20625rem;
     }
 
-    .summary-container {
-        padding: 2rem;
+    .summary-row {
+        margin: 2rem 0;
     }
 
     .material-icons {
-        top: 2px;
+        top: 3px;
     }
 
     .modal-confirm {

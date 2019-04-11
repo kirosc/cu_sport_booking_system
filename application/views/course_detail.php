@@ -46,7 +46,7 @@
                         echo '<p>FULL</p>';
                     } else {
                         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == TRUE) {
-                            echo "<a href='" . $page_url . "course/id/" . $course->course_id . "/apply' class='btn cu-btn btn-danger'>Book Now</a>";
+                            echo "<a href='" . $page_url . "course/id/" . $course->course_id . "/apply' class='btn cu-btn btn-danger'>Join Now</a>";
                         } else {
                             echo "<a href='" . $page_url . "login/login_main' class='btn cu-btn btn-danger'>Login to Book</a>";
                         }
