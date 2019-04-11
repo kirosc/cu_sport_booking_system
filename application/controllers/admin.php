@@ -16,9 +16,9 @@ class Admin extends SBooking_Controller
     $this->setNav('admin_session');
 
     $this->loadCSS('libraries/bootstrap-table.min.css');
+    $this->loadCSS('admin_session.css');
     $this->loadJS('libraries/bootstrap-table.min.js');
     $this->loadJS('libraries/moment.js');
-    $this->loadJS('admin_session_table.js');
 
     $data = $this->getHeaderData();
 

@@ -30,8 +30,8 @@
                             <li>Choi Ki Fung, Kiros - <span class="position">UX/UI Designer & Front-End Developer</span></li>
                             <li>Tsang Ka Hung, Kenny - <span class="position">Back-End Developer</span></li>
                             <li>Mok Tsun Ting, Mok - <span class="position">Database Developer</span></li>
-                            <li>Chan Man Hung, Bobby</li>
-                            <li>Yung King Fung, Kelvin</li>
+                            <li>Chan Man Hung, Bobby - <span class="position">Developer & Tester</span></li>
+                            <li>Yung King Fung, Kelvin - <span class="position">Developer & Tester</span></li>
                         </ul>
                     </div>
                 </div>
