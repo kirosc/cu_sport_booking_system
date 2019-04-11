@@ -1,61 +1,152 @@
-<h1>Course Create Confirm</h1>
-<p>Title: <?php echo $title;?></p>
-<p>Level: <?php echo $level_name;?></p>
-<p>Description: <?php echo $description;?></p>
-<p>Venue: <?php echo $venue;?></p>
-<p>Date: <?php echo $date;?></p>
-<p>Time: <?php echo $start_time." - ".$end_time;?></p>
-<p>Price: $<?php echo $course_price;?></p>
-<p>Seat: <?php echo $course_seat;?></p>
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="summary-container">
+            <h3 class="text-center">Course Creation</h3>
+            <hr/>
 
-<br><br><br>
-<p>Payment: $<?php echo $court_price;?></p>
+            <div class="summary-row">
+                <div>
+                    <i class="material-icons">subject</i>
+                    <span class="key" class="key">Course:</span>
+                </div>
+                <div><?php echo $title; ?></div>
+            </div>
+            <div class="summary-row">
+                <div>
+                    <i class="material-icons">equalizer</i>
+                    <span class="key" class="key">Level:</span>
+                </div>
+                <div><?php echo $level_name; ?></div>
+            </div>
+            <div class="summary-row">
+                <div>
+                    <i class="material-icons">speaker_notes</i>
+                    <span class="key">Description:</span>
+                </div>
+                <div><?php echo $description; ?></div>
+            </div>
+            <div class="summary-row">
+                <div>
+                    <i class="material-icons">location_on</i>
+                    <span class="key" class="key">Venue:</span>
+                </div>
+                <div><?php echo $venue; ?></div>
+            </div>
+            <div class="summary-row">
+                <div>
+                    <i class="material-icons">date_range</i>
+                    <span class="key" class="key">Date:</span>
+                </div>
+                <div><?php echo $date; ?></div>
+            </div>
+            <div class="summary-row">
+                <div>
+                    <i class="material-icons">access_time</i>
+                    <span class="key">Time:</span>
+                </div>
+                <div><?php echo $start_time . " - " . $end_time; ?></div>
+            </div>
+            <div class="summary-row">
+                <div>
+                    <i class="material-icons">attach_money</i>
+                    <span class="key">Fee:</span>
+                </div>
+                <div>$<?php echo $course_price; ?></div>
+            </div>
+            <div class="summary-row">
+                <div>
+                    <i class="material-icons">person</i>
+                    <span class="key">Seat(s):</span>
+                </div>
+                <div><?php echo $course_seat; ?></div>
+            </div>
+            <div class="summary-row">
+                <div></div>
+                <div style="text-align: end;">
+                    <br><span class="total">Total</span><br>
+                    <span class="amount">$<?php echo $court_price; ?></span>
+                </div>
+            </div>
+            <hr>
 
+            <div id="paypal-button-container"></div>
+            <div class="text-center mb-2">
+                <small id="paypalNote" class="text-muted font-weight-bold">THIS SERVICE DOES NOT CHARGE ANY COMMISSION
+                </small>
+            </div>
+        </div>
+
+
+        <!-- Modal HTML -->
+        <div id="payment-success-modal" class="modal fade">
+            <div class="modal-dialog modal-confirm text-dark">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="icon-box bg-success">
+                            <i class="material-icons">check</i>
+                        </div>
+                        <h4 class="modal-title col">Course Created!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center" id="booking-ref">Course Ref. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <form action='<?php echo base_url(); ?>' method='post' id="back-form"></form>
+                        <button value="Confirm" class="btn btn-success btn-block bg-success" form="back-form">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 <script src="https://www.paypal.com/sdk/js?client-id=AYDQJl8dnU3Uma0Sulb7wLiBdqe55xo9GNJDuomq9BqN4Vt32ugISG_2wH_YLcDwLTOoGX2H1wbQZ1Kd"></script>
-<div id="paypal-button-container"></div>
+
 <script>
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            currencyCode: 'HKD',
-            value: '<?php echo $court_price;?>'
-          }
-        }]
-      });
-    },
-    onApprove: function(data, actions) {
-      // Capture the funds from the transaction
-      return actions.order.capture().then(function(details) {
-        var s = '<?php echo $sessions_time;?>';
-        var sessions = JSON.parse(s);
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo $page_url."course/course_add_payment_finish";?>',
-            data: {
-              venue_id: <?php echo $venue_id;?>,
-              title: "<?php echo $title;?>",
-              description: "<?php echo $description;?>",
-              level_id: <?php echo $level;?>,
-              price: <?php echo $course_price;?>,
-              seat: <?php echo $course_seat;?>,
-              sessions_time: sessions,
-              start_time: "<?php echo $start_time;?>",
-              end_time: "<?php echo $end_time;?>",
-              date: "<?php echo $date;?>",
-            },
-            success: function(data) {
-              console.log('success');
-              window.location.href='<?php echo base_url();?>';
-            }
-        });
-
-        // Show a success message to your buyer
-        alert('Transaction completed by ' + details.payer.name.given_name);
-
-      });
-    }
-  }).render('#paypal-button-container');
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        currencyCode: 'HKD',
+                        value: '<?php echo $court_price;?>'
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            // Capture the funds from the transaction
+            return actions.order.capture().then(function (details) {
+                let s = '<?php echo $sessions_time;?>';
+                let sessions = JSON.parse(s);
+                let orderID = data.orderID;
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo $page_url . "course/course_add_payment_finish";?>',
+                    data: {
+                        venue_id: <?php echo $venue_id;?>,
+                        title: "<?php echo $title;?>",
+                        description: "<?php echo $description;?>",
+                        level_id: <?php echo $level;?>,
+                        price: <?php echo $course_price;?>,
+                        seat: <?php echo $course_seat;?>,
+                        sessions_time: sessions,
+                        start_time: "<?php echo $start_time;?>",
+                        end_time: "<?php echo $end_time;?>",
+                        date: "<?php echo $date;?>",
+                    },
+                    success: function (data) {
+                        console.log('Update database success');
+                        // Show a success message to your buyer
+                        $('#booking-ref').append(orderID);
+                        $('.modal').modal('show');
+                        // Disable other dismissing methods
+                        $('.modal').modal({backdrop: 'static', keyboard: false})
+                    }
+                });
+            });
+        }
+    }).render('#paypal-button-container');
 </script>
