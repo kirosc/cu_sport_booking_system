@@ -1,45 +1,37 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# CU Sport Booking System
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+This is a long description.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## Background
 
----
+## Getting Started
 
-## Edit a file
+The following guide will help you download the project to the local machine, compile, and run it.
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+### Prerequisites
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+## Install
 
----
+## Deployment
 
-## Create a file
+## Run
 
-Next, you’ll add a new file to this repository.
+## Screenshots
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+## Authors
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+* **Choi Ki Fung, Kiros** - *UX/UI Designer & Front-End Developer* - [KirosC](https://github.com/KirosC)
 
----
+## License
 
-## Clone a repository
+[MIT © Richard McRichface.](../LICENSE)
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+## Acknowledgement
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+* [Bootstrap](https://getbootstrap.com/) - Respoonsive CSS framework
+* [Bootstrap Table](https://bootstrap-table.com/) - Extended table integration
+* [Date Range Picker](http://www.daterangepicker.com/) - A JavaScript component for choosing date ranges, dates and times
+* [jQuery](https://jquery.com/) - Fast, small, and feature-rich JavaScript library
+* [Moment.js](https://momentjs.com/) - Parse, validate, manipulate, and display dates and times in JavaScript
+* [Popper.js](https://popper.js.org/) - Manage poppers in web applications
