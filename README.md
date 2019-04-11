@@ -13,6 +13,8 @@ Few weeks ago, we discover that booking sport facility in CUHK maybe very confus
 * **Choi Ki Fung, Kiros** - *UX/UI Designer & Front-End Developer* - [KirosC](https://github.com/KirosC)
 * **Tsang Ka Hung** - *Back-End Developer*
 * **Mok Tsun Ting** - *Database Developer*
+* **Yung King Fung** - *Developer & Tester*
+* **Chan Man Hung** - *Developer & Tester*
 
 ## License
 
