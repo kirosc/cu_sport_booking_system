@@ -1,6 +1,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="container-login100">
+            <?php echo validation_errors(); ?>
+
             <div class="wrap-login100 col-md-8 col-lg-6 col-xl-4">
                 <form class="login100-form validate-form" method="post"
                       action="<?php echo $page_url; ?>login/signup_check">
@@ -8,7 +10,7 @@
 						Register
 					</span>
                     <div class="wrap-input100 validate-input" data-validate="Invalid username">
-                        <input class="input100" type="text" name="user_name">
+                        <input class="input100" type="text" name="user_name" value="<?php echo set_value('user_name');?>">
                         <span class="focus-input100" data-placeholder="Username"></span>
                     </div>
 
@@ -16,17 +18,25 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-                        <input class="input100" type="password" name="password">
+                        <input class="input100" type="password" name="password" value="<?php echo set_value('password');?>">
                         <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
 
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+                        <input class="input100" type="password" name="passconf" value="<?php echo set_value('passconf');?>">
+                        <span class="focus-input100" data-placeholder="Confirm Password"></span>
+                    </div>
+
                     <div class="wrap-input100 validate-input" data-validate="Enter first name">
-                        <input class="input100" type="text" name='first_name' maxlength='40'>
+                        <input class="input100" type="text" name='first_name' maxlength='40' value="<?php echo set_value('first_name');?>">
                         <span class="focus-input100" data-placeholder="First Name"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter last name">
-                        <input class="input100" type="text" name='last_name' maxlength='40'>
+                        <input class="input100" type="text" name='last_name' maxlength='40' value="<?php echo set_value('last_name');?>">
                         <span class="focus-input100" data-placeholder="Last Name"></span>
                     </div>
 
