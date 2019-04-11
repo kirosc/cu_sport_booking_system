@@ -26,6 +26,8 @@ class Home extends SBooking_Controller
     $this->setTitle('Home');
     $this->setNav('home');
 
+    $this->loadCSS('about_us.css');
+
     $data = $this->getHeaderData();
 
     $this->load->view('header', $data);
