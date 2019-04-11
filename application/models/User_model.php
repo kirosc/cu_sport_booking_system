@@ -13,11 +13,11 @@ class User_model extends CI_Model
     public $icon;
 
     //Function
-    public function get_user($email)
+    public function get_user($username)
     {
       $this->db->select('*');
       $this->db->from('user');
-      $this->db->where('email', $email);
+      $this->db->where('username', $username);
       $query = $this->db->get();
 
       return $query->result()[0];
@@ -95,18 +95,18 @@ class User_model extends CI_Model
       return $query->result();
     }
 
-    public function update_password($email, $password="000000")
+    public function update_password($username, $password="000000")
     {
-      $user = $this->get_user($email);
+      $user = $this->get_user($username);
 
-      $this->email = $email;
+      $this->email = $user->email;
       $this->password = $password;
-      $this->username = $user->username;
+      $this->username = $username;
       $this->first_name = $user->first_name;
       $this->last_name = $user->last_name;
       $this->icon = $user->icon;
 
-      $this->db->where('username', $username);
+      $this->db->where('username', $user->username);
       $this->db->update('user', $this);
     }
 

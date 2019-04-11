@@ -24,6 +24,38 @@ class Profile extends SBooking_Controller
     $this->load->view('footer');
   }
 
+  public function schedule()
+  {
+    $this->load->model('Coach_model');
+    $this->load->model('Student_model');
+
+    $this->setTitle('Profile');
+    $this->setNav('profile');
+
+    $this->loadCSS('profile.css');
+
+    $data = $this->getHeaderData();
+
+    $data['username'] = $this->uri->segment(2);
+
+    if ($_SESSION['usertype'] == 'coach') {
+      $data['courses_student'] = array();
+      $data['courses'] = $this->Coach_model->get_coach_schedule($_SESSION['email']);
+      foreach ($data['courses'] as $course) {
+        $join_student = $this->Coach_model->get_participate_student($course->course_id);
+        array_push($data['courses_student'], $join_student);
+      }
+    }elseif ($_SESSION['usertype'] == 'student') {
+      $data['courses_join'] = $this->Student_model->get_student_join_course($_SESSION['email']);
+      $data['venues_book'] = $this->Student_model->get_student_book_venue($_SESSION['email']);
+      $data['shares_join'] = $this->Student_model->get_student_join_share($_SESSION['email']);
+    }
+
+    $this->load->view('header', $data);
+    $this->load->view('profile_schedule', $data);
+    $this->load->view('footer');
+  }
+
   public function edit_profile()
   {
     $this->load->model('User_model');

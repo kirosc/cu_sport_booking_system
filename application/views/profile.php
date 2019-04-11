@@ -1,5 +1,6 @@
 <div class="wrapper">
     <section class="container-fluid">
+        <a href="<?php echo $page_url.'schedule/'.$user['db']->username;?>">My Schedule</a>
         <div class="row mt-4 justify-content-center">
             <div class="col-md-6">
                 <div class="card">

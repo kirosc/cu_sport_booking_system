@@ -18,7 +18,7 @@
         <select name="user" id="user1">
             <option value="None" selected>---</option>
             <?php foreach ($users as $user): ?>
-                <option value="<?php echo $user->email; ?>"><?php echo $user->username; ?></option>
+                <option value="<?php echo $user->username; ?>"><?php echo $user->username; ?></option>
             <?php endforeach; ?>
         </select><br>
 
@@ -42,7 +42,7 @@
         <select value="None" name="user" id="user2">
             <option selected>---</option>
             <?php foreach ($users as $user): ?>
-                <option value="<?php echo $user->email; ?>"><?php echo $user->username; ?></option>
+                <option value="<?php echo $user->username; ?>"><?php echo $user->username; ?></option>
             <?php endforeach; ?>
         </select><br>
 
