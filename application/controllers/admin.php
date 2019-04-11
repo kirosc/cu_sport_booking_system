@@ -98,9 +98,11 @@ class Admin extends SBooking_Controller
       $month = substr($key, 5, 2);
       $day = substr($key, 8, 2);
       $hour = substr($key, 10);
-      $start_time = date("Y-m-d h:i:s", mktime($hour, 0, 0, $month, $day, $year));
+      $start_time = date("Y-m-d H:i:s", mktime($hour, 0, 0, $month, $day, $year));
       $this->Session_model->delete_session($start_time, $venue_id);
     }
+    echo '<script>alert("Session Deleted!");</script>';
+    redirect('admin/session', 'refresh');
   }
 
   public function reset_password_handler()

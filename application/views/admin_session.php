@@ -137,7 +137,6 @@
     $('#venue').change(function(){
         //Selected value
         var venue_id = $(this).val();
-        alert("value in js "+venue_id);
 
 
         $.ajax({
