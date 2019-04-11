@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="container-login100">
-            <div class="wrap-login100 col-md-8 col-lg-4 col-xl-3">
+            <div class="wrap-login100 col-md-8 col-lg-4 col-xl-4">
                 <form class="login100-form validate-form" id="login-form"
                       action='<?php echo $page_url; ?>login/login_check' method='post'>
 					<span class="login100-form-title p-b-26">
