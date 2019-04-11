@@ -5,7 +5,7 @@
             <fieldset>
                 <div class="form-group text-center">
                     <img src="<?php echo base_url() . 'images/user/' . $user['db']->icon; ?>"
-                         class="img-thumbnail m-auto" alt="profile pic">
+                         class="img-thumbnail m-auto" alt="profile pic" width="200 px">
                 </div>
                 <div class="row form-group">
                     <label class="col-md-4 col-xl-2 col-form-label">Icon</label>
