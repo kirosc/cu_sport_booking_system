@@ -80,3 +80,5 @@ $route['schedule/:any'] = 'profile/schedule';
 
 $route['admin/session'] = 'admin/session';
 $route['admin/user'] = 'admin/user';
+
+$route['about_us'] = 'home/about_us';

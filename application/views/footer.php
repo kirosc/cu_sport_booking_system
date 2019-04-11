@@ -1,7 +1,7 @@
         <footer>
             <div class="link-container">
                 <div class="about">
-                    <a href="#">About us</a>
+                    <a href="<?php echo base_url(); ?>index.php/about_us">About us</a>
                 </div>
             </div>
             <div class="copy-right">

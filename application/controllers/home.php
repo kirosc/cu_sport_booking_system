@@ -20,6 +20,18 @@ class Home extends SBooking_Controller
     $this->load->view('index');
     $this->load->view('footer');
   }
+
+  public function about_us()
+  {
+    $this->setTitle('Home');
+    $this->setNav('home');
+
+    $data = $this->getHeaderData();
+
+    $this->load->view('header', $data);
+    $this->load->view('about_us');
+    $this->load->view('footer');
+  }
 }
 
 ?>
