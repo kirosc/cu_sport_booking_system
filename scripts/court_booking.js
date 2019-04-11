@@ -214,7 +214,7 @@ function getJSON(venueDropdown, table) {
                 console.log('Empty response');
                 $('tbody').empty().append(
                     $('<tr class="no-records-found">')
-                        .append('<td colspan="8">No available session</td>')
+                        .append('<td colspan="8" class="text-center">No available session</td>')
                 );
                 $('#next, #prev, #today').addClass('disabled');
                 updateTooltips();

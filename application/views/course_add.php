@@ -23,21 +23,21 @@
                 <div class="col-xl-4">
                     <label for="description">Description</label>
                     <textarea class="form-control" id="description" rows="3" name="description"
-                              placeholder="Goal? Requirement? Equipment?"></textarea>
+                              placeholder="Goal? Requirement? Equipment?" required></textarea>
                 </div>
             </div>
 
             <div class="row m-2 m-md-4">
                 <div class="col-xl-4">
                     <label for="price">Ticket Price ($)</label>
-                    <input type="number" class="form-control" name="price" id="price" placeholder="HKD" required>
+                    <input type="text" class="form-control number" name="price" id="price" placeholder="HKD" required>
                 </div>
             </div>
 
             <div class="row m-2 m-md-4">
                 <div class="col-xl-4">
                     <label for="people">Available Seats</label>
-                    <input type="number" class="form-control" name="people" id="people"
+                    <input type="text" class="form-control number" name="people" id="people"
                            placeholder="Maximum participants" required>
                 </div>
             </div>
@@ -146,9 +146,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </form>
 </div>
