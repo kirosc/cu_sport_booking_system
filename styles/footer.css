@@ -35,7 +35,7 @@ footer a {
     color: #fff;
 }
 
-a:hover {
+footer a:hover {
     color: #f64747;
     text-decoration: underline;
 }
