@@ -35,11 +35,11 @@
         <section class="introduction" id="intro-2">
             <div class="container-fluid text-center">
                 <nav class="nav nav-tabs flex-nowrap" role="tablist">
-                    <a href="#nav-user" class="nav-item nav-link active" role="tab" data-toggle="tab"
+                    <a href="#nav-user" class="nav-item nav-link benefit active" role="tab" data-toggle="tab"
                        aria-controls="#nav-user" aria-selected="true">
                         User Benefits
                     </a>
-                    <a href="#nav-coach" class="nav-item nav-link" role="tab" data-toggle="tab"
+                    <a href="#nav-coach" class="nav-item nav-link benefit" role="tab" data-toggle="tab"
                        aria-controls="#nav-coach" aria-selected="false">
                         Coach Benefits
                     </a>
