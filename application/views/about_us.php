@@ -28,10 +28,10 @@
                         </h4>
                         <ul>
                             <li>Choi Ki Fung, Kiros - <span class="position">UX/UI Designer & Front-End Developer</span></li>
-                            <li>Tsang Ka Hung - <span class="position">Back-End Developer</span></li>
-                            <li>Mok Tsun Ting- <span class="position">Database Developer</span></li>
-                            <li>Chan Man Hung</li>
-                            <li>Kelvin</li>
+                            <li>Tsang Ka Hung, Kenny - <span class="position">Back-End Developer</span></li>
+                            <li>Mok Tsun Ting, Mok - <span class="position">Database Developer</span></li>
+                            <li>Chan Man Hung, Bobby</li>
+                            <li>Yung King Fung, Kelvin</li>
                         </ul>
                     </div>
                 </div>
