@@ -106,7 +106,7 @@ class User_model extends CI_Model
       $this->last_name = $user->last_name;
       $this->icon = $user->icon;
 
-      $this->db->where('username', $username);
+        $this->db->where('username', $user->username);
       $this->db->update('user', $this);
     }
 

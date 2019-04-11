@@ -40,6 +40,8 @@ class Admin extends SBooking_Controller
     $this->setTitle('Admin');
     $this->setNav('admin_user');
 
+    $this->loadCSS('admin_user.css');
+
     $data = $this->getHeaderData();
 
     $data['users'] = $this->User_model->get_users_on_usertype();
