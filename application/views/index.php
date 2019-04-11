@@ -9,6 +9,51 @@
                 </div>
             </div>
         </section>
+
+        <div id="carousel-1" class="carousel slide multi-item-carousel" data-ride="carousel" style="border-top: 3px solid black; border-bottom: 3px solid black;">
+          <div class="carousel-inner" role="listbox">
+            <?php
+            $count = 1;
+            foreach ($announcements as $announ) :
+              if ($count == 1): ?>
+                <div class="carousel-item active">
+                  <div class="item__third" id="bg-1">
+                    <a href="<?php echo $detail_url . $announ->id; ?>"><img src="images/announcement/<?php echo $announ->image; ?>" alt="Event" style="width: 100%;"></a>
+                  </div>
+                  <div class="carousel-caption" style="bottom: 10%; top: auto;">
+                    <h2><?php echo $announ->name; ?></h2>
+                  </div>
+                </div>
+             <?php else: ?>
+            <div class="carousel-item">
+              <div class="item__third" id="bg-<?php echo $count;?>">
+                <a href="<?php echo $detail_url . $announ->id; ?>"><img src="images/announcement/<?php echo $announ->image; ?>" alt="Event" style="width: 100%;"></a>
+              </div>
+              <div class="carousel-caption" style="bottom: 10%; top: auto;">
+                <h2><?php echo $announ->name; ?></h2>
+              </div>
+            </div>
+            <?php
+            endif;
+            $count = $count + 1;
+            endforeach; ?>
+          </div>
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+            <?php for ($i = 1; $i < $count-1; $i++): ?>
+              <li data-target="#carousel-1" data-slide-to="<?php echo $i ?>"></li>
+            <?php endfor; ?>
+          </ol>
+          <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
         <section class="introduction" id="intro">
             <div class="container-fluid">
                 <div class="row">
