@@ -40,6 +40,7 @@
                 </div>
             </div>
 
+
             <div class="table-control-container hidden">
                 <div class="row m-2 m-md-4 justify-content-between" id="row-nav">
                     <div class="col-2 col-lg-2">
@@ -61,10 +62,29 @@
                     </div>
                 </div>
 
+                <div class="row m-2 mt-4 m-md-4">
+                    <div class="col col-lg">
+                        <div class="legend-container">
+                            <svg class="legend">
+                                <rect class="red"/>
+                            </svg>
+                            <span class="legend-text">Past</span>
+                            <svg class="legend">
+                                <rect class="yellow"/>
+                            </svg>
+                            <span class="legend-text">Booked</span>
+                            <svg class="legend">
+                                <rect class="green"/>
+                            </svg>
+                            <span class="legend-text">Chosen</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row m-0 m-md-4">
                     <div class="col-xl table-responsive-md">
                         <table data-toggle="table" id="table">
-                            <thead>
+                            <thead class="thread-dark">
                             <tr>
                                 <th data-col="time"></th>
                                 <th class="text-center" data-col="mon">Mon</th>
@@ -102,7 +122,6 @@
                     <div class="row m-2 m-md-4 hidden" id="row-seat">
                         <div class="col-xl-4">
                             <label for="seat">Available Seat(s)</label>
-                            <!--            TODO:  Add require when based on radio button-->
                             <input type="text" class="form-control number" id="seat" name="seats" placeholder="Number of people">
                         </div>
                     </div>

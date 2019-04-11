@@ -92,6 +92,7 @@ class Session_share extends SBooking_Controller
       if ($_SESSION['email'] == $share->email) {
         echo '<script>alert("You Have Already Join This Session!");</script>';
         redirect('session_share', 'refresh');
+        return;
       }
     }
 

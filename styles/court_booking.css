@@ -1,13 +1,6 @@
-.custom-checkbox .custom-control-label::before {
-    /* Checkbox color */
-    /*border: #000 solid 1px!important;*/
+.table-responsive-md {
+    margin: 1rem 0 2rem 0;
 }
-
-/*@media (min-width: 992px) {*/
-/*    .container-fluid > .m-2.m-md-4 {*/
-/*        margin: 1rem 5rem!important;*/
-/*    }*/
-/*}*/
 
 #row-submit {
     margin-top: 5rem!important;
@@ -15,4 +8,79 @@
 
 #row-nav {
     margin-top: 2.5rem!important;
+}
+
+.legend-container {
+    display: flex;
+    align-items: center;
+}
+
+.legend {
+    width: 20px;
+    height: 20px;
+}
+
+rect {
+    width: 20px;
+    height: 20px;
+}
+
+.red {
+    fill: #e74c3c;
+}
+
+.yellow {
+    fill: #f39c12;
+    opacity: 0.8;
+}
+
+.green {
+    fill: #18bc9c;
+}
+
+.legend-text {
+    padding-left: 5px;
+    margin-right: 5px;
+}
+
+#booking-info-container {
+    margin-bottom: 2rem;
+}
+
+#booking-info-container > div {
+    margin-left: 15px!important;
+}
+
+@media (max-width: 768px) {
+    #booking-info-container > div > div {
+        padding-left: 0;
+    }
+
+    #booking-info-container {
+        padding: 0;
+    }
+}
+
+/* Sticky first column when scroll */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th:first-child, td:first-child
+{
+    background-color:#fff;
+    position:sticky;
+    left:0;
+    z-index: 99;
+    border-left: 1px black;
+}
+td:first-child
+{
+    background-color:#fff;
 }
