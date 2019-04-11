@@ -15,7 +15,7 @@
                                 <i class="fa fa-user align-middle" aria-hidden="true"></i>
                                 <span>User group</span>
                             </h4>
-                            <p><?php echo $user['usertype']; ?></p>
+                            <p><?php echo ucfirst($user['usertype']); ?></p>
                         </div>
 
                         <?php if ($user['usertype'] == 'coach'): ?>
