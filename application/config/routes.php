@@ -53,6 +53,8 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
+$route['announcement/id/:num'] = 'announcement/details';
+
 $route['course'] = 'course/course_main';
 $route['course/page/:num'] = 'course/course_main';
 $route['course/course_apply_payment_finish'] = 'course/course_apply_payment_finish';

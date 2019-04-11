@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="info-block mb-3 text-center"><img
                                     src="<?php echo base_url() . 'images/user/' . $user['db']->icon; ?>"
-                                    class="img-thumbnail" alt="profile pic"></div>
+                                    class="img-thumbnail" alt="profile pic" width="200 px"></div>
                         <div class="info-block mb-3">
                             <h4 class="title">
                                 <i class="fa fa-user align-middle" aria-hidden="true"></i>

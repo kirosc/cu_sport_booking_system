@@ -139,10 +139,16 @@
                             <?php if ($_SESSION['usertype'] != 'admin'): ?>
                                 <a class='dropdown-item'
                                    href='<?php echo $page_url; ?>profile/<?php echo $_SESSION['username']; ?>'>Profile</a>
+
+                                   <div class='dropdown-divider'></div>
+
+                               <a class='dropdown-item'
+                                  href='<?php echo $page_url.'schedule/'.$_SESSION['username'];?>'>Schedule</a>
+
+                                  <div class='dropdown-divider'></div>
                             <?php endif; ?>
 
-                            <a class='dropdown-item'
-                               href='<?php echo $page_url.'schedule/'.$_SESSION['username'];?>'>Schedule</a>
+
 
 
                             <a class='dropdown-item'

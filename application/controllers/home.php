@@ -14,7 +14,11 @@ class Home extends SBooking_Controller
     $this->loadCSS('index.css');
     $this->loadJS('index.js');
 
+    $this->load->model('Announcement_model');
+
     $data = $this->getHeaderData();
+    $data['announcements'] = $this->Announcement_model->get_announcement();
+    $data['detail_url'] = $data['page_url'] . 'announcement/id/';
 
     $this->load->view('header', $data);
     $this->load->view('index');

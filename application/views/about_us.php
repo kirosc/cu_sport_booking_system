@@ -13,12 +13,12 @@
                             <span>Why are we here?</span>
                         </h4>
                         <p>
-                            The CU Sport Booking System is an imaginary website that is created for the project of CSCI3100.
-                            The website is for academic purpose only. All the courses appear on the website DO NOT
-                            actually
-                            exsist.
-                            Everyone is free to browse the website and try out different functions implemented in the
-                            website.
+                            Few weeks ago, we discover that booking sport facility in CUHK maybe very confusing.
+                            Therefore, few students studying in CUHK join together to make this project possible.
+                            We hope to make the procedure of booking sport facility easy and fun in the same time.
+                            We also hope to incentive students to do more exercise,
+                            and find ways to give coaches opportunities to earn money and teach students in the same time.
+                            So we come up with this website, hoping students and coaches would like it!
                         </p>
                     </div>
                     <div class="info-block">
@@ -27,9 +27,11 @@
                             <span>The Creators</span>
                         </h4>
                         <ul>
-                            <li>Choi Ki Fung - <span class="position">UX/UI Designer & Front-End Developer</span></li>
+                            <li>Choi Ki Fung, Kiros - <span class="position">UX/UI Designer & Front-End Developer</span></li>
                             <li>Tsang Ka Hung - <span class="position">Back-End Developer</span></li>
                             <li>Mok Tsun Ting- <span class="position">Database Developer</span></li>
+                            <li>Chan Man Hung</li>
+                            <li>Kelvin</li>
                         </ul>
                     </div>
                 </div>
