@@ -66,14 +66,26 @@ class Session_model extends CI_Model
 
     public function get_available_session($venue_id = NULL)
     {
-      $this->db->select('*');
-      $this->db->from('session');
-      $this->db->join('reserve', 'session.session_id = reserve.session_id', 'left');
-      $this->db->where('session.start_time >', 'NOW()');
-      if ($venue_id != NULL) {
-        $this->db->where('session.venue_id', $venue_id);
+      if (isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'student') {
+        $sql = "SELECT * FROM `session`
+          LEFT JOIN reserve ON session.session_id = reserve.session_id
+          WHERE session.start_time > NOW() AND session.start_time < (NOW() + INTERVAL 7 DAY)";
+
+      }elseif (isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'coach') {
+        $sql = "SELECT * FROM `session`
+          LEFT JOIN reserve ON session.session_id = reserve.session_id
+          WHERE session.start_time > NOW() AND session.start_time < (NOW() + INTERVAL 14 DAY)";
+
+      }else {
+        $sql = "SELECT * FROM `session`
+          LEFT JOIN reserve ON session.session_id = reserve.session_id
+          WHERE session.start_time > NOW()";
       }
-      $query = $this->db->get();
+
+      if ($venue_id != NULL) {
+        $sql = $sql . " AND session.venue_id = " . $venue_id;
+      }
+      $query = $this->db->query($sql);
 
       $allsession = $query->result();
       $available = array();
