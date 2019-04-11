@@ -37,7 +37,8 @@
             <div class="row m-2 m-md-4">
                 <div class="col-xl-4">
                     <label for="people">Available Seats</label>
-                    <input type="number" class="form-control" name="people" id="people" placeholder="Maximum participants" required>
+                    <input type="number" class="form-control" name="people" id="people"
+                           placeholder="Maximum participants" required>
                 </div>
             </div>
 
@@ -73,35 +74,58 @@
                 </div>
             </div>
 
-            <div class="row m-0 m-md-4">
-                <div class="col-xl table-responsive-md">
-                    <form>
+            <div class="table-control-container hidden">
+                <div class="row m-2 m-md-4 justify-content-between" id="row-nav">
+                    <div class="col-2 col-lg-2">
+                        <button class="btn btn-primary btn-icon disabled" type="button" value="prev" id="prev"
+                                data-toggle="tooltip"
+                                data-placement="top" data-original-title="">
+                            <i class="material-icons">keyboard_arrow_left</i></button>
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="button" value="today" id="today" data-toggle="tooltip"
+                                data-placement="top" data-original-title="">Today
+                        </button>
+                    </div>
+                    <div class="col-2 col-lg-2">
+                        <button class="btn btn-primary btn-icon float-right disabled" type="button" value="next"
+                                id="next" data-toggle="tooltip"
+                                data-placement="top" data-original-title="">
+                            <i class="material-icons">keyboard_arrow_right</i></button>
+                    </div>
+                </div>
+
+                <div class="row m-0 m-md-4">
+                    <div class="col-xl table-responsive-md">
                         <table data-toggle="table" id="table">
                             <thead>
                             <tr>
                                 <th data-col="time"></th>
-                                <th class="text-center" data-col="mon"> (Mon)</th>
-                                <th class="text-center" data-col="tue"> (Tue)</th>
-                                <th class="text-center" data-col="wed"> (Wed)</th>
-                                <th class="text-center" data-col="thu"> (Thu)</th>
-                                <th class="text-center" data-col="fri"> (Fri)</th>
-                                <th class="text-center" data-col="sat"> (Sat)</th>
-                                <th class="text-center" data-col="sun"> (Sun)</th>
+                                <th class="text-center" data-col="mon">Mon</th>
+                                <th class="text-center" data-col="tue">Tue</th>
+                                <th class="text-center" data-col="wed">Wed</th>
+                                <th class="text-center" data-col="thu">Thu</th>
+                                <th class="text-center" data-col="fri">Fri</th>
+                                <th class="text-center" data-col="sat">Sat</th>
+                                <th class="text-center" data-col="sun">Sun</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php ?>
                             </tbody>
                         </table>
-                    </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row m-2 m-md-4">
-                <div class="col-xl-4">
-                    <button class="btn btn-success mr-2" type="submit" value="add" id="add">Add</button>
+                <div class="row m-2 m-md-4">
+                    <div class="col-xl-4">
+                        <button class="btn btn-success mr-2" type="submit" value="add" id="add">Add</button>
+                        <small id="submitHelpInline" class="text-muted">
+                            Course will be published immediately.
+                        </small>
+                    </div>
                 </div>
             </div>
         </div>
     </form>
 </div>
+

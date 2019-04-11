@@ -128,6 +128,8 @@ function loadWeekSession(table, json, venueID, mStartDay, mEndDay) {
         }
         loadingDay.add(1, 'day');
     }
+    // TODO: Highlight booked session
+    $("td:not(:has(*)):not(.bg-danger, .time-range)").addClass('bg-warning').fadeTo(0, 0.8)
 }
 
 function getVenue() {
@@ -382,6 +384,7 @@ $(function () {
                 }
             }
             if (isSameDay && isContinuous) {
+                $('#slot-' + day + '-' + timeSlot).addClass('bg-success');
                 checkedSession.push({
                     day: day,
                     timeSlot: timeSlot
@@ -402,6 +405,7 @@ $(function () {
                 // Remove from list
                 for (let i = 0; i < checkedSession.length; i++) {
                     if (checkedSession[i].timeSlot === timeSlot) {
+                        $('#slot-' + checkedSession[i].day + '-' + timeSlot).removeClass('bg-success');
                         checkedSession.splice(i, 1);
                         break;
                     }
@@ -423,3 +427,4 @@ $(function () {
     });
     // TODO: Check submit time to booking session
 });
+
