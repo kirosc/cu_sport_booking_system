@@ -197,7 +197,7 @@ class Profile extends SBooking_Controller
       $this->load->model('User_model');
       $this->User_model->update_password($_SESSION['username'], $_POST['new_password']);
       echo '<script>alert("You Have Successfully Change the Password!");</script>';
-      redirect('home', 'refresh');
+      redirect(base_url(), 'refresh');
     }
   }
 

@@ -80,8 +80,7 @@
                                         <h5 class="mb-0">
                                             <button class="btn btn-link button-participant" type="button"
                                                     data-toggle="collapse"
-                                                    data-target="#collapse<?php echo $i ?>"
-                                            ">
+                                                    data-target="#collapse<?php echo $i ?>">
                                             <i class="fa fa-ticket" aria-hidden="true"></i>
                                             Participants
                                             <i class="fa fa-sort-down" aria-hidden="true"></i>

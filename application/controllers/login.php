@@ -224,7 +224,7 @@ class Login extends SBooking_Controller{
     $data = $this->getHeaderData();
     $this->load->view('header', $data);
     $this->load->view('forgot_success');
-    
+
     $this->load->view('footer');
   }
 
@@ -235,7 +235,7 @@ class Login extends SBooking_Controller{
     $this->session->set_userdata($data);
 
     echo '<script>alert("You Have Successfully Logout!");</script>';
-    redirect('home', 'refresh');
+    redirect(base_url(), 'refresh');
   }
 
   // function verify_email(){
