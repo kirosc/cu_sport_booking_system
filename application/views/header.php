@@ -6,7 +6,7 @@
     <title>CU Sport Booking System</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>images/logo_64px.png">
     <?php foreach ($css_file as $file): ?>
         <link rel="stylesheet" href="<?php echo $file; ?>">
     <?php endforeach; ?>

@@ -50,17 +50,15 @@
                         <div class="row">
                             <section class="col col-lg-4">
                                 <div class="text-center"><i class="material-icons">supervisor_account</i></div>
-                                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <p class="text-center">Maintain An Active And Healthy Lifestyle At Reasonable Price</p>
                             </section>
                             <section class="col col-lg-4">
                                 <div class="text-center"><i class="material-icons">today</i></div>
-                                <p class="text-center">Quisque auctor velit porttitor turpis sodales aliquet ac
-                                    consequat
-                                    augue</p>
+                                <p class="text-center">Exercise Everyday By Joining Interesting Courses</p>
                             </section>
                             <section class="col col-lg-4">
                                 <div class="text-center"><i class="material-icons">share</i></div>
-                                <p class="text-center">In hac habitasse platea dictumst</p>
+                                <p class="text-center">Make New Sports Partner By Sharing Sports Facilities</p>
                             </section>
                         </div>
                     </div>
@@ -69,13 +67,11 @@
                         <div class="row">
                             <section class="col col-md-6">
                                 <div class="text-center"><i class="material-icons">supervisor_account</i></div>
-                                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <p class="text-center">Organise Courses For Teenagers and Young Generation At Low Cost</p>
                             </section>
                             <section class="col col-md-6">
                                 <div class="text-center"><i class="material-icons">today</i></div>
-                                <p class="text-center">Quisque auctor velit porttitor turpis sodales aliquet ac
-                                    consequat
-                                    augue</p>
+                                <p class="text-center">Multiple Venues And Facilities Available Everyday</p>
                             </section>
                         </div>
                     </div>

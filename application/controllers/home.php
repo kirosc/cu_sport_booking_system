@@ -11,10 +11,7 @@ class Home extends SBooking_Controller
     $this->setTitle('Home');
     $this->setNav('home');
 
-    $this->loadCSS('../vendor/slick/slick.css');
-    $this->loadCSS('../vendor/slick/slick-theme.css');
     $this->loadCSS('index.css');
-    $this->loadJS('../vendor/slick/slick.min.js');
     $this->loadJS('index.js');
 
     $data = $this->getHeaderData();
