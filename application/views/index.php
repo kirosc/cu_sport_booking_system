@@ -49,29 +49,33 @@
                          aria-labelledby="nav-user-tab">
                         <div class="row">
                             <section class="col col-lg-4">
-                                <div class="text-center"><i class="material-icons">supervisor_account</i></div>
-                                <p class="text-center">Maintain An Active And Healthy Lifestyle At Reasonable Price</p>
+                                <div class="text-center"><i class="material-icons">attach_money</i></div>
+                                <p class="text-center">Maintain an active and healthy lifestyle at reasonable price</p>
                             </section>
                             <section class="col col-lg-4">
-                                <div class="text-center"><i class="material-icons">today</i></div>
-                                <p class="text-center">Exercise Everyday By Joining Interesting Courses</p>
+                                <div class="text-center"><i class="material-icons">timeline</i></div>
+                                <p class="text-center">Exercise everyday by joining interesting courses</p>
                             </section>
                             <section class="col col-lg-4">
-                                <div class="text-center"><i class="material-icons">share</i></div>
-                                <p class="text-center">Make New Sports Partner By Sharing Sports Facilities</p>
+                                <div class="text-center"><i class="material-icons">face</i></div>
+                                <p class="text-center">Make new sports partner by sharing sports facilities</p>
                             </section>
                         </div>
                     </div>
                     <div class="container-fluid tab-pane fade" id="nav-coach" role="tabpanel"
                          aria-labelledby="nav-coach-tab">
                         <div class="row">
-                            <section class="col col-md-6">
-                                <div class="text-center"><i class="material-icons">supervisor_account</i></div>
-                                <p class="text-center">Organise Courses For Teenagers and Young Generation At Low Cost</p>
+                            <section class="col col-lg-4">
+                                <div class="text-center"><i class="material-icons">assignment</i></div>
+                                <p class="text-center">Manage your courses all in one place</p>
                             </section>
-                            <section class="col col-md-6">
-                                <div class="text-center"><i class="material-icons">today</i></div>
-                                <p class="text-center">Multiple Venues And Facilities Available Everyday</p>
+                            <section class="col col-lg-4">
+                                <div class="text-center"><i class="material-icons">attach_money</i></div>
+                                <p class="text-center">Organise courses for teenagers and young generation at low cost</p>
+                            </section>
+                            <section class="col col-lg-4">
+                                <div class="text-center"><i class="material-icons">location_on</i></div>
+                                <p class="text-center">Multiple venues and facilities available everyday</p>
                             </section>
                         </div>
                     </div>
