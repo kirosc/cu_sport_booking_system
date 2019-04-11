@@ -135,6 +135,84 @@ class Profile extends SBooking_Controller
     }
 
   }
+
+  public function change_password()
+  {
+    $this->setTitle('Profile');
+
+    $this->loadCSS('register.css');
+    $this->loadCSS('util.css');
+    $this->loadCSS('../vendor/animate/animate.css');
+    $this->loadCSS('../vendor/css-hamburgers/hamburgers.min.css');
+    $this->loadCSS('../vendor/animsition/css/animsition.min.css');
+    $this->loadCSS('../vendor/select2/select2.min.css');
+    $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
+    $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
+    $this->loadJS('../vendor/animsition/js/animsition.min.js');
+    $this->loadJS('../vendor/select2/select2.min.js');
+    $this->loadJS('libraries/moment.js');
+    $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
+    $this->loadJS('../vendor/countdowntime/countdowntime.js');
+    $this->loadJS('register.js');
+
+    $data = $this->getHeaderData();
+
+    $this->load->view('header', $data);
+    $this->load->view('change_password');
+    $this->load->view('footer');
+  }
+
+  public function change_password_check()
+  {
+    $this->load->library('form_validation');
+
+    $this->form_validation->set_rules('password', 'Password', 'required|trim|callback_old_password_check');
+    $this->form_validation->set_rules('new_password', 'New Password', 'required|trim');
+    $this->form_validation->set_rules('new_passconf', 'New Password Confirmation', 'required|trim|matches[new_password]');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->setTitle('Profile');
+
+      $this->loadCSS('register.css');
+      $this->loadCSS('util.css');
+      $this->loadCSS('../vendor/animate/animate.css');
+      $this->loadCSS('../vendor/css-hamburgers/hamburgers.min.css');
+      $this->loadCSS('../vendor/animsition/css/animsition.min.css');
+      $this->loadCSS('../vendor/select2/select2.min.css');
+      $this->loadCSS('../vendor/daterangepicker/daterangepicker.css');
+      $this->loadCSS('../fonts/iconic/css/material-design-iconic-font.css');
+      $this->loadJS('../vendor/animsition/js/animsition.min.js');
+      $this->loadJS('../vendor/select2/select2.min.js');
+      $this->loadJS('libraries/moment.js');
+      $this->loadJS('../vendor/daterangepicker/daterangepicker.js');
+      $this->loadJS('../vendor/countdowntime/countdowntime.js');
+      $this->loadJS('register.js');
+
+      $data = $this->getHeaderData();
+
+      $this->load->view('header', $data);
+      $this->load->view('change_password');
+      $this->load->view('footer');
+    }else{
+      $this->load->model('User_model');
+      $this->User_model->update_password($_SESSION['username'], $_POST['new_password']);
+      echo '<script>alert("You Have Successfully Change the Password!");</script>';
+      redirect('home', 'refresh');
+    }
+  }
+
+  public function old_password_check($value)
+  {
+    $this->load->model('User_model');
+    $result = $this->User_model->get_password($_SESSION['email'])->password;
+
+    if ($result != $value) {
+      $this->form_validation->set_message('old_password_check', 'Wrong Password!');
+      return FALSE;
+    }else{
+      return TRUE;
+    }
+  }
 }
 
 ?>

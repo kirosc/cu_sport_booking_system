@@ -197,25 +197,6 @@ class Login extends SBooking_Controller{
       }
       $this->load->view('register_success');
     }
-
-    // $sql_string =
-    //   "SELECT count(*) as count FROM user
-    //   WHERE username='{$_POST['user_name']}'";
-    // $sql_query = $this->db->query($sql_string)->result();
-    // if ($sql_query[0]->count != 0) {
-    //   $this->load->view('register_failure');
-    // }else {
-    //   $this->load->model('User_model');
-    //   $this->User_model->new_user($_POST['email'], $_POST['password'], $_POST['user_name'], $_POST['first_name'], $_POST['last_name']);
-    //   if (isset($_POST["is_coach"]) && $_POST["is_coach"] == 'on') {
-    //     $this->load->model('Coach_model');
-    //     $this->Coach_model->new_coach($_POST['email'], $_POST['description'], $_POST['experience']);
-    //   }else{
-    //     $this->load->model('Student_model');
-    //     $this->Student_model->new_student($_POST['email'], $_POST['interest'], $_POST['birthday'], $_POST['phone'], $_POST['description']);
-    //   }
-    //   $this->load->view('register_success');
-    // }
     $this->load->view('footer');
   }
 
