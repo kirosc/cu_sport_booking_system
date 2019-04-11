@@ -1,5 +1,12 @@
 <div class="wrapper">
     <?php if ($_SESSION['usertype'] == 'coach'): ?>
+        <div class="container mt-2">
+            <div class="course booked row">
+                <div class="course-info col col-lg-12">
+                    <h2><span class="badge badge-primary">Created Course</span></h2>
+                </div>
+            </div>
+        </div>
         <section class="container">
             <?php for ($i = 0; $i < sizeof($courses); $i++): ?>
                 <div class="course row">
