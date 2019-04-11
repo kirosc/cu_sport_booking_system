@@ -112,7 +112,7 @@ class User_model extends CI_Model
 
 
     //New User (New Entry)
-    public function new_user($email, $password, $username, $first_name, $last_name, $icon = "NA")
+    public function new_user($email, $password, $username, $first_name, $last_name, $icon = "default.png")
     {
         $this->email = $email;
         $this->password = $password;
