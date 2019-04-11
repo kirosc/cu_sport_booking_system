@@ -95,10 +95,29 @@
                     </div>
                 </div>
 
+                <div class="row m-2 mt-4 m-md-4">
+                    <div class="col col-lg">
+                        <div class="legend-container">
+                            <svg class="legend">
+                                <rect class="red"/>
+                            </svg>
+                            <span class="legend-text">Past</span>
+                            <svg class="legend">
+                                <rect class="yellow"/>
+                            </svg>
+                            <span class="legend-text">Booked</span>
+                            <svg class="legend">
+                                <rect class="green"/>
+                            </svg>
+                            <span class="legend-text">Chosen</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row m-0 m-md-4">
                     <div class="col-xl table-responsive-md">
                         <table data-toggle="table" id="table">
-                            <thead>
+                            <thead class="thread-dark">
                             <tr>
                                 <th data-col="time"></th>
                                 <th class="text-center" data-col="mon">Mon</th>
@@ -116,15 +135,20 @@
                     </div>
                 </div>
 
-                <div class="row m-2 m-md-4">
-                    <div class="col-xl-4">
-                        <button class="btn btn-success mr-2" type="submit" value="add" id="add">Add</button>
-                        <small id="submitHelpInline" class="text-muted">
-                            Course will be published immediately.
-                        </small>
+                <div class="container-fluid hidden" id="booking-info-container">
+                    <div class="row m-2 m-md-4" id="row-submit">
+                        <div class="col-xl-4">
+                            <button class="btn btn-lg btn-success mr-2" type="submit" value="add" id="add">Add</button>
+                            <small id="submitHelpInline" class="text-muted">
+                                Course will be published immediately.
+                            </small>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+
         </div>
     </form>
 </div>

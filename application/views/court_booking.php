@@ -136,7 +136,7 @@
 
                     <div class="row m-2 m-md-4" id="row-submit">
                         <div class="col-xl-4">
-                            <button class="btn btn-success" type="submit" value="confirm" id="confirm">Confirm
+                            <button class="btn btn-lg btn-success" type="submit" value="confirm" id="confirm">Confirm
                             </button>
                         </div>
                     </div>
