@@ -103,37 +103,39 @@
                 </div>
 
                 <div class="container-fluid hidden" id="booking-info-container">
-                    <div class="row m-2 m-md-4" id="row-share">
-                        <div class="col-xl-4">
-                            <label for="isShare1">Share this session?</label><br>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="isShare1" name="is-share" class="custom-control-input"
-                                       value="1">
-                                <label class="custom-control-label" for="isShare1">Of cuz!</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="isShare2" name="is-share" class="custom-control-input" value="0"
-                                       checked>
-                                <label class="custom-control-label" for="isShare2">Nah, next time.</label>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row m-2 m-md-4 hidden" id="row-seat">
-                        <div class="col-xl-4">
-                            <label for="seat">Available Seat(s)</label>
-                            <input type="text" class="form-control number" id="seat" name="seats" placeholder="Number of people">
-                        </div>
-                    </div>
+                  <?php if ($_SESSION['usertype'] != 'coach'): ?>
+                      <div class="row m-2 m-md-4" id="row-share">
+                          <div class="col-xl-4">
+                              <label for="isShare1">Share this session?</label><br>
+                              <div class="custom-control custom-radio custom-control-inline">
+                                  <input type="radio" id="isShare1" name="is-share" class="custom-control-input"
+                                         value="1">
+                                  <label class="custom-control-label" for="isShare1">Of cuz!</label>
+                              </div>
+                              <div class="custom-control custom-radio custom-control-inline">
+                                  <input type="radio" id="isShare2" name="is-share" class="custom-control-input" value="0"
+                                         checked>
+                                  <label class="custom-control-label" for="isShare2">Nah, next time.</label>
+                              </div>
+                          </div>
+                      </div>
 
-                    <div class="row m-2 m-md-4 hidden" id="row-description">
-                        <div class="col-xl-4">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" rows="3"
-                                      name="description" placeholder="What you wanna say?"></textarea>
-                        </div>
-                    </div>
+                      <div class="row m-2 m-md-4 hidden" id="row-seat">
+                          <div class="col-xl-4">
+                              <label for="seat">Available Seat(s)</label>
+                              <input type="text" class="form-control number" id="seat" name="seats" placeholder="Number of people">
+                          </div>
+                      </div>
 
+                      <div class="row m-2 m-md-4 hidden" id="row-description">
+                          <div class="col-xl-4">
+                              <label for="description">Description</label>
+                              <textarea class="form-control" id="description" rows="3"
+                                        name="description" placeholder="What you wanna say?"></textarea>
+                          </div>
+                      </div>
+                  <?php endif; ?>
                     <div class="row m-2 m-md-4" id="row-submit">
                         <div class="col-xl-4">
                             <button class="btn btn-lg btn-success" type="submit" value="confirm" id="confirm">Confirm
@@ -141,6 +143,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </form>
