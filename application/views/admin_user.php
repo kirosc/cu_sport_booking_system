@@ -144,6 +144,9 @@
         $('#user-1').change(function () {
             //Selected value
             let user = $(this).val();
+            let username = $('option[value="' + user + '"]').html();
+            console.log(user);
+            console.log(username);
             if (user === 'None') {
                 $('#reset-btn').addClass('disabled').attr('data-toggle', '');
                 $('#profile1').html('');
@@ -159,7 +162,7 @@
                     $('#profile1').html(result)
                 }
             });
-            $('#reset-username').html(user);
+            $('#reset-username').html(username);
             $('#confirm-form').val('');
         });
 
@@ -173,7 +176,7 @@
                 dataType: 'json',
                 success: function (result) {
                     $("#user-2").html("");
-                    let html_str = "<option value=\"None\" selected>---</option>";
+                    let html_str = "<option value=\"None\" selected>-----</option>";
                     for (let i = 0; i < result.length; i++) {
                         let username = result[i].username;
                         let email = result[i].email;
@@ -187,6 +190,7 @@
         $('#user-2').change(function () {
             //Selected value
             let user = $(this).val();
+            let username = $('option[value="' + user + '"]').html();
             if (user === 'None') {
                 $('#delete-btn').addClass('disabled').attr('data-toggle', '');
                 $('#profile2').html('');
@@ -202,7 +206,7 @@
                     $('#profile2').html(result)
                 }
             });
-            $('#delete-username').html(user);
+            $('#delete-username').html(username);
             $('#confirm-form').val('');
         });
 
