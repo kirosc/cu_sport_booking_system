@@ -37,6 +37,26 @@ class Coach_model extends CI_Model
     //Delete Coach (Delete Entry)
     public function delete_coach($email)
     {
+        $this->db->select('course_id');
+        $this->db->where('email', $email);
+        $query = $this->db->get('course');
+        $courses = $query->result();
+
+        foreach ($courses as $course) {
+          $this->db->where('course_id', $course->course_id);
+          $this->db->delete('participate');
+
+
+          $this->db->where('course_id', $course->course_id);
+          $this->db->delete('course_session');
+        }
+
+        $this->db->where('email', $email);
+        $this->db->delete('course');
+
+        $this->db->where('email', $email);
+        $this->db->delete('reserve');
+
         $this->db->where('email', $email);
         $this->db->delete('coach');
 

@@ -42,6 +42,29 @@ class Student_model extends CI_Model
     //Delete Student (Delete Entry)
     public function delete_student($email)
     {
+
+      $this->db->where('email', $email);
+      $this->db->delete('share');
+
+        $this->db->select('session_id');
+        $this->db->where('email', $email);
+        $query = $this->db->get('reserve');
+        $sessions = $query->result();
+
+        foreach ($sessions as $session) {
+          $this->db->where('session_id', $session->session_id);
+          $this->db->delete('share');
+
+          $this->db->where('session_id', $session->session_id);
+          $this->db->delete('shared_session');
+        }
+
+        $this->db->where('email', $email);
+        $this->db->delete('participate');
+
+        $this->db->where('email', $email);
+        $this->db->delete('reserve');
+
         $this->db->where('email', $email);
         $this->db->delete('student');
 
