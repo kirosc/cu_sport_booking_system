@@ -145,8 +145,6 @@
             //Selected value
             let user = $(this).val();
             let username = $('option[value="' + user + '"]').html();
-            console.log(user);
-            console.log(username);
             if (user === 'None') {
                 $('#reset-btn').addClass('disabled').attr('data-toggle', '');
                 $('#profile1').html('');
@@ -200,7 +198,7 @@
             $.ajax({
                 type: "POST",
                 url: "<?php echo $page_url; ?>admin/show_user_profile",
-                data: {user},
+                data: {user: username},
                 dataType: 'html',
                 success: function (result) {
                     $('#profile2').html(result)
