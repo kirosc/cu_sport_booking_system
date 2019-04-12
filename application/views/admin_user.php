@@ -160,6 +160,7 @@
                 }
             });
             $('#reset-username').html(user);
+            $('#confirm-form').val('');
         });
 
         $('#user-type-2').change(function () {
@@ -202,6 +203,7 @@
                 }
             });
             $('#delete-username').html(user);
+            $('#confirm-form').val('');
         });
 
         $('#form-reset').submit(function (e) {

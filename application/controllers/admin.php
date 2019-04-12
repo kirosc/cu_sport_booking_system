@@ -127,7 +127,7 @@ class Admin extends SBooking_Controller
       $this->Coach_model->delete_coach($_POST['user']);
     }
     echo '<script>alert("'. $_POST['user'] .' deleted!");</script>';
-    redirect('admin/user', 'refresh');
+//    redirect('admin/user', 'refresh');
   }
 
   public function json_formatter($sessions)
