@@ -35,7 +35,10 @@
                         <div class="profile-container" id="profile1"></div>
                         <div class="row m-2 m-md-4">
                             <div class="col-xl-6 mb-1 mx-auto">
-                                <button class="btn btn-lg btn-danger disabled" value="Reset This User Password" form="form-reset" id="reset-btn">Reset</button>
+                                <button type="button" class="btn btn-lg btn-danger disabled" id="reset-btn"
+                                        data-toggle=""
+                                        data-target="#modalConfirm">Reset
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -70,11 +73,45 @@
                         <div class="profile-container" id="profile2"></div>
                         <div class="row m-2 m-md-4">
                             <div class="col-xl-6 mb-1 mx-auto">
-                                <button class="btn btn-lg btn-danger disabled" value="Delete This User"  form="form-delete" id="delete-btn">Delete</button>
+                                <button type="button" class="btn btn-lg btn-danger disabled" data-toggle=""
+                                        data-target="#modalConfirm" id="delete-btn">Delete
+                                </button>
                             </div>
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--  Modal  -->
+    <div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Are you absolutely sure?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body py-0 mt-4">
+                    <p id="reset-message">This will reset user <span class="font-weight-bold"
+                                                                     id="reset-username"></span> password.</p>
+                    <p class="hidden" id="delete-message">This will delete user <span class="font-weight-bold"
+                                                                                      id="delete-username"></span>.</p>
+                </div>
+                <div class="modal-body py-0">
+                    <p id="confirm-message">Please type in the name of the user to confirm.</p>
+                </div>
+                <div class="modal-body pt-0">
+                    <div class="md-form">
+                        <input type="text" id="confirm-form" class="form-control validate" required>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-danger" value="Reset This User Password" form="form-reset" id="confirm-btn">Confirm</button>
+                </div>
             </div>
         </div>
     </div>
@@ -108,9 +145,10 @@
             //Selected value
             let user = $(this).val();
             if (user === 'None') {
-                $('#reset-btn').addClass('disabled');
+                $('#reset-btn').addClass('disabled').attr('data-toggle', '');
+                $('#profile1').html('');
             } else {
-                $('#reset-btn').removeClass('disabled');
+                $('#reset-btn').removeClass('disabled').attr('data-toggle', 'modal');
             }
             $.ajax({
                 type: "POST",
@@ -121,6 +159,7 @@
                     $('#profile1').html(result)
                 }
             });
+            $('#reset-username').html(user);
         });
 
         $('#user-type-2').change(function () {
@@ -148,9 +187,10 @@
             //Selected value
             let user = $(this).val();
             if (user === 'None') {
-                $('#delete-btn').addClass('disabled');
+                $('#delete-btn').addClass('disabled').attr('data-toggle', '');
+                $('#profile2').html('');
             } else {
-                $('#delete-btn').removeClass('disabled');
+                $('#delete-btn').removeClass('disabled').attr('data-toggle', 'modal');
             }
             $.ajax({
                 type: "POST",
@@ -161,18 +201,40 @@
                     $('#profile2').html(result)
                 }
             });
+            $('#delete-username').html(user);
         });
 
-        // Prevent empty submission
-        $('form').submit(function (e) {
-            if ($(this).attr('id') === 'form-reset') {
-                if ($('#user-1').val() === 'None') {
-                    e.preventDefault();
-                }
+        $('#form-reset').submit(function (e) {
+            let confirmForm = $('#confirm-form');
+            if ($('#reset-username').html() !== confirmForm.val()) {
+                confirmForm.addClass('is-invalid');
+                e.preventDefault();
+            }
+        });
+
+        $('#form-delete').submit(function (e) {
+            let confirmForm = $('#confirm-form');
+            if ($('#delete-username').html() !== confirmForm.val()) {
+                confirmForm.addClass('is-invalid');
+                e.preventDefault();
+            }
+        });
+
+        $('#confirm-form').focus(function () {
+            $(this).removeClass('is-invalid');
+        });
+
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            let target = $(e.target).attr("href") // activated tab
+            if (target === "#nav-delete") {
+                $('#reset-message').addClass('hidden');
+                $('#delete-message').removeClass('hidden');
+                $('#confirm-btn').attr('form', 'form-delete');
             } else {
-                if ($('#user-2').val() === 'None') {
-                    e.preventDefault();
-                }
+                $('#reset-message').removeClass('hidden');
+                $('#delete-message').addClass('hidden');
+                $('#confirm-btn').attr('form', 'form-reset');
             }
         });
     });
