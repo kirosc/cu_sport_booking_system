@@ -65,7 +65,7 @@
                                 <select class="form-control" name="user" id="user-2">
                                     <option value="None" selected>-----</option>
                                     <?php foreach ($users as $user): ?>
-                                        <option value="<?php echo $user->username; ?>"><?php echo $user->username; ?></option>
+                                        <option value="<?php echo $user->email; ?>"><?php echo $user->username; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -133,7 +133,7 @@
                     for (let i = 0; i < result.length; i++) {
                         let username = result[i].username;
                         let email = result[i].email;
-                        html_str = html_str + "<option value=" + email + ">" + username + "</option>";
+                        html_str = html_str + "<option value=" + username + ">" + username + "</option>";
                     }
                     $("#user-1").append(html_str);
                 }

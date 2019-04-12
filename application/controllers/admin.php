@@ -115,19 +115,19 @@ class Admin extends SBooking_Controller
 
   public function delete_user_handler()
   {
+    // print_r($_POST);
     $this->load->model('User_model');
     $this->load->model('Student_model');
     $this->load->model('Coach_model');
 
     $usertype = $this->User_model->check_usertype($_POST['user'], NULL);
-
     if ($usertype->s != NULL){
       $this->Student_model->delete_student($_POST['user']);
     }elseif ($usertype->c != NULL) {
       $this->Coach_model->delete_coach($_POST['user']);
     }
     echo '<script>alert("'. $_POST['user'] .' deleted!");</script>';
-//    redirect('admin/user', 'refresh');
+    redirect('admin/user', 'refresh');
   }
 
   public function json_formatter($sessions)
