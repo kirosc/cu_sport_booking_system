@@ -1,8 +1,10 @@
 <div class="wrapper">
     <div class="form-wrapper m-4">
+        <!-- Use a form style it as Bootstrap's card -->
         <form class="card bg-light card-body mb-3 col-md-8 col-xl-6 m-auto"
               action='<?php echo $page_url; ?>profile/update_profile' method='post' enctype="multipart/form-data">
             <fieldset>
+                <!-- Generic info -->
                 <div class="form-group text-center">
                     <img src="<?php echo base_url() . 'images/user/' . $user['db']->icon; ?>"
                          class="img-thumbnail m-auto" alt="profile pic" width="200 px">
@@ -43,6 +45,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Student/Normal user info -->
                 <?php if ($user['usertype'] == 'student'): ?>
                     <div class="row form-group">
                         <label class="col-md-4 col-xl-2 col-form-label ">Interest</label>
@@ -81,6 +84,7 @@
                         </div>
                     </div>
                 <?php endif; ?>
+                <!-- Generic info -->
                 <div class="row form-group">
                     <label class="col-md-4 col-xl-2 col-form-label">Introduction</label>
                     <div class="col-md-8 col-xl-10 inputGroupContainer">
@@ -88,6 +92,7 @@
                               rows="3"><?php echo $user['db']->intro; ?></textarea>
                     </div>
                 </div>
+                <!-- Coach user info -->
                 <?php if ($user['usertype'] == 'coach'): ?>
                     <div class="row form-group">
                         <label class="col-md-4 col-xl-2 col-form-label">Experience</label>
@@ -105,6 +110,7 @@
 
 <script>
     $(function () {
+        // Initialize the daterangepicker for the birthday
         $('input[name="birthday"]').daterangepicker({
             locale: {
                 "format": "YYYY-MM-DD",
@@ -118,6 +124,7 @@
             minYear: 1901
         });
 
+        // Replace placeholder text for icon after choosing new icon
         $('#validatedCustomFile').on('change',function(){
             // Get the file name
             let fileName = $(this).val();

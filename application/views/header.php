@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>CU Sport Booking System</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>images/logo_64px.png">
+    <!--  Loading CSS and JS files according to the browsing page  -->
     <?php foreach ($css_file as $file): ?>
         <link rel="stylesheet" href="<?php echo $file; ?>">
     <?php endforeach; ?>
@@ -28,12 +28,8 @@
         <a class="navbar-brand" href="<?php echo base_url(); ?>">
             <span id="title">CU Sport Booking System</span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-
+        <!--    Loading header navigation according to user group    -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'): ?>
@@ -121,12 +117,10 @@
                                 </li>
                             <?php endif; ?>
                         <?php endif; ?>
-
                     <?php endif; ?>
-
-
                 <?php endif; ?>
             </ul>
+            <!--      User-related dropdown on the right      -->
             <ul class="navbar-nav mr-2">
                 <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
                     <li class='nav-item dropdown'>
@@ -148,9 +142,6 @@
                                   <div class='dropdown-divider'></div>
                             <?php endif; ?>
 
-
-
-
                             <a class='dropdown-item'
                                href='<?php echo $page_url; ?>change_password/<?php echo $_SESSION['username']; ?>'>Change
                                 Password</a>
@@ -160,7 +151,6 @@
                                 Logout
                                 <span class='span-icon'><i class='material-icons inline-icons'>exit_to_app</i></span>
                             </a>
-
                         </div>
                     </li>
 
@@ -173,5 +163,6 @@
                     </li>
                 <?php endif; ?>
             </ul>
+        </div>
     </nav>
 </header>

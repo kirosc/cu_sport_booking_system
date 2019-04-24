@@ -2,6 +2,7 @@
     <section class="container-fluid">
         <div class="row mt-3">
             <div class="col-md-8">
+            <!-- Session info -->
                 <div class="ss-title info-block mb-3">
                     <h4 class="title"><span
                                 id="session-name"><?php echo $session->user_fullname . 's shared session'; ?></span>
@@ -48,20 +49,22 @@
                 </div>
             </div>
             <div class="col-md-4">
+                <!-- User icon -->
                 <div class="info-block mb-3">
                     <h4 class="title">
                         <i class="fa fa-user align-middle" aria-hidden="true"></i>
                         <span>Host</span>
                     </h4>
-                        <div class="host row m-0">
-                            <div class="host-container float-left mr-3">
-                                <a href="<?php echo $page_url . "profile/" . $session->host; ?>" class="text-center mt-2">
-                                    <img src="<?php echo base_url() . 'images/user/' . $session->host_icon; ?>" class="img-thumbnail mb-1" alt="profile pic">
-                                    <br>
-                                    <?php echo $session->user_fullname; ?>
-                                </a>
-                            </div>
+                    <div class="host row m-0">
+                        <div class="host-container float-left mr-3">
+                            <a href="<?php echo $page_url . "profile/" . $session->host; ?>" class="text-center mt-2">
+                                <img src="<?php echo base_url() . 'images/user/' . $session->host_icon; ?>"
+                                     class="img-thumbnail mb-1" alt="profile pic">
+                                <br>
+                                <?php echo $session->user_fullname; ?>
+                            </a>
                         </div>
+                    </div>
                 </div>
 
                 <div class="card info-block mb-3" id="venue-preview">
@@ -79,7 +82,7 @@
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalMap">Open
                             Map
                         </button>
-                        <!--Modal: Name-->
+                        <!--Modal that contains the embed Google Map-->
                         <div class="modal fade" id="modalMap" tabindex="-1" role="dialog"
                              aria-labelledby="Google Map Modal"
                              aria-hidden="true">
@@ -89,25 +92,24 @@
                                     <!--Body-->
                                     <div class="modal-body p-0">
                                         <div class="embed-responsive embed-responsive-4by3" id="google-map">
+                                            <!--Google Map Embed API-->
                                             <iframe
                                                     frameborder="0" style="border:0"
-                                                    src="<?php echo $session->map;?>"
+                                                    src="<?php echo $session->map; ?>"
                                                     allowfullscreen>
                                             </iframe>
                                         </div>
                                     </div>
-                                    <!--Footer-->
+                                    <!--Footer(Dismiss button)-->
                                     <div class="modal-footer justify-content-center">
                                         <button type="button" class="btn btn-outline-info btn-md" data-dismiss="modal">
                                             Close <i class="fa fa-times ml-1"></i></button>
                                     </div>
                                 </div>
-                                <!--/.Content-->
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

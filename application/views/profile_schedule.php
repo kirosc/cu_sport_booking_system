@@ -1,9 +1,10 @@
 <div class="wrapper">
+    <!--  Coach only  -->
     <?php if ($_SESSION['usertype'] == 'coach'): ?>
         <div class="container mt-2">
             <div class="course booked row">
                 <div class="course-info col col-lg-12">
-                    <h2><span class="badge badge-primary">Created Course`</span></h2>
+                    <h2><span class="badge badge-primary">Created Course</span></h2>
                 </div>
             </div>
         </div>
@@ -81,10 +82,9 @@
                                             <button class="btn btn-link button-participant" type="button"
                                                     data-toggle="collapse"
                                                     data-target="#collapse<?php echo $i ?>">
-                                            <i class="fa fa-ticket" aria-hidden="true"></i>
-                                            Participants
-                                            <i class="fa fa-sort-down" aria-hidden="true"></i>
-                                            <!--                                            <i class="material-icons">arrow_drop_down</i>-->
+                                                <i class="fa fa-ticket" aria-hidden="true"></i>
+                                                Participants
+                                                <i class="fa fa-sort-down" aria-hidden="true"></i>
                                             </button>
                                         </h5>
                                     </div>
@@ -93,14 +93,14 @@
                                          aria-labelledby="headingOne"
                                          data-parent="#accordionParticipant">
                                         <div class="card-body">
-                                            <?php echo $student->first_name . " " . $student->last_name; ?>
-                                            <?php $numItems = count($courses_student);
+                                            <!-- Show the name of all participants -->
+                                            <?php $numItems = count($courses_student[$i]);
                                             $counter = 0; ?>
                                             <?php foreach ($courses_student[$i] as $student): ?>
-                                                <?php if (++$counter === $numItems): ?>
-                                                    <?php echo $student->first_name . " " . $student->last_name . ", "; ?>
-                                                <?php else: ?>
+                                                <?php if (++$counter == $numItems): ?>
                                                     <?php echo $student->first_name . " " . $student->last_name; ?>
+                                                <?php else: ?>
+                                                    <?php echo $student->first_name . " " . $student->last_name . ", "; ?>
                                                 <?php endif; ?>
                                             <?php endforeach; ?>
                                         </div>
@@ -113,7 +113,7 @@
             <?php endfor; ?>
         </section>
     <?php elseif ($_SESSION['usertype'] == 'student'): ?>
-
+        <!--  Student/Normal user only  -->
         <div class="container mt-2">
             <div class="course booked row">
                 <div class="course-info col col-lg-12">
@@ -184,6 +184,7 @@
             <?php endfor; ?>
         </section>
 
+        <!-- Generic info -->
         <div class="container mt-2">
             <div class="course booked row">
                 <div class="course-info col col-lg-12">
@@ -291,6 +292,7 @@
 
 <script>
     $(function () {
+        // Animation for course participants (Coach)
         $('.collapse').collapse('hide');
 
         $('.button-participant').click(function (e) {

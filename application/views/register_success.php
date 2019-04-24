@@ -26,7 +26,7 @@
     <script type="text/javascript">
         $(function() {
             // Disable other dismissing methods
-            $('.modal').modal({backdrop: 'static', keyboard: false})
+            $('.modal').modal({backdrop: 'static', keyboard: false});
             // Pop out the modal right away
             $('.modal').modal('show');
         });

@@ -1,4 +1,5 @@
 <div class="wrapper">
+    <!--    Add course button-->
     <section class="container-fluid" id="course-tool">
         <div class="tool row">
             <div class="tool-container col col-md-12">
@@ -9,16 +10,17 @@
         </div>
     </section>
 
+    <!--  Generate course information  -->
     <section class="container-fluid" id="course-container">
         <?php
         $count = 0;
         foreach ($courses as $course) : ?>
             <div class="course row">
                 <div class="course-info col-lg-3">
-                  <a href="<?php echo $detail_url . $course->course_id; ?>">
-                    <img src="<?php echo base_url(); ?>images/sports/<?php echo $course->course_image; ?>"
-                         alt="Sport thumbnail">
-                  </a>
+                    <a href="<?php echo $detail_url . $course->course_id; ?>">
+                        <img src="<?php echo base_url(); ?>images/sports/<?php echo $course->course_image; ?>"
+                             alt="Sport thumbnail">
+                    </a>
                 </div>
                 <div class="course-info col col-lg-9">
                     <div class="course-info">

@@ -1,5 +1,6 @@
 <div class="wrapper">
     <section class="container-fluid" id="session-share-container">
+        <!-- Show list of shared sessions -->
         <?php
         $count = 0;
         foreach ($sessions as $session) : ?>

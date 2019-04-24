@@ -1,4 +1,5 @@
 <div class="wrapper">
+    <!--  Form for adding new course for coach  -->
     <form action='<?php echo $page_url; ?>course/check_add_course' method='post'>
         <div class="container-fluid">
             <div class="row m-2 mt-4 m-md-4">
@@ -75,6 +76,7 @@
             </div>
 
             <div class="table-control-container hidden">
+                <!--        Navigation buttons to view different week        -->
                 <div class="row m-2 m-md-4 justify-content-between" id="row-nav">
                     <div class="col-2 col-lg-2">
                         <button class="btn btn-primary btn-icon disabled" type="button" value="prev" id="prev"
@@ -94,7 +96,7 @@
                             <i class="material-icons">keyboard_arrow_right</i></button>
                     </div>
                 </div>
-
+                <!--        Legends        -->
                 <div class="row m-2 mt-4 m-md-4">
                     <div class="col col-lg">
                         <div class="legend-container">
@@ -114,6 +116,7 @@
                     </div>
                 </div>
 
+                <!--        The booking table        -->
                 <div class="row m-0 m-md-4">
                     <div class="col-xl table-responsive-md">
                         <table data-toggle="table" id="table">
@@ -135,6 +138,7 @@
                     </div>
                 </div>
 
+                <!--        Submit button        -->
                 <div class="container-fluid hidden" id="booking-info-container">
                     <div class="row m-2 m-md-4" id="row-submit">
                         <div class="col-xl-4">

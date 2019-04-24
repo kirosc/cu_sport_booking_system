@@ -87,7 +87,7 @@
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalMap">Open
                             Map
                         </button>
-                        <!--Modal: Name-->
+                        <!--Modal that contains the embed Google Map-->
                         <div class="modal fade" id="modalMap" tabindex="-1" role="dialog"
                              aria-labelledby="Google Map Modal"
                              aria-hidden="true">
@@ -97,6 +97,7 @@
                                     <!--Body-->
                                     <div class="modal-body p-0">
                                         <div class="embed-responsive embed-responsive-4by3" id="google-map">
+                                            <!--Google Map Embed API-->
                                             <iframe
                                                     frameborder="0" style="border:0"
                                                     src="<?php echo $course->map;?>"
@@ -104,7 +105,7 @@
                                             </iframe>
                                         </div>
                                     </div>
-                                    <!--Footer-->
+                                    <!--Footer(Dismiss button)-->
                                     <div class="modal-footer justify-content-center">
                                         <button type="button" class="btn btn-outline-info btn-md" data-dismiss="modal">
                                             Close <i class="fa fa-times ml-1"></i></button>

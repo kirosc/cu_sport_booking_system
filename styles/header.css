@@ -1,4 +1,11 @@
-.header-container {
+@font-face {
+    font-family: "Material Icons";
+    src: url("/fonts/iconfont/MaterialIcons-Regular.ttf") format("ttf"),
+    url("/fonts/iconfont/MaterialIcons-Regular.woff2") format("woff2"),
+    url("/fonts/iconfont/MaterialIcons-Regular.woff") format("woff");
+}
+
+{
     display: flex;
     justify-content: center;
     padding: 8px 0 8px 0;

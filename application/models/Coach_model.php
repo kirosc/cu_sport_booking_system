@@ -113,7 +113,7 @@ class Coach_model extends CI_Model
     {
       $this->db->select('
         user.first_name AS first_name,
-        user.last_name AS last_name,
+        user.last_name AS last_name
       ');
       $this->db->from('participate');
       $this->db->join('user', 'participate.email = user.email');

@@ -95,8 +95,8 @@
     </div>
 </div>
 
+<!-- PayPal script that handle the transaction -->
 <script src="https://www.paypal.com/sdk/js?client-id=AYDQJl8dnU3Uma0Sulb7wLiBdqe55xo9GNJDuomq9BqN4Vt32ugISG_2wH_YLcDwLTOoGX2H1wbQZ1Kd"></script>
-
 <script>
     paypal.Buttons({
         createOrder: function (data, actions) {
@@ -128,8 +128,9 @@
                     },
                     success: function () {
                         console.log('Update database success');
-                        // Show a success message to your buyer
+                        // Add the order ID
                         $('#booking-ref').append(orderID);
+                        // Show a success message
                         $('.modal').modal('show');
                         // Disable other dismissing methods
                         $('.modal').modal({backdrop: 'static', keyboard: false})

@@ -2,11 +2,13 @@
     <section class="container-fluid">
         <div class="row mt-4 justify-content-center">
             <div class="col-md-6">
+                <!-- Use Bootstrap's card to show the user's profile -->
                 <div class="card">
                     <div class="card-header">
                         <?php echo $user['db']->first_name . " " . $user['db']->last_name; ?>'s Profile
                     </div>
                     <div class="card-body">
+                        <!-- Generic info -->
                         <div class="info-block mb-3 text-center"><img
                                     src="<?php echo base_url() . 'images/user/' . $user['db']->icon; ?>"
                                     class="img-thumbnail" alt="profile pic" width="200 px"></div>
@@ -18,6 +20,7 @@
                             <p><?php echo ucfirst($user['usertype']); ?></p>
                         </div>
 
+                        <!-- Coach info -->
                         <?php if ($user['usertype'] == 'coach'): ?>
                             <div class="info-block mb-3">
                                 <h4 class="title">
@@ -28,6 +31,7 @@
                             </div>
                         <?php endif; ?>
 
+                        <!-- Student/Normal user info -->
                         <?php if ($user['usertype'] == 'student'): ?>
                             <div class="info-block mb-3">
                                 <h4 class="title">
@@ -52,6 +56,7 @@
                             </div>
                         <?php endif; ?>
 
+                        <!-- Generic info -->
                         <div class="info-block mb-3">
                             <h4 class="title">
                                 <i class="fa fa-file align-middle" aria-hidden="true"></i>
@@ -61,6 +66,7 @@
                         </div>
                     </div>
 
+                    <!-- Edit Profile -->
                     <?php if (isset($_SESSION['username']) && strtolower($user['db']->username) == strtolower($_SESSION['username'])): ?>
                         <a href="<?php echo $page_url ?>profile/edit_profile" class="btn btn-primary">Edit
                             Profile</a>
@@ -68,4 +74,5 @@
                 </div>
             </div>
         </div>
+    </section>
 </div>

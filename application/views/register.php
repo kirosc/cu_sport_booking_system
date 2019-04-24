@@ -3,6 +3,7 @@
         <div class="container-login100">
             <?php echo validation_errors(); ?>
 
+            <!-- Register form -->
             <div class="wrap-login100 col-md-8 col-lg-6 col-xl-6">
                 <form class="login100-form validate-form" method="post"
                       action="<?php echo $page_url; ?>login/signup_check">

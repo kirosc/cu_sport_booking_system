@@ -49,14 +49,12 @@
                 </div>
             </div>
             <hr>
-
             <div id="paypal-button-container"></div>
             <div class="text-center mb-2">
                 <small id="paypalNote" class="text-muted font-weight-bold">THIS SERVICE DOES NOT CHARGE ANY COMMISSION
                 </small>
             </div>
         </div>
-
 
         <!-- Modal HTML -->
         <div id="payment-success-modal" class="modal fade">
@@ -83,6 +81,7 @@
 </div>
 </div>
 
+<!-- PayPal script that handle the transaction -->
 <script src="https://www.paypal.com/sdk/js?client-id=AYDQJl8dnU3Uma0Sulb7wLiBdqe55xo9GNJDuomq9BqN4Vt32ugISG_2wH_YLcDwLTOoGX2H1wbQZ1Kd"></script>
 <div id="paypal-button-container"></div>
 <script>
@@ -101,14 +100,16 @@
             // Capture the funds from the transaction
             return actions.order.capture().then(function (details) {
                 let orderID = data.orderID;
+                // Update database using AJAX
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo $page_url . "course/course_apply_payment_finish";?>',
                     data: {course_id: <?php echo $course->course_id;?> },
                     success: function () {
                         console.log('Update database success');
-                        // Show a success message to your buyer
+                        // Add the order ID
                         $('#booking-ref').append(orderID);
+                        // Show a success message
                         $('.modal').modal('show');
                         // Disable other dismissing methods
                         $('.modal').modal({backdrop: 'static', keyboard: false})

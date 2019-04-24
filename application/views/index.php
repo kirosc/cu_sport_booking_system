@@ -54,6 +54,7 @@
           </a>
         </div>
 
+        <!--    What user can do    -->
         <section class="introduction" id="intro">
             <div class="container-fluid">
                 <div class="row">
@@ -77,6 +78,7 @@
                     </section>
                 </div>
         </section>
+        <!--    User benefit    -->
         <section class="introduction" id="intro-2">
             <div class="container-fluid text-center">
                 <nav class="nav nav-tabs flex-nowrap" role="tablist">

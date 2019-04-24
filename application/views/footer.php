@@ -8,6 +8,7 @@
                 &copy; <?php echo date("Y");?> CU Sport Booking System. All Rights Reserved.
             </div>
         </footer>
+        <!--    A mini script to prevent non-numeric character input on class number on all pages   -->
         <script>
             $(".number").keydown( function(e) {
                 // prevent: "e", "=", ",", "-", "."
