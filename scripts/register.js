@@ -2,7 +2,6 @@ $(function () {
     "use strict";
     let isCoach = false;
 
-
     /*==================================================================
     [ Focus input ]*/
     $('.input100').each(function () {
@@ -18,7 +17,6 @@ $(function () {
 
     /*==================================================================
     [ Validate ]*/
-
     $('.validate-form').on('submit', function () {
         var input = $('.validate-input:not(.hidden) .input100');
         var check = true;
@@ -39,6 +37,7 @@ $(function () {
         });
     });
 
+    // Validate user input
     function validate(input) {
         if ($(input).attr('name') === 'user_name') {
             // Check if username contains whitespace
@@ -58,14 +57,15 @@ $(function () {
         }
     }
 
+    // Show alert text
     function showValidate(input) {
-        var thisAlert = $(input).parent();
+        let thisAlert = $(input).parent();
 
         $(thisAlert).addClass('alert-validate');
     }
 
     function hideValidate(input) {
-        var thisAlert = $(input).parent();
+        let thisAlert = $(input).parent();
 
         $(thisAlert).removeClass('alert-validate');
     }
@@ -90,8 +90,6 @@ $(function () {
 
     /*==================================================================
     [ Submit ]*/
-
-
     $('input[type=checkbox]').on('click', function () {
         if (isCoach) {
             $('.coach').addClass("hidden");
@@ -106,6 +104,7 @@ $(function () {
 
     /*==================================================================
     [ Custom function ]*/
+    // Initialize daterangepicker for birthday
     $('input[name="birthday"]').daterangepicker({
         locale: {
             "format": "YYYY-MM-DD",

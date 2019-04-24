@@ -1,7 +1,6 @@
 $(function ($) {
     "use strict";
 
-
     /*==================================================================
     [ Focus input ]*/
     $('.input100').each(function(){
@@ -47,21 +46,22 @@ $(function ($) {
         }
     }
 
+    // Show alert text
     function showValidate(input) {
-        var thisAlert = $(input).parent();
+        let thisAlert = $(input).parent();
 
         $(thisAlert).addClass('alert-validate');
     }
 
     function hideValidate(input) {
-        var thisAlert = $(input).parent();
+        let thisAlert = $(input).parent();
 
         $(thisAlert).removeClass('alert-validate');
     }
 
     /*==================================================================
     [ Show pass ]*/
-    var showPass = 0;
+    let showPass = 0;
     $('.btn-show-pass').on('click', function(){
         if(showPass == 0) {
             $(this).next('input').attr('type','text');
