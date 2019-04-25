@@ -85,6 +85,7 @@ class Course_model extends CI_Model
       return $query->result();
     }
 
+    //get all the information of the selected course
     public function get_course_detail_by_courseid($course_id)
     {
       $this->db->select(

@@ -30,8 +30,10 @@ class User_model extends CI_Model
       $this->db->join('user', 'user.email = coach.email', 'right');
       $this->db->join('student', 'user.email = student.email', 'left');
 
+      //using email to check user type
       if ($email != NULL) {
         $this->db->where('user.email', $email);
+      //using username to check user type
       }elseif ($username != NULL) {
         $this->db->where('user.username', $username);
       }
@@ -40,10 +42,12 @@ class User_model extends CI_Model
       return $query->result()[0];
     }
 
+    //get all information of the user
     public function get_user_detail($username)
     {
       $result = $this->check_usertype(NULL, $username);
 
+      //student
       if ($result->s != NULL) {
         $data['usertype'] = 'student';
         $this->db->select(
@@ -60,6 +64,7 @@ class User_model extends CI_Model
         $this->db->from('user');
         $this->db->join('student', 'user.email = student.email');
         $this->db->where('user.username', $username);
+      //coach
       }elseif ($result->c != NULL) {
         $data['usertype'] = 'coach';
         $this->db->select(
@@ -82,6 +87,7 @@ class User_model extends CI_Model
 
     }
 
+    //return all users based on usertype
     public function get_users_on_usertype($usertype = "")
     {
       $this->db->select('username, user.email AS email');

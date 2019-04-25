@@ -42,34 +42,42 @@ class Student_model extends CI_Model
     //Delete Student (Delete Entry)
     public function delete_student($email)
     {
-
+      //delete all this student records that join the shared session
       $this->db->where('email', $email);
       $this->db->delete('share');
 
-        $this->db->select('session_id');
-        $this->db->where('email', $email);
-        $query = $this->db->get('reserve');
-        $sessions = $query->result();
+      //get all reserves that this student booked
+      $this->db->select('session_id');
+      $this->db->where('email', $email);
+      $query = $this->db->get('reserve');
+      $sessions = $query->result();
 
-        foreach ($sessions as $session) {
-          $this->db->where('session_id', $session->session_id);
-          $this->db->delete('share');
+      //loop through all sessions that booked by this student
+      foreach ($sessions as $session) {
+        //delete all participate that relate to this shared session
+        $this->db->where('session_id', $session->session_id);
+        $this->db->delete('share');
 
-          $this->db->where('session_id', $session->session_id);
-          $this->db->delete('shared_session');
-        }
+        //delete shared sessions that own by this student
+        $this->db->where('session_id', $session->session_id);
+        $this->db->delete('shared_session');
+      }
 
-        $this->db->where('email', $email);
-        $this->db->delete('participate');
+      //delete all course's participates that this student join
+      $this->db->where('email', $email);
+      $this->db->delete('participate');
 
-        $this->db->where('email', $email);
-        $this->db->delete('reserve');
+      //delete all reserves that this student booked
+      $this->db->where('email', $email);
+      $this->db->delete('reserve');
 
-        $this->db->where('email', $email);
-        $this->db->delete('student');
+      //delete this student in student table of db
+      $this->db->where('email', $email);
+      $this->db->delete('student');
 
-        $this->db->where('email', $email);
-        $this->db->delete('user');
+      //delete this user in user table of db
+      $this->db->where('email', $email);
+      $this->db->delete('user');
     }
 
     //Get Interest
@@ -112,6 +120,7 @@ class Student_model extends CI_Model
         return $query->result();
     }
 
+    //get student joined course schedule
     public function get_student_join_course($email)
     {
       $this->db->select(
@@ -136,6 +145,7 @@ class Student_model extends CI_Model
       return $query->result();
     }
 
+    //get student booked venue schedule
     public function get_student_book_venue($email)
     {
       $this->db->select(
@@ -153,6 +163,7 @@ class Student_model extends CI_Model
       return $query->result();
     }
 
+    //get student schedule that those shared sessions' participate students
     public function get_student_join_share($email)
     {
       $this->db->select(

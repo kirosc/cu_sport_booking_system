@@ -8,7 +8,7 @@ class Level_model extends CI_Model
     public $level_id;      //Primary Key
     public $description;
 
-
+    //get level id
     public function getLevel()
     {
       $this->db->select('*');
@@ -17,6 +17,7 @@ class Level_model extends CI_Model
       return $query->result();
     }
 
+    //get level's name
     public function get_name($level_id)
     {
       $this->db->select('description');
