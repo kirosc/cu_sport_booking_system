@@ -1,4 +1,5 @@
 <?php
+//those functions is used by JS
   class Util extends SBooking_Controller
   {
     public function json_formatter($sessions)
@@ -32,6 +33,7 @@
       return $array;
     }
 
+    //based on the selected college/sport type, return those venues to JS
     public function search_venue_handler()
     {
       $this->load->model('Venue_model');
@@ -48,6 +50,7 @@
       echo json_encode($data);
     }
 
+    //based on the selected venue,return those sessions to JS
     public function search_session_handler()
     {
       $this->load->model('Session_model');
@@ -57,6 +60,7 @@
       echo $data;
     }
 
+    //based on the selected user type,return all the user that is this user type to JS
     public function search_usertype_handler()
     {
       $this->load->model('User_model');

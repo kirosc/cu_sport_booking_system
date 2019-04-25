@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
- *test
- */
+
+//home controller handle index page and about_us page
 class Home extends SBooking_Controller
 {
 

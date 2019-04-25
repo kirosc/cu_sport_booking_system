@@ -1,7 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+//course controller handle course page and all functions relate to course
 class Course extends SBooking_Controller
 {
 
+  //course main page
   public function course_main()
   {
     $this->load->model('Course_model');
@@ -18,13 +21,15 @@ class Course extends SBooking_Controller
 
     $data = $this->getHeaderData();
 
-    $data['courses'] = $this->Course_model->course_search();
-    $data['seat_remain'] = array();
+    $data['courses'] = $this->Course_model->course_search();//get all the course from db
+    $data['seat_remain'] = array();//an array that store the remaining seats of each courses
+
+    //calculae the remaining seats of each courses
     foreach ($data['courses'] as $course) {
       $data['date'] = substr($course->start_time, 0, 10);
       $data['start_time'] = substr($course->start_time, 11, 5);
       $data['end_time'] = substr($course->end_time, 11, 5);
-      $seat_remain = $course->seats - $this->Participate_model->get_participate_by_id($course->course_id, 1);
+      $seat_remain = $course->seats - $this->Participate_model->get_participate_by_id($course->course_id, 1);//total seats available - total participated user in that course
       array_push(
         $data['seat_remain'],
         $seat_remain
@@ -48,11 +53,12 @@ class Course extends SBooking_Controller
 
     $this->loadCSS('course_detail.css');
     $data = $this->getHeaderData();
-    $course_id = $this->uri->segment(3);
+    $course_id = $this->uri->segment(3);//get the course_id on the uri
 
-    $data['course'] = $this->Course_model->get_course_detail_by_courseid($course_id);
+    $data['course'] = $this->Course_model->get_course_detail_by_courseid($course_id);//get the detail information of the course
     $data['seat_remain'] = $data['course']->seats - $this->Participate_model->get_participate_by_id($course_id, 1);
 
+    //get the date, time of the course
     $data['date'] = substr($data['course']->start_time, 0, 10);
     $data['start_time'] = substr($data['course']->start_time, 11, 5);
     $data['end_time'] = substr($data['course']->end_time, 11, 5);
@@ -63,6 +69,7 @@ class Course extends SBooking_Controller
     $this->load->view('footer');
   }
 
+  //coach add course page
   public function add_course_page()
   {
     $this->load->model('College_model');
@@ -80,17 +87,18 @@ class Course extends SBooking_Controller
     $this->loadJS('court_booking.js');
     $data = $this->getHeaderData();
 
-    $data['colleges'] = $this->College_model->college_search();
-    $data['sports'] = $this->Sports_model->get_sports();
-    $data['venues'] = $this->Venue_model->venue_search();
-    $data['sessions'] = $this->Session_model->get_available_session();
-    $data['levels'] = $this->Level_model->getLevel();
+    $data['colleges'] = $this->College_model->college_search();//get all the college name
+    $data['sports'] = $this->Sports_model->get_sports();//get all the sport name
+    $data['venues'] = $this->Venue_model->venue_search();//get all the venue name
+    $data['sessions'] = $this->Session_model->get_available_session();//get all the session that is not booked
+    $data['levels'] = $this->Level_model->getLevel();//get the level
 
     $this->load->view('header', $data);
     $this->load->view('course_add', $data);
     $this->load->view('footer');
   }
 
+  //coach add course payment page
   public function check_add_course()
   {
     $this->load->model('Venue_model');
@@ -117,6 +125,7 @@ class Course extends SBooking_Controller
     $data['venue_id'] = $_POST['venue'];
     $data['venue'] = $this->Venue_model->get_name($_POST['venue'])->venue;
     $data['sessions_time'] = array();
+    //calculate the start_time and end_time base on selected time slot
     foreach ($_POST['time'] as $value) {
       $time = 8+substr($value, 5);
       $data['end_time'] = ($time + 1).":00";
@@ -136,6 +145,7 @@ class Course extends SBooking_Controller
 
   }
 
+  //add course to the db
   public function course_add_payment_finish()
   {
     $this->load->model('Course_model');
@@ -153,20 +163,24 @@ class Course extends SBooking_Controller
     $start = $_POST['date']." ".$_POST['start_time'].":00";
     $end = $_POST['date']." ".$_POST['end_time'].":00";
 
+    //mark the selected time slot as reserve in db
     foreach ($sessions_time as $start_time) {
       $session_id = $this->Session_model->get_session_id($venue_id, $start_time)->session_id;
       $this->Reserve_model->new_reserve($_SESSION['email'], $session_id);
     }
 
+    //add course to db
     $this->Course_model->new_course($title, $start, $end, $price, $seat, $description, $level_id, $_SESSION['email']);
     $course_id = $this->Course_model->get_course_id($title, $start, $end, $_SESSION['email'])->course_id;
 
+    //add the linking of course and session
     foreach ($sessions_time as $start_time) {
       $session_id = $this->Session_model->get_session_id($venue_id, $start_time)->session_id;
       $this->Course_session_model->new_course_session($course_id, $session_id);
     }
   }
 
+  //student apply course payment page
   public function apply_check()
   {
     $this->load->model('Course_model');
@@ -182,6 +196,7 @@ class Course extends SBooking_Controller
 
     $participates = $this->Participate_model->get_participate_by_id($course_id, 0);
 
+    //check if user already apply the selected course
     foreach ($participates as $participate) {
       if ($_SESSION['email'] == $participate->email) {
         echo '<script>alert("You Have Already Join This Course!");</script>';
@@ -196,6 +211,7 @@ class Course extends SBooking_Controller
     $this->load->view('footer');
   }
 
+  //add student participate the course to db
   public function course_apply_payment_finish()
   {
     $this->load->model('Participate_model');
