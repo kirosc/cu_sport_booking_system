@@ -39,11 +39,12 @@ class Session_model extends CI_Model
         $this->db->delete('session');
     }
 
+    //retrun all sessions
     public function get_all_session()
     {
       $this->db->select('*');
       $this->db->from('session');
-      $this->db->where('start_time >', 'NOW()');
+      $this->db->where('start_time >', 'NOW()');//only those sessions that the time still not pass
       $query = $this->db->get();
 
       $allsession = $query->result();
@@ -64,24 +65,29 @@ class Session_model extends CI_Model
       return $data;
     }
 
+    //return all sessions that still not reserved
     public function get_available_session($venue_id = NULL)
     {
+      //student account only provide 7 days session slots
       if (isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'student') {
         $sql = "SELECT * FROM `session`
           LEFT JOIN reserve ON session.session_id = reserve.session_id
           WHERE session.start_time > NOW() AND session.start_time < (NOW() + INTERVAL 7 DAY)";
 
+      //coach account provide 14 days session slots
       }elseif (isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'coach') {
         $sql = "SELECT * FROM `session`
           LEFT JOIN reserve ON session.session_id = reserve.session_id
           WHERE session.start_time > NOW() AND session.start_time < (NOW() + INTERVAL 14 DAY)";
 
+      //provide all session slots that time not pass
       }else {
         $sql = "SELECT * FROM `session`
           LEFT JOIN reserve ON session.session_id = reserve.session_id
           WHERE session.start_time > NOW()";
       }
 
+      //provide specific venue's session slots
       if ($venue_id != NULL) {
         $sql = $sql . " AND session.venue_id = " . $venue_id;
       }
@@ -90,6 +96,7 @@ class Session_model extends CI_Model
       $allsession = $query->result();
       $available = array();
 
+      //filter all reserved session out
       foreach ($allsession as $session) {
         if ($session->email == NULL) {
           array_push($available, $session);

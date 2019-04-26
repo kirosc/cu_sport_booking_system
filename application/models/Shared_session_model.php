@@ -18,6 +18,7 @@ class Shared_session_model extends CI_Model
       $this->db->insert('shared_session', $this);
     }
 
+    //get all shared session
     public function get_shared_session()
     {
 
@@ -47,6 +48,7 @@ class Shared_session_model extends CI_Model
       return $query->result();
     }
 
+    //get detail version of the shared session by its session_id
     public function get_shared_session_by_id($session_id)
     {
       $this->db->select(
@@ -80,6 +82,7 @@ class Shared_session_model extends CI_Model
       return $query->result()[0];
     }
 
+    //get the number of seats of the shared session by its id
     public function get_seats_by_id($session_id)
     {
       $this->db->select('available_seats');

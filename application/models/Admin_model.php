@@ -19,7 +19,6 @@ class Admin_model extends User_model
         $this->$last_name = $last_name;
         $this->$icon = $icon;
 
-        $this->db->insert('user', $User_model);
         $this->db->insert('admin', $this);
     }
 
@@ -32,9 +31,6 @@ class Admin_model extends User_model
         $this->$first_name = $first_name;
         $this->$last_name = $last_name;
         $this->$icon = $icon;
-
-        $this->db->where('email', $email);
-        $this->db->update('user', $User_model);
 
         $this->db->where('email', $email);
         $this->db->update('admin', $this);

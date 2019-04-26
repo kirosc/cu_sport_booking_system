@@ -37,29 +37,36 @@ class Coach_model extends CI_Model
     //Delete Coach (Delete Entry)
     public function delete_coach($email)
     {
+        //get all courses that created by this coach
         $this->db->select('course_id');
         $this->db->where('email', $email);
         $query = $this->db->get('course');
         $courses = $query->result();
 
+        //loop through all courses that created by this coach
         foreach ($courses as $course) {
+          //delete all participate that relate to this course
           $this->db->where('course_id', $course->course_id);
           $this->db->delete('participate');
 
-
+          //delte all course_session relation that relate to this course
           $this->db->where('course_id', $course->course_id);
           $this->db->delete('course_session');
         }
 
+        //delete all courses that created by this coach
         $this->db->where('email', $email);
         $this->db->delete('course');
 
+        //delete all reserves that this coach booked
         $this->db->where('email', $email);
         $this->db->delete('reserve');
 
+        //delete this coach in coach table of db
         $this->db->where('email', $email);
         $this->db->delete('coach');
 
+        //delete this user in user table of db
         $this->db->where('email', $email);
         $this->db->delete('user');
     }
@@ -84,6 +91,7 @@ class Coach_model extends CI_Model
         return $query->result();
     }
 
+    //get coach schedule(all courses that created by this coach)
     public function get_coach_schedule($email)
     {
       $this->db->select(
@@ -109,6 +117,7 @@ class Coach_model extends CI_Model
       return $query->result();
     }
 
+    //get coach schedule that those courses' participate students
     public function get_participate_student($course_id)
     {
       $this->db->select('
