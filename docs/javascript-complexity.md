@@ -58,7 +58,7 @@
     * Halstead difficulty: 5.142857142857143
     * Halstead volume: 151.6206750336681
     * Halstead effort: 779.7634716017218
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 113
     * Physical LOC: 17
     * Logical LOC: 6
@@ -128,7 +128,7 @@
     * Halstead difficulty: 4.625
     * Halstead volume: 338.53267911836775
     * Halstead effort: 1565.7136409224508
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 284
     * Physical LOC: 182
     * Logical LOC: 8
@@ -138,7 +138,7 @@
     * Halstead difficulty: 4.5
     * Halstead volume: 233.38411712391758
     * Halstead effort: 1050.228527057629
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 292
     * Physical LOC: 18
     * Logical LOC: 12
@@ -148,7 +148,7 @@
     * Halstead difficulty: 7.5
     * Halstead volume: 270.51278754254827
     * Halstead effort: 2028.845906569112
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 312
     * Physical LOC: 9
     * Logical LOC: 6
@@ -158,7 +158,7 @@
     * Halstead difficulty: 4.375
     * Halstead volume: 151.23612512626258
     * Halstead effort: 661.6580474273987
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 323
     * Physical LOC: 66
     * Logical LOC: 44
@@ -168,7 +168,7 @@
     * Halstead difficulty: 17.205882352941178
     * Halstead volume: 1500
     * Halstead effort: 25808.823529411766
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 391
     * Physical LOC: 64
     * Logical LOC: 39
@@ -178,7 +178,7 @@
     * Halstead difficulty: 31.829268292682926
     * Halstead volume: 1605.9615524757828
     * Halstead effort: 51116.58112148528
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 457
     * Physical LOC: 8
     * Logical LOC: 3
@@ -209,7 +209,7 @@
 * Cyclomatic complexity density: 14.634146341463413%
 * Maintainability index: 126.40204464083425
 * Dependency count: 0
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 1
     * Physical LOC: 80
     * Logical LOC: 10
@@ -219,7 +219,7 @@
     * Halstead difficulty: 4.666666666666667
     * Halstead volume: 238.41805003750017
     * Halstead effort: 1112.6175668416674
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 6
     * Physical LOC: 10
     * Logical LOC: 1
@@ -229,7 +229,7 @@
     * Halstead difficulty: 1.5
     * Halstead volume: 27
     * Halstead effort: 40.5
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 7
     * Physical LOC: 8
     * Logical LOC: 4
@@ -239,7 +239,7 @@
     * Halstead difficulty: 4.0625
     * Halstead volume: 99.91187238980949
     * Halstead effort: 405.891981583601
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 22
     * Physical LOC: 12
     * Logical LOC: 7
@@ -249,7 +249,7 @@
     * Halstead difficulty: 10
     * Halstead volume: 144.4295354570819
     * Halstead effort: 1444.295354570819
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 36
     * Physical LOC: 5
     * Logical LOC: 1
@@ -259,7 +259,7 @@
     * Halstead difficulty: 1.5
     * Halstead volume: 22.458839376460833
     * Halstead effort: 33.68825906469125
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 37
     * Physical LOC: 3
     * Logical LOC: 1
@@ -299,7 +299,7 @@
     * Halstead difficulty: 3
     * Halstead volume: 56.472777613085164
     * Halstead effort: 169.4183328392555
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 65
     * Physical LOC: 15
     * Logical LOC: 10
@@ -330,7 +330,7 @@
 * Cyclomatic complexity density: 16.666666666666664%
 * Maintainability index: 136.64642909678048
 * Dependency count: 0
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 1
     * Physical LOC: 8
     * Logical LOC: 1
@@ -340,7 +340,7 @@
     * Halstead difficulty: 1.5
     * Halstead volume: 22.458839376460833
     * Halstead effort: 33.68825906469125
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 3
     * Physical LOC: 5
     * Logical LOC: 4
@@ -371,7 +371,7 @@
 * Cyclomatic complexity density: 14.634146341463413%
 * Maintainability index: 126.51109642046868
 * Dependency count: 0
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 1
     * Physical LOC: 78
     * Logical LOC: 10
@@ -381,7 +381,7 @@
     * Halstead difficulty: 3.888888888888889
     * Halstead volume: 235.22522171496468
     * Halstead effort: 914.7647511137515
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 6
     * Physical LOC: 10
     * Logical LOC: 1
@@ -391,7 +391,7 @@
     * Halstead difficulty: 1.5
     * Halstead volume: 27
     * Halstead effort: 40.5
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 7
     * Physical LOC: 8
     * Logical LOC: 4
@@ -401,7 +401,7 @@
     * Halstead difficulty: 4.0625
     * Halstead volume: 99.91187238980949
     * Halstead effort: 405.891981583601
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 21
     * Physical LOC: 12
     * Logical LOC: 7
@@ -411,7 +411,7 @@
     * Halstead difficulty: 10
     * Halstead volume: 144.4295354570819
     * Halstead effort: 1444.295354570819
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 34
     * Physical LOC: 5
     * Logical LOC: 1
@@ -421,7 +421,7 @@
     * Halstead difficulty: 1.5
     * Halstead volume: 22.458839376460833
     * Halstead effort: 33.68825906469125
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 35
     * Physical LOC: 3
     * Logical LOC: 1
@@ -461,7 +461,7 @@
     * Halstead difficulty: 3
     * Halstead volume: 56.472777613085164
     * Halstead effort: 169.4183328392555
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 63
     * Physical LOC: 15
     * Logical LOC: 10
@@ -492,7 +492,7 @@
 * Cyclomatic complexity density: 15.942028985507244%
 * Maintainability index: 117.38555338216882
 * Dependency count: 0
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 1
     * Physical LOC: 120
     * Logical LOC: 21
@@ -502,7 +502,7 @@
     * Halstead difficulty: 5.888888888888889
     * Halstead volume: 524.1054353891806
     * Halstead effort: 3086.398675069619
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 7
     * Physical LOC: 9
     * Logical LOC: 1
@@ -512,7 +512,7 @@
     * Halstead difficulty: 1.5
     * Halstead volume: 27
     * Halstead effort: 40.5
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 8
     * Physical LOC: 7
     * Logical LOC: 4
@@ -522,7 +522,7 @@
     * Halstead difficulty: 4.0625
     * Halstead volume: 99.91187238980949
     * Halstead effort: 405.891981583601
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 20
     * Physical LOC: 13
     * Logical LOC: 8
@@ -532,7 +532,7 @@
     * Halstead difficulty: 9.545454545454547
     * Halstead volume: 175.69269691115042
     * Halstead effort: 1677.0666523337088
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 34
     * Physical LOC: 5
     * Logical LOC: 1
@@ -542,7 +542,7 @@
     * Halstead difficulty: 1.5
     * Halstead volume: 22.458839376460833
     * Halstead effort: 33.68825906469125
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 35
     * Physical LOC: 3
     * Logical LOC: 1
@@ -582,7 +582,7 @@
     * Halstead difficulty: 3
     * Halstead volume: 56.472777613085164
     * Halstead effort: 169.4183328392555
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 76
     * Physical LOC: 14
     * Logical LOC: 10
@@ -592,7 +592,7 @@
     * Halstead difficulty: 7.764705882352942
     * Halstead volume: 357.36139452850404
     * Halstead effort: 2774.806122221326
-* Function: **&lt;anonymous>**
+* Function: **<anonymous>**
     * Line No.: 93
     * Physical LOC: 11
     * Logical LOC: 8
