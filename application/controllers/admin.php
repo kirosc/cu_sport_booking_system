@@ -146,7 +146,7 @@ class Admin extends SBooking_Controller
     redirect('admin/user', 'refresh');
   }
 
-  //get all the sessions' venue_id and start_time, tranform them to json, that can do further process in JS
+  //get all the sessions' venue_id and start_time, transform them to json, that can do further process in JS
   public function json_formatter($sessions)
   {
     $array = array();
