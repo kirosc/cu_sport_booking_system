@@ -3,7 +3,7 @@
    Time range is fixed with index 0 = 8 a.m. ~ 9 a.m.; index 14 = 10 p.m. ~ 11 p.m.
  */
 const MON = 0, SUN = 6;
-let JSON;
+let jsonResponse;
 let checkedSession = [];
 let today = moment();
 let startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
@@ -105,7 +105,7 @@ function getSessions(json, date, venueID) {
 // @param {Object} table Reference of the table element
 // @param {Object} json
 function loadDaySession(table, json) {
-    if (json.length !== 1) {    // If JSON is empty, i.e. no available session
+    if (json.length !== 1) {    // If jsonResponse is empty, i.e. no available session
         console.log('No session today');
         return;
     }
@@ -143,7 +143,7 @@ function loadWeekSession(table, json, venueID, mStartDay, mEndDay) {
     let sunday = mEndDay.clone();
     while (true) {
         console.log('Loading day: ' + loadingDay.format('YYYY-MM-DD'));
-        // Filter JSON result by desired day
+        // Filter jsonResponse result by desired day
         let daySessions = getSessions(json, loadingDay.format('YYYY-MM-DD'), venueID);
         loadDaySession(table, daySessions);
         // Reach end of the week
@@ -153,7 +153,7 @@ function loadWeekSession(table, json, venueID, mStartDay, mEndDay) {
         loadingDay.add(1, 'day');
     }
     // Highlight booked session
-    $("td:not(:has(*)):not(.bg-danger, .time-range)").addClass('bg-warning').fadeTo(0, 0.8)
+    $("td:not(:has(*)):not(.bg-danger, .time-range)").addClass('bg-warning').fadeTo(0, 0.8);
 }
 
 // Set available venueID to dropdown
@@ -259,7 +259,7 @@ function getJSON(venueDropdown, table) {
                 }
                 updateTooltips();
                 $('#today').attr('data-original-title', startDay.format('D/M'));
-                JSON = result;
+                jsonResponse = result;
             }
         })
         .fail((jqXHR, textStatus, errorThrown) => {
@@ -269,7 +269,7 @@ function getJSON(venueDropdown, table) {
 
 // Reset everything to original state and hide the table
 function resetTable() {
-    JSON = null;
+    jsonResponse = null;
     checkedSession = [];
     today = moment();
     startDay = moment().set({hour: 0, minute: 0, second: 0, millisecond: 0});
@@ -281,7 +281,6 @@ function resetTable() {
     updateTooltips();
 }
 
-
 $(function () {
     // Initialize Tooltips
     $('[data-toggle="tooltip"]').tooltip();
@@ -290,7 +289,7 @@ $(function () {
     let table = $('#table');
 
     // Dropdown listener
-    $('select').change(async function () {
+    $('select').change(function () {
         if (this.id === 'venue') {
             let venue_id = $(this).val();
 
@@ -333,7 +332,7 @@ $(function () {
             prevStartDay = null;
             initializeRow(table);
             highlightPastTime();
-            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().isoWeekday(SUN + 1));
+            loadWeekSession(table, jsonResponse, venue_id, startDay, startDay.clone().isoWeekday(SUN + 1));
             $('#prev').addClass('disabled');
             $('#next').removeClass('disabled');
             updateDate();
@@ -352,16 +351,16 @@ $(function () {
             [prevStartDay, nextStartDay] = [nextStartDay, prevStartDay];
             prevStartDay = null;
             initializeRow(table);
-            loadWeekSession(table, JSON, venue_id, startDay, startDay.clone().add(6, 'days'));
+            loadWeekSession(table, jsonResponse, venue_id, startDay, startDay.clone().add(6, 'days'));
             updateDate();
             $(this).tooltip('show');
         } else if (value === "next") {
             checkedSession = [];
-            if (venue_id === 'None' && JSON === undefined) {
+            if (venue_id === 'None' && jsonResponse === undefined) {
                 return;
             }
             initializeRow(table);
-            loadWeekSession(table, JSON, venue_id, nextStartDay, nextStartDay.clone().add(6, 'days'));
+            loadWeekSession(table, jsonResponse, venue_id, nextStartDay, nextStartDay.clone().add(6, 'days'));
             [prevStartDay, startDay] = [startDay, prevStartDay];
             [nextStartDay, startDay] = [startDay, nextStartDay];
             nextStartDay = startDay.clone().add(1, 'weeks').isoWeekday(MON + 1);
