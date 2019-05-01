@@ -37,9 +37,12 @@
 }
 
 /* Custom universal CSS style */
-
 * {
     font-family: 'Lato', sans-serif;
+}
+
+.mono .th-inner {
+    font-family: 'Space Mono', monospace !important;
 }
 
 html {

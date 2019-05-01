@@ -88,13 +88,13 @@
                             <thead class="thread-dark">
                             <tr>
                                 <th data-col="time"></th>
-                                <th class="text-center" data-col="mon">Mon</th>
-                                <th class="text-center" data-col="tue">Tue</th>
-                                <th class="text-center" data-col="wed">Wed</th>
-                                <th class="text-center" data-col="thu">Thu</th>
-                                <th class="text-center" data-col="fri">Fri</th>
-                                <th class="text-center" data-col="sat">Sat</th>
-                                <th class="text-center" data-col="sun">Sun</th>
+                                <th class="text-center mono" data-col="mon">Mon</th>
+                                <th class="text-center mono" data-col="tue">Tue</th>
+                                <th class="text-center mono" data-col="wed">Wed</th>
+                                <th class="text-center mono" data-col="thu">Thu</th>
+                                <th class="text-center mono" data-col="fri">Fri</th>
+                                <th class="text-center mono" data-col="sat">Sat</th>
+                                <th class="text-center mono" data-col="sun">Sun</th>
                             </tr>
                             </thead>
                             <tbody>
