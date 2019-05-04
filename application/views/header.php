@@ -6,7 +6,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>images/logo_64px.png">
-    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
     <!--  Loading CSS and JS files according to the browsing page  -->
     <?php foreach ($css_file as $file): ?>
         <link rel="stylesheet" href="<?php echo $file; ?>">
