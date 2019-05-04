@@ -14,7 +14,7 @@ Few weeks ago, we discover that booking sport facility in CUHK maybe very confus
 ## Authors
 
 * **Choi Ki Fung, Kiros** - *UX/UI Designer & Front-End Developer & DevOps* - [KirosC](https://github.com/KirosC)
-* **Tsang Ka Hung** - *Back-End Developer*
+* **Tsang Ka Hung** - *Back-End Developer* - [kennydc822](https://github.com/kennydc822)
 * **Mok Tsun Ting** - *Database Developer*
 * **Yung King Fung** - *Developer & Tester*
 * **Chan Man Hung** - *Developer & Tester*
@@ -25,6 +25,7 @@ Few weeks ago, we discover that booking sport facility in CUHK maybe very confus
 
 ## Acknowledgement
 
+* [CodeIgniter](https://codeigniter.com/) - php framework, provide simple and elegant toolkit to create full-featured web applications
 * [Bootstrap](https://getbootstrap.com/) - Respoonsive CSS framework
 * [Bootstrap Table](https://bootstrap-table.com/) - Extended table integration
 * [Date Range Picker](http://www.daterangepicker.com/) - A JavaScript component for choosing date ranges, dates and times
