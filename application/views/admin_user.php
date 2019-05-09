@@ -119,6 +119,7 @@
 
 <script>
     $(document).ready(function () {
+        // Filter users by user group
         $('#user-type-1').change(function () {
             //Selected value
             let usertype = $(this).val();
@@ -128,19 +129,20 @@
                 data: {usertype},
                 dataType: 'json',
                 success: function (result) {
+                    // Delete all dropdown options
                     $("#user-1").html("");
                     let html_str = "<option value=\"None\" selected>-----</option>";
                     for (let i = 0; i < result.length; i++) {
                         let username = result[i].username;
-                        let email = result[i].email;
                         html_str = html_str + "<option value=" + username + ">" + username + "</option>";
                     }
+                    // Insert new dropdown
                     $("#user-1").append(html_str);
                 }
             });
         });
 
-        // Insert user profile
+        // Request user profile from server and insert it
         $('#user-1').change(function () {
             //Selected value
             let user = $(this).val();
@@ -164,6 +166,7 @@
             $('#confirm-form').val('');
         });
 
+        // Filter users by user group
         $('#user-type-2').change(function () {
             //Selected value
             let usertype = $(this).val();
@@ -185,6 +188,7 @@
             });
         });
 
+        // Request user profile from server and insert it
         $('#user-2').change(function () {
             //Selected value
             let user = $(this).val();
@@ -208,6 +212,7 @@
             $('#confirm-form').val('');
         });
 
+        // Check if the input username match with the selected username before resetting password
         $('#form-reset').submit(function (e) {
             let confirmForm = $('#confirm-form');
             if ($('#reset-username').html() !== confirmForm.val()) {
@@ -216,6 +221,7 @@
             }
         });
 
+        // Check if the input username match with the selected username before deleting user
         $('#form-delete').submit(function (e) {
             let confirmForm = $('#confirm-form');
             if ($('#delete-username').html() !== confirmForm.val()) {
@@ -224,13 +230,14 @@
             }
         });
 
+        // Remove error message when user types
         $('#confirm-form').focus(function () {
             $(this).removeClass('is-invalid');
         });
 
-
+        // Change the modal content based on which tab the user clicked
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            let target = $(e.target).attr("href") // activated tab
+            let target = $(e.target).attr("href"); // Current activated tab
             if (target === "#nav-delete") {
                 $('#reset-message').addClass('hidden');
                 $('#delete-message').removeClass('hidden');
