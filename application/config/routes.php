@@ -51,42 +51,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 //route redirect control
-$route['default_controller'] = 'Home';
+$route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
-$route['announcement/id/:num'] = 'Announcement/details';
+$route['announcement/id/:num'] = 'announcement/details';
 
-$route['course'] = 'Course/course_main';
-$route['course/page/:num'] = 'Course/course_main';
-$route['course/course_apply_payment_finish'] = 'Course/course_apply_payment_finish';
-$route['course/id/:num'] = 'Course/detail';
-$route['course/id/:num/apply'] = 'Course/apply_check';
+$route['course'] = 'course/course_main';
+$route['course/page/:num'] = 'course/course_main';
+$route['course/course_apply_payment_finish'] = 'course/course_apply_payment_finish';
+$route['course/id/:num'] = 'course/detail';
+$route['course/id/:num/apply'] = 'course/apply_check';
 
-$route['add_course'] = 'Course/add_course_page';
-$route['course/check_add_course'] = 'Course/check_add_course';
-$route['course/course_add_payment_finish'] = 'Course/course_add_payment_finish';
+$route['add_course'] = 'course/add_course_page';
+$route['course/check_add_course'] = 'course/check_add_course';
+$route['course/course_add_payment_finish'] = 'course/course_add_payment_finish';
 
-$route['court_booking'] = 'Court_booking/book_court';
-$route['court_booking/payment_finish'] = 'Court_booking/payment_finish';
+$route['court_booking'] = 'court_booking/book_court';
+$route['court_booking/payment_finish'] = 'court_booking/payment_finish';
 
-$route['session_share'] = 'Session_share/session_share_main';
-$route['session_share/id/:num/join'] = 'Session_share/join';
-$route['session_share/id/:num/:num'] = 'Session_share/detail';
+$route['session_share'] = 'session_share/session_share_main';
+$route['session_share/id/:num/join'] = 'session_share/join';
+$route['session_share/id/:num/:num'] = 'session_share/detail';
 
-$route['login'] = 'Login/login_main';
-$route['register'] = 'Login/register_main';
+$route['login'] = 'login/login_main';
+$route['register'] = 'login/register_main';
 
-$route['profile/edit_profile'] = 'Profile/edit_profile';
-$route['profile/update_profile'] = 'Profile/update_profile';
-$route['change_password/:any'] = 'Profile/change_password';
-$route['profile/change_password_check'] = 'Profile/change_password_check';
-$route['profile/test'] = 'Profile/test';
-$route['profile/:any'] = 'Profile/profile_main';
-$route['schedule/:any'] = 'Profile/schedule';
+$route['profile/edit_profile'] = 'profile/edit_profile';
+$route['profile/update_profile'] = 'profile/update_profile';
+$route['change_password/:any'] = 'profile/change_password';
+$route['profile/change_password_check'] = 'profile/change_password_check';
+$route['profile/test'] = 'profile/test';
+$route['profile/:any'] = 'profile/profile_main';
+$route['schedule/:any'] = 'profile/schedule';
 
 
-$route['admin/session'] = 'Admin/session';
-$route['admin/user'] = 'Admin/user';
+$route['admin/session'] = 'admin/session';
+$route['admin/user'] = 'admin/user';
 
-$route['about_us'] = 'Home/about_us';
+$route['about_us'] = 'home/about_us';

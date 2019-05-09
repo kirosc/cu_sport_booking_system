@@ -77,7 +77,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',//username to access the db
-	'password' => '', ///no password required to access the db
+	'password' => '',//no password required to access the db
 	'database' => 'cu_sport_booking',//database name
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -92,6 +92,5 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE,
-	'dbport' => '3306'
+	'save_queries' => TRUE
 );

@@ -8,12 +8,10 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
 <div class="wrapper">
     <ul class="nav nav-pills mb-3 m-md-4 m-2" id="pills-tab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="pills-add-tab" data-toggle="pill" href="#pills-add" role="tab">Add
-                Session</a>
+            <a class="nav-link active" id="pills-add-tab" data-toggle="pill" href="#pills-add" role="tab">Add Session</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="pills-delete-tab" data-toggle="pill" href="#pills-delete" role="tab">Delete
-                Session</a>
+            <a class="nav-link" id="pills-delete-tab" data-toggle="pill" href="#pills-delete" role="tab">Delete Session</a>
         </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -28,28 +26,22 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                     </select>
                 </div>
 
-                <!--        Navigation buttons to view different week        -->
-                <div class="row m-2 m-md-4 justify-content-between" id="row-nav">
-                    <div class="col-2 col-lg-2">
-                        <a href="<?php echo "{$_SERVER['PHP_SELF']}?currentpage=$prevpage"; ?>"
-                           class="btn btn-primary btn-icon"
-                           id="prev" data-toggle="tooltip"
-                           data-placement="top" data-original-title="">
-                            <i class="material-icons">keyboard_arrow_left</i></a>
-                    </div>
-                    <div class="col-2 col-lg-2">
-                        <a href="<?php echo "{$_SERVER['PHP_SELF']}?currentpage=$nextpage"; ?>"
-                           class="btn btn-primary btn-icon float-right"
-                           id="next" data-toggle="tooltip"
-                           data-placement="top" data-original-title="">
-                            <i class="material-icons">keyboard_arrow_right</i></a>
-                    </div>
-                </div>
-
                 <div class="m-md-4 m-2">
                     <div class="table-responsive-md">
                         <table data-toggle="table" class="table-hover-md" id="table">
-                            <thead class="thread-dark">
+                            <thead>
+                            <tr>
+                                <td><a href="<?php echo "{$_SERVER['PHP_SELF']}?currentpage=$prevpage"; ?>"> << </a>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="<?php echo "{$_SERVER['PHP_SELF']}?currentpage=$nextpage"; ?>"> >> </a>
+                                </td>
+                            </tr>
                             <tr>
                                 <th data-col="time"></th>
 
@@ -72,9 +64,7 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $st = 8;
-                            $end = 9;
-                            for ($i = 0; $i < 15; $i++): ?>
+                            <?php $st = 8; $end = 9; for ($i = 0; $i < 15; $i++): ?>
                                 <tr>
                                     <?php if ($st == 8): ?>
                                         <td><?php echo "0" . $st . ":00 - 0" . $end . ":00"; ?></td>
@@ -91,14 +81,12 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                                             <td></td>
                                         <?php else: ?>
                                             <td style="text-align: center;">
-                                                <input type="checkbox" name="checkbox-<?php echo $j . $st; ?>"
-                                                       value="checked">
+                                                <input type="checkbox" name="checkbox-<?php echo $j . $st; ?>" value="checked">
                                             </td>
                                         <?php endif; ?>
                                     <?php endfor; ?>
                                 </tr>
-                                <?php $st = $st + 1;
-                                $end = $end + 1; ?>
+                                <?php $st = $st + 1; $end = $end + 1; ?>
                             <?php endfor; ?>
                             </tbody>
                         </table>
@@ -131,7 +119,7 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                 <div class="m-md-4 m-2">
                     <div class="table-responsive-md" id="table-delete">
                         <table data-toggle="table" class="table-hover-md" id="table-2">
-                            <thead class="thread-dark">
+                            <thead>
                             <tr>
                                 <th data-col="time"></th>
                             </tr>
@@ -170,7 +158,7 @@ $dow = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                             "<td align='center'>" + date + "</td>";
 
                         for (var j = 0; j < avail_time.length; j++) {
-                            tr_str = tr_str + "<td align='center'><input type='checkbox' name='delete-checkbox[" + date + (avail_time[j] + 8) + "]' value='checked'/><br>" + (avail_time[j] + 8) + ":00 - " + (avail_time[j] + 9) + ":00</td>";
+                            tr_str = tr_str + "<td align='center'><input type='checkbox' name='delete-checkbox[" + date + (avail_time[j] + 8) + "]' value='checked'/>" + (avail_time[j] + 8) + ":00 - " + (avail_time[j] + 9) + ":00</td>";
                         }
 
                         tr_str = tr_str + "</tr>";
