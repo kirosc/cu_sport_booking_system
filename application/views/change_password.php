@@ -49,6 +49,6 @@
 
 <script>
     if ( $('#validation-message').children().length > 0 ) {
-        alert('The New Password Confirmation field does not match the New Password field.');
+        alert('The old password you entered does not match with our record!');
     }
 </script>
