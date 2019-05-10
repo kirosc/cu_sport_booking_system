@@ -45,8 +45,10 @@
         </div>
     </div>
 </div>
+<div id="validation-message" hidden><?php echo validation_errors(); ?></div>
 
 <script>
-    alert('The New Password Confirmation field does not match the New Password field.');
+    if ( $('#validation-message').children().length > 0 ) {
+        alert('The New Password Confirmation field does not match the New Password field.');
+    }
 </script>
-
