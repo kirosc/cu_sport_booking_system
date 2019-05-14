@@ -103,6 +103,14 @@
                     </div>
                 </div>
 
+                <div class="row m-0 m-md-4">
+                    <div class="col col-lg">
+                        <div class="alert alert-info" role="alert">
+                            Note: Student can book the next 7 days sessions, whereas coach can book the next 14 days.
+                        </div>
+                    </div>
+                </div>
+
                 <!--        Additional information to fill out after choosing session        -->
                 <div class="container-fluid hidden" id="booking-info-container">
                     <?php if ($_SESSION['usertype'] != 'coach'): ?>
