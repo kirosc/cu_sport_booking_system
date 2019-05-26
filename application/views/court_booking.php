@@ -88,26 +88,18 @@
                             <thead class="thread-dark">
                             <tr>
                                 <th data-col="time"></th>
-                                <th class="text-center" data-col="mon">Mon</th>
-                                <th class="text-center" data-col="tue">Tue</th>
-                                <th class="text-center" data-col="wed">Wed</th>
-                                <th class="text-center" data-col="thu">Thu</th>
-                                <th class="text-center" data-col="fri">Fri</th>
-                                <th class="text-center" data-col="sat">Sat</th>
-                                <th class="text-center" data-col="sun">Sun</th>
+                                <th class="text-center mono" data-col="mon">Mon</th>
+                                <th class="text-center mono" data-col="tue">Tue</th>
+                                <th class="text-center mono" data-col="wed">Wed</th>
+                                <th class="text-center mono" data-col="thu">Thu</th>
+                                <th class="text-center mono" data-col="fri">Fri</th>
+                                <th class="text-center mono" data-col="sat">Sat</th>
+                                <th class="text-center mono" data-col="sun">Sun</th>
                             </tr>
                             </thead>
                             <tbody>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-
-                <div class="row m-0 m-md-4">
-                    <div class="col col-lg">
-                        <div class="alert alert-info" role="alert">
-                            Note: Student can book the next 7 days sessions, whereas coach can book the next 14 days.
-                        </div>
                     </div>
                 </div>
 

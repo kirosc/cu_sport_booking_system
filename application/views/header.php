@@ -29,6 +29,11 @@
             <span id="title">CU Sport Booking System</span>
         </a>
 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
         <!--    Loading header navigation according to user group    -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -134,12 +139,12 @@
                                 <a class='dropdown-item'
                                    href='<?php echo $page_url; ?>profile/<?php echo $_SESSION['username']; ?>'>Profile</a>
 
-                                   <div class='dropdown-divider'></div>
+                                <div class='dropdown-divider'></div>
 
-                               <a class='dropdown-item'
-                                  href='<?php echo $page_url.'schedule/'.$_SESSION['username'];?>'>Schedule</a>
+                                <a class='dropdown-item'
+                                   href='<?php echo $page_url.'schedule/'.$_SESSION['username'];?>'>Schedule</a>
 
-                                  <div class='dropdown-divider'></div>
+                                <div class='dropdown-divider'></div>
                             <?php endif; ?>
 
                             <a class='dropdown-item'
