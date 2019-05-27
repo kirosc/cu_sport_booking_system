@@ -290,6 +290,9 @@ $(function () {
 
     // Dropdown listener
     $('select').change(function () {
+        //  Hide booking detailed info and empty checked ballots array
+        $('#booking-info-container').addClass('hidden');
+        checkedSession = [];
         if (this.id === 'venue') {
             let venue_id = $(this).val();
 
