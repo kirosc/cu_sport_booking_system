@@ -5,6 +5,7 @@
 Few weeks ago, we discover that booking sport facility in CUHK maybe very confusing. Therefore, few students studying in CUHK join together to make this project possible. We hope to make the procedure of booking sport facility easy and fun in the same time. We also hope to incentive students to do more exercise, and find ways to give coaches opportunities to earn money and teach students in the same time. So we come up with this website, hoping students and coaches would like it!
 
 [Demo website](http://kirosc.duckdns.org)
+[Screenshot](https://github.com/kirosc/cu_sport_booking_system/tree/master/docs/Screenshots)
 
 ## Prerequisites
 * Apache
