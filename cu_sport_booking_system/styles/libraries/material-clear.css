@@ -1,0 +1,12 @@
+.material-clear {
+    top: -20%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+@media screen and (max-width: 768px) {
+    .material-clear {
+        top: 0%;
+    }
+}

@@ -1,0 +1,184 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+#banner {
+    position: relative;
+    margin: 0;
+    color: #fff;
+    background: url(../images/slide-1.jpg) no-repeat bottom center;
+    background-size: cover;
+    -moz-background-size: cover;
+    padding: 3.5rem 0 24rem;
+}
+
+@media (min-width: 400px) {
+    .benefit {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 767px) {
+    #banner {
+        padding-bottom: 22rem;
+    }
+
+    .benefit {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 991px) {
+    #banner {
+        background-position-y: 0;
+        padding-bottom: 27rem;
+    }
+}
+
+@media (min-width: 1055px) {
+    #banner {
+        background-position-y: 0;
+        padding-bottom: 28rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    #banner {
+        background-position-y: -80px;
+        padding-bottom: 28rem;
+    }
+}
+
+@media (min-width: 1530px) {
+    #banner {
+        background-position-y: -240px;
+        padding-bottom: 29rem;
+    }
+}
+
+@media (min-width: 1820px) {
+    #banner {
+        background-position-y: -450px;
+        padding-bottom: 26.5rem;
+    }
+}
+
+#banner-overlay {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    z-index: 99;
+}
+
+#banner > .container > div {
+    top: 50px;
+    position: relative;
+}
+
+.carousel-caption {
+    bottom: 50%;
+    color: #fff;
+}
+
+.introduction > .container-fluid {
+    padding: 6rem 0 6rem;
+}
+
+.introduction .row {
+    padding: 0 1rem;
+}
+
+#intro > .container-fluid {
+    background: #3E5151; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #DECBA4, #3E5151); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* Divider Style */
+.introduction .row > div:after {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 20%; /* Change this to whatever width you want. */
+    border-bottom: 1px solid; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.col {
+    padding: 0 1rem;
+}
+
+.col i {
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0 0 2px;
+    padding: 0.6em 0.6em;
+    margin: 2rem 0 1rem;
+    font-size: 48px;
+}
+
+.col p {
+    margin: 0;
+    color: #212529;
+}
+
+.introduction > * .nav-tabs .container {
+    text-align: center;
+}
+
+.introduction > * .nav-tabs {
+    display: inline-block;
+    border: unset;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.introduction a {
+}
+
+
+.introduction > * .nav-tabs .active {
+    color: #18bc9c;
+    border-bottom-color: #18bc9c;
+}
+
+.introduction > * .nav-link {
+    display: inline-flex;
+    border: unset;
+}
+
+.introduction > * .nav-link .nav-link:focus {
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 4px solid transparent !important;
+    border-radius: unset;
+}
+
+.introduction > * .nav-link::before {
+    background: none;
+}
+
+.introduction > * .nav-link:hover {
+    border: unset;
+    background: none;
+    color: #18bc9c;
+}
+
+.introduction > * .nav-link.active {
+    color: #18bc9c !important;
+    border-bottom: 4px solid #18bc9c !important;
+}
+
+.introduction > * .nav-link:hover:not(.active) {
+    opacity: .7;
+}
+
+.tab-content .row {
+    margin-bottom: 1rem;
+}

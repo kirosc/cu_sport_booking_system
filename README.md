@@ -12,17 +12,25 @@ Few weeks ago, we discover that booking sport facility in CUHK maybe very confus
 * MySQL (MariaDB)
 * php
 
+## Usage
+This project can be run using Docker. The Dockerfiles are located at corresponding directories under `docker`.
+
+Run Apache server
+```
+docker run -p 8080:80 -h -it kirosc/cu_sport_image /bin/bash
+```
+
 ## Authors
 
 * **Choi Ki Fung, Kiros** - *UX/UI Designer & Front-End Developer & Cloud Developer* - [KirosC](https://github.com/KirosC)
 * **Tsang Ka Hung** - *Back-End Developer* - [kennydc822](https://github.com/kennydc822)
-* **Mok Tsun Ting** - *Database Developer*
 * **Yung King Fung** - *Developer & Tester*
+* **Mok Tsun Ting** - *Database Developer*
 * **Chan Man Hung** - *Developer & Tester*
 
 ## License
 
-[MIT © Richard McRichface.](../LICENSE)
+[MIT ©](../LICENSE)
 
 ## Acknowledgement
 
