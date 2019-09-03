@@ -13,15 +13,14 @@ Few weeks ago, we discover that booking sport facility in CUHK maybe very confus
 * php
 
 ## Build
+Run the commands in the root project directory
 ### Apache
 ```
-mount ../../../cu_sport_booking_system cu_sport_booking_system
-docker build -t kirosc/cu_sport_apache .
+docker build -f docker/apache/Dockerfile . -t kirosc/cu_sport_apache
 ```
 ### Mariadb
 ```
-mount ../../../database database
-docker build -t kirosc/cu_sport_mariadb .
+docker build -f docker/mariadb/Dockerfile . -t kirosc/cu_sport_mariadb
 ```
 
 ## Usage

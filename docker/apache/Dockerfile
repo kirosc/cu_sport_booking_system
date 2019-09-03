@@ -38,7 +38,7 @@ ENV DEBIAN_FRONTEND=teletype
         
 # COPY ./configs/apache2.conf ${APACHE_CONF_DIR}/apache2.conf
 COPY cu_sport_booking_system /var/www/html/cu_sport_booking_system
-COPY entrypoint.sh /sbin/entrypoint.sh
+COPY docker/apache/entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
 WORKDIR /var/www/app/
