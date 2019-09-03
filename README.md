@@ -16,11 +16,11 @@ Few weeks ago, we discover that booking sport facility in CUHK maybe very confus
 Run the commands in the root project directory
 ### Apache
 ```
-docker build -f docker/apache/Dockerfile . -t kirosc/cu_sport_apache
+docker build -f docker/apache/Dockerfile . -t kirosc/cu-sport-apache
 ```
 ### Mariadb
 ```
-docker build -f docker/mariadb/Dockerfile . -t kirosc/cu_sport_mariadb
+docker build -f docker/mariadb/Dockerfile . -t kirosc/cu-sport-mariadb
 ```
 
 ## Usage
