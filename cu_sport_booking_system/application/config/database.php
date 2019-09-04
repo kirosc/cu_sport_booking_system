@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'db',
 	'username' => 'root',//username to access the db
-	'password' => '',//no password required to access the db
+	'password' => 'root',//no password required to access the db
 	'database' => 'cu_sport_booking',//database name
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
