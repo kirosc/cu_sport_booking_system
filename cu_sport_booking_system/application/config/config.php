@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://kirosc.duckdns.org/cu_sport_booking_system';
+$config['base_url'] = 'https://' + getenv('SERVER_NAME') + '/cu_sport_booking_system';
 
 /*
 |--------------------------------------------------------------------------
