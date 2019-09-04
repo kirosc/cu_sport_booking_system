@@ -11,7 +11,7 @@ class SBooking_Controller extends CI_Controller
     parent::__construct();
     date_default_timezone_set("Asia/Hong_Kong");
 
-    $this->page_url = base_url().'index.php/';
+    $this->page_url = base_url();
     $this->image_url = base_url().'images/';
     $this->css_url = base_url().'styles/';
     $this->js_url = base_url().'scripts/';
