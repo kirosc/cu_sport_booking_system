@@ -5,7 +5,7 @@ services:
     image: kirosc/cu-sport-apache:latest
     container_name: apache
     restart: 'always'
-    volumns:
+    volumes:
       - ./cu_sport_booking_system:/var/www/app/cu_sport_booking_system
     ports:
       # - "${HOST_MACHINE_UNSECURE_HOST_PORT}:80"
