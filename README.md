@@ -1,5 +1,5 @@
 # CU Sport Booking System
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)![MicroBadger Size](https://img.shields.io/microbadger/image-size/kirosc/cu-sport-apache)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme) ![MicroBadger Size](https://img.shields.io/microbadger/image-size/kirosc/cu-sport-apache)
 ## Background
 Few weeks ago, we discover that booking sport facility in CUHK maybe very confusing. Therefore, few students studying in CUHK join together to make this project possible. We hope to make the procedure of booking sport facility easy and fun in the same time. We also hope to incentive students to do more exercise, and find ways to give coaches opportunities to earn money and teach students in the same time. So we come up with this website, hoping students and coaches would like it!
 
