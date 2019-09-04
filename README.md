@@ -18,10 +18,6 @@ Run the commands in the root project directory
 ```
 docker build -f docker/apache/Dockerfile . -t kirosc/cu-sport-apache
 ```
-### Mariadb
-```
-docker build -f docker/mariadb/Dockerfile . -t kirosc/cu-sport-mariadb
-```
 
 ## Usage
 This project can be run using Docker. The Dockerfiles are located at corresponding directories under `docker`.
