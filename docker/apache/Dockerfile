@@ -40,7 +40,7 @@ COPY ./apache2.conf ${APACHE_CONF_DIR}/apache2.conf
 COPY docker/apache/entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
-WORKDIR /var/www/app/
+WORKDIR /var/www/html/
 
 EXPOSE 80 443
         
