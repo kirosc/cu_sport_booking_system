@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "export SERVER_NAME='$SERVER_NAME'" | tee -a /etc/apache2/envvars
 source /etc/apache2/envvars
-#tail -F /var/log/apache2/* &
+service apache2 reload
 exec apache2 -D FOREGROUND
