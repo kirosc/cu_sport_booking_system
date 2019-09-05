@@ -37,6 +37,7 @@ RUN     \
 # Install PageSpeed
 RUN curl -O https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb \
     && dpkg -i mod-pagespeed-*.deb \
+    && rm mod-pagespeed-*.deb \
     && apt-get -f install
 
         
