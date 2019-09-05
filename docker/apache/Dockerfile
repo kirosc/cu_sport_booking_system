@@ -33,6 +33,12 @@ RUN     \
         && ln -sf /dev/stdout /var/log/apache2/access.log \
         && ln -sf /dev/stderr /var/log/apache2/error.log \
         && chown www-data:www-data ${PHP_DATA_DIR} -Rf
+
+# Install PageSpeed
+RUN curl -O https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_current_amd64.deb \
+    && dpkg -i mod-pagespeed-*.deb \
+    && apt-get -f install
+
         
 ENV DEBIAN_FRONTEND=teletype
         
